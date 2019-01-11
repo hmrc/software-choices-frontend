@@ -47,9 +47,9 @@ class AppConfig @Inject()(val runModeConfiguration: Configuration, environment: 
     Some(new String(Base64.getDecoder.decode(runModeConfiguration.getString(key)
       .getOrElse("")), "UTF-8")).map(_.split(",")).getOrElse(Array.empty).toSeq
 
-  lazy val shutterPage: String = getString("whitelist.shutterPage")
-  lazy val whitelistIps: Seq[String] = whitelistConfig("whitelist.ips")
-  lazy val whitelistExcludedPaths: Seq[Call] = whitelistConfig("whitelist.excludedPaths").map(path => Call("GET", path))
-  lazy val whiteListEnabled: Boolean = runModeConfiguration.getBoolean("whitelist.enabled").getOrElse(true)
+  lazy val shutterPage: String = getString(ConfigKeys.shutterPage)
+  lazy val whitelistIps: Seq[String] = whitelistConfig(ConfigKeys.whitelistIps)
+  lazy val whitelistExcludedPaths: Seq[Call] = whitelistConfig(ConfigKeys.whitelistExcludedPaths).map(path => Call("GET", path))
+  lazy val whiteListEnabled: Boolean = getBoolean(ConfigKeys.whitelistEnabled)
 
 }
