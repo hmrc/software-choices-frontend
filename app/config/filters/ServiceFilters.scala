@@ -14,22 +14,11 @@
  * limitations under the License.
  */
 
-package config
+package config.filters
 
-object ConfigKeys {
+import javax.inject.Inject
+import play.api.http.DefaultHttpFilters
+import uk.gov.hmrc.play.bootstrap.filters.FrontendFilters
 
-  val contactFrontendService: String = "contact-frontend.host"
-
-  private val googleAnalyticsRoot: String = "google-analytics"
-
-  val googleAnalyticsToken: String = googleAnalyticsRoot + ".token"
-  val googleAnalyticsHost: String = googleAnalyticsRoot + ".host"
-
-  val host: String = "host"
-
-  val shutterPage: String = "whitelist.shutterPage"
-  val whitelistIps: String = "whitelist.ips"
-  val whitelistExcludedPaths: String = "whitelist.excludedPaths"
-  val whitelistEnabled: String = "whitelist.enabled"
-
-}
+class ServiceFilters @Inject()(defaultFilters: FrontendFilters, whitelistFilter: WhitelistFilter)
+  extends DefaultHttpFilters(defaultFilters.filters :+ whitelistFilter :_*)

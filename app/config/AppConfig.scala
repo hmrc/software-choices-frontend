@@ -16,10 +16,13 @@
 
 package config
 
+import java.util.Base64
+
 import javax.inject.{Inject, Singleton}
 import play.api.{Configuration, Environment}
 import play.api.Mode.Mode
 import uk.gov.hmrc.play.binders.ContinueUrl
+import play.api.mvc.Call
 import uk.gov.hmrc.play.config.ServicesConfig
 
 @Singleton
@@ -39,4 +42,14 @@ class AppConfig @Inject()(val runModeConfiguration: Configuration, environment: 
     s"&backUrl=${ContinueUrl(host + controllers.routes.HelloWorld.helloWorld().url).encodedUrl}"
 
   lazy val host: String = getString(ConfigKeys.host)
+
+  private def whitelistConfig(key: String): Seq[String] =
+    Some(new String(Base64.getDecoder.decode(runModeConfiguration.getString(key)
+      .getOrElse("")), "UTF-8")).map(_.split(",")).getOrElse(Array.empty).toSeq
+
+  lazy val shutterPage: String = getString(ConfigKeys.shutterPage)
+  lazy val whitelistIps: Seq[String] = whitelistConfig(ConfigKeys.whitelistIps)
+  lazy val whitelistExcludedPaths: Seq[Call] = whitelistConfig(ConfigKeys.whitelistExcludedPaths).map(path => Call("GET", path))
+  lazy val whiteListEnabled: Boolean = getBoolean(ConfigKeys.whitelistEnabled)
+
 }
