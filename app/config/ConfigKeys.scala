@@ -1,4 +1,4 @@
-@*
+/*
  * Copyright 2019 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,11 +12,19 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *@
+ */
 
-@import uk.gov.hmrc.softwarechoicesfrontend.config.AppConfig
-@()(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+package config
 
-@main_template(title = "Hello from software-choices-frontend", bodyClasses = None) {
-    <h1>Hello from software-choices-frontend !</h1>
+object ConfigKeys {
+
+  val contactFrontendService: String = "contact-frontend.host"
+
+  private val googleAnalyticsRoot: String = "google-analytics"
+
+  val googleAnalyticsToken: String = googleAnalyticsRoot + ".token"
+  val googleAnalyticsHost: String = googleAnalyticsRoot + ".host"
+
+  val host: String = "host"
+
 }

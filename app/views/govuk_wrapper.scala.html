@@ -14,7 +14,7 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.softwarechoicesfrontend.config.AppConfig
+@import config.AppConfig
 @(appConfig: AppConfig,
   title: String,
   mainClass: Option[String] = None,
@@ -61,11 +61,25 @@
 @footerTop = {}
 @footerLinks = {}
 
+@phaseBanner = {
+    <div class="beta-banner">
+        <p>
+            <strong id="phase" class="phase-tag">BETA</strong>
+            <span>
+                @messages("feedback.before")
+                <a id="beta-banner-feedback" href="@{appConfig.feedbackUrl}">@messages("feedback.link")</a>
+                @messages("feedback.after")
+            </span>
+        </p>
+    </div>
+}
+
 @serviceInfo = {
     @uiLayouts.serviceInfo(
-      betaBanner = HtmlFormat.empty,
-      includeGridWrapper = false,
-      serviceInfoContent = Some(serviceInfoContent))
+        betaBanner = phaseBanner,
+        includeGridWrapper = false,
+        serviceInfoContent = Some(serviceInfoContent)
+    )
 }
 
 @mainContentHeader = {
