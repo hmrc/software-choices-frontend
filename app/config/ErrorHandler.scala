@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.softwarechoicesfrontend.config
+package config
 
 import javax.inject.{Inject, Singleton}
 
@@ -22,7 +22,6 @@ import play.api.i18n.MessagesApi
 import play.api.mvc.Request
 import play.twirl.api.Html
 import uk.gov.hmrc.play.bootstrap.http.FrontendErrorHandler
-import uk.gov.hmrc.softwarechoicesfrontend.views
 
 @Singleton
 class ErrorHandler @Inject()(val messagesApi: MessagesApi, implicit val appConfig: AppConfig) extends FrontendErrorHandler {
