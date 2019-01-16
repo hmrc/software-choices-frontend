@@ -27,7 +27,7 @@ import uk.gov.hmrc.play.config.ServicesConfig
 
 @Singleton
 class AppConfig @Inject()(val runModeConfiguration: Configuration, environment: Environment) extends ServicesConfig {
-  override protected def mode: Mode = environment.mode
+  protected def mode: Mode = environment.mode
 
   private val contactHost: String = getString(ConfigKeys.contactFrontendService)
   private val contactFormServiceIdentifier: String = "MSCC"
