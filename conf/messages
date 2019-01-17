@@ -1,4 +1,15 @@
+common.back = Back
+
 #Feedback
 feedback.before = This is a new service – your
 feedback.link = feedback
 feedback.after = will help us to improve it.
+
+softwareChoices.title = Software that works with Making Tax Digital for VAT
+softwareChoices.search.text = Search for software that is connected to Making Tax Digital for VAT. You must also
+softwareChoices.search.text.link = sign up to use this service
+softwareChoices.search.button.text = Search software packages
+softwareChoices.search.clear = Clear search
+softwareChoices.text.p1 = HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly.
+softwareChoices.text.p2 = All links to software packages take you to external websites.
+softwareChoices.show = Show all software providers
