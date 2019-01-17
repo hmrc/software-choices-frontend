@@ -1,4 +1,4 @@
-/*
+@*
  * Copyright 2019 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,12 +12,16 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *@
 
-package models
-
-case class SoftwareProviderModel(name: String, url: String) {
-
-  val category: String = name.toLowerCase()(0).toString
-
+@(softwareChoices: SoftwareChoicesViewModel, letter: Option[String] = None)
+@defining(softwareChoices.getProviders(letter)) { providers =>
+    @if(providers.nonEmpty){
+        <h2>@letter.fold("#")(_.toUpperCase)</h2>
+        <ul class="list list-bullet">
+            @providers.map { provider =>
+                <li><a href="@provider.url">@provider.name</a></li>
+            }
+        </ul>
+    }
 }

@@ -15,82 +15,35 @@
  *@
 
 @import config.AppConfig
+@import templates.{search_bar_template, provider_template}
 
 @(softwareChoices: SoftwareChoicesViewModel)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @main_template(title = messages("softwareChoices.title"), bodyClasses = None) {
+
     <h1>@messages("softwareChoices.title")</h1>
 
-    <div class="form-group">
-        <p>@messages("softwareChoices.search.text") <a href="#">@messages("softwareChoices.search.text.link")</a>.</p>
-        <div class="panel panel-border-wide">
-            <p>@messages("softwareChoices.text.p1")</p>
-            <p>@messages("softwareChoices.text.p2")</p>
-        </div>
-
-        <div class="form-group search-field search-field-darker">
-            <input type="hidden" name="softwareFilter" value="new">
-            <div class="search-input search-input-with-button">
-                <div class="autocomplete__parent_wrapper">
-                    <div class="autocomplete__wrapper">
-                        <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px 0px 0px 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-                            <span>No search results.</span>
-                            <span>,,</span>
-                        </div>
-                        <p id="search-default-value" class="hidden"></p>
-                        <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="" name="searchSoftware" placeholder="" role="combobox" type="text" value="">
-                        <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox"></ul>
-                    </div>
-                </div>
-                <input class="form-control form-control-3-4" name="" id="searchClients-old" type="text" value="" style="display: none;">
-            </div>
-            <div class="search-submit">
-                <button class="button" type="submit" id="searchSoftwareSubmit" name="searchSoftwareSubmit" value="Search Software Supliers">Search software packages</button>
-            </div>
-        </div>
-
-        <a href="#">@messages("softwareChoices.search.clear")</a>
+    <p>@messages("softwareChoices.search.text") <a href="#">@messages("softwareChoices.search.text.link")</a>.</p>
+    <div class="panel panel-border-wide">
+        <p>@messages("softwareChoices.text.p1")</p>
+        <p>@messages("softwareChoices.text.p2")</p>
     </div>
+
+    @search_bar_template()
 
     <div>
         <details class="govuk-details">
+
             <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                    @messages("softwareChoices.show")
-                </span>
+                <span class="govuk-details__summary-text">@messages("softwareChoices.show")</span>
             </summary>
 
-
-            @defining(softwareChoices.getProvidersSymbol) { providers =>
-                @if(providers.nonEmpty){
-                    <h2>#</h2>
-                    <ul class="list list-bullet">
-                        @providers.map { provider =>
-                           <li><a href="@provider.url">@provider.name</a></li>
-                        }
-                    </ul>
-                }
-            }
-
+            @provider_template(softwareChoices)
             @for(letter <- 'a' to 'z') {
-                @providerByLetter(letter.toString)
+                @provider_template(softwareChoices, Some(letter.toString))
             }
 
         </details>
     </div>
 }
 
-
-@providerByLetter(letter: String) = {
-
-    @defining(softwareChoices.getProviders(letter)) { providers =>
-        @if(providers.nonEmpty){
-            <h2>@letter.toUpperCase</h2>
-            <ul class="list list-bullet">
-                @providers.map { provider =>
-                   <li><a href="@provider.url">@provider.name</a></li>
-                }
-            </ul>
-        }
-    }
-}

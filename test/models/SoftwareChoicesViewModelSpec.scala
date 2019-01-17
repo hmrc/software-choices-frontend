@@ -61,47 +61,43 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
 
     "given a variety software choices and 'a'" should {
       "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders("a") shouldBe Seq(upperA, lowerA)
+        softwareChoicesViewModelAll.getProviders(Some("a")) shouldBe Seq(upperA, lowerA)
       }
     }
 
     "given a variety software choices and 'A'" should {
       "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders("A") shouldBe Seq(upperA, lowerA)
+        softwareChoicesViewModelAll.getProviders(Some("A")) shouldBe Seq(upperA, lowerA)
       }
     }
 
     "given a variety software choices and 'z'" should {
       "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders("z") shouldBe Seq(upperZ, lowerZ)
+        softwareChoicesViewModelAll.getProviders(Some("z")) shouldBe Seq(upperZ, lowerZ)
       }
     }
 
     "given a variety software choices and 'Z'" should {
       "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders("Z") shouldBe Seq(upperZ, lowerZ)
+        softwareChoicesViewModelAll.getProviders(Some("Z")) shouldBe Seq(upperZ, lowerZ)
       }
     }
 
     "given only software choices starting with a number or symbol and any letter" should {
       "not return any providers" in {
-        softwareChoicesViewModelSymbols.getProviders("b") shouldBe Seq.empty[SoftwareProviderModel]
+        softwareChoicesViewModelSymbols.getProviders(Some("b")) shouldBe Seq.empty[SoftwareProviderModel]
       }
     }
-  }
 
-
-  "SoftwareChoicesViewModel.getProvidersSymbol" when {
-
-    "given a variety software choices" should {
+    "given a variety software choices and no character" should {
       "only return the correct 3 providers" in {
-        softwareChoicesViewModelAll.getProvidersSymbol shouldBe Seq(hashSymbol, atSymbol, number)
+        softwareChoicesViewModelAll.getProviders(None) shouldBe Seq(hashSymbol, atSymbol, number)
       }
     }
 
-    "given only software choices starting with a letter" should {
+    "given None and only software choices starting with a letter" should {
       "not return any providers" in {
-        softwareChoicesViewModelLetters.getProvidersSymbol shouldBe Seq.empty[SoftwareProviderModel]
+        softwareChoicesViewModelLetters.getProviders(None) shouldBe Seq.empty[SoftwareProviderModel]
       }
     }
   }
