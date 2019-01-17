@@ -18,14 +18,9 @@ package models
 
 case class SoftwareChoicesViewModel(providers: Seq[SoftwareProviderModel]){
 
-  val getProvidersSymbol: Seq[SoftwareProviderModel] = {
-    providers.filterNot(
-      _.name.matches("^[a-z|A-Z].*")
-    )
+  val getProviders: Option[String] => Seq[SoftwareProviderModel] = _.fold{
+    providers.filterNot(_.name.matches("^[a-z|A-Z].*"))
+  }{
+    letter => {providers.filter(_.category == letter.toLowerCase()).sortWith(_.name < _.name)}
   }
-
-  val getProviders: String => Seq[SoftwareProviderModel] = letter => {
-    providers.filter(_.name.toLowerCase.startsWith(letter.toLowerCase()))
-  }
-
 }

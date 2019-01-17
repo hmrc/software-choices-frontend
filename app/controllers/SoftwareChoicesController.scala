@@ -25,16 +25,14 @@ import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
 import views.html.software_choices
 
-import scala.concurrent.Future
-
 @Singleton
 class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareChoicesService,
                                           val messagesApi: MessagesApi,
                                           implicit val appConfig: AppConfig) extends FrontendController with I18nSupport {
 
-  val show: Action[AnyContent] = Action.async { implicit request =>
+  val show: Action[AnyContent] = Action { implicit request =>
     val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
-    Future.successful(Ok(software_choices(softwareProviders)))
+    Ok(software_choices(softwareProviders))
   }
 
 }

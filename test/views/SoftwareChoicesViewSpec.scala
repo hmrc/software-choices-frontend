@@ -24,15 +24,15 @@ class SoftwareChoicesViewSpec extends TestUtils {
 
   object Selectors {
     val pageHeading = "#content h1"
-    val searchText = "#content > article > div.form-group > p"
-    val searchTextLink = "#content > article > div.form-group > p > a"
-    val indentTextOne = "#content > article > div.form-group > div.panel.panel-border-wide > p:nth-child(1)"
-    val indentTextTwo = "#content > article > div.form-group > div.panel.panel-border-wide > p:nth-child(2)"
+    val searchText = "#content > article > p"
+    val searchTextLink = "#content > article > p > a"
+    val indentTextOne = "#content > article > div.panel.panel-border-wide > p:nth-child(1)"
+    val indentTextTwo = "#content > article > div.panel.panel-border-wide > p:nth-child(2)"
     val clearSearchLink = "#content > article > div.form-group > a"
-    val showAllLink = "#content > article > div:nth-child(3) > details > summary > span"
-    val letterHeaderSelector: Int => String = header => s"#content > article > div:nth-child(3) > details > h2:nth-child($header)"
+    val showAllLink = "#content > article > div:nth-child(5) > details > summary > span"
+    val letterHeaderSelector: Int => String = header => s"#content > article > div:nth-child(5) > details > h2:nth-child($header)"
     val providerSelector: (Int, Int)=> String = (section, provider) =>
-      s"#content > article > div:nth-child(3) > details > ul:nth-child($section) > li:nth-child($provider) > a"
+      s"#content > article > div:nth-child(5) > details > ul:nth-child($section) > li:nth-child($provider) > a"
     val firstProviderSelector: Int => String = section => providerSelector(section, 1)
   }
 
@@ -76,14 +76,14 @@ class SoftwareChoicesViewSpec extends TestUtils {
         document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
       }
 
-      "have the correct section header and a single provider for # section" in {
+      "have the correct section header and correctly ordered providers for section A" in {
         document.select(Selectors.letterHeaderSelector(2)).text() shouldBe "A"
         document.select(Selectors.firstProviderSelector(3)).text() shouldBe "aName"
         document.select(Selectors.firstProviderSelector(3)).attr("href") shouldBe "aUrl"
-        document.select(Selectors.providerSelector(3,2)).text() shouldBe "anotherName"
-        document.select(Selectors.providerSelector(3,2)).attr("href") shouldBe "anotherUrl"
-        document.select(Selectors.providerSelector(3,3)).text() shouldBe "andAnotherName"
-        document.select(Selectors.providerSelector(3,3)).attr("href") shouldBe "andAnotherUrl"
+        document.select(Selectors.providerSelector(3,2)).text() shouldBe "andAnotherName"
+        document.select(Selectors.providerSelector(3,2)).attr("href") shouldBe "andAnotherUrl"
+        document.select(Selectors.providerSelector(3,3)).text() shouldBe "anotherName"
+        document.select(Selectors.providerSelector(3,3)).attr("href") shouldBe "anotherUrl"
       }
     }
 
