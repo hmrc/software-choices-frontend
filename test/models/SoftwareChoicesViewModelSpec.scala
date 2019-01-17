@@ -17,6 +17,7 @@
 package models
 
 import utils.TestUtils
+import views.html.templates.provider_template
 
 class SoftwareChoicesViewModelSpec extends TestUtils {
 
@@ -42,7 +43,7 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
 
   val softwareChoicesViewModelEmpty = SoftwareChoicesViewModel(Seq.empty)
 
-  "SoftwareChoicesViewModel.getroviders" when {
+  "SoftwareChoicesViewModel.sortedProviders" when {
 
     "given a variety software choices" should {
       "group the providers and sort them" in {
@@ -60,4 +61,24 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
       }
     }
   }
+
+  "SoftwareChoicesViewModel.renderProviders" when {
+
+    "given a variety software choices" should {
+      "group the providers and sort them" in {
+        softwareChoicesViewModelAll.renderProviders shouldEqual Seq(
+          provider_template("#", Seq(hashSymbol, number, atSymbol)),
+          provider_template("A", Seq(upperA, lowerA)),
+          provider_template("Z", Seq(upperZ, lowerZ))
+        )
+      }
+    }
+
+    "given a no software choices" should {
+      "return empty map" in {
+        softwareChoicesViewModelEmpty.renderProviders shouldBe Seq.empty
+      }
+    }
+  }
+
 }
