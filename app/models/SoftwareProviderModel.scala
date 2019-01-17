@@ -16,13 +16,9 @@
 
 package models
 
-import scala.util.matching.Regex
-
 case class SoftwareProviderModel(name: String, url: String) {
 
-  private val azPattern: Regex = "^[a-z|A-Z].*".r
-
-  val category: String = azPattern.findFirstIn(name) match {
+  val category: String = "^[a-z|A-Z].*".r.findFirstIn(name) match {
     case Some(_) => name.toLowerCase()(0).toString
     case _ => "#"
   }
