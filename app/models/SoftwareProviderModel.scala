@@ -18,8 +18,8 @@ package models
 
 case class SoftwareProviderModel(name: String, url: String) {
 
-  val category: String = "^[a-z|A-Z].*".r.findFirstIn(name) match {
-    case Some(_) => name.toLowerCase()(0).toString
+  val category: String = "^[a-z|A-Z]".r.findFirstIn(name) match {
+    case Some(x) => x.toUpperCase
     case _ => "#"
   }
 

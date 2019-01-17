@@ -40,64 +40,23 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
     )
   )
 
-  val softwareChoicesViewModelLetters = SoftwareChoicesViewModel(
-    Seq(
-      upperA,
-      lowerA,
-      upperZ,
-      lowerZ
-    )
-  )
+  val softwareChoicesViewModelEmpty = SoftwareChoicesViewModel(Seq.empty)
 
-  val softwareChoicesViewModelSymbols = SoftwareChoicesViewModel(
-    Seq(
-      hashSymbol,
-      atSymbol,
-      number
-    )
-  )
+  "SoftwareChoicesViewModel.getroviders" when {
 
-  "SoftwareChoicesViewModel.getProviders" when {
-
-    "given a variety software choices and 'a'" should {
-      "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders(Some("a")) shouldBe Seq(upperA, lowerA)
+    "given a variety software choices" should {
+      "group the providers and sort them" in {
+        softwareChoicesViewModelAll.sortedProviders shouldEqual Seq(
+          "#" -> Seq(hashSymbol, number, atSymbol),
+          "A" -> Seq(upperA, lowerA),
+          "Z" -> Seq(upperZ, lowerZ)
+        )
       }
     }
 
-    "given a variety software choices and 'A'" should {
-      "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders(Some("A")) shouldBe Seq(upperA, lowerA)
-      }
-    }
-
-    "given a variety software choices and 'z'" should {
-      "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders(Some("z")) shouldBe Seq(upperZ, lowerZ)
-      }
-    }
-
-    "given a variety software choices and 'Z'" should {
-      "only return the correct 2 providers" in {
-        softwareChoicesViewModelAll.getProviders(Some("Z")) shouldBe Seq(upperZ, lowerZ)
-      }
-    }
-
-    "given only software choices starting with a number or symbol and any letter" should {
-      "not return any providers" in {
-        softwareChoicesViewModelSymbols.getProviders(Some("b")) shouldBe Seq.empty[SoftwareProviderModel]
-      }
-    }
-
-    "given a variety software choices and no character" should {
-      "only return the correct 3 providers" in {
-        softwareChoicesViewModelAll.getProviders(None) shouldBe Seq(hashSymbol, atSymbol, number)
-      }
-    }
-
-    "given None and only software choices starting with a letter" should {
-      "not return any providers" in {
-        softwareChoicesViewModelLetters.getProviders(None) shouldBe Seq.empty[SoftwareProviderModel]
+    "given a no software choices" should {
+      "return empty map" in {
+        softwareChoicesViewModelEmpty.sortedProviders shouldBe Seq.empty
       }
     }
   }
