@@ -19,16 +19,16 @@ package models
 import play.twirl.api.HtmlFormat
 import views.html.templates.provider_template
 
-import scala.collection.immutable.Iterable
-
 case class SoftwareChoicesViewModel(providers: Seq[SoftwareProviderModel]){
 
-  val sortedProviders: Map[String, Seq[SoftwareProviderModel]] =
+  val sortedProviders: Seq[(String, Seq[SoftwareProviderModel])] =
     providers
-      .sortBy(f => (f.category, f.name))
+      .sortBy(_.name)
       .groupBy(_.category)
+      .toSeq
+      .sortBy(_._1)
 
-  val renderProviders: Iterable[HtmlFormat.Appendable] = sortedProviders.map {
+  val renderProviders: Seq[HtmlFormat.Appendable] = sortedProviders.map {
     case (category, providersForCategory) => provider_template(category, providersForCategory)
   }
 }

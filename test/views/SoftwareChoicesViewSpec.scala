@@ -29,10 +29,10 @@ class SoftwareChoicesViewSpec extends TestUtils {
     val indentTextOne = "#content > article > div.panel.panel-border-wide > p:nth-child(1)"
     val indentTextTwo = "#content > article > div.panel.panel-border-wide > p:nth-child(2)"
     val clearSearchLink = "#content > article > div.form-group > a"
-    val showAllLink = "#content > article > div:nth-child(5) > details > summary > span"
-    val letterHeaderSelector: Int => String = header => s"#content > article > div:nth-child(5) > details > h2:nth-child($header)"
+    val showAllLink = "#content > article details > summary > span"
+    val letterHeaderSelector: Int => String = header => s"#content > article details > h2:nth-child($header)"
     val providerSelector: (Int, Int)=> String = (section, provider) =>
-      s"#content > article > div:nth-child(5) > details > ul:nth-child($section) > li:nth-child($provider) > a"
+      s"#content > article details > ul:nth-child($section) > li:nth-child($provider) > a"
     val firstProviderSelector: Int => String = section => providerSelector(section, 1)
   }
 
