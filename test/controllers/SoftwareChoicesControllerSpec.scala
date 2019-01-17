@@ -16,38 +16,32 @@
 
 package controllers
 
-import config.AppConfig
-import org.scalatest.{Matchers, WordSpec}
-import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
-import play.api.i18n.{DefaultLangs, DefaultMessagesApi}
-import play.api.test.FakeRequest
+import services.SoftwareChoicesService
+import utils.TestUtils
 import play.api.test.Helpers._
-import play.api.{Configuration, Environment}
 
 
-class HelloWorldControllerSpec extends WordSpec with Matchers with GuiceOneAppPerSuite {
-  val fakeRequest = FakeRequest("GET", "/")
+class SoftwareChoicesControllerSpec extends TestUtils {
 
-  val env = Environment.simple()
-  val configuration = Configuration.load(env)
+  object TestSoftwareChoicesController extends SoftwareChoicesController(
+    new SoftwareChoicesService,
+    messagesApi,
+    appConfig
+  )
 
-  val messageApi = new DefaultMessagesApi(env, configuration, new DefaultLangs(configuration))
-  val appConfig = new AppConfig(configuration, env)
+  "SoftwareChoicesController.show" should {
 
-  val controller = new HelloWorld(messageApi, appConfig)
+    lazy val result = TestSoftwareChoicesController.show(fakeRequest)
 
-  "GET /" should {
-    "return 200" in {
-      val result = controller.helloWorld(fakeRequest)
+    "return 200 (OK)" in {
       status(result) shouldBe Status.OK
     }
 
     "return HTML" in {
-      val result = controller.helloWorld(fakeRequest)
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
     }
-
   }
+
 }

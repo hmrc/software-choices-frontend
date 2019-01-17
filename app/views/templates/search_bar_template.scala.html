@@ -1,0 +1,31 @@
+@*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@()(implicit messages: Messages)
+<div class="form-group">
+    <div class="form-group search-field search-field-darker">
+        <div class="search-input search-input-with-button">
+            <input id="search" type="text">
+        </div>
+        <div class="search-submit">
+            <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
+                @messages("softwareChoices.search.button.text")
+            </button>
+        </div>
+    </div>
+
+    <a href="#" onclick="clearField('search');">@messages("softwareChoices.search.clear")</a>
+</div>
