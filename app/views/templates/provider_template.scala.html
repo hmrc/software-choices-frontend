@@ -14,14 +14,11 @@
  * limitations under the License.
  *@
 
-@(softwareChoices: SoftwareChoicesViewModel, letter: Option[String] = None)
-@defining(softwareChoices.getProviders(letter)) { providers =>
-    @if(providers.nonEmpty){
-        <h2>@letter.fold("#")(_.toUpperCase)</h2>
-        <ul class="list list-bullet">
-            @providers.map { provider =>
-                <li><a href="@provider.url">@provider.name</a></li>
-            }
-        </ul>
+@(category: String, providers: Seq[SoftwareProviderModel])
+
+<h2>@category.toUpperCase</h2>
+<ul class="list list-bullet">
+    @providers.map { provider =>
+        <li><a href="@provider.url">@provider.name</a></li>
     }
-}
+</ul>

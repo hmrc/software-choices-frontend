@@ -17,21 +17,15 @@
 @()(implicit messages: Messages)
 <div class="form-group">
     <div class="form-group search-field search-field-darker">
-        <input type="hidden" name="softwareFilter" value="new">
         <div class="search-input search-input-with-button">
-            <div class="no-result-styling" aria-atomic="true" aria-live="polite" role="status">
-                <span>@messages("softwareChoices.search.noResults")</span>
-                <span>,,</span>
-            </div>
-            <p id="search-default-value" class="hidden"></p>
-            <input aria-owns="searchClients__listbox" role="combobox" type="text" value="">
+            <input id="search" type="text">
         </div>
         <div class="search-submit">
-            <button class="button" type="submit" value="Search Software Supliers">
+            <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
                 @messages("softwareChoices.search.button.text")
             </button>
         </div>
     </div>
 
-    <a href="#">@messages("softwareChoices.search.clear")</a>
+    <a href="#" onclick="clearField('search');">@messages("softwareChoices.search.clear")</a>
 </div>
