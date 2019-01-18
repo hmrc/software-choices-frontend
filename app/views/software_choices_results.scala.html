@@ -23,12 +23,6 @@
 
     <h1>@messages("softwareChoices.title")</h1>
 
-    <p>@messages("softwareChoices.search.text") <a href="#">@messages("softwareChoices.search.text.link")</a>.</p>
-    <div class="panel panel-border-wide">
-        <p>@messages("softwareChoices.text.p1")</p>
-        <p>@messages("softwareChoices.text.p2")</p>
-    </div>
-
     @search_bar_template(form)
 
     @if(softwareChoices.foundProviders.isEmpty) {
@@ -36,8 +30,11 @@
         <h2>@messages("softwareChoicesResults.noResults.title")</h2>
         <p>@messages("softwareChoicesResults.noResults")</p>
 
-        @progressive_disclosure_template(messages("softwareChoices.show"), progressive_disclosure_content)
-
+        @if(appConfig.features.progressiveDisclosureEnabled()) {
+            @progressive_disclosure_template(messages("softwareChoices.show"), progressive_disclosure_content)
+        } else {
+            @progressive_disclosure_content
+        }
     } else {
 
         <h2>@messages("softwareChoicesResults.results.title")</h2>

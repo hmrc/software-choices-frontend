@@ -21,6 +21,12 @@
 
 @helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
 
+    <p>@messages("softwareChoices.search.text") <a href="#">@messages("softwareChoices.search.text.link")</a>.</p>
+    <div class="panel panel-border-wide">
+        <p>@messages("softwareChoices.text.p1")</p>
+        <p>@messages("softwareChoices.text.p2")</p>
+    </div>
+
     <div class="form-group @if(form.hasErrors){form-field--error"}">
 
         @form.errors.map { error => <span class="error-message">@messages(error.message)</span> }
