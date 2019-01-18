@@ -20,8 +20,12 @@
 @(form: Form[SearchModel])(implicit messages: Messages, request: Request[_])
 
 @helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
-    <div class="form-group">
-        <div class="form-group search-field search-field-darker">
+
+    <div class="form-group @if(form.hasErrors){form-field--error"}">
+
+        @form.errors.map { error => <span class="error-message">@messages(error.message)</span> }
+
+        <div class="search-field search-field-darker">
             <div class="search-input search-input-with-button">
                 <input id="term" name="term" type="text" value="@form(SearchForm.term).value">
             </div>
@@ -31,7 +35,10 @@
                 </button>
             </div>
         </div>
+    </div>
 
+    <div class="form-group">
         <a href="#" onclick="clearField('term');">@messages("softwareChoices.search.clear")</a>
     </div>
+
 }
