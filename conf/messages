@@ -1,5 +1,6 @@
 common.back = Back
 common.errorSummary.heading = You have one or more errors
+common.error = Error:
 
 #Feedback
 feedback.before = This is a new service – your
