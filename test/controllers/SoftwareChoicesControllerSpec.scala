@@ -16,16 +16,20 @@
 
 package controllers
 
+import forms.SearchForm
+import models.SoftwareProviderModel
 import play.api.http.Status
+import play.api.test.FakeRequest
 import services.SoftwareChoicesService
 import utils.TestUtils
 import play.api.test.Helpers._
+import services.mocks.MockSoftwareChoicesService
 
 
-class SoftwareChoicesControllerSpec extends TestUtils {
+class SoftwareChoicesControllerSpec extends MockSoftwareChoicesService {
 
   object TestSoftwareChoicesController extends SoftwareChoicesController(
-    new SoftwareChoicesService,
+    mockSoftwareChoicesService,
     messagesApi,
     appConfig
   )
@@ -44,17 +48,48 @@ class SoftwareChoicesControllerSpec extends TestUtils {
     }
   }
 
-  "SoftwareChoicesController.search" should {
+  "SoftwareChoicesController.search" when {
 
-    lazy val result = TestSoftwareChoicesController.show(fakeRequest)
+    "given a valid search" should {
 
-    "return 200 (OK)" in {
-      status(result) shouldBe Status.OK
+      val softwareProviders = Seq(
+      SoftwareProviderModel("aName", "aUrl"),
+      SoftwareProviderModel("anotherName", "anotherUrl"),
+      SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+      )
+
+      lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
+
+      "return 200 (OK)" in {
+        setupMockSearchProviders(softwareProviders)
+        status(result) shouldBe Status.OK
+      }
+
+      "return HTML" in {
+        contentType(result) shouldBe Some("text/html")
+        charset(result) shouldBe Some("utf-8")
+      }
     }
 
-    "return HTML" in {
-      contentType(result) shouldBe Some("text/html")
-      charset(result) shouldBe Some("utf-8")
+
+    "given a invalid search" should {
+
+      val softwareProviders = Seq(
+        SoftwareProviderModel("aName", "aUrl"),
+        SoftwareProviderModel("anotherName", "anotherUrl"),
+        SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+      )
+
+      lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "")))
+
+      "return 200 (OK)" in {
+        status(result) shouldBe Status.BAD_REQUEST
+      }
+
+      "return HTML" in {
+        contentType(result) shouldBe Some("text/html")
+        charset(result) shouldBe Some("utf-8")
+      }
     }
   }
 }
