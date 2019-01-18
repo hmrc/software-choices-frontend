@@ -24,7 +24,7 @@ import scala.io.Source
 @Singleton
 class SoftwareChoicesService {
 
-  protected lazy val providersList: Seq[String] = Source.fromFile("softwareProviders.txt").getLines.toSeq
+  protected lazy val providersList: Seq[String] = Source.fromFile("conf/softwareProviders").getLines.toSeq
 
   lazy val readProviders: Seq[SoftwareProviderModel] = {
     for (line <- providersList) yield {
