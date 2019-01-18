@@ -17,18 +17,19 @@
 package models
 
 import play.twirl.api.HtmlFormat
-import views.html.templates.provider_template
+import views.html.templates.{provider_template, found_provider_template}
 
-case class SoftwareChoicesViewModel(providers: Seq[SoftwareProviderModel]){
+case class SoftwareChoicesViewModel(allProviders: Seq[SoftwareProviderModel], foundProviders: Seq[SoftwareProviderModel] = Seq.empty){
 
-  val sortedProviders: Seq[(String, Seq[SoftwareProviderModel])] =
-    providers
-      .sortBy(_.name)
-      .groupBy(_.category)
-      .toSeq
-      .sortBy(_._1)
+  type GroupedProviders = Seq[(String, Seq[SoftwareProviderModel])]
 
-  val renderProviders: Seq[HtmlFormat.Appendable] = sortedProviders.map {
+  val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name)
+
+  val groupByCategory: Seq[SoftwareProviderModel] => GroupedProviders = _.groupBy(_.category).toSeq.sortBy(_._1)
+
+  val renderAllProviders: Seq[HtmlFormat.Appendable] = groupByCategory(sortedProviders(allProviders)).map {
     case (category, providersForCategory) => provider_template(category, providersForCategory)
   }
+
+  val renderFoundProviders: HtmlFormat.Appendable = found_provider_template(sortedProviders(foundProviders))
 }

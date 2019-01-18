@@ -14,9 +14,8 @@
  * limitations under the License.
  *@
 
-@(category: String, providers: Seq[SoftwareProviderModel])
+@(providers: Seq[SoftwareProviderModel])
 
-<h2>@category</h2>
 <ul class="list list-bullet">
     @providers.map { provider =>
         <li><a href="@provider.url">@provider.name</a></li>
