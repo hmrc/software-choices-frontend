@@ -29,7 +29,7 @@ object SearchForm {
 
   val maxLength = 256
   private val maxLengthCheck: Constraint[String] = Constraint(s"Search Term Exceeds $maxLength characters")(term =>
-    if (term.length <= maxLength) Valid else Invalid("searchForm.term.max")
+    if (term.length <= maxLength) Valid else Invalid("searchForm.term.max", maxLength)
   )
 
   val term = "term"
