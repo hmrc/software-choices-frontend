@@ -39,7 +39,7 @@ class AppConfig @Inject()(val runModeConfiguration: Configuration, environment: 
   lazy val reportAProblemNonJSUrl: String = s"$contactHost/contact/problem_reports_nonjs?service=$contactFormServiceIdentifier"
 
   lazy val feedbackUrl: String = s"$contactHost/contact/beta-feedback-unauthenticated?service=$contactFormServiceIdentifier" +
-    s"&backUrl=${ContinueUrl(host + controllers.routes.HelloWorld.helloWorld().url).encodedUrl}"
+    s"&backUrl=${ContinueUrl(host + controllers.routes.SoftwareChoicesController.show().url).encodedUrl}"
 
   lazy val host: String = getString(ConfigKeys.host)
 

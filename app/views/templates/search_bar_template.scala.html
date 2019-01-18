@@ -23,7 +23,7 @@
     <div class="form-group">
         <div class="form-group search-field search-field-darker">
             <div class="search-input search-input-with-button">
-                <input name="term" type="text" value="@form(SearchForm.term).value">
+                <input id="term" name="term" type="text" value="@form(SearchForm.term).value">
             </div>
             <div class="search-submit">
                 <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
@@ -32,6 +32,6 @@
             </div>
         </div>
 
-        <a href="#" onclick="clearField('search');">@messages("softwareChoices.search.clear")</a>
+        <a href="#" onclick="clearField('term');">@messages("softwareChoices.search.clear")</a>
     </div>
 }
