@@ -38,4 +38,26 @@ class SoftwareChoicesServiceSpec extends TestUtils {
       )
     }
   }
+
+  "SoftwareChoicesService.searchProviders({search})" should {
+
+    "return the correct sequence of filtered software providers" in {
+      TestSoftwareChoicesService.searchProviders("t") shouldBe Seq(
+        SoftwareProviderModel("nameTwo","urlTwo"),
+        SoftwareProviderModel("nameThree","urlThree")
+      )
+    }
+
+    "return the empty sequence of software providers where search term doesn't match any" in {
+      TestSoftwareChoicesService.searchProviders("£") shouldBe Seq.empty
+    }
+
+    "return all providers where search term matches all" in {
+      TestSoftwareChoicesService.searchProviders("na") shouldBe Seq(
+        SoftwareProviderModel("nameOne","urlOne"),
+        SoftwareProviderModel("nameTwo","urlTwo"),
+        SoftwareProviderModel("nameThree","urlThree")
+      )
+    }
+  }
 }
