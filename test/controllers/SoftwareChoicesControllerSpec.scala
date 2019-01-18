@@ -44,4 +44,17 @@ class SoftwareChoicesControllerSpec extends TestUtils {
     }
   }
 
+  "SoftwareChoicesController.search" should {
+
+    lazy val result = TestSoftwareChoicesController.show(fakeRequest)
+
+    "return 200 (OK)" in {
+      status(result) shouldBe Status.OK
+    }
+
+    "return HTML" in {
+      contentType(result) shouldBe Some("text/html")
+      charset(result) shouldBe Some("utf-8")
+    }
+  }
 }
