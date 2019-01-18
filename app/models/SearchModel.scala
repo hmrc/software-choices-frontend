@@ -14,26 +14,6 @@
  * limitations under the License.
  */
 
-package services
+package models
 
-import javax.inject.Singleton
-import models.SoftwareProviderModel
-
-import scala.io.Source
-
-@Singleton
-class SoftwareChoicesService {
-
-  protected lazy val providersList: Seq[String] = Source.fromFile("softwareProviders.txt").getLines.toSeq
-
-  lazy val readProviders: Seq[SoftwareProviderModel] = {
-    for (line <- providersList) yield {
-      val nameUrl = line.split('|')
-      SoftwareProviderModel(nameUrl(0),nameUrl(1))
-    }
-  }
-
-  def searchProviders(term: String): Seq[SoftwareProviderModel] =
-    readProviders.filter(_.name.toLowerCase.contains(term.toLowerCase))
-
-}
+case class SearchModel(term: String)
