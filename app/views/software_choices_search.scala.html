@@ -19,7 +19,11 @@
 
 @(softwareChoices: SoftwareChoicesViewModel, form: Form[SearchModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
-@main_template(title = messages("softwareChoices.title"), bodyClasses = None) {
+@titlePrefix = {
+    @if(form.hasErrors) { @messages("common.error") }
+}
+
+@main_template(title = titlePrefix + messages("softwareChoices.title"), bodyClasses = None) {
 
     @error_summary_template("common.errorSummary.heading", form)
 
