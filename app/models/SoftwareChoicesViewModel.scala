@@ -23,9 +23,9 @@ case class SoftwareChoicesViewModel(allProviders: Seq[SoftwareProviderModel], fo
 
   type GroupedProviders = Seq[(String, Seq[SoftwareProviderModel])]
 
-  val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name)
+  private val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase())
 
-  val groupByCategory: Seq[SoftwareProviderModel] => GroupedProviders = _.groupBy(_.category).toSeq.sortBy(_._1)
+  private val groupByCategory: Seq[SoftwareProviderModel] => GroupedProviders = _.groupBy(_.category).toSeq.sortBy(_._1)
 
   val renderAllProviders: Seq[HtmlFormat.Appendable] = groupByCategory(sortedProviders(allProviders)).map {
     case (category, providersForCategory) => provider_template(category, providersForCategory)

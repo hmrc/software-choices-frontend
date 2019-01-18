@@ -16,6 +16,7 @@
 
 package views
 
+import forms.SearchForm
 import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
 import org.jsoup.Jsoup
 import utils.TestUtils
@@ -28,7 +29,7 @@ class SoftwareChoicesViewSpec extends TestUtils {
     val searchTextLink = "#content > article > p > a"
     val indentTextOne = "#content > article > div.panel.panel-border-wide > p:nth-child(1)"
     val indentTextTwo = "#content > article > div.panel.panel-border-wide > p:nth-child(2)"
-    val clearSearchLink = "#content > article > div.form-group > a"
+    val clearSearchLink = "#content > article > form > div > a"
     val showAllLink = "#content > article details > summary > span"
     val letterHeaderSelector: Int => String = header => s"#content > article details > h2:nth-child($header)"
     val providerSelector: (Int, Int)=> String = (section, provider) =>
@@ -43,7 +44,7 @@ class SoftwareChoicesViewSpec extends TestUtils {
         SoftwareProviderModel("aName", "aUrl")
       ))
 
-      lazy val view = views.html.software_choices(softwareProviders)
+      lazy val view = views.html.software_choices_search(softwareProviders, SearchForm.form)
       lazy val document = Jsoup.parse(view.body)
 
       s"have the correct document title" in {

@@ -16,6 +16,7 @@
 
 package views.templates
 
+import forms.SearchForm
 import org.jsoup.Jsoup
 import utils.TestUtils
 
@@ -27,22 +28,49 @@ class SearchBarTemplateViewSpec extends TestUtils {
     val clear = "a"
   }
 
-  "The Search Bar Template" should {
+  "The Search Bar Template" when {
 
-    lazy val view = views.html.templates.search_bar_template()
-    lazy val document = Jsoup.parse(view.body)
+    "given an empty form" should {
 
-    s"have a search bar" in {
-      document.select(Selectors.search).attr("id") shouldBe "search"
+      lazy val view = views.html.templates.search_bar_template(SearchForm.form)
+      lazy val document = Jsoup.parse(view.body)
+
+      s"have a search bar with no text" in {
+        document.select(Selectors.search).attr("name") shouldBe SearchForm.term
+        document.select(Selectors.search).attr("value").isEmpty shouldBe true
+      }
+
+      s"have a submit button bar" in {
+        document.select(Selectors.button).text shouldBe "Search software packages"
+      }
+
+      s"have a clear link" in {
+        document.select(Selectors.clear).text shouldBe "Clear search"
+        document.select(Selectors.clear).attr("onclick") shouldBe "clearField('search');"
+      }
     }
 
-    s"have a submit button bar" in {
-      document.select(Selectors.button).text() shouldBe "Search software packages"
-    }
+    "given a form with data" should {
 
-    s"have a clear link" in {
-      document.select(Selectors.clear).text() shouldBe "Clear search"
-      document.select(Selectors.clear).attr("onclick") shouldBe "clearField('search');"
+      lazy val view = views.html.templates.search_bar_template(SearchForm.form.bind(Map(
+        SearchForm.term -> "Search Term"
+      )))
+
+      lazy val document = Jsoup.parse(view.body)
+
+      s"have a search bar" in {
+        document.select(Selectors.search).attr("name") shouldBe SearchForm.term
+        document.select(Selectors.search).attr("value") shouldBe "Search Term"
+      }
+
+      s"have a submit button bar" in {
+        document.select(Selectors.button).text shouldBe "Search software packages"
+      }
+
+      s"have a clear link" in {
+        document.select(Selectors.clear).text shouldBe "Clear search"
+        document.select(Selectors.clear).attr("onclick") shouldBe "clearField('search');"
+      }
     }
   }
 }
