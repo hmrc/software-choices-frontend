@@ -18,6 +18,7 @@ package config
 
 import java.util.Base64
 
+import config.features.Features
 import javax.inject.{Inject, Singleton}
 import play.api.{Configuration, Environment}
 import play.api.Mode.Mode
@@ -26,7 +27,7 @@ import play.api.mvc.Call
 import uk.gov.hmrc.play.config.ServicesConfig
 
 @Singleton
-class AppConfig @Inject()(val runModeConfiguration: Configuration, environment: Environment) extends ServicesConfig {
+class AppConfig @Inject()(implicit val runModeConfiguration: Configuration, environment: Environment) extends ServicesConfig {
   protected def mode: Mode = environment.mode
 
   private val contactHost: String = getString(ConfigKeys.contactFrontendService)
@@ -51,5 +52,7 @@ class AppConfig @Inject()(val runModeConfiguration: Configuration, environment: 
   lazy val whitelistIps: Seq[String] = whitelistConfig(ConfigKeys.whitelistIps)
   lazy val whitelistExcludedPaths: Seq[Call] = whitelistConfig(ConfigKeys.whitelistExcludedPaths).map(path => Call("GET", path))
   lazy val whiteListEnabled: Boolean = getBoolean(ConfigKeys.whitelistEnabled)
+
+  val features = new Features
 
 }
