@@ -5,3 +5,4 @@ GET         /assets/*file                                   controllers.Assets.a
 GET        /hello-world                                     controllers.HelloWorld.helloWorld
 
 GET        /                                                controllers.SoftwareChoicesController.show
+POST       /                                                controllers.SoftwareChoicesController.search
