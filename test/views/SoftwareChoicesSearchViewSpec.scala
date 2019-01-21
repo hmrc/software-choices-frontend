@@ -21,7 +21,7 @@ import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
 import org.jsoup.Jsoup
 import utils.TestUtils
 
-class SoftwareChoicesViewSpec extends TestUtils {
+class SoftwareChoicesSearchViewSpec extends TestUtils {
 
   object Selectors {
     val pageHeading = "#content h1"
