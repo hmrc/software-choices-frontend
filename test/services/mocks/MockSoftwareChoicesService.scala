@@ -26,7 +26,6 @@ trait MockSoftwareChoicesService extends TestUtils with MockFactory{
   lazy val mockSoftwareChoicesService: SoftwareChoicesService = mock[SoftwareChoicesService]
 
   def setupMockSearchProviders(softwareProviders: Seq[SoftwareProviderModel]): Unit = {
-
     (mockSoftwareChoicesService.searchProviders(_: String))
       .expects(*)
       .returns(softwareProviders)
