@@ -7,8 +7,8 @@ feedback.before = This is a new service – your
 feedback.link = feedback
 feedback.after = will help us to improve it.
 
-searchForm.term.missing = You must provide a search term
-searchForm.term.max = Your search cannot exceed {0} characters
+searchForm.term.missing = Enter the name of a software package
+searchForm.term.max = Enter less than {0} characters
 
 softwareChoices.title = Software that works with Making Tax Digital for VAT
 softwareChoices.search.text = Search for software that is connected to Making Tax Digital for VAT. You must also
