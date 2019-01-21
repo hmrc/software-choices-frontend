@@ -1,5 +1,5 @@
 common.back = Back
-common.errorSummary.heading = You have one or more errors
+common.errorSummary.heading = There is a problem
 common.error = Error:
 
 #Feedback
