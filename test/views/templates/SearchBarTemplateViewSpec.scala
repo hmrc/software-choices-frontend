@@ -25,7 +25,11 @@ class SearchBarTemplateViewSpec extends TestUtils {
   object Selectors {
     val search = "input"
     val button = "button"
-    val clear = "a"
+    val searchText = "form > p"
+    val searchTextLink = "form > p > a"
+    val indentTextOne = "div.panel.panel-border-wide > p:nth-child(1)"
+    val indentTextTwo = "div.panel.panel-border-wide > p:nth-child(2)"
+    val clearSearchLink = "form > div > a"
   }
 
   "The Search Bar Template" when {
@@ -35,6 +39,21 @@ class SearchBarTemplateViewSpec extends TestUtils {
       lazy val view = views.html.templates.search_bar_template(SearchForm.form)
       lazy val document = Jsoup.parse(view.body)
 
+      s"have a the correct search text with the correct link" in {
+        document.select(Selectors.searchText).text() shouldBe "Search for software that is connected to Making Tax Digital for VAT. You must also sign up to use this service."
+        document.select(Selectors.searchTextLink).attr("href") shouldBe "#"
+      }
+
+      s"have a the correct indented text" in {
+        document.select(Selectors.indentTextOne).text() shouldBe "HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly."
+        document.select(Selectors.indentTextTwo).text() shouldBe "All links to software packages take you to external websites."
+      }
+
+      s"have a clear search link" in {
+        document.select(Selectors.clearSearchLink).text() shouldBe "Clear search"
+        document.select(Selectors.clearSearchLink).attr("href") shouldBe "#"
+      }
+
       s"have a search bar with no text" in {
         document.select(Selectors.search).attr("name") shouldBe SearchForm.term
         document.select(Selectors.search).attr("value").isEmpty shouldBe true
@@ -42,11 +61,6 @@ class SearchBarTemplateViewSpec extends TestUtils {
 
       s"have a submit button bar" in {
         document.select(Selectors.button).text shouldBe "Search software packages"
-      }
-
-      s"have a clear link" in {
-        document.select(Selectors.clear).text shouldBe "Clear search"
-        document.select(Selectors.clear).attr("onclick") shouldBe "clearField('search');"
       }
     }
 
@@ -65,11 +79,6 @@ class SearchBarTemplateViewSpec extends TestUtils {
 
       s"have a submit button bar" in {
         document.select(Selectors.button).text shouldBe "Search software packages"
-      }
-
-      s"have a clear link" in {
-        document.select(Selectors.clear).text shouldBe "Clear search"
-        document.select(Selectors.clear).attr("onclick") shouldBe "clearField('search');"
       }
     }
   }

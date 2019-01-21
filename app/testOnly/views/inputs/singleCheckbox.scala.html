@@ -14,9 +14,12 @@
  * limitations under the License.
  *@
 
-@import config.AppConfig
-@()(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(field: Field, label: String)(implicit messages: Messages)
 
-@main_template(title = "Hello from software-choices-frontend", bodyClasses = None) {
-    <h1>Hello from software-choices-frontend !</h1>
-}
+@value = @{ field.value match { case Some(x) => x case None => "false" case x => x }}
+
+<div class="multiple-choice">
+    <input id="@{field.name}" name="@{field.name}" type="checkbox" value="true" @if(value == "true"){ checked }>
+    <label for="@{field.name}">@label</label>
+</div>
+

@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package config
+package testOnly.forms
 
-import javax.inject.{Inject, Singleton}
+import config.ConfigKeys
+import play.api.data.Form
+import play.api.data.Forms._
+import testOnly.models.FeatureSwitchModel
 
-import play.api.i18n.MessagesApi
-import play.api.mvc.Request
-import play.twirl.api.Html
-import uk.gov.hmrc.play.bootstrap.http.FrontendErrorHandler
+object FeatureSwitchForm {
 
-@Singleton
-class ErrorHandler @Inject()(val messagesApi: MessagesApi, implicit val appConfig: AppConfig) extends FrontendErrorHandler {
-  override def standardErrorTemplate(pageTitle: String, heading: String, message: String)(implicit request: Request[_]): Html =
-    views.html.templates.error_template(pageTitle, heading, message)
+  val form: Form[FeatureSwitchModel] = Form(
+    mapping(
+      ConfigKeys.progressiveDisclosureFeature -> boolean
+    )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
+  )
+
 }

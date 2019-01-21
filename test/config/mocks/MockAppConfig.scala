@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 
-package config
+package config.mocks
 
-import javax.inject.{Inject, Singleton}
+import config.AppConfig
+import config.features.Features
+import javax.inject.Inject
+import org.scalamock.scalatest.MockFactory
+import play.api.{Configuration, Environment}
 
-import play.api.i18n.MessagesApi
-import play.api.mvc.Request
-import play.twirl.api.Html
-import uk.gov.hmrc.play.bootstrap.http.FrontendErrorHandler
+class MockAppConfig @Inject()(implicit override val runModeConfiguration: Configuration, environment: Environment)
+  extends AppConfig with MockFactory {
 
-@Singleton
-class ErrorHandler @Inject()(val messagesApi: MessagesApi, implicit val appConfig: AppConfig) extends FrontendErrorHandler {
-  override def standardErrorTemplate(pageTitle: String, heading: String, message: String)(implicit request: Request[_]): Html =
-    views.html.templates.error_template(pageTitle, heading, message)
+  lazy val mockFeatures: Features = mock[Features]
+
+  def progressiveDisclosureEnabled(enabled: Boolean): Unit = mockFeatures.progressiveDisclosureEnabled(enabled)
+
+  override val features = mockFeatures
+
 }
