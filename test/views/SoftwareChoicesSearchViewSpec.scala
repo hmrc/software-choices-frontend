@@ -32,6 +32,8 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
       s"article ul:nth-of-type($section) > li:nth-of-type($provider) > a"
     val errorSummaryDisplay = "#error-summary-display"
     val termFieldError = "#term-error-summary"
+    val formFieldError = ".form-field--error"
+    val fieldErrorMessage = ".error-message"
   }
 
   "The software choices search page" when {
@@ -103,9 +105,15 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
       }
 
       "have an error message with link to the term field" in {
-        document.select(Selectors.termFieldError).text shouldBe errorForm.errors.head.message
-        document.select(Selectors.termFieldError).attr("href") shouldBe "#term"
-        document.select(Selectors.termFieldError).attr("data-focuses") shouldBe "term"
+        val summaryError = document.select(Selectors.termFieldError)
+        summaryError.text shouldBe errorForm.errors.head.message
+        summaryError.attr("href") shouldBe "#term"
+        summaryError.attr("data-focuses") shouldBe "term"
+      }
+
+      "highlight the errored field" in {
+        document.select(Selectors.formFieldError).isEmpty shouldBe false
+        document.select(Selectors.fieldErrorMessage).text shouldBe "AN ERROR"
       }
     }
   }
