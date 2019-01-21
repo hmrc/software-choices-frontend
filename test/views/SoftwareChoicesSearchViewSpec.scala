@@ -24,16 +24,17 @@ import utils.TestUtils
 class SoftwareChoicesSearchViewSpec extends TestUtils {
 
   object Selectors {
-    val pageHeading = "#content h1"
-    val showAllLink = "#content > article details > summary > span"
-    val letterHeaderSelector: Int => String = header => s"#content > article details > h2:nth-child($header)"
+    val pageHeading = "h1"
+    val showAllLink = "article details > summary > span"
+    val letterHeaderSelector: Int => String = header => s"article h2:nth-of-type($header)"
+    val letterHeaderDetailsSelector: Int => String = header => s"article details h2:nth-of-type($header)"
     val providerSelector: (Int, Int)=> String = (section, provider) =>
-      s"#content > article details > ul:nth-of-type($section) > li:nth-of-type($provider) > a"
+      s"article ul:nth-of-type($section) > li:nth-of-type($provider) > a"
   }
 
   "The software choices search page" when {
 
-    "given a provider" should {
+    "the progressive disclosure is enabled" should {
 
       val softwareProviders = SoftwareChoicesViewModel(Seq(
         SoftwareProviderModel("aName", "aUrl")
@@ -55,7 +56,27 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
       }
 
       "have the correct section header and a single provider for A section" in {
-        document.select(Selectors.letterHeaderSelector(2)).text() shouldBe "A"
+        document.select(Selectors.letterHeaderDetailsSelector(1)).text() shouldBe "A"
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+      }
+    }
+
+    "the progressive disclosure is disabled" should {
+
+      val softwareProviders = SoftwareChoicesViewModel(Seq(
+        SoftwareProviderModel("aName", "aUrl")
+      ))
+
+      lazy val view = views.html.software_choices_search(softwareProviders, SearchForm.form)
+      lazy val document = Jsoup.parse(view.body)
+
+      s"NOT have a show all link" in {
+        appConfig.progressiveDisclosureEnabled(false)
+        document.select(Selectors.showAllLink).isEmpty shouldBe true
+      }
+
+      "have the correct section header and a single provider for A section" in {
+        document.select(Selectors.letterHeaderSelector(1)).text() shouldBe "A"
         document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
       }
     }
