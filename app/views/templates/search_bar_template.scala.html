@@ -14,18 +14,24 @@
  * limitations under the License.
  *@
 
-@()(implicit messages: Messages)
-<div class="form-group">
-    <div class="form-group search-field search-field-darker">
-        <div class="search-input search-input-with-button">
-            <input id="search" type="text">
-        </div>
-        <div class="search-submit">
-            <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
-                @messages("softwareChoices.search.button.text")
-            </button>
-        </div>
-    </div>
+@import uk.gov.hmrc.play.views.html.helpers
+@import forms.SearchForm
 
-    <a href="#" onclick="clearField('search');">@messages("softwareChoices.search.clear")</a>
-</div>
+@(form: Form[SearchModel])(implicit messages: Messages, request: Request[_])
+
+@helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
+    <div class="form-group">
+        <div class="form-group search-field search-field-darker">
+            <div class="search-input search-input-with-button">
+                <input name="term" type="text" value="@form(SearchForm.term).value">
+            </div>
+            <div class="search-submit">
+                <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
+                    @messages("softwareChoices.search.button.text")
+                </button>
+            </div>
+        </div>
+
+        <a href="#" onclick="clearField('search');">@messages("softwareChoices.search.clear")</a>
+    </div>
+}

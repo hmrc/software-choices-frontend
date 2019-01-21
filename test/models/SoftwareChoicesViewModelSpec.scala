@@ -17,7 +17,7 @@
 package models
 
 import utils.TestUtils
-import views.html.templates.provider_template
+import views.html.templates.{found_provider_template, provider_template}
 
 class SoftwareChoicesViewModelSpec extends TestUtils {
 
@@ -29,44 +29,36 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
   val atSymbol = SoftwareProviderModel("@", "url")
   val number = SoftwareProviderModel("1", "url")
 
-  val softwareChoicesViewModelAll = SoftwareChoicesViewModel(
-    Seq(
-      upperA,
-      lowerA,
-      upperZ,
-      lowerZ,
-      hashSymbol,
-      atSymbol,
-      number
-    )
+  val softwareProvidersAll = Seq(
+    upperA,
+    lowerA,
+    upperZ,
+    lowerZ,
+    hashSymbol,
+    atSymbol,
+    number
   )
 
-  val softwareChoicesViewModelEmpty = SoftwareChoicesViewModel(Seq.empty)
+  val softwareProvidersFound = Seq(
+    upperA,
+    lowerA
+  )
 
-  "SoftwareChoicesViewModel.sortedProviders" when {
+  "SoftwareChoicesViewModel.renderAllProviders" when {
 
     "given a variety software choices" should {
       "group the providers and sort them" in {
-        softwareChoicesViewModelAll.sortedProviders shouldEqual Seq(
-          "#" -> Seq(hashSymbol, number, atSymbol),
-          "A" -> Seq(upperA, lowerA),
-          "Z" -> Seq(upperZ, lowerZ)
+        SoftwareChoicesViewModel(softwareProvidersAll).renderAllProviders shouldEqual Seq(
+          provider_template("#", Seq(hashSymbol, number, atSymbol)),
+          provider_template("A", Seq(upperA, lowerA)),
+          provider_template("Z", Seq(upperZ, lowerZ))
         )
       }
     }
 
-    "given a no software choices" should {
-      "return empty map" in {
-        softwareChoicesViewModelEmpty.sortedProviders shouldBe Seq.empty
-      }
-    }
-  }
-
-  "SoftwareChoicesViewModel.renderProviders" when {
-
-    "given a variety software choices" should {
+    "given a variety software choices and found choices" should {
       "group the providers and sort them" in {
-        softwareChoicesViewModelAll.renderProviders shouldEqual Seq(
+        SoftwareChoicesViewModel(softwareProvidersAll, softwareProvidersFound).renderAllProviders shouldEqual Seq(
           provider_template("#", Seq(hashSymbol, number, atSymbol)),
           provider_template("A", Seq(upperA, lowerA)),
           provider_template("Z", Seq(upperZ, lowerZ))
@@ -75,10 +67,30 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
     }
 
     "given a no software choices" should {
-      "return empty map" in {
-        softwareChoicesViewModelEmpty.renderProviders shouldBe Seq.empty
+      "not show any providers" in {
+        SoftwareChoicesViewModel(Seq.empty).renderAllProviders shouldBe Seq.empty
       }
     }
   }
 
+  "SoftwareChoicesViewModel.renderFoundProviders" when {
+
+    "given a variety software choices" should {
+      "sort the providers" in {
+        SoftwareChoicesViewModel(softwareProvidersAll,softwareProvidersFound).renderFoundProviders shouldEqual found_provider_template(Seq(upperA, lowerA))
+      }
+    }
+
+    "given a variety software choices" should {
+      "not show any providers" in {
+        SoftwareChoicesViewModel(softwareProvidersAll,softwareProvidersFound).renderFoundProviders shouldEqual found_provider_template(Seq(upperA, lowerA))
+      }
+    }
+
+    "given a no software choices" should {
+      "not show any providers" in {
+        SoftwareChoicesViewModel(Seq.empty).renderFoundProviders shouldBe found_provider_template(Seq.empty)
+      }
+    }
+  }
 }
