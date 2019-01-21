@@ -34,14 +34,14 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
     val letterHeaderSelector: Int => String = header => s"#content > article details > h2:nth-child($header)"
     val providerSelector: (Int, Int)=> String = (section, provider) =>
       s"#content > article details > ul:nth-of-type($section) > li:nth-of-type($provider) > a"
-    val resultsHeading = "article h2"
+    val resultsHeading = "article > h2:nth-of-type(1)"
     val resultsPara = "#content > article > p:nth-of-type(2)"
     val resultBullet = "article ul li:nth-of-type(1) a"
   }
 
   "The software choices results page" when {
 
-    "given a provider" should {
+    "when there are results found" should {
 
       val softwareProviders = SoftwareChoicesViewModel(
         allProviders = Seq(
@@ -81,18 +81,36 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
       s"not have a show all link" in {
         document.select(Selectors.showAllLink).text().isEmpty shouldBe true
       }
+    }
+
+    "when there are NO results found" should {
+
+      val softwareProviders = SoftwareChoicesViewModel(
+        allProviders = Seq(
+          SoftwareProviderModel("aName", "aUrl"),
+          SoftwareProviderModel("bName", "bUrl")
+        ),
+        foundProviders = Seq()
+      )
+
+      lazy val view = views.html.software_choices_results(softwareProviders, SearchForm.form)
+      lazy val document = Jsoup.parse(view.body)
 
       "have a heading for the results " in {
-        document.select(Selectors.resultsHeading).text() shouldBe "Results"
+        document.select(Selectors.resultsHeading).text() shouldBe "No results found"
       }
 
       "have the correct paragraph for the results " in {
-        document.select(Selectors.resultsPara).text() shouldBe "We have found these software packages that work with Making Tax Digital for VAT:"
+        document.select(Selectors.resultsPara).text() shouldBe "We have not found any results. See the full list of software packages or try again."
       }
 
-      "Display the bulleted result" in {
-        document.select(Selectors.resultBullet).text() shouldBe softwareProviders.foundProviders.head.name
-        document.select(Selectors.resultBullet).attr("href") shouldBe softwareProviders.foundProviders.head.url
+      s"have a show all link" in {
+        document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
+      }
+
+      "have the correct section header and a single provider for A section" in {
+        document.select(Selectors.letterHeaderSelector(2)).text() shouldBe "A"
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
       }
     }
   }
