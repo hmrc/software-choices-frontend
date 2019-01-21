@@ -30,6 +30,8 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
     val letterHeaderDetailsSelector: Int => String = header => s"article details h2:nth-of-type($header)"
     val providerSelector: (Int, Int)=> String = (section, provider) =>
       s"article ul:nth-of-type($section) > li:nth-of-type($provider) > a"
+    val errorSummaryDisplay = "#error-summary-display"
+    val termFieldError = "#term-error-summary"
   }
 
   "The software choices search page" when {
@@ -78,6 +80,32 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
       "have the correct section header and a single provider for A section" in {
         document.select(Selectors.letterHeaderSelector(1)).text() shouldBe "A"
         document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+      }
+    }
+
+    "the search contains errors" should {
+
+      val softwareProviders = SoftwareChoicesViewModel(Seq(
+        SoftwareProviderModel("aName", "aUrl")
+      ))
+
+      val errorForm = SearchForm.form.withError("term","AN ERROR")
+
+      lazy val view = views.html.software_choices_search(softwareProviders, errorForm)
+      lazy val document = Jsoup.parse(view.body)
+
+      "page title should be prefixed with Error" in {
+        document.title shouldBe "Error: Software that works with Making Tax Digital for VAT"
+      }
+
+      "show the error summary" in {
+        document.select(Selectors.errorSummaryDisplay).isEmpty shouldBe false
+      }
+
+      "have an error message with link to the term field" in {
+        document.select(Selectors.termFieldError).text shouldBe errorForm.errors.head.message
+        document.select(Selectors.termFieldError).attr("href") shouldBe "#term"
+        document.select(Selectors.termFieldError).attr("data-focuses") shouldBe "term"
       }
     }
   }
