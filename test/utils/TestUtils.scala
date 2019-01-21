@@ -16,7 +16,7 @@
 
 package utils
 
-import config.AppConfig
+import config.mocks.MockAppConfig
 import org.scalatest.BeforeAndAfterEach
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.i18n.{Lang, Messages, MessagesApi}
@@ -26,10 +26,15 @@ import uk.gov.hmrc.play.test.UnitSpec
 
 trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEach {
 
+  override def beforeEach() {
+    super.beforeEach()
+    appConfig.progressiveDisclosureEnabled(true)
+  }
+
   implicit lazy val fakeRequest = FakeRequest("GET", "/")
   lazy val injector: Injector = app.injector
   lazy val messagesApi: MessagesApi = injector.instanceOf[MessagesApi]
   implicit lazy val messages: Messages = Messages(Lang("en-GB"), messagesApi)
-  implicit lazy val appConfig = injector.instanceOf[AppConfig]
+  implicit lazy val appConfig = injector.instanceOf[MockAppConfig]
 
 }

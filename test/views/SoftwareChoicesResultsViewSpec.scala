@@ -16,6 +16,7 @@
 
 package views
 
+import config.AppConfig
 import forms.SearchForm
 import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
 import org.jsoup.Jsoup
