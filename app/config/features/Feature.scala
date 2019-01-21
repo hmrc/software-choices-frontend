@@ -14,22 +14,12 @@
  * limitations under the License.
  */
 
-package controllers
+package config.features
 
-import javax.inject.{Inject, Singleton}
-import play.api.mvc._
+import play.api.Configuration
 
-import scala.concurrent.Future
-import play.api.i18n.{I18nSupport, MessagesApi}
-import config.AppConfig
-import uk.gov.hmrc.play.bootstrap.controller.FrontendController
-import views.html.hello_world
+class Feature(val key: String)(implicit config: Configuration) {
+  def apply(value: Boolean): Unit = sys.props += key -> value.toString
 
-@Singleton
-class HelloWorld @Inject()(val messagesApi: MessagesApi, implicit val appConfig: AppConfig) extends FrontendController with I18nSupport {
-
-  val helloWorld = Action.async { implicit request =>
-    Future.successful(Ok(hello_world()))
-  }
-
+  def apply(): Boolean = sys.props.get(key).fold(config.getBoolean(key).getOrElse(false))(_.toBoolean)
 }

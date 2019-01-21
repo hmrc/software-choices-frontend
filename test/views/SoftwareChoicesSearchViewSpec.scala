@@ -24,21 +24,21 @@ import utils.TestUtils
 class SoftwareChoicesSearchViewSpec extends TestUtils {
 
   object Selectors {
-    val pageHeading = "#content h1"
-    val searchText = "#content > article > p"
-    val searchTextLink = "#content > article > p > a"
-    val indentTextOne = "#content > article > div.panel.panel-border-wide > p:nth-child(1)"
-    val indentTextTwo = "#content > article > div.panel.panel-border-wide > p:nth-child(2)"
-    val clearSearchLink = "#content > article > form > div > a"
-    val showAllLink = "#content > article details > summary > span"
-    val letterHeaderSelector: Int => String = header => s"#content > article details > h2:nth-child($header)"
+    val pageHeading = "h1"
+    val showAllLink = "article details > summary > span"
+    val letterHeaderSelector: Int => String = header => s"article h2:nth-of-type($header)"
+    val letterHeaderDetailsSelector: Int => String = header => s"article details h2:nth-of-type($header)"
     val providerSelector: (Int, Int)=> String = (section, provider) =>
-      s"#content > article details > ul:nth-of-type($section) > li:nth-of-type($provider) > a"
+      s"article ul:nth-of-type($section) > li:nth-of-type($provider) > a"
+    val errorSummaryDisplay = "#error-summary-display"
+    val termFieldError = "#term-error-summary"
+    val formFieldError = ".form-field--error"
+    val fieldErrorMessage = ".error-message"
   }
 
   "The software choices search page" when {
 
-    "given a provider" should {
+    "the progressive disclosure is enabled" should {
 
       val softwareProviders = SoftwareChoicesViewModel(Seq(
         SoftwareProviderModel("aName", "aUrl")
@@ -55,28 +55,65 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
         document.select(Selectors.pageHeading).text() shouldBe "Software that works with Making Tax Digital for VAT"
       }
 
-      s"have a the correct search text with the correct link" in {
-        document.select(Selectors.searchText).text() shouldBe "Search for software that is connected to Making Tax Digital for VAT. You must also sign up to use this service."
-        document.select(Selectors.searchTextLink).attr("href") shouldBe "#"
-      }
-
-      s"have a the correct indented text" in {
-        document.select(Selectors.indentTextOne).text() shouldBe "HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly."
-        document.select(Selectors.indentTextTwo).text() shouldBe "All links to software packages take you to external websites."
-      }
-
-      s"have a clear search link" in {
-        document.select(Selectors.clearSearchLink).text() shouldBe "Clear search"
-        document.select(Selectors.clearSearchLink).attr("href") shouldBe "#"
-      }
-
       s"have a show all link" in {
         document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
       }
 
       "have the correct section header and a single provider for A section" in {
-        document.select(Selectors.letterHeaderSelector(2)).text() shouldBe "A"
+        document.select(Selectors.letterHeaderDetailsSelector(1)).text() shouldBe "A"
         document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+      }
+    }
+
+    "the progressive disclosure is disabled" should {
+
+      val softwareProviders = SoftwareChoicesViewModel(Seq(
+        SoftwareProviderModel("aName", "aUrl")
+      ))
+
+      lazy val view = views.html.software_choices_search(softwareProviders, SearchForm.form)
+      lazy val document = Jsoup.parse(view.body)
+
+      s"NOT have a show all link" in {
+        appConfig.progressiveDisclosureEnabled(false)
+        document.select(Selectors.showAllLink).isEmpty shouldBe true
+      }
+
+      "have the correct section header and a single provider for A section" in {
+        document.select(Selectors.letterHeaderSelector(1)).text() shouldBe "A"
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+      }
+    }
+
+    "the search contains errors" should {
+
+      val softwareProviders = SoftwareChoicesViewModel(Seq(
+        SoftwareProviderModel("aName", "aUrl")
+      ))
+
+      val errorForm = SearchForm.form.withError("term","AN ERROR")
+
+      lazy val view = views.html.software_choices_search(softwareProviders, errorForm)
+      lazy val document = Jsoup.parse(view.body)
+
+      "page title should be prefixed with Error" in {
+        document.title shouldBe "Error: Software that works with Making Tax Digital for VAT"
+      }
+
+      "show the error summary" in {
+        document.select(Selectors.errorSummaryDisplay).isEmpty shouldBe false
+      }
+
+      "have an error message with link to the term field" in {
+        val summaryError = document.select(Selectors.termFieldError)
+        summaryError.text shouldBe errorForm.errors.head.message
+        summaryError.attr("href") shouldBe "#term"
+        summaryError.attr("data-focuses") shouldBe "term"
+      }
+
+      "highlight the errored field" in {
+        document.select(Selectors.formFieldError).isEmpty shouldBe false
+        document.select(Selectors.fieldErrorMessage).text shouldBe "AN ERROR"
       }
     }
   }

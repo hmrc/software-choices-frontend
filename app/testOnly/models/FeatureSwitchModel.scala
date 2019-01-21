@@ -14,17 +14,6 @@
  * limitations under the License.
  */
 
-package config
+package testOnly.models
 
-import javax.inject.{Inject, Singleton}
-
-import play.api.i18n.MessagesApi
-import play.api.mvc.Request
-import play.twirl.api.Html
-import uk.gov.hmrc.play.bootstrap.http.FrontendErrorHandler
-
-@Singleton
-class ErrorHandler @Inject()(val messagesApi: MessagesApi, implicit val appConfig: AppConfig) extends FrontendErrorHandler {
-  override def standardErrorTemplate(pageTitle: String, heading: String, message: String)(implicit request: Request[_]): Html =
-    views.html.templates.error_template(pageTitle, heading, message)
-}
+case class FeatureSwitchModel(progressiveDisclosureEnabled: Boolean)
