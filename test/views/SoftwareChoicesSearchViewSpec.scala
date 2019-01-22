@@ -17,6 +17,7 @@
 package views
 
 import forms.SearchForm
+import assets.messages.{CommonMessages, SoftwareChoicesMessages}
 import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
 import org.jsoup.Jsoup
 import utils.TestUtils
@@ -49,15 +50,15 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
       lazy val document = Jsoup.parse(view.body)
 
       s"have the correct document title" in {
-        document.title shouldBe "Software that works with Making Tax Digital for VAT"
+        document.title shouldBe SoftwareChoicesMessages.title
       }
 
       s"have a the correct page heading" in {
-        document.select(Selectors.pageHeading).text() shouldBe "Software that works with Making Tax Digital for VAT"
+        document.select(Selectors.pageHeading).text() shouldBe SoftwareChoicesMessages.title
       }
 
       s"have a show all link" in {
-        document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
+        document.select(Selectors.showAllLink).text() shouldBe SoftwareChoicesMessages.showAll
       }
 
       s"have a clear search link" in {
@@ -105,7 +106,7 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
       lazy val document = Jsoup.parse(view.body)
 
       "page title should be prefixed with Error" in {
-        document.title shouldBe "Error: Software that works with Making Tax Digital for VAT"
+        document.title shouldBe s"${CommonMessages.error} ${SoftwareChoicesMessages.title}"
       }
 
       "show the error summary" in {
