@@ -14,11 +14,13 @@
  * limitations under the License.
  *@
 
-@(title: String, content: Html)
+@(title: String, content: Html, gaEvent: Option[String] = None)
 
-<details class="govuk-details">
-    <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">@title</span>
+<details>
+    <summary>
+        <span class="summary" @gaEvent.map(event => s"""data-journey-click="$event"""")>@title</span>
     </summary>
-    @content
+    <div>
+        @content
+    </div>
 </details>

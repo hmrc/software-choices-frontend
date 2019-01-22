@@ -34,6 +34,7 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
     val resultsHeading = "article > h2:nth-of-type(1)"
     val resultsPara = "article > p:nth-of-type(1)"
     val resultBullet = "article ul li:nth-of-type(1) a"
+    val clearSearchLink = "article > div > a:nth-of-type(1)"
   }
 
   "The software choices results page" when {
@@ -58,6 +59,11 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
 
       s"have the correct page heading" in {
         document.select(Selectors.pageHeading).text() shouldBe "Software that works with Making Tax Digital for VAT"
+      }
+
+      s"have a clear search link" in {
+        document.select(Selectors.clearSearchLink).text() shouldBe "Clear search"
+        document.select(Selectors.clearSearchLink).attr("href") shouldBe controllers.routes.SoftwareChoicesController.show().url
       }
 
       s"not have a show all link" in {
@@ -94,7 +100,7 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
 
         "have the correct section header and a single provider for A section" in {
           document.select(Selectors.letterHeaderDetailsSelector(1)).text() shouldBe "A"
-          document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+          document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
         }
       }
 
@@ -118,7 +124,7 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
 
         "have the correct section header and a single provider for A section" in {
           document.select(Selectors.letterHeaderSelector(2)).text() shouldBe "A"
-          document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+          document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
         }
       }
     }

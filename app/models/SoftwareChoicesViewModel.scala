@@ -16,8 +16,9 @@
 
 package models
 
+import play.api.i18n.Messages
 import play.twirl.api.HtmlFormat
-import views.html.templates.{provider_template, found_provider_template}
+import views.html.templates.{found_provider_template, provider_template}
 
 case class SoftwareChoicesViewModel(allProviders: Seq[SoftwareProviderModel], foundProviders: Seq[SoftwareProviderModel] = Seq.empty){
 
@@ -27,9 +28,9 @@ case class SoftwareChoicesViewModel(allProviders: Seq[SoftwareProviderModel], fo
 
   private val groupByCategory: Seq[SoftwareProviderModel] => GroupedProviders = _.groupBy(_.category).toSeq.sortBy(_._1)
 
-  val renderAllProviders: Seq[HtmlFormat.Appendable] = groupByCategory(sortedProviders(allProviders)).map {
+  def renderAllProviders(implicit messages: Messages): Seq[HtmlFormat.Appendable] = groupByCategory(sortedProviders(allProviders)).map {
     case (category, providersForCategory) => provider_template(category, providersForCategory)
   }
 
-  val renderFoundProviders: HtmlFormat.Appendable = found_provider_template(sortedProviders(foundProviders))
+  def renderFoundProviders(implicit messages: Messages): HtmlFormat.Appendable = found_provider_template(sortedProviders(foundProviders))
 }
