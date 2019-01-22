@@ -16,6 +16,7 @@
 
 package views
 
+import assets.messages.SoftwareChoicesMessages
 import config.AppConfig
 import forms.SearchForm
 import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
@@ -54,11 +55,11 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
       lazy val document = Jsoup.parse(view.body)
 
       s"have the correct document title" in {
-        document.title shouldBe "Software that works with Making Tax Digital for VAT"
+        document.title shouldBe SoftwareChoicesMessages.title
       }
 
       s"have the correct page heading" in {
-        document.select(Selectors.pageHeading).text() shouldBe "Software that works with Making Tax Digital for VAT"
+        document.select(Selectors.pageHeading).text() shouldBe SoftwareChoicesMessages.title
       }
 
       s"have a clear search link" in {
@@ -87,15 +88,15 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
         lazy val document = Jsoup.parse(view.body)
 
         "have a heading for the results " in {
-          document.select(Selectors.resultsHeading).text() shouldBe "No results found"
+          document.select(Selectors.resultsHeading).text() shouldBe SoftwareChoicesMessages.noResultsHeader
         }
 
         "have the correct paragraph for the results " in {
-          document.select(Selectors.resultsPara).text() shouldBe "We have not found any results. See the full list of software packages or try again."
+          document.select(Selectors.resultsPara).text() shouldBe SoftwareChoicesMessages.noResults
         }
 
         s"have a show all link" in {
-          document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
+          document.select(Selectors.showAllLink).text() shouldBe SoftwareChoicesMessages.showAll
         }
 
         "have the correct section header and a single provider for A section" in {
@@ -111,11 +112,11 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
 
         "have a heading for the results " in {
           appConfig.progressiveDisclosureEnabled(false)
-          document.select(Selectors.resultsHeading).text() shouldBe "No results found"
+          document.select(Selectors.resultsHeading).text() shouldBe SoftwareChoicesMessages.noResultsHeader
         }
 
         "have the correct paragraph for the results " in {
-          document.select(Selectors.resultsPara).text() shouldBe "We have not found any results. See the full list of software packages or try again."
+          document.select(Selectors.resultsPara).text() shouldBe SoftwareChoicesMessages.noResults
         }
 
         s"NOT have a show all link" in {

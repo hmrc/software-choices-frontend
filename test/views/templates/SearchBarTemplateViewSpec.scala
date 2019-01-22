@@ -16,6 +16,8 @@
 
 package views.templates
 
+import assets.messages
+import assets.messages.SearchMessages
 import forms.SearchForm
 import org.jsoup.Jsoup
 import utils.TestUtils
@@ -40,14 +42,15 @@ class SearchBarTemplateViewSpec extends TestUtils {
       lazy val document = Jsoup.parse(view.body)
 
       s"have a the correct search text with the correct link" in {
-        document.select(Selectors.searchText).text() shouldBe "Search for software that is connected to Making Tax Digital for VAT. You must also sign up to use this service."
+        document.select(Selectors.searchText).text() shouldBe s"${SearchMessages.text} ${SearchMessages.textLink}."
         document.select(Selectors.searchTextLink).attr("href") shouldBe "#"
       }
 
       s"have a the correct indented text" in {
-        document.select(Selectors.indentTextOne).text() shouldBe "HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly."
-        document.select(Selectors.indentTextTwo).text() shouldBe "All links to software packages take you to external websites."
+        document.select(Selectors.indentTextOne).text() shouldBe SearchMessages.p1
+        document.select(Selectors.indentTextTwo).text() shouldBe SearchMessages.p2
       }
+
 
       s"have a label for the search input which is visually hidden" in {
         document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
@@ -60,7 +63,7 @@ class SearchBarTemplateViewSpec extends TestUtils {
       }
 
       s"have a submit button bar" in {
-        document.select(Selectors.button).text shouldBe "Search software packages"
+        document.select(Selectors.button).text shouldBe SearchMessages.buttonText
       }
     }
 
@@ -78,7 +81,7 @@ class SearchBarTemplateViewSpec extends TestUtils {
       }
 
       s"have a submit button bar" in {
-        document.select(Selectors.button).text shouldBe "Search software packages"
+        document.select(Selectors.button).text shouldBe SearchMessages.buttonText
       }
     }
   }
