@@ -34,6 +34,7 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
     val termFieldError = "#term-error-summary"
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".error-message"
+    val clearSearchLink = "article > div > a:nth-of-type(1)"
   }
 
   "The software choices search page" when {
@@ -59,9 +60,16 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
         document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
       }
 
+      s"have a clear search link" in {
+        val element = document.select(Selectors.clearSearchLink)
+        element.text() shouldBe "Clear search"
+        element.attr("href") shouldBe "#"
+        element.attr("onClick") shouldBe s"clearField('term');"
+      }
+
       "have the correct section header and a single provider for A section" in {
         document.select(Selectors.letterHeaderDetailsSelector(1)).text() shouldBe "A"
-        document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
       }
     }
 
@@ -81,7 +89,7 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
 
       "have the correct section header and a single provider for A section" in {
         document.select(Selectors.letterHeaderSelector(1)).text() shouldBe "A"
-        document.select(Selectors.providerSelector(1, 1)).text() shouldBe "aName"
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
       }
     }
 
