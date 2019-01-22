@@ -23,13 +23,13 @@ import utils.TestUtils
 class SearchBarTemplateViewSpec extends TestUtils {
 
   object Selectors {
+    val searchLabel = "label"
     val search = "input"
     val button = "button"
     val searchText = "form > p"
     val searchTextLink = "form > p > a"
     val indentTextOne = "div.panel.panel-border-wide > p:nth-child(1)"
     val indentTextTwo = "div.panel.panel-border-wide > p:nth-child(2)"
-    val clearSearchLink = "form > div > a"
   }
 
   "The Search Bar Template" when {
@@ -49,9 +49,9 @@ class SearchBarTemplateViewSpec extends TestUtils {
         document.select(Selectors.indentTextTwo).text() shouldBe "All links to software packages take you to external websites."
       }
 
-      s"have a clear search link" in {
-        document.select(Selectors.clearSearchLink).text() shouldBe "Clear search"
-        document.select(Selectors.clearSearchLink).attr("href") shouldBe "#"
+      s"have a label for the search input which is visually hidden" in {
+        document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
+        document.select(Selectors.searchLabel).hasClass("visuallyhidden") shouldBe true
       }
 
       s"have a search bar with no text" in {

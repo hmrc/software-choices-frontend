@@ -14,10 +14,10 @@
  * limitations under the License.
  *@
 
-@(providers: Seq[SoftwareProviderModel])
+@(providers: Seq[SoftwareProviderModel])(implicit messages: Messages)
 
 <ul class="list list-bullet">
     @providers.map { provider =>
-        <li><a href="@provider.url" target="_blank">@provider.name</a></li>
+        <li><a href="@provider.url" target="_blank">@provider.name <span class="visuallyhidden">@messages("common.newTab")</span></a></li>
     }
 </ul>

@@ -1,6 +1,7 @@
 common.back = Back
 common.errorSummary.heading = There is a problem
 common.error = Error:
+common.newTab = opens in a new tab
 
 #Feedback
 feedback.before = This is a new service – your
@@ -11,6 +12,7 @@ searchForm.term.missing = Enter the name of a software package
 searchForm.term.max = Enter less than {0} characters
 
 softwareChoices.title = Software that works with Making Tax Digital for VAT
+softwareChoices.search.label = Search for software that is connected to Making Tax Digital for VAT
 softwareChoices.search.text = Search for software that is connected to Making Tax Digital for VAT. You must also
 softwareChoices.search.text.link = sign up to use this service
 softwareChoices.search.button.text = Search software packages

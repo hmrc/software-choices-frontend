@@ -48,7 +48,7 @@ class ProviderTemplateViewSpec extends TestUtils {
       "for the first provider" should {
 
         "have the correct name" in {
-          document.select(Selectors.providerSelector(1)).text() shouldBe "aName"
+          document.select(Selectors.providerSelector(1)).text() shouldBe opensInANewTabSuffix("aName")
         }
 
         "have the correct link" in {
@@ -59,7 +59,7 @@ class ProviderTemplateViewSpec extends TestUtils {
       "for the second provider" should {
 
         "have the correct name" in {
-          document.select(Selectors.providerSelector(2)).text() shouldBe "anotherName"
+          document.select(Selectors.providerSelector(2)).text() shouldBe opensInANewTabSuffix("anotherName")
         }
 
         "have the correct link" in {
@@ -70,7 +70,7 @@ class ProviderTemplateViewSpec extends TestUtils {
       "for the third provider" should {
 
         "have the correct name" in {
-          document.select(Selectors.providerSelector(3)).text() shouldBe "andAnotherName"
+          document.select(Selectors.providerSelector(3)).text() shouldBe opensInANewTabSuffix("andAnotherName")
         }
 
         "have the correct link" in {
