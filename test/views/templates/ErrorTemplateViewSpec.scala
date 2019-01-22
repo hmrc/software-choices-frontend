@@ -16,11 +16,9 @@
 
 package views.templates
 
-import org.jsoup.Jsoup
-import play.twirl.api.Html
-import utils.TestUtils
+import utils.ViewTestUtils
 
-class ErrorTemplateViewSpec extends TestUtils {
+class ErrorTemplateViewSpec extends ViewTestUtils {
 
   object Selectors {
     val heading = "h1"
@@ -31,8 +29,7 @@ class ErrorTemplateViewSpec extends TestUtils {
 
     "given a title and some Html content" should {
 
-      lazy val view = views.html.templates.error_template("A Title", "A Heading", "Some Text")
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.templates.error_template("A Title", "A Heading", "Some Text"))
 
       "have the correct title" in {
         document.title shouldBe "A Title"

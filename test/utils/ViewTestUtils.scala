@@ -14,10 +14,14 @@
  * limitations under the License.
  */
 
-package models
+package utils
 
-case class SoftwareProviderModel(name: String, url: String) {
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
+import play.twirl.api.HtmlFormat
 
-  val category: String = "^[A-Z]".r.findFirstIn(name.toUpperCase).getOrElse("#")
+trait ViewTestUtils extends TestUtils {
+
+  lazy val parseView: HtmlFormat.Appendable => Document = x => Jsoup.parse(x.body)
 
 }

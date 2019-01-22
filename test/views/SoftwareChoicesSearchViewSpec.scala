@@ -16,12 +16,12 @@
 
 package views
 
+import assets.messages.{CommonMessages, SearchMessages, SoftwareChoicesMessages}
+import assets.testContants.SoftwareProvidersTestConstants
 import forms.SearchForm
-import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
-import org.jsoup.Jsoup
-import utils.TestUtils
+import utils.ViewTestUtils
 
-class SoftwareChoicesSearchViewSpec extends TestUtils {
+class SoftwareChoicesSearchViewSpec extends ViewTestUtils with SoftwareProvidersTestConstants {
 
   object Selectors {
     val pageHeading = "h1"
@@ -41,71 +41,54 @@ class SoftwareChoicesSearchViewSpec extends TestUtils {
 
     "the progressive disclosure is enabled" should {
 
-      val softwareProviders = SoftwareChoicesViewModel(Seq(
-        SoftwareProviderModel("aName", "aUrl")
-      ))
-
-      lazy val view = views.html.software_choices_search(softwareProviders, SearchForm.form)
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.software_choices_search(providers, SearchForm.form))
 
       s"have the correct document title" in {
-        document.title shouldBe "Software that works with Making Tax Digital for VAT"
+        document.title shouldBe SoftwareChoicesMessages.title
       }
 
       s"have a the correct page heading" in {
-        document.select(Selectors.pageHeading).text() shouldBe "Software that works with Making Tax Digital for VAT"
+        document.select(Selectors.pageHeading).text() shouldBe SoftwareChoicesMessages.title
       }
 
       s"have a show all link" in {
-        document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
+        document.select(Selectors.showAllLink).text() shouldBe SoftwareChoicesMessages.showAll
       }
 
       s"have a clear search link" in {
         val element = document.select(Selectors.clearSearchLink)
-        element.text() shouldBe "Clear search"
+        element.text() shouldBe SearchMessages.clear
         element.attr("href") shouldBe "#"
         element.attr("onClick") shouldBe s"clearField('term');"
       }
 
-      "have the correct section header and a single provider for A section" in {
-        document.select(Selectors.letterHeaderDetailsSelector(1)).text() shouldBe "A"
-        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
+      "have a single provider for A section" in {
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix(providers.allProviders.head.name)
       }
     }
 
     "the progressive disclosure is disabled" should {
 
-      val softwareProviders = SoftwareChoicesViewModel(Seq(
-        SoftwareProviderModel("aName", "aUrl")
-      ))
-
-      lazy val view = views.html.software_choices_search(softwareProviders, SearchForm.form)
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.software_choices_search(providers, SearchForm.form))
 
       s"NOT have a show all link" in {
         appConfig.progressiveDisclosureEnabled(false)
         document.select(Selectors.showAllLink).isEmpty shouldBe true
       }
 
-      "have the correct section header and a single provider for A section" in {
-        document.select(Selectors.letterHeaderSelector(1)).text() shouldBe "A"
-        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
+      "have a single provider for A section" in {
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix(providers.allProviders.head.name)
       }
     }
 
     "the search contains errors" should {
 
-      val softwareProviders = SoftwareChoicesViewModel(Seq(
-        SoftwareProviderModel("aName", "aUrl")
-      ))
-
       val errorForm = SearchForm.form.withError("term","AN ERROR")
 
-      lazy val view = views.html.software_choices_search(softwareProviders, errorForm)
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.software_choices_search(providers, errorForm))
 
       "page title should be prefixed with Error" in {
-        document.title shouldBe "Error: Software that works with Making Tax Digital for VAT"
+        document.title shouldBe s"${CommonMessages.error} ${SoftwareChoicesMessages.title}"
       }
 
       "show the error summary" in {

@@ -16,11 +16,10 @@
 
 package views.templates
 
-import models.SoftwareProviderModel
-import org.jsoup.Jsoup
-import utils.TestUtils
+import assets.testContants.SoftwareProvidersTestConstants
+import utils.ViewTestUtils
 
-class FoundProviderTemplateViewSpec extends TestUtils {
+class FoundProviderTemplateViewSpec extends ViewTestUtils with SoftwareProvidersTestConstants {
 
   object Selectors {
     val heading = "h2"
@@ -31,45 +30,21 @@ class FoundProviderTemplateViewSpec extends TestUtils {
 
     "given multiple a category with a list of providers" should {
 
-      val softwareProviders = Seq(
-        SoftwareProviderModel("aName", "aUrl"),
-        SoftwareProviderModel("anotherName", "anotherUrl"),
-        SoftwareProviderModel("andAnotherName", "andAnotherUrl")
-      )
+      val providers = Seq(providerA, providerB, providerHash)
 
-      lazy val view = views.html.templates.found_provider_template(softwareProviders)
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.templates.found_provider_template(providers))
 
-      "for the first provider" should {
+      for (i <- providers.indices) {
 
-        "have the correct name" in {
-          document.select(Selectors.providerSelector(1)).text() shouldBe opensInANewTabSuffix("aName")
-        }
+        s"for provider $i" should {
 
-        "have the correct link" in {
-          document.select(Selectors.providerSelector(1)).attr("href") shouldBe "aUrl"
-        }
-      }
+          "have the correct name" in {
+            document.select(Selectors.providerSelector(i + 1)).text() shouldBe opensInANewTabSuffix(providers(i).name)
+          }
 
-      "for the second provider" should {
-
-        "have the correct name" in {
-          document.select(Selectors.providerSelector(2)).text() shouldBe opensInANewTabSuffix("anotherName")
-        }
-
-        "have the correct link" in {
-          document.select(Selectors.providerSelector(2)).attr("href") shouldBe "anotherUrl"
-        }
-      }
-
-      "for the third provider" should {
-
-        "have the correct name" in {
-          document.select(Selectors.providerSelector(3)).text() shouldBe opensInANewTabSuffix("andAnotherName")
-        }
-
-        "have the correct link" in {
-          document.select(Selectors.providerSelector(3)).attr("href") shouldBe "andAnotherUrl"
+          "have the correct link" in {
+            document.select(Selectors.providerSelector(i + 1)).attr("href") shouldBe providers(i).url
+          }
         }
       }
     }

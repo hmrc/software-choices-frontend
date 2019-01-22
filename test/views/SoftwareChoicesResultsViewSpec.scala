@@ -16,13 +16,12 @@
 
 package views
 
-import config.AppConfig
+import assets.messages.{SearchMessages, SoftwareChoicesMessages}
+import assets.testContants.SoftwareProvidersTestConstants
 import forms.SearchForm
-import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
-import org.jsoup.Jsoup
-import utils.TestUtils
+import utils.ViewTestUtils
 
-class SoftwareChoicesResultsViewSpec extends TestUtils {
+class SoftwareChoicesResultsViewSpec extends ViewTestUtils with SoftwareProvidersTestConstants {
 
   object Selectors {
     val pageHeading = "h1"
@@ -41,28 +40,18 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
 
     "when there are results found" should {
 
-      val softwareProviders = SoftwareChoicesViewModel(
-        allProviders = Seq(
-          SoftwareProviderModel("aName", "aUrl"),
-          SoftwareProviderModel("bName", "bUrl")
-        ),
-        foundProviders = Seq(
-          SoftwareProviderModel("aName", "aUrl")
-        ))
-
-      lazy val view = views.html.software_choices_results(softwareProviders, SearchForm.form)
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.software_choices_results(foundProviders, SearchForm.form))
 
       s"have the correct document title" in {
-        document.title shouldBe "Software that works with Making Tax Digital for VAT"
+        document.title shouldBe SoftwareChoicesMessages.title
       }
 
       s"have the correct page heading" in {
-        document.select(Selectors.pageHeading).text() shouldBe "Software that works with Making Tax Digital for VAT"
+        document.select(Selectors.pageHeading).text() shouldBe SoftwareChoicesMessages.title
       }
 
       s"have a clear search link" in {
-        document.select(Selectors.clearSearchLink).text() shouldBe "Clear search"
+        document.select(Selectors.clearSearchLink).text() shouldBe SearchMessages.clear
         document.select(Selectors.clearSearchLink).attr("href") shouldBe controllers.routes.SoftwareChoicesController.show().url
       }
 
@@ -73,58 +62,46 @@ class SoftwareChoicesResultsViewSpec extends TestUtils {
 
     "when there are NO results found" should {
 
-      val softwareProviders = SoftwareChoicesViewModel(
-        allProviders = Seq(
-          SoftwareProviderModel("aName", "aUrl"),
-          SoftwareProviderModel("bName", "bUrl")
-        ),
-        foundProviders = Seq()
-      )
-
       "when the progressive disclosure is enabled" should {
 
-        lazy val view = views.html.software_choices_results(softwareProviders, SearchForm.form)
-        lazy val document = Jsoup.parse(view.body)
+        lazy val document = parseView(views.html.software_choices_results(providers, SearchForm.form))
 
         "have a heading for the results " in {
-          document.select(Selectors.resultsHeading).text() shouldBe "No results found"
+          document.select(Selectors.resultsHeading).text() shouldBe SoftwareChoicesMessages.noResultsHeader
         }
 
         "have the correct paragraph for the results " in {
-          document.select(Selectors.resultsPara).text() shouldBe "We have not found any results. See the full list of software packages or try again."
+          document.select(Selectors.resultsPara).text() shouldBe SoftwareChoicesMessages.noResults
         }
 
         s"have a show all link" in {
-          document.select(Selectors.showAllLink).text() shouldBe "Show all software providers"
+          document.select(Selectors.showAllLink).text() shouldBe SoftwareChoicesMessages.showAll
         }
 
-        "have the correct section header and a single provider for A section" in {
-          document.select(Selectors.letterHeaderDetailsSelector(1)).text() shouldBe "A"
-          document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
+        "have single provider for A section" in {
+          document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix(providers.allProviders.head.name)
         }
       }
 
       "when the progressive disclosure is disabled" should {
 
-        lazy val view = views.html.software_choices_results(softwareProviders, SearchForm.form)
-        lazy val document = Jsoup.parse(view.body)
+        lazy val document = parseView(views.html.software_choices_results(providers, SearchForm.form))
 
         "have a heading for the results " in {
           appConfig.progressiveDisclosureEnabled(false)
-          document.select(Selectors.resultsHeading).text() shouldBe "No results found"
+          document.select(Selectors.resultsHeading).text() shouldBe SoftwareChoicesMessages.noResultsHeader
         }
 
         "have the correct paragraph for the results " in {
-          document.select(Selectors.resultsPara).text() shouldBe "We have not found any results. See the full list of software packages or try again."
+          document.select(Selectors.resultsPara).text() shouldBe SoftwareChoicesMessages.noResults
         }
 
         s"NOT have a show all link" in {
           document.select(Selectors.showAllLink).isEmpty shouldBe true
         }
 
-        "have the correct section header and a single provider for A section" in {
-          document.select(Selectors.letterHeaderSelector(2)).text() shouldBe "A"
-          document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix("aName")
+        "have a single provider for A section" in {
+          document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix(providers.allProviders.head.name)
         }
       }
     }
