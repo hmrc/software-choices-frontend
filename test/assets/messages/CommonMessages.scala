@@ -14,10 +14,16 @@
  * limitations under the License.
  */
 
-package models
+package assets.messages
 
-case class SoftwareProviderModel(name: String, url: String) {
+object CommonMessages {
 
-  val category: String = "^[A-Z]".r.findFirstIn(name.toUpperCase).getOrElse("#")
+  val back = "Back"
+  val errorHeading = "There is a problem"
+  val error = "Error:"
+  val newTab = "opens in a new tab"
 
+  val feedbackBefore = "This is a new service – your"
+  val feedbackLink = "feedback"
+  val feedbackAfter = "will help us to improve it."
 }

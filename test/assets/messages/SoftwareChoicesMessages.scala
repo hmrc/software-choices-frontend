@@ -14,10 +14,16 @@
  * limitations under the License.
  */
 
-package models
+package assets.messages
 
-case class SoftwareProviderModel(name: String, url: String) {
+object SoftwareChoicesMessages {
 
-  val category: String = "^[A-Z]".r.findFirstIn(name.toUpperCase).getOrElse("#")
+  val title = "Software that works with Making Tax Digital for VAT"
+  val showAll = "Show all software providers"
+
+  val noResultsHeader = "No results found"
+  val noResults = "We have not found any results. See the full list of software packages or try again."
+  val resultsHeader = "Results"
+  val results = "We have found these software packages that work with Making Tax Digital for VAT:"
 
 }
