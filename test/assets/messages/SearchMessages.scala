@@ -18,8 +18,13 @@ package assets.messages
 
 object SearchMessages {
 
+
+  val searchFormTermMissing = "Enter the name of a software package"
+  val searchFormTermMax = "Enter less than {0} characters"
+
   val text = "Search for software that is connected to Making Tax Digital for VAT. You must also"
   val textLink = "sign up to use this service"
+  val label = "Search for software that is connected to Making Tax Digital for VAT"
   val buttonText = "Search software packages"
   val clear = "Clear search"
   val p1 = "HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly."
