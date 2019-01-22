@@ -24,7 +24,7 @@ case class SoftwareChoicesViewModel(allProviders: Seq[SoftwareProviderModel], fo
 
   type GroupedProviders = Seq[(String, Seq[SoftwareProviderModel])]
 
-  private val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase())
+  private val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
 
   private val groupByCategory: Seq[SoftwareProviderModel] => GroupedProviders = _.groupBy(_.category).toSeq.sortBy(_._1)
 
