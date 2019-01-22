@@ -16,13 +16,11 @@
 
 package views.templates
 
-import assets.messages
 import assets.messages.SearchMessages
 import forms.SearchForm
-import org.jsoup.Jsoup
-import utils.TestUtils
+import utils.ViewTestUtils
 
-class SearchBarTemplateViewSpec extends TestUtils {
+class SearchBarTemplateViewSpec extends ViewTestUtils {
 
   object Selectors {
     val searchLabel = "label"
@@ -38,8 +36,7 @@ class SearchBarTemplateViewSpec extends TestUtils {
 
     "given an empty form" should {
 
-      lazy val view = views.html.templates.search_bar_template(SearchForm.form)
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form))
 
       s"have a the correct search text with the correct link" in {
         document.select(Selectors.searchText).text() shouldBe s"${SearchMessages.text} ${SearchMessages.textLink}."
@@ -69,11 +66,9 @@ class SearchBarTemplateViewSpec extends TestUtils {
 
     "given a form with data" should {
 
-      lazy val view = views.html.templates.search_bar_template(SearchForm.form.bind(Map(
+      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form.bind(Map(
         SearchForm.term -> "Search Term"
-      )))
-
-      lazy val document = Jsoup.parse(view.body)
+      ))))
 
       s"have a search bar" in {
         document.select(Selectors.search).attr("name") shouldBe SearchForm.term

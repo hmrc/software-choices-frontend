@@ -16,12 +16,10 @@
 
 package views.templates
 
-import models.SoftwareProviderModel
-import org.jsoup.Jsoup
 import play.twirl.api.Html
-import utils.TestUtils
+import utils.ViewTestUtils
 
-class ProgressiveDisclosureTemplateViewSpec extends TestUtils {
+class ProgressiveDisclosureTemplateViewSpec extends ViewTestUtils {
 
   object Selectors {
     val title = "span"
@@ -32,8 +30,7 @@ class ProgressiveDisclosureTemplateViewSpec extends TestUtils {
 
     "given a title and some Html content" should {
 
-      lazy val view = views.html.templates.progressive_disclosure_template("A Title", Html("<p>Some Text</p>"))
-      lazy val document = Jsoup.parse(view.body)
+      lazy val document = parseView(views.html.templates.progressive_disclosure_template("A Title", Html("<p>Some Text</p>")))
 
       "have the correct title" in {
         document.select(Selectors.title).text shouldBe "A Title"
@@ -42,7 +39,6 @@ class ProgressiveDisclosureTemplateViewSpec extends TestUtils {
       "have the correct content" in {
         document.select(Selectors.content).text shouldBe "Some Text"
       }
-
     }
   }
 }
