@@ -35,7 +35,7 @@
 }
 
 @scripts = {
-    <script src='@routes.Assets.at("javascript/softwareChoices.js")' type="text/javascript"></script>
+    <script src='@routes.Assets.at("javascript/clear.js")' type="text/javascript"></script>
 }
 
 @head = {
@@ -45,14 +45,13 @@
     <meta name="format-detection" content="telephone=no" />
 }
 
-@headerNavLinks = {}
-
 @insideHeader = {
     @uiLayouts.header_nav(
       navTitle = Some("software-choices-frontend"),
       navTitleLink = None,
       showBetaLink = false,
-      navLinks = Some(headerNavLinks))
+      navLinks = None
+    )
 }
 
 @afterHeader = {}
