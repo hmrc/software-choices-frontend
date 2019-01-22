@@ -31,6 +31,10 @@
 
     @search_bar_template(form)
 
+    <div class="form-group">
+        <a href="#" onclick="clearField('term');">@messages("softwareChoices.search.clear")</a>
+    </div>
+
     @if(appConfig.features.progressiveDisclosureEnabled()) {
         @progressive_disclosure_template(messages("softwareChoices.show"), progressive_disclosure_content)
     } else {
