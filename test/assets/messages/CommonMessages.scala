@@ -21,5 +21,9 @@ object CommonMessages {
   val back = "Back"
   val errorHeading = "There is a problem"
   val error = "Error:"
+  val newTab = "opens in a new tab"
 
+  val feedbackBefore = "This is a new service – your"
+  val feedbackLink = "feedback"
+  val feedbackAfter = "will help us to improve it."
 }

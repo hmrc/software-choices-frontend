@@ -18,13 +18,6 @@ package assets.messages
 
 object SoftwareChoicesMessages {
 
-  val feedbackBefore = "This is a new service – your"
-  val feedbackLink = "feedback"
-  val feedbackAfter = "will help us to improve it."
-
-  val searchFormTermMissing = "Enter the name of a software package"
-  val searchFormTermMax = "Enter less than {0} characters"
-
   val title = "Software that works with Making Tax Digital for VAT"
   val showAll = "Show all software providers"
 
