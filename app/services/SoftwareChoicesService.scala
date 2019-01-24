@@ -18,6 +18,7 @@ package services
 
 import javax.inject.Singleton
 import models.SoftwareProviderModel
+import play.api.Logger
 
 import scala.io.Source
 
@@ -25,12 +26,14 @@ import scala.io.Source
 class SoftwareChoicesService {
 
   protected lazy val providersList: Seq[String] = {
+    Logger.debug("[SoftwareChoicesService][providersList] Loading providers from file")
     val stream = getClass.getResourceAsStream("/softwareProviders")
     Source.fromInputStream(stream).getLines.toSeq
   }
 
   lazy val readProviders: Seq[SoftwareProviderModel] = {
     for (line <- providersList) yield {
+      Logger.debug(s"[SoftwareChoicesService][readProviders] Provider: $line")
       val nameUrl = line.split('|')
       SoftwareProviderModel(nameUrl(0),nameUrl(1))
     }
