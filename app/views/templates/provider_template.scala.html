@@ -19,6 +19,11 @@
 <h2>@category</h2>
 <ul class="list list-bullet">
     @providers.map { provider =>
-        <li><a href="@provider.url" target="_blank">@provider.name <span class="visuallyhidden">@messages("common.newTab")</span></a></li>
+      <li>
+        <a href="@provider.url"
+           target="_blank"
+           data-journey-click="link:click:@provider.name">@provider.name <span class="visuallyhidden">@messages("common.newTab")</span>
+        </a>
+      </li>
     }
 </ul>
