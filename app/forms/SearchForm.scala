@@ -23,16 +23,17 @@ import play.api.data.validation.{Constraint, Invalid, Valid}
 
 object SearchForm {
 
+  val term = "term"
+  val maxLength = 256
+
   private val emptyCheck: Constraint[String] = Constraint("No Search Term Provided")(term =>
     if (term.nonEmpty) Valid else Invalid("searchForm.term.missing")
   )
 
-  val maxLength = 256
   private val maxLengthCheck: Constraint[String] = Constraint(s"Search Term Exceeds $maxLength characters")(term =>
     if (term.length <= maxLength) Valid else Invalid("searchForm.term.max", maxLength)
   )
 
-  val term = "term"
 
   val form: Form[SearchModel] = Form(
     mapping(

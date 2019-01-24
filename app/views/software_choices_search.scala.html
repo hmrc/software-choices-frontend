@@ -36,7 +36,11 @@
     </div>
 
     @if(appConfig.features.progressiveDisclosureEnabled()) {
-        @progressive_disclosure_template(messages("softwareChoices.show"), progressive_disclosure_content)
+        @progressive_disclosure_template(
+            messages("softwareChoices.show"),
+            progressive_disclosure_content,
+            Some(s"progressiveDisclosure:clicked:${messages("softwareChoices.show")}")
+        )
     } else {
         @progressive_disclosure_content
     }
