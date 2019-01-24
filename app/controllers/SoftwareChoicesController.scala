@@ -34,7 +34,6 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
   val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
 
   val show: Action[AnyContent] = Action { implicit request =>
-    val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
     Ok(software_choices_search(softwareProviders, SearchForm.form))
   }
 
