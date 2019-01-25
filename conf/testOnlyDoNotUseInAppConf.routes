@@ -11,7 +11,7 @@
 
 # Add all the application routes to the prod.routes file
 
-GET        /mtd-software-choices/test-only/feature-switch    testOnly.controllers.FeatureSwitchController.featureSwitch
-POST       /mtd-software-choices/test-only/feature-switch    testOnly.controllers.FeatureSwitchController.submitFeatureSwitch
+GET        /making-tax-digital-software/test-only/feature-switch    testOnly.controllers.FeatureSwitchController.featureSwitch
+POST       /making-tax-digital-software/test-only/feature-switch    testOnly.controllers.FeatureSwitchController.submitFeatureSwitch
 
 ->         /                                                 prod.Routes
