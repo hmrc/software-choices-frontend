@@ -19,7 +19,16 @@
 
 @(softwareChoices: SoftwareChoicesViewModel, form: Form[SearchModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
-@main_template(title = messages("softwareChoices.title"), bodyClasses = None) {
+@js = {
+    <script>
+        $(document).ready(function() {
+            //Jump to result, following accessibility recommendation
+            window.location.hash = '#results';
+        });
+    </script>
+}
+
+@main_template(title = messages("softwareChoices.title"), bodyClasses = None, scriptElem = Some(js)) {
 
     <h1>@messages("softwareChoices.title")</h1>
 
@@ -31,7 +40,7 @@
 
     @if(softwareChoices.foundProviders.isEmpty) {
 
-        <h2>@messages("softwareChoicesResults.noResults.title")</h2>
+        <h2 id="results">@messages("softwareChoicesResults.noResults.title")</h2>
         <p>@messages("softwareChoicesResults.noResults")</p>
 
         @if(appConfig.features.progressiveDisclosureEnabled()) {
@@ -45,7 +54,7 @@
         }
     } else {
 
-        <h2>@messages("softwareChoicesResults.results.title")</h2>
+        <h2 id="results">@messages("softwareChoicesResults.results.title")</h2>
         <p>@messages("softwareChoicesResults.results")</p>
 
         @softwareChoices.renderFoundProviders

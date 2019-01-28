@@ -26,4 +26,7 @@ object SoftwareChoicesMessages {
   val resultsHeader = "Results"
   val results = "We have found these software packages that work with Making Tax Digital for VAT:"
 
+  val providerAriaLabel: String => String = x => s"$x software company website"
+  val categoryAriaLabel: String => String = x => s"Software companies beginning with $x"
+
 }

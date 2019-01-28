@@ -21,6 +21,9 @@ class MessagesSpec extends TestUtils {
 
   "Test message content is correct" in {
 
+    //Service name
+    messages("common.service.name") shouldBe CommonMessages.serviceName
+
     // Common Messages
     messages("common.back") shouldBe CommonMessages.back
     messages("common.errorSummary.heading") shouldBe CommonMessages.errorHeading

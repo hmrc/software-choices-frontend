@@ -30,9 +30,7 @@ trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEac
     super.beforeEach()
     appConfig.progressiveDisclosureEnabled(true)
   }
-
-  val opensInANewTabSuffix: String => String = _ + " opens in a new tab"
-
+  
   implicit lazy val fakeRequest = FakeRequest("GET", "/")
   lazy val injector: Injector = app.injector
   lazy val messagesApi: MessagesApi = injector.instanceOf[MessagesApi]

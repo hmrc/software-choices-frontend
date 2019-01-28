@@ -16,12 +16,13 @@
 
 @import uk.gov.hmrc.play.views.html.helpers
 @import forms.SearchForm
+@import config.AppConfig
 
-@(form: Form[SearchModel])(implicit messages: Messages, request: Request[_])
+@(form: Form[SearchModel])(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
 @helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
 
-    <p>@messages("softwareChoices.search.text") <a href="#">@messages("softwareChoices.search.text.link")</a>.</p>
+    <p>@messages("softwareChoices.search.text") <a href="@appConfig.govUkMtdVatSignUpGuidanceUrl">@messages("softwareChoices.search.text.link")</a>.</p>
     <div class="panel panel-border-wide">
         <p>@messages("softwareChoices.text.p1")</p>
         <p>@messages("softwareChoices.text.p2")</p>

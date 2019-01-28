@@ -17,9 +17,9 @@
 package views.templates
 
 import play.twirl.api.Html
-import utils.ViewTestUtils
+import views.ViewBaseSpec
 
-class ProgressiveDisclosureTemplateViewSpec extends ViewTestUtils {
+class ProgressiveDisclosureTemplateViewSpec extends ViewBaseSpec {
 
   object Selectors {
     val title = "span"

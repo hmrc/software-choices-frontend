@@ -18,9 +18,9 @@ package views.templates
 
 import assets.messages.SearchMessages
 import forms.SearchForm
-import utils.ViewTestUtils
+import views.ViewBaseSpec
 
-class SearchBarTemplateViewSpec extends ViewTestUtils {
+class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
   object Selectors {
     val searchLabel = "label"
@@ -40,7 +40,7 @@ class SearchBarTemplateViewSpec extends ViewTestUtils {
 
       s"have a the correct search text with the correct link" in {
         document.select(Selectors.searchText).text() shouldBe s"${SearchMessages.text} ${SearchMessages.textLink}."
-        document.select(Selectors.searchTextLink).attr("href") shouldBe "#"
+        document.select(Selectors.searchTextLink).attr("href") shouldBe appConfig.govUkMtdVatSignUpGuidanceUrl
       }
 
       s"have a the correct indented text" in {
