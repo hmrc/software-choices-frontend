@@ -1,3 +1,4 @@
+common.service.name = Find software for Making Tax Digital
 common.back = Back
 common.errorSummary.heading = There is a problem
 common.error = Error:
@@ -10,6 +11,9 @@ feedback.after = will help us to improve it.
 
 searchForm.term.missing = Enter the name of a software package
 searchForm.term.max = Enter less than {0} characters
+
+softwareChoices.category.aria-label = Software companies beginning with {0}
+softwareChoices.provider.aria-label = {0} software company website
 
 softwareChoices.title = Software that works with Making Tax Digital for VAT
 softwareChoices.search.label = Search for software that is connected to Making Tax Digital for VAT

@@ -17,9 +17,9 @@
 package views.templates
 
 import assets.testContants.SoftwareProvidersTestConstants
-import utils.ViewTestUtils
+import views.ViewBaseSpec
 
-class FoundProviderTemplateViewSpec extends ViewTestUtils with SoftwareProvidersTestConstants {
+class FoundProviderTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
 
   object Selectors {
     val heading = "h2"
@@ -39,11 +39,15 @@ class FoundProviderTemplateViewSpec extends ViewTestUtils with SoftwareProviders
         s"for provider $i" should {
 
           "have the correct name" in {
-            document.select(Selectors.providerSelector(i + 1)).text() shouldBe opensInANewTabSuffix(providers(i).name)
+            document.select(Selectors.providerSelector(i + 1)).text() shouldBe providers(i).name
           }
 
           "have the correct link" in {
             document.select(Selectors.providerSelector(i + 1)).attr("href") shouldBe providers(i).url
+          }
+
+          "have the correct aria-label to support screenreaders" in {
+            document.select(Selectors.providerSelector(i + 1)).attr("aria-label") shouldBe softwareCompanyAriaLabel(providers(i).name)
           }
         }
       }
