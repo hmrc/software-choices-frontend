@@ -19,9 +19,8 @@ package views
 import assets.messages.{CommonMessages, SearchMessages, SoftwareChoicesMessages}
 import assets.testContants.SoftwareProvidersTestConstants
 import forms.SearchForm
-import utils.ViewTestUtils
 
-class SoftwareChoicesSearchViewSpec extends ViewTestUtils with SoftwareProvidersTestConstants {
+class SoftwareChoicesSearchViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
 
   object Selectors {
     val pageHeading = "h1"
@@ -63,7 +62,7 @@ class SoftwareChoicesSearchViewSpec extends ViewTestUtils with SoftwareProviders
       }
 
       "have a single provider for A section" in {
-        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix(providers.allProviders.head.name)
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe providers.allProviders.head.name
       }
     }
 
@@ -77,7 +76,7 @@ class SoftwareChoicesSearchViewSpec extends ViewTestUtils with SoftwareProviders
       }
 
       "have a single provider for A section" in {
-        document.select(Selectors.providerSelector(1, 1)).text() shouldBe opensInANewTabSuffix(providers.allProviders.head.name)
+        document.select(Selectors.providerSelector(1, 1)).text() shouldBe providers.allProviders.head.name
       }
     }
 

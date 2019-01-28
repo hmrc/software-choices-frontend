@@ -18,6 +18,8 @@ package assets.messages
 
 object CommonMessages {
 
+  val serviceName = "Find software for Making Tax Digital"
+
   val back = "Back"
   val errorHeading = "There is a problem"
   val error = "Error:"

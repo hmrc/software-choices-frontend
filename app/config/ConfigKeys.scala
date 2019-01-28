@@ -34,4 +34,6 @@ object ConfigKeys {
 
   val progressiveDisclosureFeature: String = "features.progressiveDisclosure.enabled"
 
+  val govUkMtdVatSignUpGuidance = "govuk.mtdvat.signup.url"
+
 }
