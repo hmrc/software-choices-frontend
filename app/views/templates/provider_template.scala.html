@@ -16,14 +16,16 @@
 
 @(category: String, providers: Seq[SoftwareProviderModel])(implicit messages: Messages)
 
-<h2>@category</h2>
+<h2 aria-label='@messages("softwareChoices.category.aria-label", category)'>@category</h2>
+
 <ul class="list list-bullet">
     @providers.map { provider =>
-      <li>
-        <a href="@provider.url"
-           target="_blank"
-           data-journey-click="link:click:@provider.name">@provider.name <span class="visuallyhidden">@messages("common.newTab")</span>
-        </a>
-      </li>
+        <li>
+            <a href="@provider.url"
+               target="_blank"
+               data-journey-click="link:click:@{provider.name}"
+               aria-label='@messages("softwareChoices.provider.aria-label", provider.name)@messages("common.newTab")'>@provider.name
+            </a>
+        </li>
     }
 </ul>

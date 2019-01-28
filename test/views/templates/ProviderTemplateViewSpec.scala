@@ -17,9 +17,9 @@
 package views.templates
 
 import assets.testContants.SoftwareProvidersTestConstants
-import utils.ViewTestUtils
+import views.ViewBaseSpec
 
-class ProviderTemplateViewSpec extends ViewTestUtils with SoftwareProvidersTestConstants {
+class ProviderTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
 
   object Selectors {
     val heading = "h2"
@@ -34,8 +34,12 @@ class ProviderTemplateViewSpec extends ViewTestUtils with SoftwareProvidersTestC
 
       lazy val document = parseView(views.html.templates.provider_template(category, categoryAProviders))
 
-      s"have a the correct page heading" in {
+      s"have a the correct section heading" in {
         document.select(Selectors.heading).text() shouldBe category
+      }
+
+      s"have a the correct aria-label for the section heading" in {
+        document.select(Selectors.heading).attr("aria-label") shouldBe softwareCategoryAriaLabel(category)
       }
 
       for (i <- categoryAProviders.indices) {
@@ -43,11 +47,15 @@ class ProviderTemplateViewSpec extends ViewTestUtils with SoftwareProvidersTestC
         s"for provider $i" should {
 
           s"have the correct name" in {
-            document.select(Selectors.providerSelector(i + 1)).text() shouldBe opensInANewTabSuffix(categoryAProviders(i).name)
+            document.select(Selectors.providerSelector(i + 1)).text() shouldBe categoryAProviders(i).name
           }
 
           "have the correct link" in {
             document.select(Selectors.providerSelector(i + 1)).attr("href") shouldBe categoryAProviders(i).url
+          }
+
+          "have the correct aria-label to support screenreaders" in {
+            document.select(Selectors.providerSelector(i + 1)).attr("aria-label") shouldBe softwareCompanyAriaLabel(categoryAProviders(i).name)
           }
         }
       }

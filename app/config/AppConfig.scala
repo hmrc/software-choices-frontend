@@ -53,6 +53,8 @@ class AppConfig @Inject()(implicit val runModeConfiguration: Configuration, envi
   lazy val whitelistExcludedPaths: Seq[Call] = whitelistConfig(ConfigKeys.whitelistExcludedPaths).map(path => Call("GET", path))
   lazy val whiteListEnabled: Boolean = getBoolean(ConfigKeys.whitelistEnabled)
 
+  lazy val govUkMtdVatSignUpGuidanceUrl = getString(ConfigKeys.govUkMtdVatSignUpGuidance)
+
   val features = new Features
 
 }

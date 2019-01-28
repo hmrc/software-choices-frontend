@@ -16,9 +16,9 @@
 
 package views.templates
 
-import utils.ViewTestUtils
+import views.ViewBaseSpec
 
-class ErrorTemplateViewSpec extends ViewTestUtils {
+class ErrorTemplateViewSpec extends ViewBaseSpec {
 
   object Selectors {
     val heading = "h1"

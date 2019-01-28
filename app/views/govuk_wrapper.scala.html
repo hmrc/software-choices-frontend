@@ -36,6 +36,7 @@
 
 @scripts = {
     <script src='@routes.Assets.at("javascript/softwareChoices.js")' type="text/javascript"></script>
+    @scriptElem.map(x => x)
 }
 
 @head = {
@@ -47,7 +48,7 @@
 
 @insideHeader = {
     @uiLayouts.header_nav(
-      navTitle = Some("software-choices-frontend"),
+      navTitle = Some(messages("common.service.name")),
       navTitleLink = None,
       showBetaLink = false,
       navLinks = None
