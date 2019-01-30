@@ -33,7 +33,6 @@ class SoftwareChoicesSearchViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val termFieldError = "#term-error-summary"
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".error-message"
-    val clearSearchLink = "article > div > a:nth-of-type(1)"
   }
 
   "The software choices search page" when {
@@ -52,13 +51,6 @@ class SoftwareChoicesSearchViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
       s"have a show all link" in {
         document.select(Selectors.showAllLink).text() shouldBe SoftwareChoicesMessages.showAll
-      }
-
-      s"have a clear search link" in {
-        val element = document.select(Selectors.clearSearchLink)
-        element.text() shouldBe SearchMessages.clear
-        element.attr("href") shouldBe "#"
-        element.attr("onClick") shouldBe s"clearField('term');"
       }
 
       "have a single provider for A section" in {
