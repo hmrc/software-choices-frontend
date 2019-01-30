@@ -33,7 +33,6 @@ class SoftwareChoicesSearchViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val termFieldError = "#term-error-summary"
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".error-message"
-    val clearSearchLink = "article > div > a:nth-of-type(1)"
   }
 
   "The software choices search page" when {
