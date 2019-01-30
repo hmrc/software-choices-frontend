@@ -19,7 +19,7 @@ package assets.messages
 object SoftwareChoicesMessages {
 
   val title = "Software that works with Making Tax Digital for VAT"
-  val showAll = "Show all software providers"
+  val showAll = "Software packages"
 
   val noResultsHeader = "No results found"
   val noResults = "We have not found any results. See the full list of software packages or try again."
