@@ -16,9 +16,11 @@ softwareChoices.category.aria-label = Software companies beginning with {0}
 softwareChoices.provider.aria-label = {0} software company website
 
 softwareChoices.title = Software that works with Making Tax Digital for VAT
-softwareChoices.search.label = Search for software that is connected to Making Tax Digital for VAT
-softwareChoices.search.text = Search for software that is connected to Making Tax Digital for VAT. You must also
-softwareChoices.search.text.link = sign up to use this service
+softwareChoices.search.label = Enter the name of a software package
+softwareChoices.search.text1 = Making Tax Digital for VAT is a new way of keeping your VAT records and submitting your VAT Returns using software.
+softwareChoices.search.text2.start = You must also
+softwareChoices.search.text2.link = sign up to Making Tax Digital for VAT
+softwareChoices.search.text2.end = as well as getting software that is connected to it.
 softwareChoices.search.button.text = Search software packages
 softwareChoices.search.clear = Clear search
 softwareChoices.text.p1 = HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly.

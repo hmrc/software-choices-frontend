@@ -50,8 +50,10 @@ class MessagesSpec extends TestUtils {
     messages("searchForm.term.missing") shouldBe SearchMessages.searchFormTermMissing
     messages("searchForm.term.max") shouldBe SearchMessages.searchFormTermMax
     messages("softwareChoices.search.label") shouldBe SearchMessages.label
-    messages("softwareChoices.search.text") shouldBe SearchMessages.text
-    messages("softwareChoices.search.text.link") shouldBe SearchMessages.textLink
+    messages("softwareChoices.search.text1") shouldBe SearchMessages.text1
+    messages("softwareChoices.search.text2.start") shouldBe SearchMessages.text2Start
+    messages("softwareChoices.search.text2.link") shouldBe SearchMessages.text2Link
+    messages("softwareChoices.search.text2.end") shouldBe SearchMessages.text2End
     messages("softwareChoices.search.button.text") shouldBe SearchMessages.buttonText
     messages("softwareChoices.search.clear") shouldBe SearchMessages.clear
     messages("softwareChoices.text.p1") shouldBe SearchMessages.p1

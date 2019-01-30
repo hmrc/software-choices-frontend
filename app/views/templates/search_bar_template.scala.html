@@ -22,7 +22,12 @@
 
 @helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
 
-    <p>@messages("softwareChoices.search.text") <a href="@appConfig.govUkMtdVatSignUpGuidanceUrl">@messages("softwareChoices.search.text.link")</a>.</p>
+    <p>@messages("softwareChoices.search.text1")</p>
+    <p>
+        @messages("softwareChoices.search.text2.start")
+        <a href="@appConfig.govUkMtdVatSignUpGuidanceUrl">@messages("softwareChoices.search.text2.link")</a>
+        @messages("softwareChoices.search.text2.end")
+    </p>
     <div class="panel panel-border-wide">
         <p>@messages("softwareChoices.text.p1")</p>
         <p>@messages("softwareChoices.text.p2")</p>
