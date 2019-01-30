@@ -54,13 +54,6 @@ class SoftwareChoicesSearchViewSpec extends ViewBaseSpec with SoftwareProvidersT
         document.select(Selectors.showAllLink).text() shouldBe SoftwareChoicesMessages.showAll
       }
 
-      s"have a clear search link" in {
-        val element = document.select(Selectors.clearSearchLink)
-        element.text() shouldBe SearchMessages.clear
-        element.attr("href") shouldBe "#"
-        element.attr("onClick") shouldBe s"clearField('term');"
-      }
-
       "have a single provider for A section" in {
         document.select(Selectors.providerSelector(1, 1)).text() shouldBe providers.allProviders.head.name
       }

@@ -16,7 +16,7 @@
 
 @(providers: Seq[SoftwareProviderModel])(implicit messages: Messages)
 
-<ul class="list list-bullet">
+<ul>
     @providers.map { provider =>
         <li>
             <a href="@provider.url"

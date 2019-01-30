@@ -26,7 +26,8 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
     val searchLabel = "label"
     val search = "input"
     val button = "button"
-    val searchText = "form > p"
+    val searchText1 = "form > p:nth-child(1)"
+    val searchText2 = "form > p:nth-child(2)"
     val searchTextLink = "form > p > a"
     val indentTextOne = "div.panel.panel-border-wide > p:nth-child(1)"
     val indentTextTwo = "div.panel.panel-border-wide > p:nth-child(2)"
@@ -39,7 +40,8 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
       lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form))
 
       s"have a the correct search text with the correct link" in {
-        document.select(Selectors.searchText).text() shouldBe s"${SearchMessages.text} ${SearchMessages.textLink}."
+        document.select(Selectors.searchText1).text() shouldBe SearchMessages.text1
+        document.select(Selectors.searchText2).text() shouldBe s"${SearchMessages.text2Start} ${SearchMessages.text2Link} ${SearchMessages.text2End}"
         document.select(Selectors.searchTextLink).attr("href") shouldBe appConfig.govUkMtdVatSignUpGuidanceUrl
       }
 
