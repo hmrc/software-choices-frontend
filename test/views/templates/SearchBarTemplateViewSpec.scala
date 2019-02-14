@@ -66,6 +66,37 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
       }
     }
 
+    "given showSearchContent is false" should {
+
+      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form, showSearchContent = false))
+
+      s"have a the correct search text with the correct link" in {
+        document.select(Selectors.searchText1).text.isEmpty shouldBe true
+        document.select(Selectors.searchText2).text.isEmpty shouldBe true
+        document.select(Selectors.searchTextLink).attr("href").isEmpty shouldBe true
+      }
+
+      s"have a the correct indented text" in {
+        document.select(Selectors.indentTextOne).text.isEmpty shouldBe true
+        document.select(Selectors.indentTextTwo).text.isEmpty shouldBe true
+      }
+
+
+      s"have a label for the search input which is visually hidden" in {
+        document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
+        document.select(Selectors.searchLabel).hasClass("visuallyhidden") shouldBe true
+      }
+
+      s"have a search bar with no text" in {
+        document.select(Selectors.search).attr("name") shouldBe SearchForm.term
+        document.select(Selectors.search).attr("value").isEmpty shouldBe true
+      }
+
+      s"have a submit button bar" in {
+        document.select(Selectors.button).text shouldBe SearchMessages.buttonText
+      }
+    }
+
     "given a form with data" should {
 
       lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form.bind(Map(
