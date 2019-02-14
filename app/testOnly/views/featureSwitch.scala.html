@@ -17,6 +17,7 @@
 @import helper.CSRF
 @import config.ConfigKeys
 @import testOnly.models.FeatureSwitchModel
+@import testOnly.views.html.inputs.singleCheckbox
 
 @(form: Form[FeatureSwitchModel])(implicit request: Request[_], messages: Messages, appConfig: config.AppConfig)
 
@@ -30,10 +31,8 @@
                 <legend>
                     <h1 class="heading-medium">Features</h1>
                 </legend>
-                @testOnly.views.html.inputs.singleCheckbox(
-                    form(ConfigKeys.progressiveDisclosureFeature),
-                    "Progressive Disclosure Enabled"
-                )
+                @singleCheckbox(form(ConfigKeys.progressiveDisclosureFeature), "Progressive Disclosure Enabled")
+                @singleCheckbox(form(ConfigKeys.filterViewFeature), "New Filter View Enabled")
             </fieldset>
         </div>
 
