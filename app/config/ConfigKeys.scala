@@ -33,6 +33,7 @@ object ConfigKeys {
   val whitelistEnabled: String = "whitelist.enabled"
 
   val progressiveDisclosureFeature: String = "features.progressiveDisclosure.enabled"
+  val filterViewFeature: String = "features.filterView.enabled"
 
   val govUkMtdVatSignUpGuidance = "govuk.mtdvat.signup.url"
 
