@@ -31,7 +31,8 @@ class FeatureSwitchController @Inject()(val messagesApi: MessagesApi,
   def featureSwitch: Action[AnyContent] = Action { implicit request =>
     Ok(testOnly.views.html.featureSwitch(FeatureSwitchForm.form.fill(
       FeatureSwitchModel(
-        progressiveDisclosureEnabled = appConfig.features.progressiveDisclosureEnabled()
+        progressiveDisclosureEnabled = appConfig.features.progressiveDisclosureEnabled(),
+        filterViewEnabled = appConfig.features.filterViewEnabled()
       )
     )))
   }
@@ -45,6 +46,7 @@ class FeatureSwitchController @Inject()(val messagesApi: MessagesApi,
 
   def handleSuccess(model: FeatureSwitchModel): Result = {
     appConfig.features.progressiveDisclosureEnabled(model.progressiveDisclosureEnabled)
+    appConfig.features.filterViewEnabled(model.filterViewEnabled)
     Redirect(controllers.routes.SoftwareChoicesController.show())
   }
 

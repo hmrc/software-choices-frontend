@@ -16,4 +16,5 @@
 
 package testOnly.models
 
-case class FeatureSwitchModel(progressiveDisclosureEnabled: Boolean)
+case class FeatureSwitchModel(progressiveDisclosureEnabled: Boolean,
+                              filterViewEnabled: Boolean)

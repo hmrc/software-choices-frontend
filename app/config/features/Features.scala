@@ -23,4 +23,5 @@ import play.api.Configuration
 @Singleton
 class Features @Inject()(implicit config: Configuration) {
   val progressiveDisclosureEnabled = new Feature(ConfigKeys.progressiveDisclosureFeature)
+  val filterViewEnabled = new Feature(ConfigKeys.filterViewFeature)
 }

@@ -25,7 +25,8 @@ object FeatureSwitchForm {
 
   val form: Form[FeatureSwitchModel] = Form(
     mapping(
-      ConfigKeys.progressiveDisclosureFeature -> boolean
+      ConfigKeys.progressiveDisclosureFeature -> boolean,
+      ConfigKeys.filterViewFeature -> boolean
     )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
   )
 
