@@ -17,6 +17,8 @@
 @import config.AppConfig
 @import templates.{search_bar_template, provider_template, progressive_disclosure_template}
 
+@import uk.gov.hmrc.play.views.html.layouts
+
 @(softwareChoices: SoftwareChoicesViewModel, form: Form[SearchModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @js = {
@@ -30,35 +32,38 @@
 
 @main_template(title = messages("softwareChoices.title"), bodyClasses = None, scriptElem = Some(js)) {
 
-    <h1>@messages("softwareChoices.title")</h1>
+    @layouts.article {
 
-    @search_bar_template(form)
+        <h1>@messages("softwareChoices.title")</h1>
 
-    <div class="form-group">
-        <a href="@controllers.routes.SoftwareChoicesController.show().url">@messages("softwareChoices.search.clear")</a>
-    </div>
+        @search_bar_template(form)
 
-    @if(softwareChoices.foundProviders.isEmpty) {
+        <div class="form-group">
+            <a href="@controllers.routes.SoftwareChoicesController.show().url">@messages("softwareChoices.search.clear")</a>
+        </div>
 
-        <h2 id="results">@messages("softwareChoicesResults.noResults.title")</h2>
-        <p>@messages("softwareChoicesResults.noResults")</p>
+        @if(softwareChoices.foundProviders.isEmpty) {
 
-        @if(appConfig.features.progressiveDisclosureEnabled()) {
-            @progressive_disclosure_template(
-                messages("softwareChoices.show"),
-                progressive_disclosure_content,
-                Some(s"progressiveDisclosure:clicked:${messages("softwareChoices.show")}")
-            )
+            <h2 id="results">@messages("softwareChoicesResults.noResults.title")</h2>
+            <p>@messages("softwareChoicesResults.noResults")</p>
+
+            @if(appConfig.features.progressiveDisclosureEnabled()) {
+                @progressive_disclosure_template(
+                    messages("softwareChoices.show"),
+                    progressive_disclosure_content,
+                    Some(s"progressiveDisclosure:clicked:${messages("softwareChoices.show")}")
+                )
+            } else {
+                @progressive_disclosure_content
+            }
         } else {
-            @progressive_disclosure_content
+
+            <h2 id="results">@messages("softwareChoicesResults.results.title")</h2>
+            <p>@messages("softwareChoicesResults.results")</p>
+
+            @softwareChoices.renderFoundProviders
+
         }
-    } else {
-
-        <h2 id="results">@messages("softwareChoicesResults.results.title")</h2>
-        <p>@messages("softwareChoicesResults.results")</p>
-
-        @softwareChoices.renderFoundProviders
-
     }
 
 }
