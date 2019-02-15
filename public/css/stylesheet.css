@@ -250,8 +250,26 @@
   }
 }
 
-
 /*Provider List*/
 .providers {
     text-decoration: none;
+}
+
+.filter-head {
+  background-color: #DEE0E2;
+  width: 100%;
+  border: 5px solid #DEE0E2;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.filter-container {
+  background-color: #FFFFFF;
+  border: 5px solid #DEE0E2;
+  border-top: 0px;
+  width: 100%;
+}
+
+.filter-options {
+  padding: 8px;
 }
