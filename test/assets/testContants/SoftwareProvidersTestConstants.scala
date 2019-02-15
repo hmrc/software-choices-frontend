@@ -16,7 +16,7 @@
 
 package assets.testContants
 
-import models.{SoftwareChoicesViewModel, SoftwareProviderModel}
+import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel, SoftwareProviderModel}
 
 trait SoftwareProvidersTestConstants {
 
@@ -45,6 +45,25 @@ trait SoftwareProvidersTestConstants {
     foundProviders = Seq(
       providerA
     ))
+
+  val filterViewProviders = SoftwareChoicesFilterViewModel(
+    allProviders = Seq(
+      providerHash,
+      providerA,
+      providerB
+    )
+  )
+
+  val filterViewFoundProviders = SoftwareChoicesFilterViewModel(
+    allProviders = Seq(
+      providerHash,
+      providerA,
+      providerB
+    ),
+    filteredProviders = Some(Seq(
+      providerA
+    ))
+  )
 
   val categoryAProviders = Seq(providerA, providerA2, providerA3, providerA4)
 

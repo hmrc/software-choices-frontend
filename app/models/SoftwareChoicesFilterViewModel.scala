@@ -23,17 +23,12 @@ import views.html.templates.{provider_table_template, result_count_template}
 case class SoftwareChoicesFilterViewModel(allProviders: Seq[SoftwareProviderModel],
                                           filteredProviders: Option[Seq[SoftwareProviderModel]] = None) {
 
-  private val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
+  private[models] val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
 
-  def renderProviders(implicit messages: Messages): HtmlFormat.Appendable = {
-    val results: Seq[SoftwareProviderModel] = filteredProviders.fold(allProviders) {
-      case filterResults if filterResults.nonEmpty => filterResults
-      case _ => allProviders
-    }
-    provider_table_template(sortedProviders(results))
-  }
+  def renderProviders(implicit messages: Messages): HtmlFormat.Appendable =
+    provider_table_template(sortedProviders(filteredProviders.getOrElse(allProviders)))
 
   def renderResultCount(implicit messages: Messages): HtmlFormat.Appendable = {
-    result_count_template(filteredProviders.fold(allProviders.length)(_.length), allProviders.length)
+    result_count_template(filteredProviders.getOrElse(allProviders).length, allProviders.length)
   }
 }
