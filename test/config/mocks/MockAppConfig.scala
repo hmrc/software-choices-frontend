@@ -28,6 +28,7 @@ class MockAppConfig @Inject()(implicit override val runModeConfiguration: Config
   lazy val mockFeatures: Features = mock[Features]
 
   def progressiveDisclosureEnabled(enabled: Boolean): Unit = mockFeatures.progressiveDisclosureEnabled(enabled)
+  def filterViewEnabled(enabled: Boolean): Unit = mockFeatures.filterViewEnabled(enabled)
 
   override val features = mockFeatures
 
