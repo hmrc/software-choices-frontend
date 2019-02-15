@@ -39,49 +39,6 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
       lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form))
 
-      s"have a the correct search text with the correct link" in {
-        document.select(Selectors.searchText1).text() shouldBe SearchMessages.text1
-        document.select(Selectors.searchText2).text() shouldBe s"${SearchMessages.text2Start} ${SearchMessages.text2Link} ${SearchMessages.text2End}"
-        document.select(Selectors.searchTextLink).attr("href") shouldBe appConfig.govUkMtdVatSignUpGuidanceUrl
-      }
-
-      s"have a the correct indented text" in {
-        document.select(Selectors.indentTextOne).text() shouldBe SearchMessages.p1
-        document.select(Selectors.indentTextTwo).text() shouldBe SearchMessages.p2
-      }
-
-
-      s"have a label for the search input which is visually hidden" in {
-        document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
-        document.select(Selectors.searchLabel).hasClass("visuallyhidden") shouldBe true
-      }
-
-      s"have a search bar with no text" in {
-        document.select(Selectors.search).attr("name") shouldBe SearchForm.term
-        document.select(Selectors.search).attr("value").isEmpty shouldBe true
-      }
-
-      s"have a submit button bar" in {
-        document.select(Selectors.button).text shouldBe SearchMessages.buttonText
-      }
-    }
-
-    "given showSearchContent is false" should {
-
-      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form, showSearchContent = false))
-
-      s"have a the correct search text with the correct link" in {
-        document.select(Selectors.searchText1).text.isEmpty shouldBe true
-        document.select(Selectors.searchText2).text.isEmpty shouldBe true
-        document.select(Selectors.searchTextLink).attr("href").isEmpty shouldBe true
-      }
-
-      s"have a the correct indented text" in {
-        document.select(Selectors.indentTextOne).text.isEmpty shouldBe true
-        document.select(Selectors.indentTextTwo).text.isEmpty shouldBe true
-      }
-
-
       s"have a label for the search input which is visually hidden" in {
         document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
         document.select(Selectors.searchLabel).hasClass("visuallyhidden") shouldBe true
@@ -110,6 +67,16 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
       s"have a submit button bar" in {
         document.select(Selectors.button).text shouldBe SearchMessages.buttonText
+      }
+    }
+
+    "given showLabel is true" should {
+
+      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form, showLabel = true))
+
+      s"have a label for the search input which is visually hidden" in {
+        document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
+        document.select(Selectors.searchLabel).hasClass("visuallyhidden") shouldBe false
       }
     }
   }
