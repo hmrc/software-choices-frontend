@@ -249,3 +249,9 @@
     line-height: 1.31579;
   }
 }
+
+
+/*Provider List*/
+.providers {
+    text-decoration: none;
+}
