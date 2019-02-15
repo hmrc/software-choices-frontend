@@ -14,20 +14,10 @@
  * limitations under the License.
  */
 
-package testOnly.forms
+package assets.messages
 
-import config.ConfigKeys
-import play.api.data.Form
-import play.api.data.Forms._
-import testOnly.models.FeatureSwitchModel
+object FilterSearchMessages {
 
-object FeatureSwitchForm {
-
-  val form: Form[FeatureSwitchModel] = Form(
-    mapping(
-      ConfigKeys.progressiveDisclosureFeature -> boolean,
-      ConfigKeys.filterViewFeature -> boolean
-    )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
-  )
+  val title = "Find software for Making Tax Digital for VAT"
 
 }
