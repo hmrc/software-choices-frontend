@@ -15,7 +15,7 @@
  *@
 
 @import config.AppConfig
-@import templates.{search_bar_template, provider_template, progressive_disclosure_template}
+@import templates._
 
 @import uk.gov.hmrc.play.views.html.layouts
 
@@ -32,9 +32,13 @@
 
 @main_template(title = messages("softwareChoices.title"), bodyClasses = None, scriptElem = Some(js)) {
 
+<<<<<<< HEAD
     @layouts.article {
 
         <h1>@messages("softwareChoices.title")</h1>
+=======
+    @search_heading_template()
+>>>>>>> MSCC-109
 
         @search_bar_template(form)
 
