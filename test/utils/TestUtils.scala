@@ -29,6 +29,7 @@ trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEac
   override def beforeEach() {
     super.beforeEach()
     appConfig.progressiveDisclosureEnabled(true)
+    appConfig.filterViewEnabled(false)
   }
   
   implicit lazy val fakeRequest = FakeRequest("GET", "/")

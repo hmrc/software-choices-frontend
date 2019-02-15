@@ -28,7 +28,7 @@
 
         <div class="search-field search-field-darker">
             <div class="search-input search-input-with-button">
-                <label for="term" class="@if(!showLabel){visuallyhidden}">@messages("softwareChoices.search.label")</label>
+                <label for="term" class="@if(!showLabel){visuallyhidden} bold">@messages("softwareChoices.search.button.text")</label>
                 <input id="term" name="term" type="text" value="@form(SearchForm.term).value">
             </div>
             <div class="search-submit">
