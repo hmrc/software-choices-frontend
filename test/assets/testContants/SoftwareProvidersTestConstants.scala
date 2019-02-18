@@ -66,5 +66,4 @@ trait SoftwareProvidersTestConstants {
   )
 
   val categoryAProviders = Seq(providerA, providerA2, providerA3, providerA4)
-
 }

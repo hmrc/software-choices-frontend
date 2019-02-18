@@ -250,8 +250,24 @@
   }
 }
 
-
 /*Provider List*/
 .providers {
     text-decoration: none;
+}
+
+.filter-wrapper {
+  background-color: #DEE0E2;
+  border: 5px solid #DEE0E2;
+}
+
+.filter-head {
+  padding: 5px;
+}
+
+.filter-container {
+  background-color: #FFFFFF;
+}
+
+.filter-options {
+  padding: 8px
 }
