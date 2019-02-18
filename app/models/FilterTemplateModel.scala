@@ -16,4 +16,6 @@
 
 package models
 
-case class FilterTemplateModel(title: String, value: String)
+import play.api.data.Field
+
+case class FilterTemplateModel(field: Field, label: String)

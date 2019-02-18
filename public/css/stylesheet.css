@@ -255,21 +255,19 @@
     text-decoration: none;
 }
 
-.filter-head {
+.filter-wrapper {
   background-color: #DEE0E2;
-  width: 100%;
   border: 5px solid #DEE0E2;
-  font-weight: bold;
-  line-height: 1.25;
+}
+
+.filter-head {
+  padding: 5px;
 }
 
 .filter-container {
   background-color: #FFFFFF;
-  border: 5px solid #DEE0E2;
-  border-top: 0px;
-  width: 100%;
 }
 
 .filter-options {
-  padding: 8px;
+  padding: 8px
 }
