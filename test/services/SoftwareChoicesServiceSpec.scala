@@ -15,7 +15,7 @@
  */
 
 package services
-import enums.Filter
+import enums.Filter._
 import models.SoftwareProviderModel
 import utils.TestUtils
 
@@ -26,17 +26,14 @@ class SoftwareChoicesServiceSpec extends TestUtils {
       "nameOne|urlOne*AGENT|BUSINESS",
       "nameTwo|urlTwo*BUSINESS"
     )
-
-    val AGENT = Filter.AGENT
-    val BUSINESS = Filter.BUSINESS
   }
 
   "SoftwareChoicesService.readProviders" should {
 
     "return the correct sequence of software providers" in {
       TestSoftwareChoicesService.readProviders shouldBe Seq(
-        SoftwareProviderModel("nameOne","urlOne", List(TestSoftwareChoicesService.AGENT, TestSoftwareChoicesService.BUSINESS)),
-        SoftwareProviderModel("nameTwo","urlTwo", List(TestSoftwareChoicesService.BUSINESS))
+        SoftwareProviderModel("nameOne","urlOne", List(AGENT, BUSINESS)),
+        SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS))
       )
     }
   }
@@ -45,7 +42,7 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
     "return the correct sequence of filtered software providers" in {
       TestSoftwareChoicesService.searchProviders("t") shouldBe Seq(
-        SoftwareProviderModel("nameTwo","urlTwo", List(TestSoftwareChoicesService.BUSINESS))
+        SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS))
       )
     }
 
@@ -55,8 +52,8 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
     "return all providers where search term matches all" in {
       TestSoftwareChoicesService.searchProviders("na") shouldBe Seq(
-        SoftwareProviderModel("nameOne","urlOne", List(TestSoftwareChoicesService.AGENT, TestSoftwareChoicesService.BUSINESS)),
-        SoftwareProviderModel("nameTwo","urlTwo", List(TestSoftwareChoicesService.BUSINESS))
+        SoftwareProviderModel("nameOne","urlOne", List(AGENT, BUSINESS)),
+        SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS))
       )
     }
   }
