@@ -17,32 +17,22 @@
 package enums
 
 import utils.TestUtils
+import Filter._
 
 class FilterSpec extends TestUtils {
 
   "Filter enumeration" should {
+
     "determine the correct Agent enum value" in {
-
-      val actualResult = Filter.apply("AGENT")
-      val expectedResult = Filter.AGENT
-
-      actualResult shouldBe expectedResult
+      Filter("AGENT") shouldBe AGENT
     }
 
     "determine the correct Business enum value" in {
-
-      val actualResult = Filter.apply("Business")
-      val expectedResult = Filter.BUSINESS
-
-      actualResult shouldBe expectedResult
+      Filter("Business") shouldBe BUSINESS
     }
 
     "determine an unknown enum value" in {
-
-      val actualResult = Filter.apply("UNKNOWN")
-      val expectedResult = Filter.UNKNOWN
-
-      actualResult shouldBe expectedResult
+      Filter("UNKNOWN") shouldBe UNKNOWN
     }
   }
 }
