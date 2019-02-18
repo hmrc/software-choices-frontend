@@ -31,13 +31,7 @@ class SoftwareChoicesService {
     Source.fromInputStream(stream).getLines.toSeq
   }
 
-  lazy val readProviders: Seq[SoftwareProviderModel] = {
-    for (line <- providersList) yield {
-      Logger.debug(s"[SoftwareChoicesService][readProviders] Provider: $line")
-      val nameUrl = line.split('|')
-      SoftwareProviderModel(nameUrl(0),nameUrl(1))
-    }
-  }
+  lazy val readProviders: Seq[SoftwareProviderModel] = providersList.map(SoftwareProviderModel(_))
 
   def searchProviders(term: String): Seq[SoftwareProviderModel] =
     readProviders.filter(_.name.toLowerCase.contains(term.toLowerCase))
