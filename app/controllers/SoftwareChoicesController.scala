@@ -19,32 +19,55 @@ package controllers
 import config.AppConfig
 import forms.SearchForm
 import javax.inject.{Inject, Singleton}
-import models.SoftwareChoicesViewModel
+import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
-import views.html.{software_choices_results,software_choices_search}
+import views.html.{software_choices_results, software_choices_search, software_choices_filter}
 
 @Singleton
 class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareChoicesService,
                                           val messagesApi: MessagesApi,
                                           implicit val appConfig: AppConfig) extends FrontendController with I18nSupport {
 
-  val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
-
+  //Feature Switch Routing Logic
   val show: Action[AnyContent] = Action { implicit request =>
-    Ok(software_choices_search(softwareProviders, SearchForm.form))
+    if(appConfig.features.filterViewEnabled()) filterView else basicSearchView
   }
 
   val search: Action[AnyContent] = Action { implicit request =>
+    if(appConfig.features.filterViewEnabled()) filterSearch else basicSearchSubmit
+  }
+
+  //Basic Search View Logic - Production MVP
+  val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
+
+  def basicSearchView(implicit request: Request[_]): Result =
+    Ok(software_choices_search(softwareProviders, SearchForm.form))
+
+  def basicSearchSubmit(implicit request: Request[_]): Result =
     SearchForm.form.bindFromRequest().fold(
       error => BadRequest(software_choices_search(softwareProviders, error)),
       search => {
-        val results = SoftwareChoicesViewModel(softwareProviders.allProviders, softwareChoicesService.searchProviders(search.term))
+        val results = SoftwareChoicesViewModel(softwareChoicesService.readProviders, softwareChoicesService.searchProviders(search.term))
         Ok(software_choices_results(results, SearchForm.form.fill(search)))
       }
     )
-  }
+
+
+  //Filter View Logic
+  val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders)
+
+  def filterView(implicit request: Request[_]): Result = Ok(software_choices_filter(softwareProvidersFilterViewModel, SearchForm.form))
+
+  def filterSearch(implicit request: Request[_]): Result =
+    SearchForm.form.bindFromRequest().fold(
+      error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
+      search => {
+        val results = SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders, Some(softwareChoicesService.searchProviders(search.term)))
+        Ok(software_choices_filter(results, SearchForm.form.fill(search)))
+      }
+    )
 
 }

@@ -1,4 +1,4 @@
-/*
+@*
  * Copyright 2019 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,22 +12,21 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *@
 
-package testOnly.forms
+@(providers: Seq[SoftwareProviderModel])(implicit messages: Messages)
 
-import config.ConfigKeys
-import play.api.data.Form
-import play.api.data.Forms._
-import testOnly.models.FeatureSwitchModel
-
-object FeatureSwitchForm {
-
-  val form: Form[FeatureSwitchModel] = Form(
-    mapping(
-      ConfigKeys.progressiveDisclosureFeature -> boolean,
-      ConfigKeys.filterViewFeature -> boolean
-    )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
-  )
-
-}
+<table id="provider-table">
+    @providers.map { provider =>
+        <tr>
+            <td>
+                <a href="@provider.url"
+                   target="_blank"
+                   class="providers bold"
+                   data-journey-click="link:click:@{provider.name}"
+                   aria-label='@messages("softwareChoices.provider.aria-label", provider.name)@messages("common.newTab")'>@provider.name
+                </a>
+            </td>
+        </tr>
+    }
+</table>
