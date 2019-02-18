@@ -17,9 +17,27 @@
 package views.templates
 
 import assets.testContants.SoftwareProvidersTestConstants
+import forms.SearchForm
+import models.FilterTemplateModel
+import play.api.data.Form
+import play.api.data.Forms.{mapping, text}
 import views.ViewBaseSpec
 
 class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
+
+  case class TestModel(foo: String, bar: String)
+
+  val form: Form[TestModel] = Form(
+    mapping(
+      "foo" -> text,
+      "bar" -> text
+    )(TestModel.apply)(TestModel.unapply)
+  )
+
+  val filterTemplateModel1 = FilterTemplateModel(form("foo"), "FilterValue1")
+  val filterTemplateModel2 = FilterTemplateModel(form("bar"), "FilterValue2")
+
+  val filterTemplateModels = Seq(filterTemplateModel1, filterTemplateModel2)
 
   object Selectors {
     val title = ".filter-head"
@@ -41,45 +59,30 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
 
       "have a first option" which {
 
-        "has a value" in {
-          val actualResult = document.select(Selectors.checkbox(1)).attr("value")
-          val expectedResult = filterTemplateModel1.value
+        "has the correct id" in {
+          val actualResult = document.select(Selectors.checkbox(1)).attr("id")
+          val expectedResult = filterTemplateModel1.field.name
           actualResult shouldBe expectedResult
         }
 
-        "has a title" in {
+        "has the correct label" in {
           val actualResult = document.select(Selectors.label(1)).text
-          val expectedResult = filterTemplateModel1.title
+          val expectedResult = filterTemplateModel1.label
           actualResult shouldBe expectedResult
         }
       }
 
       "have a second option" which {
 
-        "has a value" in {
-          val actualResult = document.select(Selectors.checkbox(2)).attr("value")
-          val expectedResult = filterTemplateModel2.value
+        "has the correct id" in {
+          val actualResult = document.select(Selectors.checkbox(2)).attr("id")
+          val expectedResult = filterTemplateModel2.field.name
           actualResult shouldBe expectedResult
         }
 
-        "has a title" in {
+        "has the correct label" in {
           val actualResult = document.select(Selectors.label(2)).text
-          val expectedResult = filterTemplateModel2.title
-          actualResult shouldBe expectedResult
-        }
-      }
-
-      "have a third option" which {
-
-        "has a value" in {
-          val actualResult = document.select(Selectors.checkbox(3)).attr("value")
-          val expectedResult = filterTemplateModel3.value
-          actualResult shouldBe expectedResult
-        }
-
-        "has a title" in {
-          val actualResult = document.select(Selectors.label(3)).text
-          val expectedResult = filterTemplateModel3.title
+          val expectedResult = filterTemplateModel2.label
           actualResult shouldBe expectedResult
         }
       }

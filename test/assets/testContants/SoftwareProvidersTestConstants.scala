@@ -16,7 +16,7 @@
 
 package assets.testContants
 
-import models.{FilterTemplateModel, SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel, SoftwareProviderModel}
+import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel, SoftwareProviderModel}
 
 trait SoftwareProvidersTestConstants {
 
@@ -66,10 +66,4 @@ trait SoftwareProvidersTestConstants {
   )
 
   val categoryAProviders = Seq(providerA, providerA2, providerA3, providerA4)
-
-  val filterTemplateModel1 = FilterTemplateModel("FilterTitle1", "FilterValue1")
-  val filterTemplateModel2 = FilterTemplateModel("FilterTitle2", "FilterValue2")
-  val filterTemplateModel3 = FilterTemplateModel("FilterTitle3", "FilterValue3")
-
-  val filterTemplateModels = Seq(filterTemplateModel1, filterTemplateModel2, filterTemplateModel3)
 }
