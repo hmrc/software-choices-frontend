@@ -24,11 +24,12 @@ import play.api.inject.Injector
 import play.api.test.FakeRequest
 import uk.gov.hmrc.play.test.UnitSpec
 
-trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEach {
+trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEach with MaterializerSupport {
 
   override def beforeEach() {
     super.beforeEach()
     appConfig.progressiveDisclosureEnabled(true)
+    appConfig.filterViewEnabled(true)
   }
   
   implicit lazy val fakeRequest = FakeRequest("GET", "/")

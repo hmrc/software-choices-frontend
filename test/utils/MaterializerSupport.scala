@@ -14,20 +14,12 @@
  * limitations under the License.
  */
 
-package testOnly.forms
+package utils
 
-import config.ConfigKeys
-import play.api.data.Form
-import play.api.data.Forms._
-import testOnly.models.FeatureSwitchModel
+import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
 
-object FeatureSwitchForm {
-
-  val form: Form[FeatureSwitchModel] = Form(
-    mapping(
-      ConfigKeys.progressiveDisclosureFeature -> boolean,
-      ConfigKeys.filterViewFeature -> boolean
-    )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
-  )
-
+trait MaterializerSupport {
+  implicit val system = ActorSystem("Sys")
+  implicit val materializer = ActorMaterializer()
 }

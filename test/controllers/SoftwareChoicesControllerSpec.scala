@@ -16,17 +16,20 @@
 
 package controllers
 
+import assets.messages.{CommonMessages, FilterSearchMessages, SoftwareChoicesMessages}
 import forms.SearchForm
 import models.SoftwareProviderModel
+import org.jsoup.Jsoup
 import play.api.http.Status
 import play.api.test.FakeRequest
 import services.SoftwareChoicesService
 import utils.TestUtils
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
+import views.ViewBaseSpec
 
 
-class SoftwareChoicesControllerSpec extends MockSoftwareChoicesService {
+class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesService {
 
   object TestSoftwareChoicesController extends SoftwareChoicesController(
     mockSoftwareChoicesService,
@@ -34,34 +37,14 @@ class SoftwareChoicesControllerSpec extends MockSoftwareChoicesService {
     appConfig
   )
 
-  "SoftwareChoicesController.show" should {
+  "SoftwareChoicesController.show" when {
 
-    lazy val result = TestSoftwareChoicesController.show(fakeRequest)
+    "the filter view is disabled" should {
 
-    "return 200 (OK)" in {
-      status(result) shouldBe Status.OK
-    }
-
-    "return HTML" in {
-      contentType(result) shouldBe Some("text/html")
-      charset(result) shouldBe Some("utf-8")
-    }
-  }
-
-  "SoftwareChoicesController.search" when {
-
-    "given a valid search" should {
-
-      val softwareProviders = Seq(
-      SoftwareProviderModel("aName", "aUrl"),
-      SoftwareProviderModel("anotherName", "anotherUrl"),
-      SoftwareProviderModel("andAnotherName", "andAnotherUrl")
-      )
-
-      lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
+      lazy val result = TestSoftwareChoicesController.show(fakeRequest)
 
       "return 200 (OK)" in {
-        setupMockSearchProviders(softwareProviders)
+        appConfig.filterViewEnabled(false)
         status(result) shouldBe Status.OK
       }
 
@@ -69,27 +52,140 @@ class SoftwareChoicesControllerSpec extends MockSoftwareChoicesService {
         contentType(result) shouldBe Some("text/html")
         charset(result) shouldBe Some("utf-8")
       }
+
+      "render the basic search page" in {
+        Jsoup.parse(bodyOf(result)).title shouldBe SoftwareChoicesMessages.title
+      }
     }
 
+    "the filter view is enabled" should {
 
-    "given a invalid search" should {
-
-      val softwareProviders = Seq(
-        SoftwareProviderModel("aName", "aUrl"),
-        SoftwareProviderModel("anotherName", "anotherUrl"),
-        SoftwareProviderModel("andAnotherName", "andAnotherUrl")
-      )
-
-      lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "")))
+      lazy val result = TestSoftwareChoicesController.show(fakeRequest)
 
       "return 200 (OK)" in {
-        status(result) shouldBe Status.BAD_REQUEST
+        status(result) shouldBe Status.OK
       }
 
       "return HTML" in {
         contentType(result) shouldBe Some("text/html")
         charset(result) shouldBe Some("utf-8")
       }
+
+      "render the filter search page" in {
+        Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.title
+      }
     }
+  }
+
+  "SoftwareChoicesController.search" when {
+
+    "the filter view is disabled" should {
+
+      "given a valid search" should {
+
+        val softwareProviders = Seq(
+          SoftwareProviderModel("aName", "aUrl"),
+          SoftwareProviderModel("anotherName", "anotherUrl"),
+          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+        )
+
+        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
+
+        "return 200 (OK)" in {
+          appConfig.filterViewEnabled(false)
+          setupMockSearchProviders(softwareProviders)
+          status(result) shouldBe Status.OK
+        }
+
+        "return HTML" in {
+          contentType(result) shouldBe Some("text/html")
+          charset(result) shouldBe Some("utf-8")
+        }
+
+        "render the basic search results page" in {
+          Jsoup.parse(bodyOf(result)).title shouldBe SoftwareChoicesMessages.title
+        }
+      }
+
+
+      "given a invalid search" should {
+
+        val softwareProviders = Seq(
+          SoftwareProviderModel("aName", "aUrl"),
+          SoftwareProviderModel("anotherName", "anotherUrl"),
+          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+        )
+
+        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "")))
+
+        "return 200 (OK)" in {
+          appConfig.filterViewEnabled(false)
+          status(result) shouldBe Status.BAD_REQUEST
+        }
+
+        "return HTML" in {
+          contentType(result) shouldBe Some("text/html")
+          charset(result) shouldBe Some("utf-8")
+        }
+
+        "render the basic search results page" in {
+          Jsoup.parse(bodyOf(result)).title shouldBe s"${CommonMessages.error} ${SoftwareChoicesMessages.title}"
+        }
+      }
+    }
+
+    "the filter view is enabled" should {
+
+      "given a valid search" should {
+
+        val softwareProviders = Seq(
+          SoftwareProviderModel("aName", "aUrl"),
+          SoftwareProviderModel("anotherName", "anotherUrl"),
+          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+        )
+
+        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
+
+        "return 200 (OK)" in {
+          setupMockSearchProviders(softwareProviders)
+          status(result) shouldBe Status.OK
+        }
+
+        "return HTML" in {
+          contentType(result) shouldBe Some("text/html")
+          charset(result) shouldBe Some("utf-8")
+        }
+
+        "render the basic search results page" in {
+          Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.title
+        }
+      }
+
+
+      "given a invalid search" should {
+
+        val softwareProviders = Seq(
+          SoftwareProviderModel("aName", "aUrl"),
+          SoftwareProviderModel("anotherName", "anotherUrl"),
+          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+        )
+
+        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "")))
+
+        "return 200 (OK)" in {
+          status(result) shouldBe Status.BAD_REQUEST
+        }
+
+        "return HTML" in {
+          contentType(result) shouldBe Some("text/html")
+          charset(result) shouldBe Some("utf-8")
+        }
+
+        "render the filter search results page" in {
+          Jsoup.parse(bodyOf(result)).title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.title}"
+        }
+      }
+    }
+
   }
 }
