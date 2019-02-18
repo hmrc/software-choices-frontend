@@ -16,27 +16,21 @@
 
 package models
 
-import play.api.Logger
 import enums.Filter
+import utils.TestUtils
 
-case class SoftwareProviderModel(name: String, url: String, filters: List[Filter.Value] = List.empty) {
+class SoftwareProviderModelSpec extends TestUtils {
 
-  val category: String = "^[A-Z]".r.findFirstIn(name.toUpperCase).getOrElse("#")
-}
+  "SoftwareProviderModel" should {
+    "parse a file line by name, url and filter" in  {
 
-object SoftwareProviderModel {
+      val actualResult = SoftwareProviderModel("10 Minute Accounts|https://10minuteaccounts.com*AGENT|BUSINESS")
+      val expectedResult = SoftwareProviderModel(
+        "10 Minute Accounts",
+        "https://10minuteaccounts.com",
+        List(Filter.AGENT, Filter.BUSINESS))
 
-  def apply(fileLine: String): SoftwareProviderModel = {
-
-    Logger.debug(s"[SoftwareChoicesService][readProviders] Provider: $fileLine")
-
-    val splitAtAsterisk = fileLine.split('*')
-
-    val nameUrl = splitAtAsterisk.head.split('|')
-
-    val filters: List[Filter.Value] = splitAtAsterisk.last.split('|').map(Filter(_)).toList
-
-    new SoftwareProviderModel(nameUrl(0), nameUrl(1), filters)
+      actualResult shouldBe expectedResult
+    }
   }
-
 }
