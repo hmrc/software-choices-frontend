@@ -35,9 +35,7 @@ class SoftwareChoicesService {
 
   def searchProviders(term: String): Seq[SoftwareProviderModel] = readProviders.filter(_.name.toLowerCase.contains(term.toLowerCase))
 
-  def filterProviders(filters: List[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = {
-    val filter = readProviders.filter(providers => filters forall(providers.filters.contains(_)))
-    term.fold(filter)(searchTerm => filter.filter(_.name.toLowerCase.contains(searchTerm.toLowerCase)))
+  def filterProviders(filters: List[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = readProviders.filter { providers =>
+    filters.forall(providers.filters.contains(_)) && providers.name.toLowerCase.contains(term.getOrElse("").toLowerCase)
   }
-
 }
