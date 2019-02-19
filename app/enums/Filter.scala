@@ -17,13 +17,24 @@
 package enums
 
 object Filter extends Enumeration {
+
   val AGENT: Filter.Value = Value
   val BUSINESS: Filter.Value = Value
+  val VIEW_RETURN: Filter.Value = Value
+  val VIEW_PAYMENTS: Filter.Value = Value
+  val VIEW_LIABILITIES: Filter.Value = Value
+  val ACCOUNTING: Filter.Value = Value
+  val SPREADSHEETS: Filter.Value = Value
   val UNKNOWN: Filter.Value = Value
 
   def apply(string: String): Filter.Value = string.toUpperCase match {
     case "AGENT" => AGENT
     case "BUSINESS" => BUSINESS
+    case "VIEW_RETURN" => VIEW_RETURN
+    case "VIEW_PAYMENTS" => VIEW_PAYMENTS
+    case "VIEW_LIABILITIES" => VIEW_LIABILITIES
+    case "ACCOUNTING" => ACCOUNTING
+    case "SPREADSHEETS" => SPREADSHEETS
     case _ => UNKNOWN
   }
 }
