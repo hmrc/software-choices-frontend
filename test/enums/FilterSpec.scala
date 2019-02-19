@@ -31,6 +31,26 @@ class FilterSpec extends TestUtils {
       Filter("Business") shouldBe BUSINESS
     }
 
+    "determine the correct VIEW_RETURN enum value" in {
+      Filter("VIEW_RETURN") shouldBe VIEW_RETURN
+    }
+
+    "determine the correct VIEW_PAYMENTS enum value" in {
+      Filter("VIEW_PAYMENTS") shouldBe VIEW_PAYMENTS
+    }
+
+    "determine the correct VIEW_LIABILITIES enum value" in {
+      Filter("VIEW_LIABILITIES") shouldBe VIEW_LIABILITIES
+    }
+
+    "determine the correct ACCOUNTING enum value" in {
+      Filter("ACCOUNTING") shouldBe ACCOUNTING
+    }
+
+    "determine the correct SPREADSHEETS enum value" in {
+      Filter("SPREADSHEETS") shouldBe SPREADSHEETS
+    }
+
     "determine an unknown enum value" in {
       Filter("UNKNOWN") shouldBe UNKNOWN
     }
