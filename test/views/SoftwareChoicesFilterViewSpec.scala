@@ -18,7 +18,7 @@ package views
 
 import assets.messages.{CommonMessages, FilterSearchMessages, SoftwareChoicesMessages}
 import assets.testContants.SoftwareProvidersTestConstants
-import forms.SearchForm
+import forms.{FiltersForm, SearchForm}
 
 class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
 
@@ -37,7 +37,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
     "the search does not contain errors" should {
 
-      lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, SearchForm.form))
+      lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
 
       s"have the correct document title" in {
         document.title shouldBe FilterSearchMessages.title
@@ -63,7 +63,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
     "the search contains errors" should {
 
-      val errorForm = SearchForm.form.withError("term","AN ERROR")
+      val errorForm = FiltersForm.form.withError("term","AN ERROR")
 
       lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, errorForm))
 

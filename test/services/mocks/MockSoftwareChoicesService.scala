@@ -16,6 +16,7 @@
 
 package services.mocks
 
+import enums.Filter
 import models.SoftwareProviderModel
 import org.scalamock.scalatest.MockFactory
 import services.SoftwareChoicesService
@@ -28,6 +29,12 @@ trait MockSoftwareChoicesService extends TestUtils with MockFactory{
   def setupMockSearchProviders(softwareProviders: Seq[SoftwareProviderModel]): Unit = {
     (mockSoftwareChoicesService.searchProviders(_: String))
       .expects(*)
+      .returns(softwareProviders)
+  }
+
+  def setupMockFilterProviders(softwareProviders: Seq[SoftwareProviderModel]): Unit = {
+    (mockSoftwareChoicesService.filterProviders(_: Seq[Filter.Value], _: Option[String]))
+      .expects(*,*)
       .returns(softwareProviders)
   }
 

@@ -22,6 +22,7 @@ import play.api.Logger
 
 import scala.io.Source
 import enums.Filter
+
 @Singleton
 class SoftwareChoicesService {
 
@@ -35,7 +36,7 @@ class SoftwareChoicesService {
 
   def searchProviders(term: String): Seq[SoftwareProviderModel] = readProviders.filter(_.name.toLowerCase.contains(term.toLowerCase))
 
-  def filterProviders(filters: List[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = readProviders.filter { providers =>
+  def filterProviders(filters: Seq[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = readProviders.filter { providers =>
     filters.forall(providers.filters.contains(_)) && providers.name.toLowerCase.contains(term.getOrElse("").toLowerCase)
   }
 }

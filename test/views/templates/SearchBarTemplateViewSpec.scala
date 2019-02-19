@@ -37,7 +37,7 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
     "given an empty form" should {
 
-      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form))
+      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form(SearchForm.term)))
 
       s"have a label for the search input which is visually hidden" in {
         document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
@@ -58,7 +58,7 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
       lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form.bind(Map(
         SearchForm.term -> "Search Term"
-      ))))
+      ))(SearchForm.term)))
 
       s"have a search bar" in {
         document.select(Selectors.search).attr("name") shouldBe SearchForm.term
@@ -72,7 +72,7 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
     "given showLabel is true" should {
 
-      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form, showLabel = true))
+      lazy val document = parseView(views.html.templates.search_bar_template(SearchForm.form(SearchForm.term), showLabel = true))
 
       s"have a label for the search input which is visually hidden" in {
         document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term

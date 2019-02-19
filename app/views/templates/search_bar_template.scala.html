@@ -17,19 +17,19 @@
 @import uk.gov.hmrc.play.views.html.helpers
 @import forms.SearchForm
 @import config.AppConfig
+@import play.api.data.Field
 
-@(form: Form[SearchModel], showLabel: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
-@helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
+@(field: Field, showLabel: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
-    <div class="form-group @if(form.hasErrors){form-field--error"}">
+    <div class="form-group @if(field.hasErrors){form-field--error"}">
 
-        @form.errors.map { error => <span class="error-message">@messages(error.message, error.args: _*)</span> }
+        @field.errors.map { error => <span class="error-message">@messages(error.message, error.args: _*)</span> }
 
         <div class="search-field search-field-darker">
             <div class="search-input search-input-with-button">
                 <label for="term" class="@if(!showLabel){visuallyhidden} bold">@messages("softwareChoices.search.button.text")</label>
-                <input id="term" name="term" type="text" value="@form(SearchForm.term).value">
+                <input id="term" name="term" type="text" value="@field.value">
             </div>
             <div class="search-submit">
                 <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
@@ -38,5 +38,3 @@
             </div>
         </div>
     </div>
-
-}

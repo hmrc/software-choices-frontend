@@ -17,14 +17,14 @@
 package controllers
 
 import config.AppConfig
-import forms.SearchForm
+import forms.{FiltersForm, SearchForm}
 import javax.inject.{Inject, Singleton}
 import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
-import views.html.{software_choices_results, software_choices_search, software_choices_filter}
+import views.html.{software_choices_filter, software_choices_results, software_choices_search}
 
 @Singleton
 class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareChoicesService,
@@ -59,14 +59,15 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
   //Filter View Logic
   val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders)
 
-  def filterView(implicit request: Request[_]): Result = Ok(software_choices_filter(softwareProvidersFilterViewModel, SearchForm.form))
+  def filterView(implicit request: Request[_]): Result = Ok(software_choices_filter(softwareProvidersFilterViewModel, FiltersForm.form))
 
   def filterSearch(implicit request: Request[_]): Result =
-    SearchForm.form.bindFromRequest().fold(
+    FiltersForm.form.bindFromRequest().fold(
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
-        val results = SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders, Some(softwareChoicesService.searchProviders(search.term)))
-        Ok(software_choices_filter(results, SearchForm.form.fill(search)))
+        val results =
+          SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders, Some(softwareChoicesService.filterProviders(search.filters, search.searchTerm)))
+        Ok(software_choices_filter(results, FiltersForm.form.fill(search)))
       }
     )
 
