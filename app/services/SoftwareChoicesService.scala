@@ -21,7 +21,7 @@ import models.SoftwareProviderModel
 import play.api.Logger
 
 import scala.io.Source
-
+import enums.Filter
 @Singleton
 class SoftwareChoicesService {
 
@@ -33,7 +33,14 @@ class SoftwareChoicesService {
 
   lazy val readProviders: Seq[SoftwareProviderModel] = providersList.map(SoftwareProviderModel(_))
 
-  def searchProviders(term: String): Seq[SoftwareProviderModel] =
+  def searchProviders(term: String): Seq[SoftwareProviderModel] = {
     readProviders.filter(_.name.toLowerCase.contains(term.toLowerCase))
+  }
+
+  def filterProviders(filters: List[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = {
+
+    val filter = readProviders.filter(providers => filters.forall(providers.filters contains))
+    term.fold(filter)(searchTerm => filter.filter(_.name.toLowerCase.contains(searchTerm.toLowerCase)))
+  }
 
 }
