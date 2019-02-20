@@ -28,7 +28,7 @@ class SoftwareChoicesService {
 
   protected lazy val providersList: Seq[String] = {
     Logger.debug("[SoftwareChoicesService][providersList] Loading providers from file")
-    val stream = getClass.getResourceAsStream("/softwareProviders")
+    val stream = getClass.getResourceAsStream("/softwareProvidersCSV")
     Source.fromInputStream(stream).getLines.toSeq
   }
 

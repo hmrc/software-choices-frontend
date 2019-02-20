@@ -35,7 +35,6 @@ object Filter extends Enumeration {
   final val accounting = ACCOUNTING.toString
   final val spreadsheets = SPREADSHEETS.toString
 
-
   def apply(string: String): Filter.Value = string.toUpperCase match {
     case `agent` => AGENT
     case `business` => BUSINESS

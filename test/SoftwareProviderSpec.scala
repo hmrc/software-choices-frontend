@@ -25,11 +25,11 @@ class SoftwareProviderSpec extends TestUtils {
     "have the correct list of providers" in {
 
       val actualProviders: Seq[String] = {
-        val stream = getClass.getResourceAsStream("/softwareProviders")
+        val stream = getClass.getResourceAsStream("/softwareProvidersCSV")
         Source.fromInputStream(stream).getLines.toSeq
       }
 
-      val expectedProviders: Seq[String] = Source.fromFile("test/resources/TestSoftwareProviders").getLines.toSeq
+      val expectedProviders: Seq[String] = Source.fromFile("test/resources/testSoftwareProvidersCSV").getLines.toSeq
 
       for (i <- expectedProviders.indices) {
         actualProviders(i) shouldBe expectedProviders(i)

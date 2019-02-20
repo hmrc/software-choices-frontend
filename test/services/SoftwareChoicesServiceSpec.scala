@@ -18,15 +18,14 @@ package services
 import enums.Filter._
 import models.SoftwareProviderModel
 import utils.TestUtils
-import enums.Filter._
 
 class SoftwareChoicesServiceSpec extends TestUtils {
 
   object TestSoftwareChoicesService extends SoftwareChoicesService {
     override lazy val providersList: Seq[String] = Seq(
-      "nameOne|urlOne*AGENT|BUSINESS",
-      "nameTwo|urlTwo*BUSINESS",
-      "nameThree|urlThree*AGENT|BUSINESS"
+      "nameOne|urlOne|x|x|||||",
+      "nameTwo|urlTwo|x||||||",
+      "nameThree|urlThree|x|x|||||"
     )
   }
 
@@ -34,9 +33,9 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
     "return the correct sequence of software providers" in {
       TestSoftwareChoicesService.readProviders shouldBe Seq(
-        SoftwareProviderModel("nameOne","urlOne", List(AGENT, BUSINESS)),
+        SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
         SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-        SoftwareProviderModel("nameThree","urlThree", List(AGENT, BUSINESS))
+        SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
       )
     }
   }
@@ -46,7 +45,7 @@ class SoftwareChoicesServiceSpec extends TestUtils {
     "return the correct sequence of filtered software providers" in {
       TestSoftwareChoicesService.searchProviders("t") shouldBe Seq(
         SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-        SoftwareProviderModel("nameThree","urlThree", List(AGENT, BUSINESS))
+        SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
       )
     }
 
@@ -56,9 +55,9 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
     "return all providers where search term matches all" in {
       TestSoftwareChoicesService.searchProviders("na") shouldBe Seq(
-        SoftwareProviderModel("nameOne","urlOne", List(AGENT, BUSINESS)),
+        SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
         SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-        SoftwareProviderModel("nameThree","urlThree", List(AGENT, BUSINESS))
+        SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
       )
     }
   }
@@ -71,9 +70,9 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
         val actualResult = TestSoftwareChoicesService.filterProviders(List(BUSINESS))
         val expectedResult = Seq(
-          SoftwareProviderModel("nameOne","urlOne", List(AGENT, BUSINESS)),
+          SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
           SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-          SoftwareProviderModel("nameThree","urlThree", List(AGENT, BUSINESS))
+          SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
         )
 
         actualResult shouldBe expectedResult
@@ -95,8 +94,8 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
         val actualResult = TestSoftwareChoicesService.filterProviders(List(AGENT))
         val expectedResult = Seq(
-          SoftwareProviderModel("nameOne","urlOne", List(AGENT, BUSINESS)),
-          SoftwareProviderModel("nameThree","urlThree", List(AGENT, BUSINESS))
+          SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
+          SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
         )
 
         actualResult shouldBe expectedResult
@@ -118,8 +117,8 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
         val actualResult = TestSoftwareChoicesService.filterProviders(List(AGENT), Some("name"))
         val expectedResult = Seq(
-          SoftwareProviderModel("nameOne", "urlOne", List(AGENT, BUSINESS)),
-          SoftwareProviderModel("nameThree","urlThree", List(AGENT, BUSINESS))
+          SoftwareProviderModel("nameOne", "urlOne", List(BUSINESS, AGENT)),
+          SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
         )
 
         actualResult shouldBe expectedResult
@@ -129,8 +128,8 @@ class SoftwareChoicesServiceSpec extends TestUtils {
     "given two filters with a correct search term" should {
       "return one correct provider" in {
 
-        val actualResult = TestSoftwareChoicesService.filterProviders(List(AGENT, BUSINESS), Some("nameThree"))
-        val expectedResult = Seq(SoftwareProviderModel("nameThree","urlThree", List(AGENT, BUSINESS)))
+        val actualResult = TestSoftwareChoicesService.filterProviders(List(BUSINESS, AGENT), Some("nameThree"))
+        val expectedResult = Seq(SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT)))
 
         actualResult shouldBe expectedResult
       }

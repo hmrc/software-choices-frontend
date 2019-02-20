@@ -18,6 +18,7 @@ package models
 
 import play.api.Logger
 import enums.Filter
+import enums.Filter._
 
 case class SoftwareProviderModel(name: String, url: String, filters: List[Filter.Value] = List.empty) {
 
@@ -30,13 +31,15 @@ object SoftwareProviderModel {
 
     Logger.debug(s"[SoftwareChoicesService][readProviders] Provider: $fileLine")
 
-    val splitAtAsterisk = fileLine.split('*')
+    val fileLineArray = fileLine.split("\\|",-1)
+    val filtersArray = fileLineArray.splitAt(2)._2
+    val orderedFilters = Seq(BUSINESS, AGENT, ACCOUNTING, SPREADSHEETS, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS)
 
-    val nameUrl = splitAtAsterisk.head.split('|')
+    val name = fileLineArray.head
+    val url = fileLineArray(1)
+    val providerFilters = orderedFilters.indices.flatMap(i => if(filtersArray(i) == "x") Some(orderedFilters(i)) else None).toList
 
-    val filters: List[Filter.Value] = splitAtAsterisk.last.split('|').map(Filter(_)).toList
-
-    new SoftwareProviderModel(nameUrl(0), nameUrl(1), filters)
+    SoftwareProviderModel(name, url, providerFilters)
   }
 
 }
