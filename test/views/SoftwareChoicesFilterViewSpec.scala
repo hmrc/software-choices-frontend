@@ -153,8 +153,15 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
         }
       }
 
-      "contain a Filter results button" in {
-        document.select(Selectors.filterResults).text shouldBe FilterSearchMessages.filterResults
+      "contain a Filter results button which" should {
+
+        "have the correct message for the button" in {
+          document.select(Selectors.filterResults).text shouldBe FilterSearchMessages.filterResults
+        }
+
+        "have a form-group class" in {
+          document.select(Selectors.filterResults).hasClass("form-group") shouldBe true
+        }
       }
     }
   }
