@@ -34,3 +34,18 @@ softwareChoicesResults.results.title = Results
 softwareChoicesResults.results = We have found these software packages that work with Making Tax Digital for VAT:
 
 softwareChoices.filter.title = Find software for Making Tax Digital for VAT
+
+softwareChoices.filter.softwareSuitableFor = Software suitable for
+softwareChoices.filter.businesses = Businesses
+softwareChoices.filter.agents = Agents
+
+softwareChoices.filter.additionalSoftwareFeatures = Additional software features
+softwareChoices.filter.vatReturns = Check submitted VAT returns
+softwareChoices.filter.vatLiabilities = View VAT liabilities
+softwareChoices.filter.vatPayments = View VAT payments
+
+softwareChoices.filter.typeOfSoftware = Type of software
+softwareChoices.filter.accountingSoftware = Accounting software
+softwareChoices.filter.spreadSheets = Connects to spreadsheets
+
+softwareChoices.filter.filterResults = Filter results

@@ -16,9 +16,10 @@
 
 package views
 
-import assets.messages.{CommonMessages, FilterSearchMessages, SoftwareChoicesMessages}
+import assets.messages.{CommonMessages, FilterSearchMessages}
 import assets.testContants.SoftwareProvidersTestConstants
-import forms.SearchForm
+import forms.{FiltersForm, SearchForm}
+
 
 class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
 
@@ -31,13 +32,23 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val termFieldError = "#term-error-summary"
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".error-message"
+    val filterHeader = (i: Int) => s"#content > form > div > div.column-one-third > div:nth-child($i) > div.filter-head > span"
+    val agentFilter = """label[for="AGENT"]"""
+    val businessFilter = """label[for="BUSINESS"]"""
+    val vatReturnsFilter ="""label[for="VIEW_RETURN"]"""
+    val vatLiabilitiesFilter ="""label[for="VIEW_LIABILITIES"]"""
+    val vatPaymentsFilter ="""label[for="VIEW_PAYMENTS"]"""
+    val accountingFilter ="""label[for="ACCOUNTING"]"""
+    val spreadsheetsFilter ="""label[for="SPREADSHEETS"]"""
+    val filterResults ="#content > form > div > div.column-one-third > button"
+
   }
 
   "The software choices filter page" when {
 
     "the search does not contain errors" should {
 
-      lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, SearchForm.form))
+      lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
 
       s"have the correct document title" in {
         document.title shouldBe FilterSearchMessages.title
@@ -63,7 +74,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
     "the search contains errors" should {
 
-      val errorForm = SearchForm.form.withError("term","AN ERROR")
+      val errorForm = FiltersForm.form.withError("term","AN ERROR")
 
       lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, errorForm))
 
@@ -85,6 +96,65 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
       "highlight the errored field" in {
         document.select(Selectors.formFieldError).isEmpty shouldBe false
         document.select(Selectors.fieldErrorMessage).text shouldBe "AN ERROR"
+      }
+    }
+
+
+    "Filter search" should {
+
+      lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
+
+      "contain a filter for Agents and Business which" should {
+
+        "Suitable for should contain Agents and Business filter header" in {
+          document.select(Selectors.filterHeader(1)).text shouldBe FilterSearchMessages.suitableFor
+        }
+
+        "Filter Header contains Agents" in {
+          document.select(Selectors.agentFilter).text shouldBe FilterSearchMessages.agents
+        }
+
+        "Filter Header contains Business" in {
+          document.select(Selectors.businessFilter).text shouldBe FilterSearchMessages.businesses
+        }
+      }
+
+      "contain a filter for Additional Features" should {
+
+        "Suitable for should contain Additional software features filter header" in {
+          document.select(Selectors.filterHeader(2)).text shouldBe FilterSearchMessages.additionalSoftwareFeatures
+        }
+
+        "Filter Header contains Check submitted VAT Returns" in {
+          document.select(Selectors.vatReturnsFilter).text shouldBe FilterSearchMessages.vatReturns
+        }
+
+        "Filter Header contains Check View VAT liabilities" in {
+          document.select(Selectors.vatLiabilitiesFilter).text shouldBe FilterSearchMessages.vatLiabilities
+        }
+
+        "Filter Header contains Check View VAT payments" in {
+          document.select(Selectors.vatPaymentsFilter).text shouldBe FilterSearchMessages.vatPayments
+        }
+      }
+
+      "contain a filter for Type of software" should {
+
+        "Suitable for should contain Type of software filter header" in {
+          document.select(Selectors.filterHeader(3)).text shouldBe FilterSearchMessages.typeOfSoftware
+        }
+
+        "Filter Header contains Accounting software" in {
+          document.select(Selectors.accountingFilter).text shouldBe FilterSearchMessages.accountingSoftware
+        }
+
+        "Filter Header contains Connects to spreadsheets" in {
+          document.select(Selectors.spreadsheetsFilter).text shouldBe FilterSearchMessages.spreadSheets
+        }
+      }
+
+      "contain a Filter results button" in {
+        document.select(Selectors.filterResults).text shouldBe FilterSearchMessages.filterResults
       }
     }
   }

@@ -17,7 +17,7 @@
 package controllers
 
 import assets.messages.{CommonMessages, FilterSearchMessages, SoftwareChoicesMessages}
-import forms.SearchForm
+import forms.{FiltersForm, SearchForm}
 import models.SoftwareProviderModel
 import org.jsoup.Jsoup
 import play.api.http.Status
@@ -147,7 +147,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
 
         "return 200 (OK)" in {
-          setupMockSearchProviders(softwareProviders)
+          setupMockFilterProviders(softwareProviders)
           status(result) shouldBe Status.OK
         }
 
@@ -170,7 +170,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
           SoftwareProviderModel("andAnotherName", "andAnotherUrl")
         )
 
-        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "")))
+        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
 
         "return 200 (OK)" in {
           status(result) shouldBe Status.BAD_REQUEST

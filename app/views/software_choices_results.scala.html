@@ -16,6 +16,9 @@
 
 @import config.AppConfig
 @import templates._
+@import uk.gov.hmrc.play.views.html.helpers
+@import forms.SearchForm
+
 
 @import uk.gov.hmrc.play.views.html.layouts
 
@@ -36,7 +39,9 @@
 
         @search_heading_template()
 
-        @search_bar_template(form)
+        @helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
+            @search_bar_template(form(SearchForm.term))
+        }
 
         <div class="form-group">
             <a href="@controllers.routes.SoftwareChoicesController.show().url">@messages("softwareChoices.search.clear")</a>

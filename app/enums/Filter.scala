@@ -27,14 +27,23 @@ object Filter extends Enumeration {
   val SPREADSHEETS: Filter.Value = Value
   val UNKNOWN: Filter.Value = Value
 
+  final val agent = AGENT.toString
+  final val business = BUSINESS.toString
+  final val viewReturn = VIEW_RETURN.toString
+  final val viewPayments = VIEW_PAYMENTS.toString
+  final val viewLiabilities = VIEW_LIABILITIES.toString
+  final val accounting = ACCOUNTING.toString
+  final val spreadsheets = SPREADSHEETS.toString
+
+
   def apply(string: String): Filter.Value = string.toUpperCase match {
-    case "AGENT" => AGENT
-    case "BUSINESS" => BUSINESS
-    case "VIEW_RETURN" => VIEW_RETURN
-    case "VIEW_PAYMENTS" => VIEW_PAYMENTS
-    case "VIEW_LIABILITIES" => VIEW_LIABILITIES
-    case "ACCOUNTING" => ACCOUNTING
-    case "SPREADSHEETS" => SPREADSHEETS
+    case `agent` => AGENT
+    case `business` => BUSINESS
+    case `viewReturn` => VIEW_RETURN
+    case `viewPayments` => VIEW_PAYMENTS
+    case `viewLiabilities` => VIEW_LIABILITIES
+    case `accounting` => ACCOUNTING
+    case `spreadsheets` => SPREADSHEETS
     case _ => UNKNOWN
   }
 }

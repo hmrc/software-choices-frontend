@@ -16,8 +16,11 @@
 
 @import config.AppConfig
 @import templates._
+@import forms.FiltersForm
+@import uk.gov.hmrc.play.views.html.helpers
+@import enums.Filter._
 
-@(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[SearchModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[FiltersFormModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @titlePrefix = {
     @if(form.hasErrors) { @messages("common.error") }
@@ -35,20 +38,49 @@
 
     </div>
 
-    <div class="grid-row">
 
-        <div class="column-one-third">
-            <!--TODO: Add filters-->
+    @helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate") {
+        <div class="grid-row">
+
+            <div class="column-one-third">
+
+                @search_filter_template(
+                    messages("softwareChoices.filter.softwareSuitableFor"),
+                    Seq(
+                        FilterTemplateModel(form(business), messages("softwareChoices.filter.businesses")),
+                        FilterTemplateModel(form(agent), messages("softwareChoices.filter.agents"))
+                    )
+                )
+
+                @search_filter_template(
+                    messages("softwareChoices.filter.additionalSoftwareFeatures"),
+                    Seq(
+                        FilterTemplateModel(form(viewReturn), messages("softwareChoices.filter.vatReturns")),
+                        FilterTemplateModel(form(viewLiabilities), messages("softwareChoices.filter.vatLiabilities")),
+                        FilterTemplateModel(form(viewPayments), messages("softwareChoices.filter.vatPayments"))
+                    )
+                )
+
+                @search_filter_template(
+                    messages("softwareChoices.filter.typeOfSoftware"),
+                    Seq(
+                        FilterTemplateModel(form(accounting), messages("softwareChoices.filter.accountingSoftware")),
+                        FilterTemplateModel(form(spreadsheets), messages("softwareChoices.filter.spreadSheets"))
+                    )
+                )
+
+                <button type="submit">@messages("softwareChoices.filter.filterResults")</button>
+            </div>
+
+            <div class="column-two-thirds">
+                @search_bar_template(form(FiltersForm.term), true)
+
+                @softwareChoices.renderResultCount
+
+                @softwareChoices.renderProviders
+            </div>
+
         </div>
-
-        <div class="column-two-thirds">
-            @search_bar_template(form, true)
-
-            @softwareChoices.renderResultCount
-
-            @softwareChoices.renderProviders
-        </div>
-
-    </div>
+    }
 }
 
