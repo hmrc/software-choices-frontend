@@ -20,4 +20,19 @@ object FilterSearchMessages {
 
   val title = "Find software for Making Tax Digital for VAT"
 
+  val suitableFor = "Software suitable for"
+  val agents = "Agents"
+  val businesses = "Businesses"
+
+  val additionalSoftwareFeatures = "Additional software features"
+  val vatReturns = "Check submitted VAT returns"
+  val vatLiabilities = "View VAT liabilities"
+  val vatPayments = "View VAT payments"
+
+  val typeOfSoftware = "Type of software"
+  val accountingSoftware = "Accounting software"
+  val spreadSheets = "Connects to spreadsheets"
+
+  val filterResults = "Filter results"
+
 }

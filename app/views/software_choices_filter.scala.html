@@ -45,31 +45,31 @@
             <div class="column-one-third">
 
                 @search_filter_template(
-                    messages("Filter Header"),
+                    messages("softwareChoices.filter.softwareSuitableFor"),
                     Seq(
-                        FilterTemplateModel(form(business), messages("Business")),
-                        FilterTemplateModel(form(agent), messages("Agent"))
+                        FilterTemplateModel(form(business), messages("softwareChoices.filter.businesses")),
+                        FilterTemplateModel(form(agent), messages("softwareChoices.filter.agents"))
                     )
                 )
 
                 @search_filter_template(
-                    messages("Filter Header"),
+                    messages("softwareChoices.filter.additionalSoftwareFeatures"),
                     Seq(
-                        FilterTemplateModel(form(viewReturn), messages("viewReturn")),
-                        FilterTemplateModel(form(viewLiabilities), messages("viewLiabilities")),
-                        FilterTemplateModel(form(viewPayments), messages("viewPayments"))
+                        FilterTemplateModel(form(viewReturn), messages("softwareChoices.filter.vatReturns")),
+                        FilterTemplateModel(form(viewLiabilities), messages("softwareChoices.filter.vatLiabilities")),
+                        FilterTemplateModel(form(viewPayments), messages("softwareChoices.filter.vatPayments"))
                     )
                 )
 
                 @search_filter_template(
-                    messages("Filter Header"),
+                    messages("softwareChoices.filter.typeOfSoftware"),
                     Seq(
-                        FilterTemplateModel(form(accounting), messages("account")),
-                        FilterTemplateModel(form(spreadsheets), messages("Spreadsheets"))
+                        FilterTemplateModel(form(accounting), messages("softwareChoices.filter.accountingSoftware")),
+                        FilterTemplateModel(form(spreadsheets), messages("softwareChoices.filter.spreadSheets"))
                     )
                 )
 
-                <button type="submit">Filter results</button>
+                <button type="submit">@messages("softwareChoices.filter.filterResults")</button>
             </div>
 
             <div class="column-two-thirds">
