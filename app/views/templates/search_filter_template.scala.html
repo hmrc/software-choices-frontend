@@ -23,14 +23,15 @@
 
 <div class="filter-wrapper form-group">
     <div class="filter-head">
-        <span class="bold-medium">@messages(header)</span>
+        <span class="bold">@messages(header)</span>
     </div>
 
-    <div class="filter-container" id="location">
+    <div class="filter-container">
         <fieldset class="filter-options">
-                @options.map{ option =>
-                    @singleCheckbox(option.field, option.label)
-                }
+            <legend class="visuallyhidden">@messages(header)</legend>
+            @options.map{ option =>
+                @singleCheckbox(option.field, option.label)
+            }
         </fieldset>
     </div>
 </div>
