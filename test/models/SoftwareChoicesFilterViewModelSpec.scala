@@ -52,7 +52,7 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
       "render the expected provider table with all providers" in {
 
         val model = SoftwareChoicesFilterViewModel(softwareProvidersAll)
-        val expected = provider_table_template(model.sortedProviders(softwareProvidersAll))
+        val expected = provider_table_template(model.sortedProviders(softwareProvidersAll), softwareProvidersAll.length)
 
         model.renderProviders shouldEqual expected
       }
@@ -63,7 +63,7 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
       "render the expected provider table with the found providers" in {
 
         val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(softwareProvidersFound))
-        val expected = provider_table_template(model.sortedProviders(softwareProvidersFound))
+        val expected = provider_table_template(model.sortedProviders(softwareProvidersFound), softwareProvidersAll.length)
 
         model.renderProviders shouldEqual expected
       }
@@ -74,45 +74,9 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
       "render the expected provider table with no providers" in {
 
         val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(Seq()))
-        val expected = provider_table_template(model.sortedProviders(Seq()))
+        val expected = provider_table_template(model.sortedProviders(Seq()), softwareProvidersAll.length)
 
         model.renderProviders shouldEqual expected
-      }
-    }
-  }
-
-  "SoftwareChoicesFilterViewModel.renderResultCount" when {
-
-    "no search has been executed" should {
-
-      "render the expected count" in {
-
-        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll)
-        val expected = result_count_template(softwareProvidersAll.length, softwareProvidersAll.length)
-
-        model.renderResultCount shouldEqual expected
-      }
-    }
-
-    "there are found providers" should {
-
-      "render the expected count" in {
-
-        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(softwareProvidersFound))
-        val expected = result_count_template(softwareProvidersFound.length, softwareProvidersAll.length)
-
-        model.renderResultCount shouldEqual expected
-      }
-    }
-
-    "there are no found providers" should {
-
-      "render the expected count" in {
-
-        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(Seq()))
-        val expected = result_count_template(0, softwareProvidersAll.length)
-
-        model.renderResultCount shouldEqual expected
       }
     }
   }

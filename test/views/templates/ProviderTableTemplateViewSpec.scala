@@ -29,7 +29,7 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
     "a list of providers" should {
 
-      lazy val document = parseView(views.html.templates.provider_table_template(categoryAProviders))
+      lazy val document = parseView(views.html.templates.provider_table_template(categoryAProviders, 10))
 
       for (i <- categoryAProviders.indices) {
 

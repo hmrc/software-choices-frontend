@@ -46,9 +46,6 @@
 .search-field-darker .search-input input {
   border-color: #0b0c0c;
 }
-.search-input-with-button input {
-  border-right: none;
-}
 .search-submit button {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;

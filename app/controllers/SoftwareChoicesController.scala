@@ -21,9 +21,11 @@ import forms.{FiltersForm, SearchForm}
 import javax.inject.{Inject, Singleton}
 import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
 import play.api.i18n.{I18nSupport, MessagesApi}
+import play.api.libs.json.Json
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
+import views.html.templates.provider_table_template
 import views.html.{software_choices_filter, software_choices_results, software_choices_search}
 
 @Singleton
@@ -70,5 +72,15 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
         Ok(software_choices_filter(results, FiltersForm.form.fill(search)))
       }
     )
+
+  val ajaxFilterSearch: Action[AnyContent] = Action { implicit request =>
+    FiltersForm.form.bindFromRequest().fold(
+      error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
+      search => {
+        val results = softwareChoicesService.filterProviders(search.filters, search.searchTerm)
+        Ok(provider_table_template(results, softwareChoicesService.readProviders.length))
+      }
+    )
+  }
 
 }
