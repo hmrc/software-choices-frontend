@@ -16,19 +16,34 @@
 
 package models
 
-import enums.Filter
+import enums.Filter._
 import utils.TestUtils
 
 class SoftwareProviderModelSpec extends TestUtils {
 
   "SoftwareProviderModel" should {
-    "parse a file line by name, url and filter" in  {
 
-      val actualResult = SoftwareProviderModel("10 Minute Accounts|https://10minuteaccounts.com*AGENT|BUSINESS")
-      val expectedResult = SoftwareProviderModel(
-        "10 Minute Accounts",
-        "https://10minuteaccounts.com",
-        List(Filter.AGENT, Filter.BUSINESS))
+    "if all filters are provided" in  {
+      val actualResult =
+        SoftwareProviderModel("providerA|providerAUrl|x|x|x|x|x|x|x")
+      val expectedResult =
+        SoftwareProviderModel("providerA", "providerAUrl", List(BUSINESS, AGENT, ACCOUNTING, SPREADSHEETS, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS))
+
+      actualResult shouldBe expectedResult
+    }
+
+    "if some filters are provided" in  {
+
+      val actualResult = SoftwareProviderModel("providerB|providerBUrl||x||x|x||")
+      val expectedResult = SoftwareProviderModel("providerB", "providerBUrl", List(AGENT, SPREADSHEETS, VIEW_RETURN))
+
+      actualResult shouldBe expectedResult
+    }
+
+    "if no filters are provided" in  {
+
+      val actualResult =  SoftwareProviderModel("providerC|providerCUrl|||||||")
+      val expectedResult =  SoftwareProviderModel("providerC", "providerCUrl", List())
 
       actualResult shouldBe expectedResult
     }
