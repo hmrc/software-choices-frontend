@@ -16,10 +16,9 @@
 
 package models
 
-import play.api.Logger
 import enums.Filter
 import enums.Filter._
-import play.api.libs.json.{Json, Writes}
+import play.api.Logger
 
 case class SoftwareProviderModel(name: String, url: String, filters: List[Filter.Value] = List.empty) {
 
