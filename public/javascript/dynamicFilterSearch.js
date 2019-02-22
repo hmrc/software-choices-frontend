@@ -1,22 +1,17 @@
-var typingTimer;
-var doneTypingInterval = 500;
+var searchTrigger;
+var doneTypingInterval = 250;
 
 var input = $('#term');
 
-input.on('keydown', function () {
-  clearTimeout(typingTimer);
+input.on('keydown', createSearchTrigger);
+input.on('keyup', createSearchTrigger);
+$('input[type="checkbox"]').on('click', createSearchTrigger);
+
+function createSearchTrigger() {
+  clearTimeout(searchTrigger);
   showLoadingIcon();
-});
-
-input.on('keyup', function () {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(submitAjaxForm, doneTypingInterval);
-});
-
-
-$('input[type="checkbox"]').on('click', function () {
-  submitAjaxForm();
-});
+  searchTrigger = setTimeout(submitAjaxForm, doneTypingInterval);
+}
 
 function clearErrors() {
   $('#error-summary-display').remove();
