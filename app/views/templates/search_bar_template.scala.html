@@ -19,24 +19,31 @@
 @import config.AppConfig
 @import play.api.data.Field
 
+@(field: Field, showLabel: Boolean = false, includeNoscript: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
-@(field: Field, showLabel: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
+<div class="form-group @if(field.hasErrors){form-field--error"}">
 
-    <div class="form-group @if(field.hasErrors){form-field--error"}">
+    @field.errors.map { error => <span class="error-message">@messages(error.message, error.args: _*)</span> }
 
-        @field.errors.map { error => <span class="error-message">@messages(error.message, error.args: _*)</span> }
-
-        <div class="search-field search-field-darker">
-            <div class="search-input search-input-with-button">
-                <label for="term" class="@if(!showLabel){visuallyhidden} bold">@messages("softwareChoices.search.button.text")</label>
-                <input id="term" name="term" type="text" value="@field.value" autocomplete="off">
-            </div>
-            <noscript>
-                <div class="search-submit">
-                    <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
-                        @messages("softwareChoices.search.button.text")
-                    </button>
-                </div>
-            </noscript>
+    <div class="search-field search-field-darker">
+        <div class="search-input search-input-with-button">
+            <label for="term" class="@if(!showLabel){visuallyhidden} bold">@messages("softwareChoices.search.button.text")</label>
+            <input id="term" name="term" type="text" value="@field.value" autocomplete="off">
         </div>
+        @noscript {
+            <div class="search-submit">
+                <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
+                    @messages("softwareChoices.search.button.text")
+                </button>
+            </div>
+        }
     </div>
+</div>
+
+@noscript(content: Html) = {
+    @if(includeNoscript) {
+        <noscript>@content</noscript>
+    } else {
+        @content
+    }
+}

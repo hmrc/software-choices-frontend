@@ -26,7 +26,7 @@ trait ViewBaseSpec extends TestUtils {
 
   lazy val parseView: HtmlFormat.Appendable => Document = x => Jsoup.parse(x.body)
 
-  val opensInANewTabSuffix: String => String = _ + CommonMessages.newTab
+  val opensInANewTabSuffix: String => String = _ + " " + CommonMessages.newTab
 
   val softwareCategoryAriaLabel: String => String = x => SoftwareChoicesMessages.categoryAriaLabel(x)
   val softwareCompanyAriaLabel: String => String = x => opensInANewTabSuffix(SoftwareChoicesMessages.providerAriaLabel(x))

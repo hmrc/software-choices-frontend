@@ -3,14 +3,14 @@ var doneTypingInterval = 500;
 
 var input = $('#term');
 
-input.on('keyup', function () {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(submitAjaxForm, doneTypingInterval);
-});
-
 input.on('keydown', function () {
   clearTimeout(typingTimer);
   showLoadingIcon();
+});
+
+input.on('keyup', function () {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(submitAjaxForm, doneTypingInterval);
 });
 
 
