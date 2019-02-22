@@ -25,24 +25,26 @@ class SoftwareProviderModelSpec extends TestUtils {
 
     "if all filters are provided" in  {
       val actualResult =
-        SoftwareProviderModel("providerA|providerAUrl|x|x|x|x|x|x|x")
+        SoftwareProviderModel("providerA|providerAUrl|x|x|x|x|x|x|x|fully|fully|fully|fully")
       val expectedResult =
-        SoftwareProviderModel("providerA", "providerAUrl", List(BUSINESS, AGENT, ACCOUNTING, SPREADSHEETS, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS))
+        SoftwareProviderModel("providerA", "providerAUrl", List(
+          BUSINESS, AGENT, ACCOUNTING, SPREADSHEETS, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, COGNITIVE, VISUAL, HEARING, MOTOR)
+        )
 
       actualResult shouldBe expectedResult
     }
 
     "if some filters are provided" in  {
 
-      val actualResult = SoftwareProviderModel("providerB|providerBUrl||x||x|x||")
-      val expectedResult = SoftwareProviderModel("providerB", "providerBUrl", List(AGENT, SPREADSHEETS, VIEW_RETURN))
+      val actualResult = SoftwareProviderModel("providerB|providerBUrl||x||x|x|||fully||fully|")
+      val expectedResult = SoftwareProviderModel("providerB", "providerBUrl", List(AGENT, SPREADSHEETS, VIEW_RETURN, COGNITIVE, HEARING))
 
       actualResult shouldBe expectedResult
     }
 
     "if no filters are provided" in  {
 
-      val actualResult =  SoftwareProviderModel("providerC|providerCUrl|||||||")
+      val actualResult =  SoftwareProviderModel("providerC|providerCUrl|||||||||||")
       val expectedResult =  SoftwareProviderModel("providerC", "providerCUrl", List())
 
       actualResult shouldBe expectedResult

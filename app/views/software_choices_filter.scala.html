@@ -75,6 +75,16 @@
                     )
                 )
 
+                @search_filter_template(
+                    messages("softwareChoices.filter.accessibility"),
+                    Seq(
+                        FilterTemplateModel(form(cognitive), messages("softwareChoices.filter.cognitive")),
+                        FilterTemplateModel(form(visual), messages("softwareChoices.filter.visual")),
+                        FilterTemplateModel(form(hearing), messages("softwareChoices.filter.hearing")),
+                        FilterTemplateModel(form(motor), messages("softwareChoices.filter.motor"))
+                    )
+                )
+
                 <noscript>
                     <button type="submit" class="button form-group">@messages("softwareChoices.filter.filterResults")</button>
                 </noscript>

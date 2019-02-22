@@ -51,6 +51,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
 
       "return 200 (OK)" in {
         appConfig.filterViewEnabled(false)
+        mockReadProviders(softwareProviders)
         status(result) shouldBe Status.OK
       }
 
@@ -69,6 +70,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
       lazy val result = TestSoftwareChoicesController.show(fakeRequest)
 
       "return 200 (OK)" in {
+        mockReadProviders(softwareProviders)
         status(result) shouldBe Status.OK
       }
 
@@ -93,6 +95,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
 
         "return 200 (OK)" in {
           appConfig.filterViewEnabled(false)
+          mockReadProviders(softwareProviders)
           setupMockSearchProviders(softwareProviders)
           status(result) shouldBe Status.OK
         }
@@ -120,6 +123,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
 
         "return 200 (OK)" in {
           appConfig.filterViewEnabled(false)
+          mockReadProviders(softwareProviders)
           status(result) shouldBe Status.BAD_REQUEST
         }
 
@@ -141,6 +145,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
 
         "return 200 (OK)" in {
+          mockReadProviders(softwareProviders)
           setupMockFilterProviders(softwareProviders)
           status(result) shouldBe Status.OK
         }
@@ -167,6 +172,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
 
         "return 200 (OK)" in {
+          mockReadProviders(softwareProviders)
           status(result) shouldBe Status.BAD_REQUEST
         }
 
@@ -190,6 +196,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
       lazy val result = TestSoftwareChoicesController.ajaxFilterSearch(FakeRequest("POST", "/"))
 
       "return 200 (OK)" in {
+        mockReadProviders(softwareProviders)
         setupMockFilterProviders(softwareProviders)
         status(result) shouldBe Status.OK
       }
@@ -206,6 +213,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         .withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
 
       "return 400 (BAD_REQUEST)" in {
+        mockReadProviders(softwareProviders)
         status(result) shouldBe Status.BAD_REQUEST
       }
 

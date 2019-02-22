@@ -42,7 +42,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
   }
 
   //Basic Search View Logic - Production MVP
-  val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
+  lazy val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
 
   def basicSearchView(implicit request: Request[_]): Result =
     Ok(software_choices_search(softwareProviders, SearchForm.form))
@@ -58,7 +58,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
 
 
   //Filter View Logic
-  val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders)
+  lazy val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders)
 
   def filterView(implicit request: Request[_]): Result = Ok(software_choices_filter(softwareProvidersFilterViewModel, FiltersForm.form))
 

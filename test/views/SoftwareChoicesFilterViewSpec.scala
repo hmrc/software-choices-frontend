@@ -40,6 +40,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val vatPaymentsFilter ="""label[for="VIEW_PAYMENTS"]"""
     val accountingFilter ="""label[for="ACCOUNTING"]"""
     val spreadsheetsFilter ="""label[for="SPREADSHEETS"]"""
+    val cognitiveFilter ="""label[for="COGNITIVE"]"""
+    val visualFilter ="""label[for="VISUAL"]"""
+    val hearingFilter ="""label[for="HEARING"]"""
+    val motorFilter ="""label[for="MOTOR"]"""
     val filterResults ="#content > form > div > div.column-one-third button"
 
   }
@@ -150,6 +154,29 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
         "Filter Header contains Connects to spreadsheets" in {
           document.select(Selectors.spreadsheetsFilter).text shouldBe FilterSearchMessages.spreadSheets
+        }
+      }
+
+      "contain a filter for Accessibility" should {
+
+        "Suitable for should contain Accessibility filter header" in {
+          document.select(Selectors.filterHeader(4)).text shouldBe FilterSearchMessages.accessibility
+        }
+
+        "Filter Header contains COGNITIVE" in {
+          document.select(Selectors.cognitiveFilter).text shouldBe FilterSearchMessages.cognitive
+        }
+
+        "Filter Header contains VISUAL" in {
+          document.select(Selectors.visualFilter).text shouldBe FilterSearchMessages.visual
+        }
+
+        "Filter Header contains HEARING" in {
+          document.select(Selectors.hearingFilter).text shouldBe FilterSearchMessages.hearing
+        }
+
+        "Filter Header contains MOTOR" in {
+          document.select(Selectors.motorFilter).text shouldBe FilterSearchMessages.motor
         }
       }
 

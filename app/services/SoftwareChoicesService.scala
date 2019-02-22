@@ -32,7 +32,7 @@ class SoftwareChoicesService {
     Source.fromInputStream(stream).getLines.toSeq
   }
 
-  lazy val readProviders: Seq[SoftwareProviderModel] = providersList.map(SoftwareProviderModel(_))
+  def readProviders: Seq[SoftwareProviderModel] = providersList.map(SoftwareProviderModel(_))
 
   def searchProviders(term: String): Seq[SoftwareProviderModel] = readProviders.filter(_.name.toLowerCase.contains(term.toLowerCase))
 

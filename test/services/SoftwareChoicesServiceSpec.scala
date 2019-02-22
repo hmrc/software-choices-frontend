@@ -23,9 +23,9 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
   object TestSoftwareChoicesService extends SoftwareChoicesService {
     override lazy val providersList: Seq[String] = Seq(
-      "nameOne|urlOne|x|x|||||",
-      "nameTwo|urlTwo|x||||||",
-      "nameThree|urlThree|x|x|||||"
+      "nameOne|urlOne|x|x|||||||||",
+      "nameTwo|urlTwo|x||||||||||",
+      "nameThree|urlThree|x|x|||||||||"
     )
   }
 
