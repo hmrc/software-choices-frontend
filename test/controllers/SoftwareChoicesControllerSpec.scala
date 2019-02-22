@@ -37,6 +37,12 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
     appConfig
   )
 
+  val softwareProviders = Seq(
+    SoftwareProviderModel("aName", "aUrl"),
+    SoftwareProviderModel("anotherName", "anotherUrl"),
+    SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+  )
+
   "SoftwareChoicesController.show" when {
 
     "the filter view is disabled" should {
@@ -82,12 +88,6 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
     "the filter view is disabled" should {
 
       "given a valid search" should {
-
-        val softwareProviders = Seq(
-          SoftwareProviderModel("aName", "aUrl"),
-          SoftwareProviderModel("anotherName", "anotherUrl"),
-          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
-        )
 
         lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
 
@@ -138,12 +138,6 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
 
       "given a valid search" should {
 
-        val softwareProviders = Seq(
-          SoftwareProviderModel("aName", "aUrl"),
-          SoftwareProviderModel("anotherName", "anotherUrl"),
-          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
-        )
-
         lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
 
         "return 200 (OK)" in {
@@ -187,5 +181,38 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
       }
     }
 
+  }
+
+  "SoftwareChoicesController.ajaxFilterSearch" when {
+
+    "the search is valid" should {
+
+      lazy val result = TestSoftwareChoicesController.ajaxFilterSearch(FakeRequest("POST", "/"))
+
+      "return 200 (OK)" in {
+        setupMockFilterProviders(softwareProviders)
+        status(result) shouldBe Status.OK
+      }
+
+      "return HTML" in {
+        contentType(result) shouldBe Some("text/html")
+        charset(result) shouldBe Some("utf-8")
+      }
+    }
+
+    "the search is invalid" should {
+
+      lazy val result = TestSoftwareChoicesController.ajaxFilterSearch(FakeRequest("POST", "/")
+        .withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
+
+      "return 400 (BAD_REQUEST)" in {
+        status(result) shouldBe Status.BAD_REQUEST
+      }
+
+      "return HTML" in {
+        contentType(result) shouldBe Some("text/html")
+        charset(result) shouldBe Some("utf-8")
+      }
+    }
   }
 }

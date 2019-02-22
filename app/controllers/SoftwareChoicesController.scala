@@ -21,7 +21,6 @@ import forms.{FiltersForm, SearchForm}
 import javax.inject.{Inject, Singleton}
 import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
 import play.api.i18n.{I18nSupport, MessagesApi}
-import play.api.libs.json.Json
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
