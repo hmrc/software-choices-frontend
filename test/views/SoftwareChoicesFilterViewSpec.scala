@@ -40,7 +40,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val vatPaymentsFilter ="""label[for="VIEW_PAYMENTS"]"""
     val accountingFilter ="""label[for="ACCOUNTING"]"""
     val spreadsheetsFilter ="""label[for="SPREADSHEETS"]"""
-    val filterResults ="#content > form > div > div.column-one-third > button"
+    val filterResults ="#content > form > div > div.column-one-third button"
 
   }
 

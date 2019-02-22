@@ -7,9 +7,6 @@
   margin: 0;
   padding: 0 0 0 0;
 }
-.search-input-with-button {
-  padding-right: 62px;
-}
 .search-submit {
   position: absolute;
   bottom: 0px;
@@ -31,7 +28,7 @@
   box-sizing: border-box;
   width: 100%;
   margin: 0;
-  padding: 0 0 0 10px;
+  padding: 0 10px 0 10px;
   display: block;
   height: 44px;
   border-color: #bfc1c3;
@@ -45,9 +42,6 @@
 }
 .search-field-darker .search-input input {
   border-color: #0b0c0c;
-}
-.search-input-with-button input {
-  border-right: none;
 }
 .search-submit button {
   -webkit-border-radius: 0;
@@ -64,6 +58,7 @@
   height: 44px;
   border: none;
   overflow: hidden;
+  margin-right: 0px !important;
   text-indent: -5000px;
   color: #fff;
   background-color: #00823b;

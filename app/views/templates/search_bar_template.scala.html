@@ -29,12 +29,14 @@
         <div class="search-field search-field-darker">
             <div class="search-input search-input-with-button">
                 <label for="term" class="@if(!showLabel){visuallyhidden} bold">@messages("softwareChoices.search.button.text")</label>
-                <input id="term" name="term" type="text" value="@field.value">
+                <input id="term" name="term" type="text" value="@field.value" autocomplete="off">
             </div>
-            <div class="search-submit">
-                <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
-                    @messages("softwareChoices.search.button.text")
-                </button>
-            </div>
+            <noscript>
+                <div class="search-submit">
+                    <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
+                        @messages("softwareChoices.search.button.text")
+                    </button>
+                </div>
+            </noscript>
         </div>
     </div>

@@ -14,19 +14,24 @@
  * limitations under the License.
  *@
 
-@(providers: Seq[SoftwareProviderModel])(implicit messages: Messages)
+@(providers: Seq[SoftwareProviderModel], totalProviders: Int)(implicit messages: Messages)
 
-<table id="provider-table">
-    @providers.map { provider =>
-        <tr>
-            <td>
-                <a href="@provider.url"
-                   target="_blank"
-                   class="providers bold"
-                   data-journey-click="link:click:@{provider.name}"
-                   aria-label='@messages("softwareChoices.provider.aria-label", provider.name)@messages("common.newTab")'>@provider.name
-                </a>
-            </td>
-        </tr>
-    }
-</table>
+
+<div id="provider-results">
+    @result_count_template(providers.length, totalProviders)
+
+    <table id="provider-table">
+        @providers.map { provider =>
+            <tr>
+                <td>
+                    <a href="@provider.url"
+                       target="_blank"
+                       class="providers bold"
+                       data-journey-click="link:click:@{provider.name}"
+                       aria-label='@messages("softwareChoices.provider.aria-label", provider.name)@messages("common.newTab")'>@provider.name
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

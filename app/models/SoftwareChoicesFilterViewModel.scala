@@ -18,7 +18,7 @@ package models
 
 import play.api.i18n.Messages
 import play.twirl.api.HtmlFormat
-import views.html.templates.{provider_table_template, result_count_template}
+import views.html.templates.provider_table_template
 
 case class SoftwareChoicesFilterViewModel(allProviders: Seq[SoftwareProviderModel],
                                           filteredProviders: Option[Seq[SoftwareProviderModel]] = None) {
@@ -26,9 +26,5 @@ case class SoftwareChoicesFilterViewModel(allProviders: Seq[SoftwareProviderMode
   private[models] val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
 
   def renderProviders(implicit messages: Messages): HtmlFormat.Appendable =
-    provider_table_template(sortedProviders(filteredProviders.getOrElse(allProviders)))
-
-  def renderResultCount(implicit messages: Messages): HtmlFormat.Appendable = {
-    result_count_template(filteredProviders.getOrElse(allProviders).length, allProviders.length)
-  }
+    provider_table_template(sortedProviders(filteredProviders.getOrElse(allProviders)), allProviders.length)
 }
