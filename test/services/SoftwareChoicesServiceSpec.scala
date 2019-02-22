@@ -32,7 +32,7 @@ class SoftwareChoicesServiceSpec extends TestUtils {
   "SoftwareChoicesService.readProviders" should {
 
     "return the correct sequence of software providers" in {
-      TestSoftwareChoicesService.readProviders shouldBe Seq(
+      TestSoftwareChoicesService.providers shouldBe Seq(
         SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
         SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
         SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))

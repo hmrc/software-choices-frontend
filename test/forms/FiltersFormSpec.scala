@@ -57,11 +57,15 @@ class FiltersFormSpec extends UnitSpec {
           viewLiabilities -> "true",
           viewPayments -> "true",
           accounting -> "true",
-          spreadsheets -> "true"
+          spreadsheets -> "true",
+          cognitive -> "true",
+          hearing -> "true",
+          motor -> "true",
+          visual -> "true"
         )).value
 
         val expectedResult = Some(FiltersFormModel(
-          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS),
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, HEARING, MOTOR, VISUAL),
           Some("someSearchTerm"))
         )
 
@@ -79,11 +83,15 @@ class FiltersFormSpec extends UnitSpec {
         viewLiabilities -> "true",
         viewPayments -> "false",
         accounting -> "true",
-        spreadsheets -> "false"
+        spreadsheets -> "false",
+        cognitive -> "true",
+        hearing -> "false",
+        motor -> "true",
+        visual -> "false"
       )).value
 
       val expectedResult = Some(FiltersFormModel(
-        Seq(AGENT, VIEW_LIABILITIES, ACCOUNTING),
+        Seq(AGENT, VIEW_LIABILITIES, ACCOUNTING, COGNITIVE, MOTOR),
         Some("someSearchTerm"))
       )
 
@@ -100,7 +108,11 @@ class FiltersFormSpec extends UnitSpec {
         viewLiabilities -> "false",
         viewPayments -> "false",
         accounting -> "false",
-        spreadsheets -> "false"
+        spreadsheets -> "false",
+        cognitive -> "false",
+        hearing -> "false",
+        motor -> "false",
+        visual -> "false"
       )).value
 
       val expectedResult = Some(FiltersFormModel(
@@ -120,7 +132,11 @@ class FiltersFormSpec extends UnitSpec {
         viewLiabilities -> "false",
         viewPayments -> "false",
         accounting -> "false",
-        spreadsheets -> "false"
+        spreadsheets -> "false",
+        cognitive -> "false",
+        hearing -> "false",
+        motor -> "false",
+        visual -> "false"
       )).value
 
       val expectedResult = Some(FiltersFormModel(

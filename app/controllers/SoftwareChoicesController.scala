@@ -42,7 +42,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
   }
 
   //Basic Search View Logic - Production MVP
-  lazy val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.readProviders)
+  lazy val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.providers)
 
   def basicSearchView(implicit request: Request[_]): Result =
     Ok(software_choices_search(softwareProviders, SearchForm.form))
@@ -51,14 +51,14 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
     SearchForm.form.bindFromRequest().fold(
       error => BadRequest(software_choices_search(softwareProviders, error)),
       search => {
-        val results = SoftwareChoicesViewModel(softwareChoicesService.readProviders, softwareChoicesService.searchProviders(search.term))
+        val results = SoftwareChoicesViewModel(softwareChoicesService.providers, softwareChoicesService.searchProviders(search.term))
         Ok(software_choices_results(results, SearchForm.form.fill(search)))
       }
     )
 
 
   //Filter View Logic
-  lazy val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders)
+  lazy val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(softwareChoicesService.providers)
 
   def filterView(implicit request: Request[_]): Result = Ok(software_choices_filter(softwareProvidersFilterViewModel, FiltersForm.form))
 
@@ -67,7 +67,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
         val results =
-          SoftwareChoicesFilterViewModel(softwareChoicesService.readProviders, Some(softwareChoicesService.filterProviders(search.filters, search.searchTerm)))
+          SoftwareChoicesFilterViewModel(softwareChoicesService.providers, Some(softwareChoicesService.filterProviders(search.filters, search.searchTerm)))
         Ok(software_choices_filter(results, FiltersForm.form.fill(search)))
       }
     )
@@ -77,7 +77,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
         val results = softwareChoicesService.filterProviders(search.filters, search.searchTerm)
-        Ok(provider_table_template(results, softwareChoicesService.readProviders.length))
+        Ok(provider_table_template(results, softwareChoicesService.providers.length))
       }
     )
   }
