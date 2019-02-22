@@ -16,22 +16,24 @@
 
 @import views.html.templates.singleCheckbox
 @import config.AppConfig
-@import models.FilterTemplateModel
+@import models.components.FilterTemplateModel
 @import play.api.data.Field
 
-@(header: String, options: Seq[FilterTemplateModel])(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
+@(filter: FilterTemplateModel)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
-<div class="filter-wrapper form-group">
-    <div class="filter-head">
-        <span class="bold">@messages(header)</span>
-    </div>
+@if(filter.isEnabled) {
+    <div class="filter-wrapper form-group">
+        <div class="filter-head">
+            <span class="bold">@messages(filter.heading)</span>
+        </div>
 
-    <div class="filter-container">
-        <fieldset class="filter-options">
-            <legend class="visuallyhidden">@messages(header)</legend>
-            @options.map{ option =>
-                @singleCheckbox(option.field, option.label)
-            }
-        </fieldset>
+        <div class="filter-container">
+            <fieldset class="filter-options">
+                <legend class="visuallyhidden">@messages(filter.heading)</legend>
+                @filter.filters.map { option =>
+                    @singleCheckbox(option.field, option.label)
+                }
+            </fieldset>
+        </div>
     </div>
-</div>
+}

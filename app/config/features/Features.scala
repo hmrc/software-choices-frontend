@@ -24,4 +24,8 @@ import play.api.Configuration
 class Features @Inject()(implicit config: Configuration) {
   val progressiveDisclosureEnabled = new Feature(ConfigKeys.progressiveDisclosureFeature)
   val filterViewEnabled = new Feature(ConfigKeys.filterViewFeature)
+  val agentBusinessFilterEnabled = new Feature(ConfigKeys.agentBusinessFilterFeature)
+  val additionalSoftwareFilterEnabled = new Feature(ConfigKeys.additionalSoftwareFilterFeature)
+  val typeOfSoftwareFilterEnabled = new Feature(ConfigKeys.typeOfSoftwareFilterFeature)
+  val accessibilityFilterEnabled = new Feature(ConfigKeys.accessibilityFilterFeature)
 }
