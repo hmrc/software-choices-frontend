@@ -81,7 +81,8 @@
             </div>
 
             <div class="column-two-thirds">
-                @search_bar_template(form(FiltersForm.term), true)
+
+                @search_bar_template(form(FiltersForm.term), true, true)
 
                 @softwareChoices.renderProviders
             </div>
