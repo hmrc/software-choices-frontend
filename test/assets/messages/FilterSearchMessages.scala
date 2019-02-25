@@ -41,4 +41,6 @@ object FilterSearchMessages {
 
   val filterResults = "Filter results"
 
+  val p1 = "All the software shown allows you to submit VAT Returns and some provide additional features. You will need to choose software that is suitable for you."
+
 }
