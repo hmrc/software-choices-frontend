@@ -16,7 +16,7 @@
 
 @(resultCount: Int, totalCount: Int)(implicit messages: Messages)
 
-<span id="search-result-count" class="heading-medium">
+<span id="search-result-count" class="heading-medium" aria-live="polite">
     @if(resultCount > 0) {
         @messages("common.results.count", resultCount, totalCount)
     } else {
