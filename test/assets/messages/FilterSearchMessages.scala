@@ -20,7 +20,7 @@ object FilterSearchMessages {
 
   val title = "Find software for Making Tax Digital for VAT"
 
-  val suitableFor = "Software suitable for"
+  val suitableFor = "Suitable for"
   val agents = "Agents"
   val businesses = "Businesses"
 
