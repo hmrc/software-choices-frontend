@@ -46,9 +46,9 @@ softwareChoices.filter.vatReturns = View submitted VAT returns
 softwareChoices.filter.vatLiabilities = Check what VAT you owe
 softwareChoices.filter.vatPayments = View VAT payment history
 
-softwareChoices.filter.typeOfSoftware = Type of software
-softwareChoices.filter.accountingSoftware = Accounting software
-softwareChoices.filter.spreadSheets = Connects to spreadsheets
+softwareChoices.filter.typeOfSoftware = Software for
+softwareChoices.filter.accountingSoftware = Digital VAT record keeping
+softwareChoices.filter.spreadSheets = Bridging (connects with spreadsheets)
 
 softwareChoices.filter.accessibility = Accessibility
 softwareChoices.filter.cognitive = Cognitive

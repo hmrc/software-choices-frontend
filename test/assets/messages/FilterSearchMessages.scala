@@ -29,9 +29,9 @@ object FilterSearchMessages {
   val vatLiabilities = "Check what VAT you owe"
   val vatPayments = "View VAT payment history"
 
-  val typeOfSoftware = "Type of software"
-  val accountingSoftware = "Accounting software"
-  val spreadSheets = "Connects to spreadsheets"
+  val typeOfSoftware = "Software for"
+  val accountingSoftware = "Digital VAT record keeping"
+  val spreadSheets = "Bridging (connects with spreadsheets)"
 
   val accessibility = "Accessibility"
   val cognitive = "Cognitive"
