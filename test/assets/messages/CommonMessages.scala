@@ -28,4 +28,7 @@ object CommonMessages {
   val feedbackBefore = "This is a new service – your"
   val feedbackLink = "feedback"
   val feedbackAfter = "will help us to improve it."
+
+  val noResults = "No results found"
+  def results(n: Int, x: Int) = s"$n of $x results"
 }
