@@ -27,11 +27,19 @@ class ResultCountTemplateViewSpec extends ViewBaseSpec {
 
   "The Result Count Template" when {
 
-    "There are more than 0 results found" should {
+    "There are more than 1 result found" should {
 
-      "Return 'x of n results'" in {
+      "Return 'x results found'" in {
+        val document = parseView(views.html.templates.result_count_template(2, 10))
+        document.select(Selectors.result).text shouldBe CommonMessages.results(2)
+      }
+    }
+
+    "There is 1 result found" should {
+
+      "Return '1 result found'" in {
         val document = parseView(views.html.templates.result_count_template(1, 10))
-        document.select(Selectors.result).text shouldBe CommonMessages.results(1, 10)
+        document.select(Selectors.result).text shouldBe CommonMessages.oneResult
       }
     }
 

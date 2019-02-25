@@ -52,7 +52,7 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
       "render the expected provider table with all providers" in {
 
         val model = SoftwareChoicesFilterViewModel(softwareProvidersAll)
-        val expected = provider_table_template(model.sortedProviders(softwareProvidersAll), softwareProvidersAll.length)
+        val expected = provider_table_template(model.sortedProviders(softwareProvidersAll), softwareProvidersAll.length, showCount = false)
 
         model.renderProviders shouldEqual expected
       }

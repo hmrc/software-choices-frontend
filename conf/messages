@@ -3,7 +3,8 @@ common.back = Back
 common.errorSummary.heading = There is a problem
 common.error = Error:
 common.newTab = opens in a new tab
-common.results.count = {0} of {1} results
+common.results.count = {0} results found
+common.results.count.oneResult = 1 result found
 common.results.count.notFound = No results found
 
 #Feedback
@@ -56,4 +57,4 @@ softwareChoices.filter.visual = Visual
 softwareChoices.filter.hearing = Hearing
 softwareChoices.filter.motor = Motor
 
-softwareChoices.filter.filterResults = Filter results
+softwareChoices.filter.filterResults = Apply filters

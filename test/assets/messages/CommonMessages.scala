@@ -30,5 +30,6 @@ object CommonMessages {
   val feedbackAfter = "will help us to improve it."
 
   val noResults = "No results found"
-  def results(n: Int, x: Int) = s"$n of $x results"
+  val oneResult =  "1 result found"
+  val results: Int => String = n => s"$n results found"
 }
