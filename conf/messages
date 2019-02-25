@@ -3,7 +3,8 @@ common.back = Back
 common.errorSummary.heading = There is a problem
 common.error = Error:
 common.newTab = opens in a new tab
-common.results.count = {0} of {1} results
+common.results.count = {0} results found
+common.results.count.oneResult = 1 result found
 common.results.count.notFound = No results found
 
 #Feedback
@@ -35,19 +36,20 @@ softwareChoicesResults.results.title = Results
 softwareChoicesResults.results = We have found these software packages that work with Making Tax Digital for VAT:
 
 softwareChoices.filter.title = Find software for Making Tax Digital for VAT
+softwareChoices.filter.p1 = All the software shown allows you to submit VAT Returns and some provide additional features. You will need to choose software that is suitable for you.
 
-softwareChoices.filter.softwareSuitableFor = Software suitable for
+softwareChoices.filter.softwareSuitableFor = Suitable for
 softwareChoices.filter.businesses = Businesses
 softwareChoices.filter.agents = Agents
 
-softwareChoices.filter.additionalSoftwareFeatures = Additional software features
-softwareChoices.filter.vatReturns = Check submitted VAT returns
-softwareChoices.filter.vatLiabilities = View VAT liabilities
-softwareChoices.filter.vatPayments = View VAT payments
+softwareChoices.filter.additionalSoftwareFeatures = Software features
+softwareChoices.filter.vatReturns = View submitted VAT returns
+softwareChoices.filter.vatLiabilities = Check what VAT you owe
+softwareChoices.filter.vatPayments = View VAT payment history
 
-softwareChoices.filter.typeOfSoftware = Type of software
-softwareChoices.filter.accountingSoftware = Accounting software
-softwareChoices.filter.spreadSheets = Connects to spreadsheets
+softwareChoices.filter.typeOfSoftware = Software for
+softwareChoices.filter.accountingSoftware = Digital VAT record keeping
+softwareChoices.filter.spreadSheets = Bridging (connects with spreadsheets)
 
 softwareChoices.filter.accessibility = Accessibility
 softwareChoices.filter.cognitive = Cognitive
@@ -55,4 +57,4 @@ softwareChoices.filter.visual = Visual
 softwareChoices.filter.hearing = Hearing
 softwareChoices.filter.motor = Motor
 
-softwareChoices.filter.filterResults = Filter results
+softwareChoices.filter.filterResults = Apply filters

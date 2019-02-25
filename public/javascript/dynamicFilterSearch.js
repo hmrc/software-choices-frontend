@@ -1,10 +1,9 @@
 var searchTrigger;
-var doneTypingInterval = 250;
+var doneTypingInterval = 500;
 
 var input = $('#term');
 
-input.on('keydown', createSearchTrigger);
-input.on('keyup', createSearchTrigger);
+input.on('input', createSearchTrigger);
 $('input[type="checkbox"]').on('click', createSearchTrigger);
 
 function createSearchTrigger() {
@@ -17,6 +16,7 @@ function clearErrors() {
   $('#error-summary-display').remove();
   $('.error-message').remove();
   $('.form-field--error').removeClass("form-field--error");
+  $('title').html($('title').html().split(": ")[1]);
 }
 
 function showLoadingIcon() {

@@ -78,7 +78,8 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
         val results = sortProviders(softwareChoicesService.filterProviders(search.filters, search.searchTerm))
-        Ok(provider_table_template(results, softwareChoicesService.providers.length))
+        val filtered = search.filters.nonEmpty || search.searchTerm.isDefined
+        Ok(provider_table_template(results, softwareChoicesService.providers.length, filtered))
       }
     )
   }

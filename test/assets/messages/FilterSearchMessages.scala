@@ -20,18 +20,18 @@ object FilterSearchMessages {
 
   val title = "Find software for Making Tax Digital for VAT"
 
-  val suitableFor = "Software suitable for"
+  val suitableFor = "Suitable for"
   val agents = "Agents"
   val businesses = "Businesses"
 
-  val additionalSoftwareFeatures = "Additional software features"
-  val vatReturns = "Check submitted VAT returns"
-  val vatLiabilities = "View VAT liabilities"
-  val vatPayments = "View VAT payments"
+  val additionalSoftwareFeatures = "Software features"
+  val vatReturns = "View submitted VAT returns"
+  val vatLiabilities = "Check what VAT you owe"
+  val vatPayments = "View VAT payment history"
 
-  val typeOfSoftware = "Type of software"
-  val accountingSoftware = "Accounting software"
-  val spreadSheets = "Connects to spreadsheets"
+  val typeOfSoftware = "Software for"
+  val accountingSoftware = "Digital VAT record keeping"
+  val spreadSheets = "Bridging (connects with spreadsheets)"
 
   val accessibility = "Accessibility"
   val cognitive = "Cognitive"
@@ -39,6 +39,8 @@ object FilterSearchMessages {
   val hearing = "Hearing"
   val motor = "Motor"
 
-  val filterResults = "Filter results"
+  val filterResults = "Apply filters"
+
+  val p1 = "All the software shown allows you to submit VAT Returns and some provide additional features. You will need to choose software that is suitable for you."
 
 }
