@@ -41,10 +41,10 @@ softwareChoices.filter.softwareSuitableFor = Suitable for
 softwareChoices.filter.businesses = Businesses
 softwareChoices.filter.agents = Agents
 
-softwareChoices.filter.additionalSoftwareFeatures = Additional software features
-softwareChoices.filter.vatReturns = Check submitted VAT returns
-softwareChoices.filter.vatLiabilities = View VAT liabilities
-softwareChoices.filter.vatPayments = View VAT payments
+softwareChoices.filter.additionalSoftwareFeatures = Software features
+softwareChoices.filter.vatReturns = View submitted VAT returns
+softwareChoices.filter.vatLiabilities = Check what VAT you owe
+softwareChoices.filter.vatPayments = View VAT payment history
 
 softwareChoices.filter.typeOfSoftware = Type of software
 softwareChoices.filter.accountingSoftware = Accounting software

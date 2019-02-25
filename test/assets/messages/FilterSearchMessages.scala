@@ -24,10 +24,10 @@ object FilterSearchMessages {
   val agents = "Agents"
   val businesses = "Businesses"
 
-  val additionalSoftwareFeatures = "Additional software features"
-  val vatReturns = "Check submitted VAT returns"
-  val vatLiabilities = "View VAT liabilities"
-  val vatPayments = "View VAT payments"
+  val additionalSoftwareFeatures = "Software features"
+  val vatReturns = "View submitted VAT returns"
+  val vatLiabilities = "Check what VAT you owe"
+  val vatPayments = "View VAT payment history"
 
   val typeOfSoftware = "Type of software"
   val accountingSoftware = "Accounting software"
