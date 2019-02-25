@@ -16,4 +16,10 @@
 
 @(resultCount: Int, totalCount: Int)(implicit messages: Messages)
 
-<span id="search-result-count" class="heading-medium">@messages("common.results.count", resultCount, totalCount)</span>
+<span id="search-result-count" class="heading-medium">
+    @if(resultCount > 0) {
+        @messages("common.results.count", resultCount, totalCount)
+    } else {
+        @messages("common.results.count.notFound")
+    }
+</span>

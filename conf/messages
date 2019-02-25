@@ -4,6 +4,7 @@ common.errorSummary.heading = There is a problem
 common.error = Error:
 common.newTab = opens in a new tab
 common.results.count = {0} of {1} results
+common.results.count.notFound = No results found
 
 #Feedback
 feedback.before = This is a new service – your
