@@ -17,8 +17,7 @@
 package views.templates
 
 import assets.testContants.SoftwareProvidersTestConstants
-import forms.SearchForm
-import models.FilterTemplateModel
+import models.components.{FilterFieldModel, FilterTemplateModel}
 import play.api.data.Form
 import play.api.data.Forms.{mapping, text}
 import views.ViewBaseSpec
@@ -34,8 +33,8 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
     )(TestModel.apply)(TestModel.unapply)
   )
 
-  val filterTemplateModel1 = FilterTemplateModel(form("foo"), "FilterValue1")
-  val filterTemplateModel2 = FilterTemplateModel(form("bar"), "FilterValue2")
+  val filterTemplateModel1 = FilterFieldModel(form("foo"), "FilterValue1")
+  val filterTemplateModel2 = FilterFieldModel(form("bar"), "FilterValue2")
 
   val filterTemplateModels = Seq(filterTemplateModel1, filterTemplateModel2)
 
@@ -49,7 +48,7 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
 
     "given a title and 3 FilterTemplateModels" should {
 
-      lazy val document = parseView(views.html.templates.search_filter_template("A Title", filterTemplateModels))
+      lazy val document = parseView(views.html.templates.search_filter_template(FilterTemplateModel("A Title",  filterTemplateModels, true)))
 
       "have a title" in {
         val actualResult = document.select(Selectors.title).text

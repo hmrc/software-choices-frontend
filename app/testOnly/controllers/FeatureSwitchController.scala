@@ -32,7 +32,11 @@ class FeatureSwitchController @Inject()(val messagesApi: MessagesApi,
     Ok(testOnly.views.html.featureSwitch(FeatureSwitchForm.form.fill(
       FeatureSwitchModel(
         progressiveDisclosureEnabled = appConfig.features.progressiveDisclosureEnabled(),
-        filterViewEnabled = appConfig.features.filterViewEnabled()
+        filterViewEnabled = appConfig.features.filterViewEnabled(),
+        agentBusinessFilterEnabled = appConfig.features.agentBusinessFilterEnabled(),
+        additionalSoftwareFilterEnabled = appConfig.features.additionalSoftwareFilterEnabled(),
+        typeOfSoftwareFilterEnabled = appConfig.features.typeOfSoftwareFilterEnabled(),
+        accessibilityFilterEnabled = appConfig.features.accessibilityFilterEnabled()
       )
     )))
   }
@@ -47,6 +51,10 @@ class FeatureSwitchController @Inject()(val messagesApi: MessagesApi,
   def handleSuccess(model: FeatureSwitchModel): Result = {
     appConfig.features.progressiveDisclosureEnabled(model.progressiveDisclosureEnabled)
     appConfig.features.filterViewEnabled(model.filterViewEnabled)
+    appConfig.features.agentBusinessFilterEnabled(model.agentBusinessFilterEnabled)
+    appConfig.features.additionalSoftwareFilterEnabled(model.additionalSoftwareFilterEnabled)
+    appConfig.features.typeOfSoftwareFilterEnabled(model.typeOfSoftwareFilterEnabled)
+    appConfig.features.accessibilityFilterEnabled(model.accessibilityFilterEnabled)
     Redirect(controllers.routes.SoftwareChoicesController.show())
   }
 

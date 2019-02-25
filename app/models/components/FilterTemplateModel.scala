@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package models
+package models.components
 
-import play.api.data.Field
-
-case class FilterTemplateModel(field: Field, label: String)
+case class FilterTemplateModel(heading: String, filters: Seq[FilterFieldModel], isEnabled: Boolean = true)

@@ -29,6 +29,10 @@ class MockAppConfig @Inject()(implicit override val runModeConfiguration: Config
 
   def progressiveDisclosureEnabled(enabled: Boolean): Unit = mockFeatures.progressiveDisclosureEnabled(enabled)
   def filterViewEnabled(enabled: Boolean): Unit = mockFeatures.filterViewEnabled(enabled)
+  def agentBusinessFilterEnabled(enabled: Boolean): Unit = mockFeatures.agentBusinessFilterEnabled(enabled)
+  def additionalSoftwareFilterEnabled(enabled: Boolean): Unit = mockFeatures.additionalSoftwareFilterEnabled(enabled)
+  def typeOfSoftwareFilterEnabled(enabled: Boolean): Unit = mockFeatures.typeOfSoftwareFilterEnabled(enabled)
+  def accessibilityFilterEnabled(enabled: Boolean): Unit = mockFeatures.accessibilityFilterEnabled(enabled)
 
   override val features = mockFeatures
 

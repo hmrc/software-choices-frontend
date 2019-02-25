@@ -23,16 +23,16 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
   object TestSoftwareChoicesService extends SoftwareChoicesService {
     override lazy val providersList: Seq[String] = Seq(
-      "nameOne|urlOne|x|x|||||",
-      "nameTwo|urlTwo|x||||||",
-      "nameThree|urlThree|x|x|||||"
+      "nameOne|urlOne|x|x|||||||||",
+      "nameTwo|urlTwo|x||||||||||",
+      "nameThree|urlThree|x|x|||||||||"
     )
   }
 
   "SoftwareChoicesService.readProviders" should {
 
     "return the correct sequence of software providers" in {
-      TestSoftwareChoicesService.readProviders shouldBe Seq(
+      TestSoftwareChoicesService.providers shouldBe Seq(
         SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
         SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
         SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))

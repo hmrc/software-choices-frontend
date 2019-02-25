@@ -34,6 +34,10 @@ object ConfigKeys {
 
   val progressiveDisclosureFeature: String = "features.progressiveDisclosure.enabled"
   val filterViewFeature: String = "features.filterView.enabled"
+  val agentBusinessFilterFeature: String = "features.agentBusinessFilter.enabled"
+  val additionalSoftwareFilterFeature: String = "features.additionalSoftwareFilter.enabled"
+  val typeOfSoftwareFilterFeature: String = "features.typeOfSoftware.enabled "
+  val accessibilityFilterFeature: String = "features.accessibilityFilter.enabled"
 
   val govUkMtdVatSignUpGuidance = "govuk.mtdvat.signup.url"
 

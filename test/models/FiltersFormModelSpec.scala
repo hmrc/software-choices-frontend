@@ -39,7 +39,7 @@ class FiltersFormModelSpec extends TestUtils {
     }
   }
 
-  "FiltersModel.customApply" when {
+  "FiltersFormModel.customApply" when {
 
     "all filters are applied" should {
 
@@ -53,10 +53,15 @@ class FiltersFormModelSpec extends TestUtils {
           Some(VIEW_LIABILITIES),
           Some(VIEW_PAYMENTS),
           Some(ACCOUNTING),
-          Some(SPREADSHEETS)
+          Some(SPREADSHEETS),
+          Some(COGNITIVE),
+          Some(HEARING),
+          Some(MOTOR),
+          Some(VISUAL)
         ).filters
 
-        val expectedResult = Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS)
+        val expectedResult =
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL)
 
         actualResult shouldBe expectedResult
 
@@ -89,14 +94,14 @@ class FiltersFormModelSpec extends TestUtils {
     }
   }
 
-  "FiltersModel.customUnapply" when {
+  "FiltersFormModel.customUnapply" when {
 
     "all filters are applied" should {
 
       "return all values" in {
 
         val actualResult = FiltersFormModel.customUnapply(FiltersFormModel(
-          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS),
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL),
           Some("term")
         ))
 
@@ -108,7 +113,11 @@ class FiltersFormModelSpec extends TestUtils {
           Some(VIEW_LIABILITIES),
           Some(VIEW_PAYMENTS),
           Some(ACCOUNTING),
-          Some(SPREADSHEETS)
+          Some(SPREADSHEETS),
+          Some(COGNITIVE),
+          Some(HEARING),
+          Some(MOTOR),
+          Some(VISUAL)
         ))
 
         actualResult shouldBe expectedResult
@@ -124,7 +133,7 @@ class FiltersFormModelSpec extends TestUtils {
           Seq(AGENT, VIEW_RETURN, ACCOUNTING)
         ))
 
-        val expectedResult = Some((None, None, Some(AGENT), Some(VIEW_RETURN), None, None, Some(ACCOUNTING), None))
+        val expectedResult = Some((None, None, Some(AGENT), Some(VIEW_RETURN), None, None, Some(ACCOUNTING), None, None, None, None, None))
 
         actualResult shouldBe expectedResult
 
@@ -135,7 +144,8 @@ class FiltersFormModelSpec extends TestUtils {
     "No filters are applied" should {
 
       "return no values" in {
-        FiltersFormModel.customUnapply(FiltersFormModel(Seq())) shouldBe Some((None, None, None, None, None, None, None, None))
+        FiltersFormModel.customUnapply(FiltersFormModel(Seq())) shouldBe
+          Some((None, None, None, None, None, None, None, None, None, None, None, None))
       }
     }
   }

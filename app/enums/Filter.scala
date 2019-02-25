@@ -25,6 +25,11 @@ object Filter extends Enumeration {
   val VIEW_LIABILITIES: Filter.Value = Value
   val ACCOUNTING: Filter.Value = Value
   val SPREADSHEETS: Filter.Value = Value
+  val COGNITIVE: Filter.Value = Value
+  val HEARING: Filter.Value = Value
+  val MOTOR: Filter.Value = Value
+  val VISUAL: Filter.Value = Value
+
   val UNKNOWN: Filter.Value = Value
 
   final val agent = AGENT.toString
@@ -34,7 +39,12 @@ object Filter extends Enumeration {
   final val viewLiabilities = VIEW_LIABILITIES.toString
   final val accounting = ACCOUNTING.toString
   final val spreadsheets = SPREADSHEETS.toString
+  final val cognitive = COGNITIVE.toString
+  final val hearing = HEARING.toString
+  final val motor = MOTOR.toString
+  final val visual = VISUAL.toString
 
+  //scalastyle:off
   def apply(string: String): Filter.Value = string.toUpperCase match {
     case `agent` => AGENT
     case `business` => BUSINESS
@@ -43,6 +53,10 @@ object Filter extends Enumeration {
     case `viewLiabilities` => VIEW_LIABILITIES
     case `accounting` => ACCOUNTING
     case `spreadsheets` => SPREADSHEETS
+    case `cognitive` => COGNITIVE
+    case `hearing` => HEARING
+    case `motor` => MOTOR
+    case `visual` => VISUAL
     case _ => UNKNOWN
   }
 }

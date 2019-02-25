@@ -51,6 +51,22 @@ class FilterSpec extends TestUtils {
       Filter("SPREADSHEETS") shouldBe SPREADSHEETS
     }
 
+    "determine the correct COGNITIVE enum value" in {
+      Filter("COGNITIVE") shouldBe COGNITIVE
+    }
+
+    "determine the correct HEARING enum value" in {
+      Filter("HEARING") shouldBe HEARING
+    }
+
+    "determine the correct MOTOR enum value" in {
+      Filter("MOTOR") shouldBe MOTOR
+    }
+
+    "determine the correct VISUAL enum value" in {
+      Filter("VISUAL") shouldBe VISUAL
+    }
+
     "determine an unknown enum value" in {
       Filter("UNKNOWN") shouldBe UNKNOWN
     }

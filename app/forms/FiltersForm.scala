@@ -46,8 +46,11 @@ object FiltersForm {
       viewLiabilities -> boolean.transform[Option[Filter.Value]](boolToFilter(VIEW_LIABILITIES), _.nonEmpty),
       viewPayments -> boolean.transform[Option[Filter.Value]](boolToFilter(VIEW_PAYMENTS), _.nonEmpty),
       accounting -> boolean.transform[Option[Filter.Value]](boolToFilter(ACCOUNTING), _.nonEmpty),
-      spreadsheets -> boolean.transform[Option[Filter.Value]](boolToFilter(SPREADSHEETS), _.nonEmpty)
-
+      spreadsheets -> boolean.transform[Option[Filter.Value]](boolToFilter(SPREADSHEETS), _.nonEmpty),
+      cognitive -> boolean.transform[Option[Filter.Value]](boolToFilter(COGNITIVE), _.nonEmpty),
+      hearing -> boolean.transform[Option[Filter.Value]](boolToFilter(HEARING), _.nonEmpty),
+      motor -> boolean.transform[Option[Filter.Value]](boolToFilter(MOTOR), _.nonEmpty),
+      visual -> boolean.transform[Option[Filter.Value]](boolToFilter(VISUAL), _.nonEmpty)
     )(FiltersFormModel.customApply)(FiltersFormModel.customUnapply)
   )
 }

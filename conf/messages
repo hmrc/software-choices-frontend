@@ -48,4 +48,10 @@ softwareChoices.filter.typeOfSoftware = Type of software
 softwareChoices.filter.accountingSoftware = Accounting software
 softwareChoices.filter.spreadSheets = Connects to spreadsheets
 
+softwareChoices.filter.accessibility = Accessibility
+softwareChoices.filter.cognitive = Cognitive
+softwareChoices.filter.visual = Visual
+softwareChoices.filter.hearing = Hearing
+softwareChoices.filter.motor = Motor
+
 softwareChoices.filter.filterResults = Filter results

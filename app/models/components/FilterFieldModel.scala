@@ -14,11 +14,8 @@
  * limitations under the License.
  */
 
-package testOnly.models
+package models.components
 
-case class FeatureSwitchModel(progressiveDisclosureEnabled: Boolean,
-                              filterViewEnabled: Boolean,
-                              agentBusinessFilterEnabled: Boolean,
-                              additionalSoftwareFilterEnabled: Boolean,
-                              typeOfSoftwareFilterEnabled: Boolean,
-                              accessibilityFilterEnabled: Boolean)
+import play.api.data.Field
+
+case class FilterFieldModel(field: Field, label: String)

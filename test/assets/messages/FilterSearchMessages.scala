@@ -33,6 +33,12 @@ object FilterSearchMessages {
   val accountingSoftware = "Accounting software"
   val spreadSheets = "Connects to spreadsheets"
 
+  val accessibility = "Accessibility"
+  val cognitive = "Cognitive"
+  val visual = "Visual"
+  val hearing = "Hearing"
+  val motor = "Motor"
+
   val filterResults = "Filter results"
 
 }

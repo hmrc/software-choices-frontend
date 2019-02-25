@@ -19,6 +19,7 @@
 @import forms.FiltersForm
 @import uk.gov.hmrc.play.views.html.helpers
 @import enums.Filter._
+@import models.components._
 
 @(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[FiltersFormModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
@@ -51,27 +52,49 @@
             <div class="column-one-third form-group">
 
                 @search_filter_template(
-                    messages("softwareChoices.filter.softwareSuitableFor"),
-                    Seq(
-                        FilterTemplateModel(form(business), messages("softwareChoices.filter.businesses")),
-                        FilterTemplateModel(form(agent), messages("softwareChoices.filter.agents"))
+                    FilterTemplateModel(
+                        messages("softwareChoices.filter.softwareSuitableFor"),
+                        Seq(
+                            FilterFieldModel(form(business), messages("softwareChoices.filter.businesses")),
+                            FilterFieldModel(form(agent), messages("softwareChoices.filter.agents"))
+                        ),
+                        appConfig.features.agentBusinessFilterEnabled()
                     )
                 )
 
                 @search_filter_template(
-                    messages("softwareChoices.filter.additionalSoftwareFeatures"),
-                    Seq(
-                        FilterTemplateModel(form(viewReturn), messages("softwareChoices.filter.vatReturns")),
-                        FilterTemplateModel(form(viewLiabilities), messages("softwareChoices.filter.vatLiabilities")),
-                        FilterTemplateModel(form(viewPayments), messages("softwareChoices.filter.vatPayments"))
+                    FilterTemplateModel(
+                        messages("softwareChoices.filter.additionalSoftwareFeatures"),
+                        Seq(
+                            FilterFieldModel(form(viewReturn), messages("softwareChoices.filter.vatReturns")),
+                            FilterFieldModel(form(viewLiabilities), messages("softwareChoices.filter.vatLiabilities")),
+                            FilterFieldModel(form(viewPayments), messages("softwareChoices.filter.vatPayments"))
+                        ),
+                        appConfig.features.additionalSoftwareFilterEnabled()
                     )
                 )
 
                 @search_filter_template(
-                    messages("softwareChoices.filter.typeOfSoftware"),
-                    Seq(
-                        FilterTemplateModel(form(accounting), messages("softwareChoices.filter.accountingSoftware")),
-                        FilterTemplateModel(form(spreadsheets), messages("softwareChoices.filter.spreadSheets"))
+                    FilterTemplateModel(
+                        messages("softwareChoices.filter.typeOfSoftware"),
+                        Seq(
+                            FilterFieldModel(form(accounting), messages("softwareChoices.filter.accountingSoftware")),
+                            FilterFieldModel(form(spreadsheets), messages("softwareChoices.filter.spreadSheets"))
+                        ),
+                        appConfig.features.typeOfSoftwareFilterEnabled()
+                    )
+                )
+
+                @search_filter_template(
+                    FilterTemplateModel(
+                        messages("softwareChoices.filter.accessibility"),
+                        Seq(
+                            FilterFieldModel(form(cognitive), messages("softwareChoices.filter.cognitive")),
+                            FilterFieldModel(form(visual), messages("softwareChoices.filter.visual")),
+                            FilterFieldModel(form(hearing), messages("softwareChoices.filter.hearing")),
+                            FilterFieldModel(form(motor), messages("softwareChoices.filter.motor"))
+                        ),
+                        appConfig.features.accessibilityFilterEnabled()
                     )
                 )
 

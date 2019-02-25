@@ -31,14 +31,34 @@ object FiltersFormModel {
             viewLiabilities: Option[Filter.Value] = None,
             viewPayments: Option[Filter.Value] = None,
             accounting: Option[Filter.Value] = None,
-            spreadsheets: Option[Filter.Value] = None): FiltersFormModel = {
+            spreadsheets: Option[Filter.Value] = None,
+            cognitive: Option[Filter.Value] = None,
+            visual: Option[Filter.Value] = None,
+            hearing: Option[Filter.Value] = None,
+            motor: Option[Filter.Value] = None): FiltersFormModel = {
 
-    val filters: Seq[Filter.Value] = Seq(business, agent, viewReturn, viewLiabilities, viewPayments, accounting, spreadsheets).flatten
+    val filters: Seq[Filter.Value] = Seq(
+      business,
+      agent,
+      viewReturn,
+      viewLiabilities,
+      viewPayments,
+      accounting,
+      spreadsheets,
+      cognitive,
+      visual,
+      hearing,
+      motor
+    ).flatten
 
     new FiltersFormModel(filters, searchTerm)
   }
 
   def customUnapply(arg: FiltersFormModel): Option[(Option[String],
+    Option[Filter.Value],
+    Option[Filter.Value],
+    Option[Filter.Value],
+    Option[Filter.Value],
     Option[Filter.Value],
     Option[Filter.Value],
     Option[Filter.Value],
@@ -57,7 +77,11 @@ object FiltersFormModel {
       giveBack(VIEW_LIABILITIES),
       giveBack(VIEW_PAYMENTS),
       giveBack(ACCOUNTING),
-      giveBack(SPREADSHEETS)
+      giveBack(SPREADSHEETS),
+      giveBack(COGNITIVE),
+      giveBack(HEARING),
+      giveBack(MOTOR),
+      giveBack(VISUAL)
     ))
   }
 }
