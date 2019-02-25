@@ -24,13 +24,15 @@ case class SoftwareChoicesViewModel(allProviders: Seq[SoftwareProviderModel], fo
 
   type GroupedProviders = Seq[(String, Seq[SoftwareProviderModel])]
 
-  private val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
-
   private val groupByCategory: Seq[SoftwareProviderModel] => GroupedProviders = _.groupBy(_.category).toSeq.sortBy(_._1)
 
-  def renderAllProviders(implicit messages: Messages): Seq[HtmlFormat.Appendable] = groupByCategory(sortedProviders(allProviders)).map {
+  def renderAllProviders(implicit messages: Messages): Seq[HtmlFormat.Appendable] = groupByCategory(SoftwareChoicesViewModel.sortProviders(allProviders)).map {
     case (category, providersForCategory) => provider_template(category, providersForCategory)
   }
 
-  def renderFoundProviders(implicit messages: Messages): HtmlFormat.Appendable = found_provider_template(sortedProviders(foundProviders))
+  def renderFoundProviders(implicit messages: Messages): HtmlFormat.Appendable = found_provider_template(SoftwareChoicesViewModel.sortProviders(foundProviders))
+}
+
+object SoftwareChoicesViewModel {
+  val sortProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
 }

@@ -41,7 +41,8 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
 
   val softwareProvidersFound = Seq(
     upperA,
-    lowerA
+    lowerA,
+    hashSymbol
   )
 
   "SoftwareChoicesViewModel.renderAllProviders" when {
@@ -77,13 +78,7 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
 
     "given a variety software choices" should {
       "sort the providers" in {
-        SoftwareChoicesViewModel(softwareProvidersAll,softwareProvidersFound).renderFoundProviders shouldEqual found_provider_template(Seq(upperA, lowerA))
-      }
-    }
-
-    "given a variety software choices" should {
-      "not show any providers" in {
-        SoftwareChoicesViewModel(softwareProvidersAll,softwareProvidersFound).renderFoundProviders shouldEqual found_provider_template(Seq(upperA, lowerA))
+        SoftwareChoicesViewModel(softwareProvidersAll,softwareProvidersFound).renderFoundProviders shouldEqual found_provider_template(Seq(hashSymbol, upperA, lowerA))
       }
     }
 
@@ -91,6 +86,12 @@ class SoftwareChoicesViewModelSpec extends TestUtils {
       "not show any providers" in {
         SoftwareChoicesViewModel(Seq.empty).renderFoundProviders shouldBe found_provider_template(Seq.empty)
       }
+    }
+  }
+
+  "SoftwareChoicesViewModel.sortProviders" should {
+    "return a sorted Seq of providers" in {
+      SoftwareChoicesViewModel.sortProviders(softwareProvidersFound) shouldBe Seq(hashSymbol, upperA, lowerA)
     }
   }
 }

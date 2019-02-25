@@ -20,6 +20,7 @@ import config.AppConfig
 import forms.{FiltersForm, SearchForm}
 import javax.inject.{Inject, Singleton}
 import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
+import models.SoftwareChoicesViewModel.sortProviders
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
@@ -76,7 +77,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
     FiltersForm.form.bindFromRequest().fold(
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
-        val results = softwareChoicesService.filterProviders(search.filters, search.searchTerm)
+        val results = sortProviders(softwareChoicesService.filterProviders(search.filters, search.searchTerm))
         Ok(provider_table_template(results, softwareChoicesService.providers.length))
       }
     )
