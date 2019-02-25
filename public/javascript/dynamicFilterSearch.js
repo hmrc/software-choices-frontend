@@ -16,6 +16,7 @@ function clearErrors() {
   $('#error-summary-display').remove();
   $('.error-message').remove();
   $('.form-field--error').removeClass("form-field--error");
+  $('title').html($('title').html().split(": ")[1]);
 }
 
 function showLoadingIcon() {
