@@ -31,7 +31,7 @@ object FilterSearchMessages {
 
   val typeOfSoftware = "Software for"
   val accountingSoftware = "Digital VAT record keeping"
-  val spreadSheets = "Bridging (connects with spreadsheets)"
+  val spreadSheets = "Bridging"
 
   val accessibility = "Accessibility"
   val cognitive = "Cognitive"
