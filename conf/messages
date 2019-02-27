@@ -49,7 +49,7 @@ softwareChoices.filter.vatPayments = View VAT payment history
 
 softwareChoices.filter.typeOfSoftware = Software for
 softwareChoices.filter.accountingSoftware = Digital VAT record keeping
-softwareChoices.filter.spreadSheets = Bridging (connects with spreadsheets)
+softwareChoices.filter.spreadSheets = Bridging
 
 softwareChoices.filter.accessibility = Accessibility
 softwareChoices.filter.cognitive = Cognitive
