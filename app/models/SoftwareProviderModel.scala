@@ -35,7 +35,7 @@ object SoftwareProviderModel {
     val filtersArray = fileLineArray.splitAt(2)._2
     val orderedFilters = Seq(BUSINESS, AGENT, ACCOUNTING, SPREADSHEETS, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, COGNITIVE, VISUAL, HEARING, MOTOR)
 
-    val name = fileLineArray.head
+    val name = fileLineArray.head.trim
     val url = fileLineArray(1)
     val valid = Seq("X","FULLY")
     val providerFilters = orderedFilters.indices.flatMap(i => if(valid.contains(filtersArray(i).toUpperCase)) Some(orderedFilters(i)) else None).toList
