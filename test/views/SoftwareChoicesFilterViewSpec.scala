@@ -45,7 +45,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val hearingFilter ="""label[for="HEARING"]"""
     val motorFilter ="""label[for="MOTOR"]"""
     val filterResults ="#content > form > div > div.column-one-third button"
-    val p1 = "div.grid-row > div.column-two-thirds > p"
+    val p = (i: Int) => s"div.grid-row > div.column-two-thirds > p:nth-of-type($i)"
   }
 
   "The software choices filter page" when {
@@ -63,7 +63,11 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
       }
 
       "include an introductory paragraph" in {
-        document.select(Selectors.p1).text shouldBe FilterSearchMessages.p1
+        document.select(Selectors.p(1)).text shouldBe FilterSearchMessages.p1
+      }
+
+      "include a disclaimer" in {
+        document.select(Selectors.p(2)).text shouldBe FilterSearchMessages.p2
       }
 
       "include the search component" in {
