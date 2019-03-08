@@ -42,5 +42,6 @@ object FilterSearchMessages {
   val filterResults = "Apply filters"
 
   val p1 = "All the software shown allows you to submit VAT Returns and some provide additional features. You will need to choose software that is suitable for you."
+  val p2 = "HMRC does not recommend or endorse any one product or software provider and is not responsible for any problems you have with software."
 
 }
