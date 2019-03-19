@@ -22,7 +22,7 @@ object FilterSearchMessages {
 
   val title = "Find software for Making Tax Digital for VAT"
 
-  val fullTitle = s"$serviceName - $title - $govUk"
+  val fullTitle = s"$title - $serviceName - $govUk"
 
   val suitableFor = "Suitable for"
   val agents = "Agents"
