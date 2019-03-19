@@ -32,6 +32,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val termFieldError = "#term-error-summary"
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".error-message"
+    val hiddenHeading = "#provider-results > h2"
     val filterHeader = (i: Int) => s"#content > form > div > div.column-one-third > div:nth-child($i) > div.filter-head > span"
     val agentFilter = """label[for="AGENT"]"""
     val businessFilter = """label[for="BUSINESS"]"""
@@ -72,6 +73,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
       "include the search component" in {
         Option(document.select(Selectors.searchComponent)).isDefined shouldBe true
+      }
+
+      "include a hidden results heading" in {
+        document.select(Selectors.hiddenHeading).text shouldBe FilterSearchMessages.hiddenHeading
       }
 
       "include the results count component" in {

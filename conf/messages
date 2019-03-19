@@ -59,3 +59,4 @@ softwareChoices.filter.hearing = Hearing
 softwareChoices.filter.motor = Motor
 
 softwareChoices.filter.filterResults = Apply filters
+softwareChoices.filter.hidden.heading = Search results

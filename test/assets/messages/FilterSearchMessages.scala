@@ -39,6 +39,8 @@ object FilterSearchMessages {
   val hearing = "Hearing"
   val motor = "Motor"
 
+  val hiddenHeading = "Search results"
+
   val filterResults = "Apply filters"
 
   val p1 = "All the software shown allows you to submit VAT Returns and some provide additional features. You will need to choose software that is suitable for you."

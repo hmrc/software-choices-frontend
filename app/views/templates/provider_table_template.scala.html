@@ -19,7 +19,11 @@
 
 <div id="provider-results">
 
-    @if(showCount){@result_count_template(providers.length, totalProviders)}
+    @if(showCount){
+        @result_count_template(providers.length, totalProviders)
+    } else {
+        <h2 class="visuallyhidden">@messages("softwareChoices.filter.hidden.heading")</h2>
+    }
 
     <table id="provider-table" role="presentation">
         @providers.map { provider =>
