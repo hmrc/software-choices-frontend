@@ -15,7 +15,7 @@
  */
 
 import assets.messages.{CommonMessages, SearchMessages, SoftwareChoicesMessages}
-import utils.TestUtils
+import _root_.utils.TestUtils
 
 class MessagesSpec extends TestUtils {
 

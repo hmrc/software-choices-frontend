@@ -20,7 +20,7 @@ import enums.Filter
 import models.SoftwareProviderModel
 import org.scalamock.scalatest.MockFactory
 import services.SoftwareChoicesService
-import utils.TestUtils
+import _root_.utils.TestUtils
 
 trait MockSoftwareChoicesService extends TestUtils with MockFactory{
 

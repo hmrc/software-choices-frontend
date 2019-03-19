@@ -17,7 +17,7 @@
 package models
 
 import enums.Filter._
-import utils.TestUtils
+import _root_.utils.TestUtils
 
 class SoftwareProviderModelSpec extends TestUtils {
 

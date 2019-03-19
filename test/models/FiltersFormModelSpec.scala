@@ -16,7 +16,7 @@
 
 package models
 
-import utils.TestUtils
+import _root_.utils.TestUtils
 import enums.Filter._
 
 class FiltersFormModelSpec extends TestUtils {
