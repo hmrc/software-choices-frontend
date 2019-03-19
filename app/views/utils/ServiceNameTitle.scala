@@ -26,7 +26,7 @@ object ServiceNameTitle {
 
   def fullTitle(titleMessage: String, hasErrors: Boolean = false)(implicit messages: Messages): String = {
 
-    val title = s"${messages(serviceName)} - ${messages(titleMessage)} - ${messages(govUk)}"
+    val title = s"${messages(titleMessage)} - ${messages(serviceName)} - ${messages(govUk)}"
     if(hasErrors) s"${messages(error)} $title" else title
   }
 }
