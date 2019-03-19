@@ -62,12 +62,16 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
         document.select(Selectors.pageHeading).text() shouldBe FilterSearchMessages.title
       }
 
-      "include an introductory paragraph" in {
+      "include correct p1" in {
         document.select(Selectors.p(1)).text shouldBe FilterSearchMessages.p1
       }
 
-      "include a disclaimer" in {
+      "include correct p2" in {
         document.select(Selectors.p(2)).text shouldBe FilterSearchMessages.p2
+      }
+
+      "include correct p3" in {
+        document.select(Selectors.p(3)).text shouldBe FilterSearchMessages.p3
       }
 
       "include the search component" in {
