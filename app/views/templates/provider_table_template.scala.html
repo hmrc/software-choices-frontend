@@ -21,7 +21,7 @@
 
     @if(showCount){@result_count_template(providers.length, totalProviders)}
 
-    <table id="provider-table">
+    <table id="provider-table" role="presentation">
         @providers.map { provider =>
             <tr>
                 <td>
