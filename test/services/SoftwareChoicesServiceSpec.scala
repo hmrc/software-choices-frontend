@@ -17,7 +17,7 @@
 package services
 import enums.Filter._
 import models.SoftwareProviderModel
-import utils.TestUtils
+import _root_.utils.TestUtils
 
 class SoftwareChoicesServiceSpec extends TestUtils {
 

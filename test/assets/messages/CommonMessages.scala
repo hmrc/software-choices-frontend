@@ -20,6 +20,8 @@ object CommonMessages {
 
   val serviceName = "Find software for Making Tax Digital"
 
+  val govUk = "GOV.UK"
+
   val back = "Back"
   val errorHeading = "There is a problem"
   val error = "Error:"

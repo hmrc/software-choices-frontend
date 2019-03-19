@@ -16,9 +16,13 @@
 
 package assets.messages
 
+import assets.messages.CommonMessages._
+
 object FilterSearchMessages {
 
   val title = "Find software for Making Tax Digital for VAT"
+
+  val fullTitle = s"$serviceName - $title - $govUk"
 
   val suitableFor = "Suitable for"
   val agents = "Agents"

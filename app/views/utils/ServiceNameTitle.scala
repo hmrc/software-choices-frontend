@@ -14,26 +14,19 @@
  * limitations under the License.
  */
 
-import _root_.utils.TestUtils
+package views.utils
 
-import scala.io.Source
+import play.api.i18n.Messages
 
-class SoftwareProviderSpec extends TestUtils {
+object ServiceNameTitle {
 
-  "The Software Providers list" should {
+  val error = "common.error"
+  val serviceName = "common.service.name"
+  val govUk = "common.gov.uk"
 
-    "have the correct list of providers" in {
+  def fullTitle(titleMessage: String, hasErrors: Boolean = false)(implicit messages: Messages): String = {
 
-      val actualProviders: Seq[String] = {
-        val stream = getClass.getResourceAsStream("/softwareProvidersCSV")
-        Source.fromInputStream(stream).getLines.toSeq
-      }
-
-      val expectedProviders: Seq[String] = Source.fromFile("test/resources/testSoftwareProvidersCSV").getLines.toSeq
-
-      for (i <- expectedProviders.indices) {
-        actualProviders(i) shouldBe expectedProviders(i)
-      }
-    }
+    val title = s"${messages(serviceName)} - ${messages(titleMessage)} - ${messages(govUk)}"
+    if(hasErrors) s"${messages(error)} $title" else title
   }
 }

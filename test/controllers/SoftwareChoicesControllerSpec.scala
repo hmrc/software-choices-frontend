@@ -23,7 +23,7 @@ import org.jsoup.Jsoup
 import play.api.http.Status
 import play.api.test.FakeRequest
 import services.SoftwareChoicesService
-import utils.TestUtils
+import _root_.utils.TestUtils
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
 import views.ViewBaseSpec
@@ -80,7 +80,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
       }
 
       "render the filter search page" in {
-        Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.title
+        Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.fullTitle
       }
     }
   }
@@ -156,7 +156,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         }
 
         "render the basic search results page" in {
-          Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.title
+          Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.fullTitle
         }
       }
 
@@ -182,7 +182,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         }
 
         "render the filter search results page" in {
-          Jsoup.parse(bodyOf(result)).title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.title}"
+          Jsoup.parse(bodyOf(result)).title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.fullTitle}"
         }
       }
     }

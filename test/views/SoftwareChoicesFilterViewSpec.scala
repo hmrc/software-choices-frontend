@@ -56,7 +56,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
       lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
 
       s"have the correct document title" in {
-        document.title shouldBe FilterSearchMessages.title
+        document.title shouldBe FilterSearchMessages.fullTitle
       }
 
       s"have a the correct page heading" in {
@@ -96,7 +96,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
       lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, errorForm))
 
       "page title should be prefixed with Error" in {
-        document.title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.title}"
+        document.title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.fullTitle}"
       }
 
       "show the error summary" in {

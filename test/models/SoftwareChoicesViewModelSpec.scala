@@ -16,7 +16,7 @@
 
 package models
 
-import utils.TestUtils
+import _root_.utils.TestUtils
 import views.html.templates.{found_provider_template, provider_template}
 
 class SoftwareChoicesViewModelSpec extends TestUtils {
