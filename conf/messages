@@ -37,8 +37,9 @@ softwareChoicesResults.results.title = Results
 softwareChoicesResults.results = We have found these software packages that work with Making Tax Digital for VAT:
 
 softwareChoices.filter.title = Find software for Making Tax Digital for VAT
-softwareChoices.filter.p1 = All the software shown allows you to submit VAT Returns and some provide additional features. You will need to choose software that is suitable for you.
-softwareChoices.filter.p2 = HMRC does not recommend or endorse any one product or software provider and is not responsible for any problems you have with software.
+softwareChoices.filter.p1 = All the software shown allows you to submit VAT Returns and some provide extra features. The links open in a new window.
+softwareChoices.filter.p2 = You will need to choose software that is suitable for you. If you have problems with your software, you will need to contact your software provider.
+softwareChoices.filter.p3 = HMRC does not endorse or recommend any one product or software provider.
 
 softwareChoices.filter.softwareSuitableFor = Suitable for
 softwareChoices.filter.businesses = Businesses
