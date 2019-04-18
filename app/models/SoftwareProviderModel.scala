@@ -19,6 +19,8 @@ package models
 import enums.Filter
 import enums.Filter._
 import play.api.Logger
+import play.api.libs.json.{Reads, __}
+
 
 case class SoftwareProviderModel(name: String, url: String, filters: List[Filter.Value] = List.empty) {
 
@@ -39,6 +41,43 @@ object SoftwareProviderModel {
     val url = fileLineArray(1)
     val valid = Seq("X","FULLY")
     val providerFilters = orderedFilters.indices.flatMap(i => if(valid.contains(filtersArray(i).toUpperCase)) Some(orderedFilters(i)) else None).toList
+
+    SoftwareProviderModel(name, url, providerFilters)
+  }
+
+
+//  implicit val reads: Reads[SoftwareProviderModel] = (
+//    (__ \ "name").read[String] and
+//      (__ \ "url").read[String] and
+//      (__ \ "businesses").read[Boolean] and
+//      (__ \ "agents").read[Boolean] and
+//      (__ \ "digitalRecordKeeping").read[Boolean] and
+//      (__ \ "bridgingSoftware").read[Boolean] and
+//      (__ \ "viewVatReturn").read[Boolean] and
+//      (__ \ "viewVatLiabilities").read[Boolean] and
+//      (__ \ "viewVatPayments").read[Boolean] and
+//      (__ \ "cognitive").read[Boolean] and
+//      (__ \ "visual").read[Boolean] and
+//      (__ \ "hearing").read[Boolean] and
+//      (__ \ "motor").read[Boolean]
+//  )(SoftwareProviderModel _)
+
+  implicit val reads: Reads[SoftwareProviderModel] = for {
+    name <- (__ \ "name").read[String]
+    url <- (__ \ "url").read[String]
+    features <- (__ \ "features").readNullable[Seq[String]].map {
+      case None => Seq.empty[String]
+      case Some(features) => features
+    }
+  } yield customApply(name, url, features)
+
+
+  def customApply(name: String, url: String, features: Seq[String]): SoftwareProviderModel = {
+
+    val orderedFilters = Seq(BUSINESS, AGENT, ACCOUNTING, SPREADSHEETS, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, COGNITIVE, VISUAL, HEARING, MOTOR)
+
+    val valid = Seq("X","FULLY")
+    val providerFilters = orderedFilters.indices.flatMap(i => if(valid.contains(features(i).toUpperCase)) Some(orderedFilters(i)) else None).toList
 
     SoftwareProviderModel(name, url, providerFilters)
   }

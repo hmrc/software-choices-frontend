@@ -16,12 +16,14 @@
 
 package services
 
+import enums.Filter
 import javax.inject.Singleton
 import models.SoftwareProviderModel
 import play.api.Logger
+import play.api.libs.json._
 
 import scala.io.Source
-import enums.Filter
+
 
 @Singleton
 class SoftwareChoicesService {
@@ -32,6 +34,8 @@ class SoftwareChoicesService {
     Source.fromInputStream(stream).getLines.toSeq
   }
 
+  lazy val readJson: Seq[SoftwareProviderModel] = Json.parse(json).as[Seq[JsValue]] map(_.as[SoftwareProviderModel])
+
   def readProviders: Seq[SoftwareProviderModel] = providersList.map(SoftwareProviderModel(_))
 
   lazy val providers: Seq[SoftwareProviderModel] = readProviders
@@ -41,4 +45,69 @@ class SoftwareChoicesService {
   def filterProviders(filters: Seq[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = providers.filter { providers =>
     filters.forall(providers.filters.contains(_)) && providers.name.toLowerCase.contains(term.getOrElse("").toLowerCase)
   }
+
+
+  val json =
+    """
+      |[
+      | {
+      |   "name": "@DataDear Excel Add-in",
+      |   "url": "https://www.datadear.com/hmrc-vat-return-making-tax-digital/",
+      |   "businesses": "true",
+      |   "agents": "true",
+      |   "digitalRecordKeeping": "true",
+      |   "bridgingSoftware": "true",
+      |   "viewVatReturn": "true",
+      |   "viewVatLiabilities": "true",
+      |   "viewVatPayments": "true",
+      |   "cognitive": "false",
+      |   "visual": "false",
+      |   "hearing": "false",
+      |   "motor": "false"
+      | },
+      | {
+      |   "name": "@gosimpletax",
+      |   "url": "https://books.gosimplesoftware.co.uk/",
+      |   "businesses": "true",
+      |   "agents": "true",
+      |   "digitalRecordKeeping": "true",
+      |   "bridgingSoftware": "false",
+      |   "viewVatReturn": "true",
+      |   "viewVatLiabilities": "true",
+      |   "viewVatPayments": "true",
+      |   "cognitive": "false",
+      |   "visual": "false",
+      |   "hearing": "false",
+      |   "motor": "false"
+      | }
+    """.stripMargin
+
+  val json2 =
+    """[
+      |  {
+      |    "name":"@DataDear Excel Add-in",
+      |    "url":"https://www.datadear.com/hmrc-vat-return-making-tax-digital/",
+      |    "features":[
+      |      "businesses",
+      |      "agents",
+      |      "digitalRecordKeeping",
+      |      "bridgingSoftware",
+      |      "viewVatReturn",
+      |      "viewVatLiabilities",
+      |      "viewVatPayments"
+      |    ]
+      |  },
+      |  {
+      |    "name":"@gosimpletax",
+      |    "url":"https://books.gosimplesoftware.co.uk/",
+      |    "features":[
+      |      "businesses",
+      |      "agents",
+      |      "digitalRecordKeeping",
+      |      "viewVatReturn",
+      |      "viewVatLiabilities",
+      |      "viewVatPayments"
+      |    ]
+      |  }""".stripMargin
+
 }
