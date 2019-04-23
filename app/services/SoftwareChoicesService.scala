@@ -16,6 +16,8 @@
 
 package services
 
+import java.io.InputStream
+
 import enums.Filter
 import javax.inject.Singleton
 import models.SoftwareProviderModel
@@ -28,86 +30,20 @@ import scala.io.Source
 @Singleton
 class SoftwareChoicesService {
 
-  protected lazy val providersList: Seq[String] = {
+  protected lazy val jsonFile: String = {
     Logger.debug("[SoftwareChoicesService][providersList] Loading providers from file")
-    val stream = getClass.getResourceAsStream("/softwareProvidersCSV")
-    Source.fromInputStream(stream).getLines.toSeq
+    val stream: InputStream = getClass.getResourceAsStream("/SoftwareProviders.json")
+    Source.fromInputStream(stream).getLines().mkString
   }
 
-  lazy val readJson: Seq[SoftwareProviderModel] = Json.parse(json).as[Seq[JsValue]] map(_.as[SoftwareProviderModel])
+  lazy val providersJson: Seq[JsValue] = Json.parse(jsonFile).as[Seq[JsValue]]
 
-  def readProviders: Seq[SoftwareProviderModel] = providersList.map(SoftwareProviderModel(_))
+  def readProviders: Seq[SoftwareProviderModel] = providersJson.map(_.as[SoftwareProviderModel])
+  lazy val providersList: Seq[SoftwareProviderModel] = readProviders
 
-  lazy val providers: Seq[SoftwareProviderModel] = readProviders
+  def searchProviders(term: String): Seq[SoftwareProviderModel] = providersList.filter(_.name.toLowerCase.contains(term.toLowerCase))
 
-  def searchProviders(term: String): Seq[SoftwareProviderModel] = providers.filter(_.name.toLowerCase.contains(term.toLowerCase))
-
-  def filterProviders(filters: Seq[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = providers.filter { providers =>
+  def filterProviders(filters: Seq[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = providersList.filter { providers =>
     filters.forall(providers.filters.contains(_)) && providers.name.toLowerCase.contains(term.getOrElse("").toLowerCase)
   }
-
-
-  val json =
-    """
-      |[
-      | {
-      |   "name": "@DataDear Excel Add-in",
-      |   "url": "https://www.datadear.com/hmrc-vat-return-making-tax-digital/",
-      |   "businesses": "true",
-      |   "agents": "true",
-      |   "digitalRecordKeeping": "true",
-      |   "bridgingSoftware": "true",
-      |   "viewVatReturn": "true",
-      |   "viewVatLiabilities": "true",
-      |   "viewVatPayments": "true",
-      |   "cognitive": "false",
-      |   "visual": "false",
-      |   "hearing": "false",
-      |   "motor": "false"
-      | },
-      | {
-      |   "name": "@gosimpletax",
-      |   "url": "https://books.gosimplesoftware.co.uk/",
-      |   "businesses": "true",
-      |   "agents": "true",
-      |   "digitalRecordKeeping": "true",
-      |   "bridgingSoftware": "false",
-      |   "viewVatReturn": "true",
-      |   "viewVatLiabilities": "true",
-      |   "viewVatPayments": "true",
-      |   "cognitive": "false",
-      |   "visual": "false",
-      |   "hearing": "false",
-      |   "motor": "false"
-      | }
-    """.stripMargin
-
-  val json2 =
-    """[
-      |  {
-      |    "name":"@DataDear Excel Add-in",
-      |    "url":"https://www.datadear.com/hmrc-vat-return-making-tax-digital/",
-      |    "features":[
-      |      "businesses",
-      |      "agents",
-      |      "digitalRecordKeeping",
-      |      "bridgingSoftware",
-      |      "viewVatReturn",
-      |      "viewVatLiabilities",
-      |      "viewVatPayments"
-      |    ]
-      |  },
-      |  {
-      |    "name":"@gosimpletax",
-      |    "url":"https://books.gosimplesoftware.co.uk/",
-      |    "features":[
-      |      "businesses",
-      |      "agents",
-      |      "digitalRecordKeeping",
-      |      "viewVatReturn",
-      |      "viewVatLiabilities",
-      |      "viewVatPayments"
-      |    ]
-      |  }""".stripMargin
-
 }
