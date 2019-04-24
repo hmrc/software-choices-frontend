@@ -22,22 +22,75 @@ import _root_.utils.TestUtils
 class SoftwareChoicesServiceSpec extends TestUtils {
 
   object TestSoftwareChoicesService extends SoftwareChoicesService {
-    override lazy val providersList: Seq[String] = Seq(
-      "nameOne|urlOne|x|x|||||||||",
-      "nameTwo|urlTwo|x||||||||||",
-      "nameThree|urlThree|x|x|||||||||"
-    )
+
+    override protected lazy val jsonFile: String =
+      """[
+        |  {
+        |    "name": "nameOne",
+        |    "url":"urlOne",
+        |    "business": true,
+        |    "agent": true,
+        |    "accounting": false,
+        |    "spreadsheets": false,
+        |    "viewReturn": false,
+        |    "viewLiabilities": false,
+        |    "viewPayments": false,
+        |    "cognitive": false,
+        |    "visual": false,
+        |    "hearing": false,
+        |    "motor": false
+        |  },
+        |  {
+        |    "name":"nameTwo",
+        |    "url":"urlTwo",
+        |    "business": true,
+        |    "agent": false,
+        |    "accounting": false,
+        |    "spreadsheets": false,
+        |    "viewReturn": false,
+        |    "viewLiabilities": false,
+        |    "viewPayments": false,
+        |    "cognitive": false,
+        |    "visual": false,
+        |    "hearing": false,
+        |    "motor": false
+        |  },
+        |  {
+        |    "name":"nameThree",
+        |    "url":"urlThree",
+        |    "business": true,
+        |    "agent": true,
+        |    "accounting": false,
+        |    "spreadsheets": false,
+        |    "viewReturn": false,
+        |    "viewLiabilities": false,
+        |    "viewPayments": false,
+        |    "cognitive": false,
+        |    "visual": false,
+        |    "hearing": false,
+        |    "motor": false
+        |  }
+        |]""".stripMargin
   }
 
-  "SoftwareChoicesService.readProviders" should {
-
-    "return the correct sequence of software providers" in {
-      TestSoftwareChoicesService.providers shouldBe Seq(
-        SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
-        SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-        SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
+  "test" in {
+    TestSoftwareChoicesService.providersList shouldBe Seq(
+      SoftwareProviderModel(
+        "nameOne",
+        "urlOne",
+        List(BUSINESS, AGENT)
+      ),
+      SoftwareProviderModel(
+        "nameTwo",
+        "urlTwo",
+        List(BUSINESS)
+      ),
+      SoftwareProviderModel(
+        "nameThree",
+        "urlThree",
+        List(BUSINESS, AGENT)
       )
-    }
+    )
   }
 
   "SoftwareChoicesService.searchProviders({search})" should {

@@ -16,36 +16,64 @@
 
 package models
 
-import enums.Filter._
 import _root_.utils.TestUtils
+import enums.Filter._
+import play.api.libs.json.Json
 
 class SoftwareProviderModelSpec extends TestUtils {
 
   "SoftwareProviderModel" should {
 
-    "if all filters are provided" in  {
-      val actualResult =
-        SoftwareProviderModel("providerA|providerAUrl|x|x|x|x|x|x|x|fully|fully|fully|fully")
-      val expectedResult =
-        SoftwareProviderModel("providerA", "providerAUrl", List(
-          BUSINESS, AGENT, ACCOUNTING, SPREADSHEETS, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, COGNITIVE, VISUAL, HEARING, MOTOR)
-        )
+    "read from Json correctly with all filters" in {
+
+      val expectedResult = SoftwareProviderModel(
+        name = "name",
+        url = "url",
+        filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR)
+      )
+
+      val actualResult = Json.obj(
+        "name" -> "name",
+        "url" -> "url",
+        "business" -> true,
+        "agent" -> true,
+        "accounting" -> true,
+        "spreadsheets" -> true,
+        "viewReturn" -> true,
+        "viewLiabilities" -> true,
+        "viewPayments" -> true,
+        "cognitive" -> true,
+        "visual" -> true,
+        "hearing" -> true,
+        "motor" -> true
+      ).as[SoftwareProviderModel]
 
       actualResult shouldBe expectedResult
     }
 
-    "if some filters are provided" in  {
+    "read from Json correctly with no filters" in {
 
-      val actualResult = SoftwareProviderModel("providerB|providerBUrl||x||x|x|||fully||fully|")
-      val expectedResult = SoftwareProviderModel("providerB", "providerBUrl", List(AGENT, SPREADSHEETS, VIEW_RETURN, COGNITIVE, HEARING))
+      val expectedResult = SoftwareProviderModel(
+        name = "name",
+        url = "url",
+        filters = List.empty
+      )
 
-      actualResult shouldBe expectedResult
-    }
-
-    "if no filters are provided" in  {
-
-      val actualResult =  SoftwareProviderModel("providerC|providerCUrl|||||||||||")
-      val expectedResult =  SoftwareProviderModel("providerC", "providerCUrl", List())
+      val actualResult = Json.obj(
+        "name" -> "name",
+        "url" -> "url",
+        "business" -> false,
+        "agent" -> false,
+        "accounting" -> false,
+        "spreadsheets" -> false,
+        "viewReturn" -> false,
+        "viewLiabilities" -> false,
+        "viewPayments" -> false,
+        "cognitive" -> false,
+        "visual" -> false,
+        "hearing" -> false,
+        "motor" -> false
+      ).as[SoftwareProviderModel]
 
       actualResult shouldBe expectedResult
     }

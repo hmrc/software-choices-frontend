@@ -16,29 +16,34 @@
 
 package services
 
+import java.io.InputStream
+
+import enums.Filter
 import javax.inject.Singleton
 import models.SoftwareProviderModel
 import play.api.Logger
+import play.api.libs.json._
 
 import scala.io.Source
-import enums.Filter
+
 
 @Singleton
 class SoftwareChoicesService {
 
-  protected lazy val providersList: Seq[String] = {
+  protected lazy val jsonFile: String = {
     Logger.debug("[SoftwareChoicesService][providersList] Loading providers from file")
-    val stream = getClass.getResourceAsStream("/softwareProvidersCSV")
-    Source.fromInputStream(stream).getLines.toSeq
+    val stream: InputStream = getClass.getResourceAsStream("/SoftwareProviders.json")
+    Source.fromInputStream(stream).getLines().mkString
   }
 
-  def readProviders: Seq[SoftwareProviderModel] = providersList.map(SoftwareProviderModel(_))
+  lazy val providersJson: Seq[JsValue] = Json.parse(jsonFile).as[Seq[JsValue]]
 
-  lazy val providers: Seq[SoftwareProviderModel] = readProviders
+  def readProviders: Seq[SoftwareProviderModel] = providersJson.map(_.as[SoftwareProviderModel])
+  lazy val providersList: Seq[SoftwareProviderModel] = readProviders
 
-  def searchProviders(term: String): Seq[SoftwareProviderModel] = providers.filter(_.name.toLowerCase.contains(term.toLowerCase))
+  def searchProviders(term: String): Seq[SoftwareProviderModel] = providersList.filter(_.name.toLowerCase.contains(term.toLowerCase))
 
-  def filterProviders(filters: Seq[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = providers.filter { providers =>
+  def filterProviders(filters: Seq[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = providersList.filter { providers =>
     filters.forall(providers.filters.contains(_)) && providers.name.toLowerCase.contains(term.getOrElse("").toLowerCase)
   }
 }
