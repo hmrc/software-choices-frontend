@@ -2566,7 +2566,7 @@
   },
   {
     "name": "Odoo - Accounting",
-    "url": " https://www.odoo.com/page/accounting ",
+    "url": "https://www.odoo.com/page/accounting ",
     "business": true,
     "agent": false,
     "accounting": false,
@@ -3826,7 +3826,7 @@
   },
   {
     "name": "Workday",
-    "url": " https://www.workday.com/en-gb/homepage.html",
+    "url": "http:// https://www.workday.com/en-gb/homepage.html",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -4831,7 +4831,7 @@
   },
   {
     "name": "ENIAC Computing",
-    "url": "www.eniaccomputing.com",
+    "url": "http://www.eniaccomputing.com",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -4846,7 +4846,7 @@
   },
   {
     "name": "MHA MTD",
-    "url": "mhamtd.co.uk",
+    "url": "http://mhamtd.co.uk",
     "business": true,
     "agent": true,
     "accounting": false,
@@ -4891,7 +4891,7 @@
   },
   {
     "name": "Indigo Legal Systems Ltd.",
-    "url": "www.IndigoLegalSystems.com",
+    "url": "http://www.IndigoLegalSystems.com",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -4906,7 +4906,7 @@
   },
   {
     "name": "Bransom Retail Systems Ltd",
-    "url": "www.bransom.co.uk",
+    "url": "http://www.bransom.co.uk",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -4981,7 +4981,7 @@
   },
   {
     "name": "Adsoft Solutions Ltd",
-    "url": "www.adsoft.com",
+    "url": "http://www.adsoft.com",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5011,7 +5011,7 @@
   },
   {
     "name": "VT Software Limited",
-    "url": "www.vtsoftware.co.uk",
+    "url": "http://www.vtsoftware.co.uk",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -5071,7 +5071,7 @@
   },
   {
     "name": "Greentree Software Ltd.",
-    "url": "www.greentree.co.uk",
+    "url": "http://www.greentree.co.uk",
     "business": true,
     "agent": false,
     "accounting": true,
