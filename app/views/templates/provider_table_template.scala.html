@@ -17,7 +17,7 @@
 @(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true)(implicit messages: Messages)
 
 
-<div id="provider-results">
+<div id="provider-results" aria-live="polite">
 
     @if(showCount){
         @result_count_template(providers.length, totalProviders)
