@@ -7083,7 +7083,7 @@
     "name": "Taxually",
     "url": "https://taxually.com/",
     "business": true,
-    "agent": false,
+    "agent": true,
     "accounting": false,
     "spreadsheets": true,
     "viewReturn": true,
