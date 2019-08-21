@@ -7108,5 +7108,35 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "StorganiseVAT",
+    "url": "https://www.storganise.co.uk/shop-page/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "AngelBooks",
+    "url": "https://www.angelbooks.biz/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   }
 ]
