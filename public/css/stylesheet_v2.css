@@ -123,14 +123,15 @@
 
 .multiple-choice [type=checkbox]:focus+label::before {
     border: 2px solid black;
-    outline: 2px solid black;
-    -webkit-box-shadow: 0 0 0 4px #fd0;
-    box-shadow: 0 0 0 4px #fd0;
+    outline: 3px solid black;
+    -webkit-box-shadow: 0 0 0 5px #fd0;
+    box-shadow: 0 0 0 5px #fd0;
 }
 
 input:focus {
     outline: 3px solid #fd0;
-    border: 7px solid black;
+    outline-offset: 0;
+    border: 5px solid black;
 }
 
 a:focus {
@@ -162,13 +163,6 @@ details summary:focus .summary {
     -webkit-box-shadow: inset 0 0 0 1px #fd0;
     box-shadow: inset 0 0 0 1px #fd0;
 }
-.form-control:focus {
-    outline: 3px solid #fd0;
-    outline-offset: 0;
-    -webkit-box-shadow: inset 0 0 0 2px;
-    box-shadow: inset 0 0 0 2px;
-}
-
 
 .report-error .report-error__toggle:focus,
 #footer a:focus,
