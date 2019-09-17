@@ -1,4 +1,8 @@
 /* Search */
+body, main {
+  line-height: unset;
+}
+
 .search-field {
   position: relative;
 }

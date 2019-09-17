@@ -1,0 +1,92 @@
+@*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import config.AppConfig
+@import templates._
+@import views.utils.ServiceNameTitle
+@import forms.FiltersForm
+@import uk.gov.hmrc.play.views.html.helpers
+@import enums.Filter._
+@import models.components._
+
+@()(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+
+@main_template(title = ServiceNameTitle.fullTitle("accessibilityStatement.title")) {
+
+    <div class="grid-row">
+
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge">@messages("accessibilityStatement.heading")</h1>
+            <p class="lede">@messages("accessibilityStatement.para1")</p>
+            <p>@Html(messages("accessibilityStatement.para2", <a href="https://www.gov.uk/help/accessibility">{messages("accessibilityStatement.para2.linkText")}</a>))</p>
+            <p>@Html(messages("accessibilityStatement.para3", <a href="https://www.tax.service.gov.uk/making-tax-digital-software">{messages("accessibilityStatement.para3.linkText")}</a>))</p>
+
+            <h2 class="heading-large">@messages("accessibilityStatement.usingService.heading")</h2>
+            <p>@messages("accessibilityStatement.usingService.para1")</p>
+            <p>@messages("accessibilityStatement.usingService.para2")</p>
+            <ul class="list list-bullet">
+                <li>@messages("accessibilityStatement.usingService.bullet1")</li>
+                <li>@messages("accessibilityStatement.usingService.bullet2")</li>
+                <li>@messages("accessibilityStatement.usingService.bullet3")</li>
+                <li>@messages("accessibilityStatement.usingService.bullet4")</li>
+                <li>@messages("accessibilityStatement.usingService.bullet5")</li>
+            </ul>
+            <p>@messages("accessibilityStatement.usingService.para3")</p>
+            <p>@Html(messages("accessibilityStatement.usingService.para4", <a href="https://mcmw.abilitynet.org.uk/">{messages("accessibilityStatement.usingService.para4.linkText")}</a>))</p>
+
+            <h2 class="heading-large">@messages("accessibilityStatement.howAccessible.heading")</h2>
+            <p>@Html(messages("accessibilityStatement.howAccessible.para1", <a href="https://www.w3.org/TR/WCAG21/">{messages("accessibilityStatement.howAccessible.para1.linkText")}</a>))</p>
+            <p>@messages("accessibilityStatement.howAccessible.para2")</p>
+
+            <h3>@messages("accessibilityStatement.howAccessible.difficulty1.heading")</h3>
+            <p>@messages("accessibilityStatement.howAccessible.difficulty1.info")</p>
+            <p>@messages("accessibilityStatement.howAccessible.difficulty1.criteria")</p>
+            <p>@messages("accessibilityStatement.howAccessible.difficulty1.plan")</p>
+
+            <h3>@messages("accessibilityStatement.howAccessible.difficulty2.heading")</h3>
+            <p>@messages("accessibilityStatement.howAccessible.difficulty2.info")</p>
+            <p>@messages("accessibilityStatement.howAccessible.difficulty2.criteria")</p>
+            <p>@messages("accessibilityStatement.howAccessible.difficulty2.plan")</p>
+
+            <h2 class="heading-large">@messages("accessibilityStatement.reportingProblems.heading")</h2>
+            <p>@messages("accessibilityStatement.reportingProblems.para1")</p>
+
+            <h2 class="heading-large">@messages("accessibilityStatement.ifNotHappy.heading")</h2>
+            <p>
+                @Html(messages(
+                    "accessibilityStatement.ifNotHappy.para1",
+                    <a href="https://www.equalityadvisoryservice.com/">{messages("accessibilityStatement.ifNotHappy.para1.linkText1")}</a>,
+                    <a href="https://www.equalityni.org/Home">{messages("accessibilityStatement.ifNotHappy.para1.linkText2")}</a>
+                ))
+            </p>
+
+            <h2 class="heading-large">@messages("accessibilityStatement.technicalInformation.heading")</h2>
+            <p>@messages("accessibilityStatement.technicalInformation.para1")</p>
+            <p>@Html(messages("accessibilityStatement.technicalInformation.para2", <a href="https://www.w3.org/TR/WCAG21/">{messages("accessibilityStatement.technicalInformation.para2.linkText")}</a>))</p>
+
+            <h2 class="heading-large">@messages("accessibilityStatement.howTested.heading")</h2>
+            <p>@messages("accessibilityStatement.howTested.para1")</p>
+            <p>@Html(messages("accessibilityStatement.howTested.para2", <a href="http://www.digitalaccessibilitycentre.org/">{messages("accessibilityStatement.howTested.para2.linkText")}</a>))</p>
+            <p>@messages("accessibilityStatement.howTested.para3")</p>
+
+        </div>
+
+    </div>
+
+
+}
+
