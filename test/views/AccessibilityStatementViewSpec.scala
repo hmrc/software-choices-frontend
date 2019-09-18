@@ -69,8 +69,8 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     val dacLinkText = "Digital Accessibility Centre"
   }
 
-  val document: Document = parseView(views.html.accessibility_statement())
-  val body: Element = document.getElementById("content")
+  lazy val document: Document = parseView(views.html.accessibility_statement())
+  lazy val body: Element = document.getElementById("content")
 
   "accessibility_statement" must {
     "have a title" in {
