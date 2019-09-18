@@ -5,3 +5,5 @@ GET         /assets/*file                                   controllers.Assets.a
 GET        /                                                controllers.SoftwareChoicesController.show
 POST       /                                                controllers.SoftwareChoicesController.search
 POST       /ajax                                            controllers.SoftwareChoicesController.ajaxFilterSearch
+
+GET        /accessibility-statement                         controllers.AccessibilityStatementController.show
