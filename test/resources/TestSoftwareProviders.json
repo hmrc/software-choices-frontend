@@ -3399,10 +3399,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   },
   {
     "name": "Solar Accounts Online",
@@ -5769,10 +5769,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   },
   {
     "name": "MagnaSys Ltd",
@@ -7356,6 +7356,36 @@
     "agent": true,
     "accounting": true,
     "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "Affinitus Group ERP",
+    "url": "https://www.affinitus.co.uk",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "mtdvatbridge.uk",
+    "url": "https://mtdvatbridge.uk",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
