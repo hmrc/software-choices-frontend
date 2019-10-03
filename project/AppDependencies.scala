@@ -8,8 +8,8 @@ object AppDependencies {
   val compile = Seq(
     "uk.gov.hmrc"             %% "play-whitelist-filter"    % "3.1.0-play-25",
     "uk.gov.hmrc"             %% "govuk-template"           % "5.40.0-play-25",
-    "uk.gov.hmrc"             %% "play-ui"                  % "8.1.0-play-25",
-    "uk.gov.hmrc"             %% "bootstrap-play-25"        % "5.0.0"
+    "uk.gov.hmrc"             %% "play-ui"                  % "8.2.0-play-25",
+    "uk.gov.hmrc"             %% "bootstrap-play-25"        % "5.1.0"
   )
 
   val test = Seq(
