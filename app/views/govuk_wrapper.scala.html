@@ -121,6 +121,6 @@
     insideHeader,
     afterHeader,
     footerTop,
-    Some(uiLayouts.footer_links(accessibilityFooterUrl = Some(controllers.routes.AccessibilityStatementController.show().url))),
+    Some(uiLayouts.footer_links(accessibilityFooterUrl = Some(controllers.routes.AccessibilityStatementController.show(request.uri).url))),
     true
 )(content)

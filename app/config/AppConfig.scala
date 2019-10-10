@@ -16,10 +16,12 @@
 
 package config
 
+import java.net.URLEncoder
 import java.util.Base64
 
 import config.features.Features
 import javax.inject.{Inject, Singleton}
+
 import play.api.{Configuration, Environment}
 import play.api.Mode.Mode
 import uk.gov.hmrc.play.binders.ContinueUrl
@@ -30,8 +32,12 @@ import uk.gov.hmrc.play.config.ServicesConfig
 class AppConfig @Inject()(implicit val runModeConfiguration: Configuration, environment: Environment) extends ServicesConfig {
   protected def mode: Mode = environment.mode
 
+  private val service: String = "software-choices"
+
   private val contactHost: String = getString(ConfigKeys.contactFrontendService)
   private val contactFormServiceIdentifier: String = "MSCC"
+
+  def accessibilityReportUrl (userAction: String): String = s"${contactHost}/contact/accessibility-unauthenticated?service=${service}&userAction=${URLEncoder.encode(userAction)}"
 
   lazy val analyticsToken: String = getString(ConfigKeys.googleAnalyticsToken)
   lazy val analyticsHost: String = getString(ConfigKeys.googleAnalyticsToken)

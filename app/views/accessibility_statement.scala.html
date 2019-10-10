@@ -22,7 +22,7 @@
 @import enums.Filter._
 @import models.components._
 
-@()(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(pageUri: String)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @main_template(title = ServiceNameTitle.fullTitle("accessibilityStatement.title")) {
 
@@ -57,7 +57,7 @@
             </ul>
 
             <h2 class="heading-large">@messages("accessibilityStatement.reportingProblems.heading")</h2>
-            <p>@Html(messages("accessibilityStatement.reportingProblems.para1", <a href="mailto:hmrc-accessibility-problems@digital.hmrc.gov.uk">{messages("accessibilityStatement.reportingProblems.para1.linkText")}</a>))</p>
+            <p>@Html(messages("accessibilityStatement.reportingProblems.para1", <a href={appConfig.accessibilityReportUrl(pageUri)}>{messages("accessibilityStatement.reportingProblems.para1.linkText")}</a>))</p>
 
             <h2 class="heading-large">@messages("accessibilityStatement.ifNotHappy.heading")</h2>
             <p>@Html(messages("accessibilityStatement.ifNotHappy.para1", <a href="https://www.equalityadvisoryservice.com/">{messages("accessibilityStatement.ifNotHappy.para1.linkText1")}</a>, <a href="https://www.equalityni.org/Home">{messages("accessibilityStatement.ifNotHappy.para1.linkText2")}</a>))</p>

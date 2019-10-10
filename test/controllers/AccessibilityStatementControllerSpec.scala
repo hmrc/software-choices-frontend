@@ -32,7 +32,7 @@ class AccessibilityStatementControllerSpec extends TestUtils {
 
   "show" must {
     s"return $OK" in {
-      val result: Future[Result] = TestAccessibilityStatementController.show(FakeRequest())
+      val result: Future[Result] = TestAccessibilityStatementController.show("testPage")(FakeRequest())
       status(result) shouldBe OK
       contentType(result) shouldBe Some("text/html")
     }

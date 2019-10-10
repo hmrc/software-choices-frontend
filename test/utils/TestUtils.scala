@@ -37,6 +37,7 @@ trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEac
   }
   
   implicit lazy val fakeRequest = FakeRequest("GET", "/")
+
   lazy val injector: Injector = app.injector
   lazy val messagesApi: MessagesApi = injector.instanceOf[MessagesApi]
   implicit lazy val messages: Messages = Messages(Lang("en-GB"), messagesApi)
