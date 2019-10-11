@@ -1,9 +1,9 @@
 # microservice specific routes
 
-GET         /assets/*file                                   controllers.Assets.at(path="/public", file)
+GET         /assets/*file                                    controllers.Assets.at(path="/public", file)
 
-GET        /                                                controllers.SoftwareChoicesController.show
-POST       /                                                controllers.SoftwareChoicesController.search
-POST       /ajax                                            controllers.SoftwareChoicesController.ajaxFilterSearch
+GET        /                                                 controllers.SoftwareChoicesController.show
+POST       /                                                 controllers.SoftwareChoicesController.search
+POST       /ajax                                             controllers.SoftwareChoicesController.ajaxFilterSearch
 
-GET        /accessibility-statement                         controllers.AccessibilityStatementController.show
+GET        /accessibility-statement/                         controllers.AccessibilityStatementController.show(pageUri: String)

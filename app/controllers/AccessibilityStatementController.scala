@@ -26,8 +26,8 @@ import views.html.accessibility_statement
 @Singleton
 class AccessibilityStatementController @Inject()(val messagesApi: MessagesApi, implicit val appConfig: AppConfig) extends FrontendController with I18nSupport {
 
-  val show: Action[AnyContent] = Action { implicit request =>
-    Ok(accessibility_statement())
+  def show(pageUri: String): Action[AnyContent] = Action { implicit request =>
+    Ok(accessibility_statement(pageUri: String))
   }
 
 }

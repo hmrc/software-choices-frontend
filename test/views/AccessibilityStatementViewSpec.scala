@@ -16,7 +16,10 @@
 
 package views
 
+import java.net.URLEncoder
+
 import org.jsoup.nodes.{Document, Element}
+import play.api.test.FakeRequest
 
 class AccessibilityStatementViewSpec extends ViewBaseSpec {
 
@@ -46,7 +49,7 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     val howAccessibleBullet2 = "The links to the various software providers doesn't make it clear they will take the user to the vendor's home page where users can read more information about the vendor's software products."
 
     val reportingProblemsHeading = "Reporting accessibility problems with this service"
-    val reportingProblemsPara1 = "We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, contact hmrc-accessibility-problems@digital.hmrc.gov.uk."
+    val reportingProblemsPara1 = "We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, report the accessibility problem."
 
     val ifNotHappyHeading = "What to do if you are not happy with how we respond to your complaint"
     val ifNotHappyPara1 = "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations'). If you are not happy with how we respond to your complaint, contact the Equality Advisory and Support Service (EASS), or the Equality Commission for Northern Ireland (ECNI) if you live in Northern Ireland."
@@ -82,9 +85,14 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     val ecniLinkText = "Equality Commission for Northern Ireland"
     val dacLinkText = "Digital Accessibility Centre"
     val emailText = "hmrc-accessibility-problems@digital.hmrc.gov.uk"
+    val accessibilityReporting = "accessibility problem"
   }
 
-  lazy val document: Document = parseView(views.html.accessibility_statement())
+  val page = "/page"
+  val service = "software-choices"
+
+
+  lazy val document: Document = parseView(views.html.accessibility_statement(page)(fakeRequest, messages,appConfig))
   lazy val body: Element = document.getElementById("content")
 
   "accessibility_statement" must {
@@ -191,8 +199,8 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     body.select("a[href='http://www.digitalaccessibilitycentre.org/']").text shouldBe Messages.dacLinkText
   }
 
-  "have an email link" in {
-    body.select("a[href='mailto:hmrc-accessibility-problems@digital.hmrc.gov.uk']").text shouldBe Messages.emailText
+  "have a link to report an accessibility issue" in {
+    body.select(s"a[href='http://localhost:9250/contact/accessibility-unauthenticated?service=$service&userAction=${URLEncoder.encode(page)}']").text shouldBe Messages.accessibilityReporting
   }
 
 }

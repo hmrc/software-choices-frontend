@@ -91,8 +91,8 @@ accessibilityStatement.howAccessible.bullet1 = We use filters to help users find
 accessibilityStatement.howAccessible.bullet2 = The links to the various software providers doesn''t make it clear they will take the user to the vendor''s home page where users can read more information about the vendor''s software products.
 
 accessibilityStatement.reportingProblems.heading = Reporting accessibility problems with this service
-accessibilityStatement.reportingProblems.para1 = We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, contact {0}.
-accessibilityStatement.reportingProblems.para1.linkText = hmrc-accessibility-problems@digital.hmrc.gov.uk
+accessibilityStatement.reportingProblems.para1 = We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, report the {0}.
+accessibilityStatement.reportingProblems.para1.linkText = accessibility problem
 
 accessibilityStatement.ifNotHappy.heading = What to do if you are not happy with how we respond to your complaint
 accessibilityStatement.ifNotHappy.para1 = The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ''accessibility regulations''). If you are not happy with how we respond to your complaint, {0} (EASS), or the {1} (ECNI) if you live in Northern Ireland.
