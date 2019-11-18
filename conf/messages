@@ -37,9 +37,17 @@ softwareChoicesResults.results.title = Results
 softwareChoicesResults.results = We have found these software packages that work with Making Tax Digital for VAT:
 
 softwareChoices.filter.title = Find software for Making Tax Digital for VAT
-softwareChoices.filter.p1 = All the software shown allows you to submit VAT Returns and some provide extra features. The links open in a new window.
+softwareChoices.filter.p1 = All software listed on this page has been through HMRC''s recognition process. Using the software will allow you to submit VAT Returns directly to HMRC without needing to visit HMRC''s website. All links open in a new window or tab. HMRC does not endorse or recommend any one product or software provider.
 softwareChoices.filter.p2 = You will need to choose software that is suitable for you. If you have problems with your software, you will need to contact your software provider.
-softwareChoices.filter.p3 = HMRC does not endorse or recommend any one product or software provider.
+softwareChoices.filter.p3 = Some of the software listed below have features that are particularly suitable for those with accessibility needs, for example visual impairment, limited movement etc.
+
+softwareChoices.filter.accordion.heading = What kind of software is available?
+softwareChoices.filter.accordion.subHeading1 = Record keeping software
+softwareChoices.filter.accordion.bullet1 = updates and stores your records digitally
+softwareChoices.filter.accordion.bullet2 = works directly with HMRC systems allowing you to file a VAT Return
+softwareChoices.filter.accordion.subHeading2 = Bridging software
+softwareChoices.filter.accordion.bullet3 = works with non-compatible software like spreadsheets, accounting systems and other digital bookkeeping products
+softwareChoices.filter.accordion.bullet4 = lets you send the required information digitally to HMRC in the correct format
 
 softwareChoices.filter.softwareSuitableFor = Suitable for
 softwareChoices.filter.businesses = Businesses
@@ -54,7 +62,7 @@ softwareChoices.filter.typeOfSoftware = Software for
 softwareChoices.filter.accountingSoftware = Digital VAT record keeping
 softwareChoices.filter.spreadSheets = Bridging
 
-softwareChoices.filter.accessibility = Accessibility
+softwareChoices.filter.accessibilityFeatures = Accessibility features
 softwareChoices.filter.cognitive = Cognitive
 softwareChoices.filter.visual = Visual
 softwareChoices.filter.hearing = Hearing
