@@ -46,7 +46,14 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val hearingFilter ="""label[for="HEARING"]"""
     val motorFilter ="""label[for="MOTOR"]"""
     val filterResults ="#content > form > div > div.column-one-third button"
-    val p = (i: Int) => s"div.grid-row > div.column-two-thirds > p:nth-of-type($i)"
+    val p = (i: Int) => s"div.grid-row > div.column-two-thirds > div.form-group > p:nth-of-type($i)"
+    val accordionHeading = "details > summary > span"
+    val accordionSubHeading1 = (i:Int) => s"details > div > h2:nth-child($i)"
+    val accordionBullet1 = (i:Int) => s"details > div > ul > li:nth-child($i)"
+    val accordionBullet2 = (i:Int) => s"details > div > ul > li:nth-child($i)"
+    val accordionSubHeading2 = (i:Int) => s"details > div > h2:nth-child($i)"
+    val accordionBullet3 = (i:Int) => s"details > div > ul > li:nth-child($i)"
+    val accordionBullet4 = (i:Int) => s"details > div > ul > li:nth-child($i)"
   }
 
   "The software choices filter page" when {
@@ -73,6 +80,34 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
       "include correct p3" in {
         document.select(Selectors.p(3)).text shouldBe FilterSearchMessages.p3
+      }
+
+      "include accordion heading" in {
+        document.select(Selectors.accordionHeading).text shouldBe FilterSearchMessages.accordionHeading
+      }
+
+      "include accordion subheading 1" in {
+        document.select(Selectors.accordionSubHeading1(1)).text should include(FilterSearchMessages.accordionSubHeading1)
+      }
+
+      "include accordion bullet 1" in {
+        document.select(Selectors.accordionBullet1(1)).text should include(FilterSearchMessages.accordionBullet1)
+      }
+
+      "include accordion bullet 2" in {
+        document.select(Selectors.accordionBullet2(2)).text should include(FilterSearchMessages.accordionBullet2)
+      }
+
+      "include accordion subheading 2" in {
+        document.select(Selectors.accordionSubHeading2(3)).text should include(FilterSearchMessages.accordionSubHeading2)
+      }
+
+      "include accordion bullet 3" in {
+        document.select(Selectors.accordionBullet3(1)).text should include(FilterSearchMessages.accordionBullet3)
+      }
+
+      "include accordion bullet 4" in {
+        document.select(Selectors.accordionBullet4(2)).text should include(FilterSearchMessages.accordionBullet4)
       }
 
       "include the search component" in {
@@ -174,10 +209,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
         }
       }
 
-      "contain a filter for Accessibility" should {
+      "contain a filter for Accessibility features" should {
 
-        "Suitable for should contain Accessibility filter header" in {
-          document.select(Selectors.filterHeader(4)).text shouldBe FilterSearchMessages.accessibility
+        "Suitable for should contain Accessibility features filter header" in {
+          document.select(Selectors.filterHeader(4)).text shouldBe FilterSearchMessages.accessibilityFeatures
         }
 
         "Filter Header contains COGNITIVE" in {
