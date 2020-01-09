@@ -201,3 +201,7 @@ textarea:focus {
     -webkit-box-shadow: inset 0 0 0 2px;
     box-shadow: inset 0 0 0 2px;
 }
+
+.no-details details summary .arrow-closed {
+    display: none !important;
+}
