@@ -7708,5 +7708,20 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "Ryan VAT Systems",
+    "url": "https://www.vatsystems.eu/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   }
 ]
