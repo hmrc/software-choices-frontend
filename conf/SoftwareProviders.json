@@ -7715,7 +7715,7 @@
     "business": true,
     "agent": false,
     "accounting": true,
-    "spreadsheets": true,
+    "spreadsheets": false,
     "viewReturn": false,
     "viewLiabilities": true,
     "viewPayments": false,
