@@ -50,7 +50,8 @@ object FiltersForm {
       cognitive -> boolean.transform[Option[Filter.Value]](boolToFilter(COGNITIVE), _.nonEmpty),
       hearing -> boolean.transform[Option[Filter.Value]](boolToFilter(HEARING), _.nonEmpty),
       motor -> boolean.transform[Option[Filter.Value]](boolToFilter(MOTOR), _.nonEmpty),
-      visual -> boolean.transform[Option[Filter.Value]](boolToFilter(VISUAL), _.nonEmpty)
+      visual -> boolean.transform[Option[Filter.Value]](boolToFilter(VISUAL), _.nonEmpty),
+      free -> boolean.transform[Option[Filter.Value]](boolToFilter(FREE), _.nonEmpty)
     )(FiltersFormModel.customApply)(FiltersFormModel.customUnapply)
   )
 }

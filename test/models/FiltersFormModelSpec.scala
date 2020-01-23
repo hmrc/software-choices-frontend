@@ -57,11 +57,12 @@ class FiltersFormModelSpec extends TestUtils {
           Some(COGNITIVE),
           Some(HEARING),
           Some(MOTOR),
-          Some(VISUAL)
+          Some(VISUAL),
+          Some(FREE)
         ).filters
 
         val expectedResult =
-          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL)
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL, FREE)
 
         actualResult shouldBe expectedResult
 
@@ -101,7 +102,7 @@ class FiltersFormModelSpec extends TestUtils {
       "return all values" in {
 
         val actualResult = FiltersFormModel.customUnapply(FiltersFormModel(
-          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL),
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL, FREE),
           Some("term")
         ))
 
@@ -117,7 +118,8 @@ class FiltersFormModelSpec extends TestUtils {
           Some(COGNITIVE),
           Some(HEARING),
           Some(MOTOR),
-          Some(VISUAL)
+          Some(VISUAL),
+          Some(FREE)
         ))
 
         actualResult shouldBe expectedResult
@@ -133,7 +135,7 @@ class FiltersFormModelSpec extends TestUtils {
           Seq(AGENT, VIEW_RETURN, ACCOUNTING)
         ))
 
-        val expectedResult = Some((None, None, Some(AGENT), Some(VIEW_RETURN), None, None, Some(ACCOUNTING), None, None, None, None, None))
+        val expectedResult = Some((None, None, Some(AGENT), Some(VIEW_RETURN), None, None, Some(ACCOUNTING), None, None, None, None, None, None))
 
         actualResult shouldBe expectedResult
 
@@ -145,7 +147,7 @@ class FiltersFormModelSpec extends TestUtils {
 
       "return no values" in {
         FiltersFormModel.customUnapply(FiltersFormModel(Seq())) shouldBe
-          Some((None, None, None, None, None, None, None, None, None, None, None, None))
+          Some((None, None, None, None, None, None, None, None, None, None, None, None, None))
       }
     }
   }

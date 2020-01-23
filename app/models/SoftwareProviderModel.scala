@@ -43,6 +43,7 @@ object SoftwareProviderModel {
     hearing <- (__ \ "hearing").read[Boolean].map{getFilter(Filter.HEARING, _)}
     motor <- (__ \ "motor").read[Boolean].map{getFilter(Filter.MOTOR, _)}
     visual <- (__ \ "visual").read[Boolean].map{getFilter(Filter.VISUAL, _)}
-    features = List(business, agent, viewReturn, viewLiabilities, viewPayments, accounting, spreadsheets, cognitive, visual, hearing, motor).flatten
+    free <- (__ \ "free").readNullable[Boolean].map{ boolean => getFilter(Filter.FREE, boolean.getOrElse(false))}
+    features = List(business, agent, viewReturn, viewLiabilities, viewPayments, accounting, spreadsheets, cognitive, visual, hearing, motor, free).flatten
   } yield SoftwareProviderModel(name, url, features)
 }

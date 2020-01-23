@@ -67,6 +67,10 @@ class FilterSpec extends TestUtils {
       Filter("VISUAL") shouldBe VISUAL
     }
 
+    "determine the correct FREE enum value" in {
+      Filter("FREE") shouldBe FREE
+    }
+
     "determine an unknown enum value" in {
       Filter("UNKNOWN") shouldBe UNKNOWN
     }
