@@ -43,6 +43,9 @@ object FilterSearchMessages {
   val hearing = "Hearing"
   val motor = "Motor"
 
+  val price = "Price"
+  val free = "Free version"
+
   val hiddenHeading = "Search results"
 
   val filterResults = "Apply filters"

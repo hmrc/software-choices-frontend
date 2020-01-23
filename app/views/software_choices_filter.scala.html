@@ -93,6 +93,17 @@
 
                 @search_filter_template(
                     FilterTemplateModel(
+                        messages("softwareChoices.filter.typeOfSoftware"),
+                        Seq(
+                            FilterFieldModel(form(accounting), messages("softwareChoices.filter.accountingSoftware")),
+                            FilterFieldModel(form(spreadsheets), messages("softwareChoices.filter.spreadSheets"))
+                        ),
+                        appConfig.features.typeOfSoftwareFilterEnabled()
+                    )
+                )
+
+                @search_filter_template(
+                    FilterTemplateModel(
                         messages("softwareChoices.filter.additionalSoftwareFeatures"),
                         Seq(
                             FilterFieldModel(form(viewReturn), messages("softwareChoices.filter.vatReturns")),
@@ -105,14 +116,13 @@
 
                 @search_filter_template(
                     FilterTemplateModel(
-                        messages("softwareChoices.filter.typeOfSoftware"),
-                        Seq(
-                            FilterFieldModel(form(accounting), messages("softwareChoices.filter.accountingSoftware")),
-                            FilterFieldModel(form(spreadsheets), messages("softwareChoices.filter.spreadSheets"))
+                        messages("softwareChoices.filter.price"),
+                        Seq(FilterFieldModel(form(free), messages("softwareChoices.filter.freeVersion"))
                         ),
-                        appConfig.features.typeOfSoftwareFilterEnabled()
+                    appConfig.features.priceFilterEnabled()
                     )
                 )
+
 
                 @search_filter_template(
                     FilterTemplateModel(
