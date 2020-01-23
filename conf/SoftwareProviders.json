@@ -72,7 +72,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "@Gosimpletax Ltd (VAT record keeping)",
@@ -612,7 +613,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "axisfirst",
@@ -1602,7 +1604,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Garage Data System Ltd",
@@ -2727,7 +2730,8 @@
     "cognitive": true,
     "visual": true,
     "hearing": true,
-    "motor": true
+    "motor": true,
+    "free": true
   },
   {
     "name": "Openda Ltd",
@@ -2997,7 +3001,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "QAD Enterprise Applications",
@@ -3057,7 +3062,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Quill",
@@ -4602,7 +4608,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Durell Software Ltd",
@@ -4677,7 +4684,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Dataflair Integrated Business Systems Ltd",
@@ -4722,7 +4730,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Powered Now",
