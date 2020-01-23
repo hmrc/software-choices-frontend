@@ -25,17 +25,18 @@ case class FiltersFormModel(filters: Seq[Filter.Value],
 object FiltersFormModel {
 
   def customApply(searchTerm: Option[String] = None,
-            business: Option[Filter.Value] = None,
-            agent: Option[Filter.Value] = None,
-            viewReturn: Option[Filter.Value] = None,
-            viewLiabilities: Option[Filter.Value] = None,
-            viewPayments: Option[Filter.Value] = None,
-            accounting: Option[Filter.Value] = None,
-            spreadsheets: Option[Filter.Value] = None,
-            cognitive: Option[Filter.Value] = None,
-            visual: Option[Filter.Value] = None,
-            hearing: Option[Filter.Value] = None,
-            motor: Option[Filter.Value] = None): FiltersFormModel = {
+                  business: Option[Filter.Value] = None,
+                  agent: Option[Filter.Value] = None,
+                  viewReturn: Option[Filter.Value] = None,
+                  viewLiabilities: Option[Filter.Value] = None,
+                  viewPayments: Option[Filter.Value] = None,
+                  accounting: Option[Filter.Value] = None,
+                  spreadsheets: Option[Filter.Value] = None,
+                  cognitive: Option[Filter.Value] = None,
+                  visual: Option[Filter.Value] = None,
+                  hearing: Option[Filter.Value] = None,
+                  motor: Option[Filter.Value] = None,
+                  free: Option[Filter.Value] = None): FiltersFormModel = {
 
     val filters: Seq[Filter.Value] = Seq(
       business,
@@ -48,13 +49,15 @@ object FiltersFormModel {
       cognitive,
       visual,
       hearing,
-      motor
+      motor,
+      free
     ).flatten
 
     new FiltersFormModel(filters, searchTerm)
   }
 
   def customUnapply(arg: FiltersFormModel): Option[(Option[String],
+    Option[Filter.Value],
     Option[Filter.Value],
     Option[Filter.Value],
     Option[Filter.Value],
@@ -81,7 +84,8 @@ object FiltersFormModel {
       giveBack(COGNITIVE),
       giveBack(HEARING),
       giveBack(MOTOR),
-      giveBack(VISUAL)
+      giveBack(VISUAL),
+      giveBack(FREE)
     ))
   }
 }

@@ -29,7 +29,7 @@ class SoftwareProviderModelSpec extends TestUtils {
       val expectedResult = SoftwareProviderModel(
         name = "name",
         url = "url",
-        filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR)
+        filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR, FREE)
       )
 
       val actualResult = Json.obj(
@@ -45,7 +45,8 @@ class SoftwareProviderModelSpec extends TestUtils {
         "cognitive" -> true,
         "visual" -> true,
         "hearing" -> true,
-        "motor" -> true
+        "motor" -> true,
+        "free" -> true
       ).as[SoftwareProviderModel]
 
       actualResult shouldBe expectedResult
@@ -72,7 +73,8 @@ class SoftwareProviderModelSpec extends TestUtils {
         "cognitive" -> false,
         "visual" -> false,
         "hearing" -> false,
-        "motor" -> false
+        "motor" -> false,
+        "free" -> false
       ).as[SoftwareProviderModel]
 
       actualResult shouldBe expectedResult
