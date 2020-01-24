@@ -18,7 +18,7 @@ package views
 
 import assets.messages.{CommonMessages, FilterSearchMessages}
 import assets.testContants.SoftwareProvidersTestConstants
-import forms.{FiltersForm, SearchForm}
+import forms.FiltersForm
 
 
 class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
@@ -33,14 +33,19 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".error-message"
     val hiddenHeading = "#provider-results > h2"
-    val filterHeader = (i: Int) => s"#content > form > div > div.column-one-third > div:nth-child($i) > div.filter-head > span"
+    val suitableForFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(1) > div.filter-head > span"
     val agentFilter = """label[for="AGENT"]"""
     val businessFilter = """label[for="BUSINESS"]"""
+    val softwareForFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(2) > div.filter-head > span"
     val vatReturnsFilter ="""label[for="VIEW_RETURN"]"""
     val vatLiabilitiesFilter ="""label[for="VIEW_LIABILITIES"]"""
     val vatPaymentsFilter ="""label[for="VIEW_PAYMENTS"]"""
+    val softwareFeaturesFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(3) > div.filter-head > span"
     val accountingFilter ="""label[for="ACCOUNTING"]"""
     val spreadsheetsFilter ="""label[for="SPREADSHEETS"]"""
+    val priceFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(4) > div.filter-head > span"
+    val freeFilter = """label[for="FREE"]"""
+    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(5) > div.filter-head > span"
     val cognitiveFilter ="""label[for="COGNITIVE"]"""
     val visualFilter ="""label[for="VISUAL"]"""
     val hearingFilter ="""label[for="HEARING"]"""
@@ -54,6 +59,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val accordionSubHeading2 = (i:Int) => s"details > div > h2:nth-child($i)"
     val accordionBullet3 = (i:Int) => s"details > div > ul > li:nth-child($i)"
     val accordionBullet4 = (i:Int) => s"details > div > ul > li:nth-child($i)"
+
   }
 
   "The software choices filter page" when {
@@ -163,71 +169,82 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
       "contain a filter for Agents and Business which" should {
 
         "Suitable for should contain Agents and Business filter header" in {
-          document.select(Selectors.filterHeader(1)).text shouldBe FilterSearchMessages.suitableFor
+          document.select(Selectors.suitableForFilterHeader).text shouldBe FilterSearchMessages.suitableFor
         }
 
-        "Filter Header contains Agents" in {
+        "Filter Label contains Agents" in {
           document.select(Selectors.agentFilter).text shouldBe FilterSearchMessages.agents
         }
 
-        "Filter Header contains Business" in {
+        "Filter Label contains Business" in {
           document.select(Selectors.businessFilter).text shouldBe FilterSearchMessages.businesses
-        }
-      }
-
-      "contain a filter for Additional Features" should {
-
-        "Suitable for should contain Additional software features filter header" in {
-          document.select(Selectors.filterHeader(2)).text shouldBe FilterSearchMessages.additionalSoftwareFeatures
-        }
-
-        "Filter Header contains Check submitted VAT Returns" in {
-          document.select(Selectors.vatReturnsFilter).text shouldBe FilterSearchMessages.vatReturns
-        }
-
-        "Filter Header contains Check View VAT liabilities" in {
-          document.select(Selectors.vatLiabilitiesFilter).text shouldBe FilterSearchMessages.vatLiabilities
-        }
-
-        "Filter Header contains Check View VAT payments" in {
-          document.select(Selectors.vatPaymentsFilter).text shouldBe FilterSearchMessages.vatPayments
         }
       }
 
       "contain a filter for Type of software" should {
 
-        "Suitable for should contain Type of software filter header" in {
-          document.select(Selectors.filterHeader(3)).text shouldBe FilterSearchMessages.typeOfSoftware
+        "Software for should contain Type of software filter header" in {
+          document.select(Selectors.softwareForFilterHeader).text shouldBe FilterSearchMessages.typeOfSoftware
         }
 
-        "Filter Header contains Accounting software" in {
+        "Filter Label contains Accounting software" in {
           document.select(Selectors.accountingFilter).text shouldBe FilterSearchMessages.accountingSoftware
         }
 
-        "Filter Header contains Connects to spreadsheets" in {
+        "Filter Label contains Connects to spreadsheets" in {
           document.select(Selectors.spreadsheetsFilter).text shouldBe FilterSearchMessages.spreadSheets
+        }
+      }
+
+      "contain a filter for Additional Features" should {
+
+        "Software features should contain Additional software features filter header" in {
+          document.select(Selectors.softwareFeaturesFilterHeader).text shouldBe FilterSearchMessages.additionalSoftwareFeatures
+        }
+
+        "Filter Label contains Check submitted VAT Returns" in {
+          document.select(Selectors.vatReturnsFilter).text shouldBe FilterSearchMessages.vatReturns
+        }
+
+        "Filter Label contains Check View VAT liabilities" in {
+          document.select(Selectors.vatLiabilitiesFilter).text shouldBe FilterSearchMessages.vatLiabilities
+        }
+
+        "Filter Label contains Check View VAT payments" in {
+          document.select(Selectors.vatPaymentsFilter).text shouldBe FilterSearchMessages.vatPayments
+        }
+      }
+
+      "contain a filter for Price" should {
+
+        "Price should contain Price filter header" in {
+          document.select(Selectors.priceFilterHeader).text shouldBe FilterSearchMessages.price
+        }
+
+        "Filter Label contains Free version" in {
+          document.select(Selectors.freeFilter).text shouldBe FilterSearchMessages.free
         }
       }
 
       "contain a filter for Accessibility features" should {
 
-        "Suitable for should contain Accessibility features filter header" in {
-          document.select(Selectors.filterHeader(4)).text shouldBe FilterSearchMessages.accessibilityFeatures
+        "Accessibility features should contain Accessibility features filter header" in {
+          document.select(Selectors.accessibilityFeaturesFilterHeader).text shouldBe FilterSearchMessages.accessibilityFeatures
         }
 
-        "Filter Header contains COGNITIVE" in {
+        "Filter Label contains COGNITIVE" in {
           document.select(Selectors.cognitiveFilter).text shouldBe FilterSearchMessages.cognitive
         }
 
-        "Filter Header contains VISUAL" in {
+        "Filter Label contains VISUAL" in {
           document.select(Selectors.visualFilter).text shouldBe FilterSearchMessages.visual
         }
 
-        "Filter Header contains HEARING" in {
+        "Filter Label contains HEARING" in {
           document.select(Selectors.hearingFilter).text shouldBe FilterSearchMessages.hearing
         }
 
-        "Filter Header contains MOTOR" in {
+        "Filter Label contains MOTOR" in {
           document.select(Selectors.motorFilter).text shouldBe FilterSearchMessages.motor
         }
       }

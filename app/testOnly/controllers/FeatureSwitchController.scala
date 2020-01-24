@@ -34,8 +34,9 @@ class FeatureSwitchController @Inject()(val messagesApi: MessagesApi,
         progressiveDisclosureEnabled = appConfig.features.progressiveDisclosureEnabled(),
         filterViewEnabled = appConfig.features.filterViewEnabled(),
         agentBusinessFilterEnabled = appConfig.features.agentBusinessFilterEnabled(),
-        additionalSoftwareFilterEnabled = appConfig.features.additionalSoftwareFilterEnabled(),
         typeOfSoftwareFilterEnabled = appConfig.features.typeOfSoftwareFilterEnabled(),
+        additionalSoftwareFilterEnabled = appConfig.features.additionalSoftwareFilterEnabled(),
+        priceFilterEnabled = appConfig.features.priceFilterEnabled(),
         accessibilityFilterEnabled = appConfig.features.accessibilityFilterEnabled()
       )
     )))

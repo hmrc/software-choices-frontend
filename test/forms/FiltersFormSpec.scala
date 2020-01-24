@@ -61,11 +61,12 @@ class FiltersFormSpec extends UnitSpec {
           cognitive -> "true",
           hearing -> "true",
           motor -> "true",
-          visual -> "true"
+          visual -> "true",
+          free -> "true"
         )).value
 
         val expectedResult = Some(FiltersFormModel(
-          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, HEARING, MOTOR, VISUAL),
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, HEARING, MOTOR, VISUAL, FREE),
           Some("someSearchTerm"))
         )
 
@@ -87,7 +88,8 @@ class FiltersFormSpec extends UnitSpec {
         cognitive -> "true",
         hearing -> "false",
         motor -> "true",
-        visual -> "false"
+        visual -> "false",
+        free -> "false"
       )).value
 
       val expectedResult = Some(FiltersFormModel(
@@ -112,7 +114,8 @@ class FiltersFormSpec extends UnitSpec {
         cognitive -> "false",
         hearing -> "false",
         motor -> "false",
-        visual -> "false"
+        visual -> "false",
+        free -> "false"
       )).value
 
       val expectedResult = Some(FiltersFormModel(
@@ -136,7 +139,8 @@ class FiltersFormSpec extends UnitSpec {
         cognitive -> "false",
         hearing -> "false",
         motor -> "false",
-        visual -> "false"
+        visual -> "false",
+        free -> "false"
       )).value
 
       val expectedResult = Some(FiltersFormModel(

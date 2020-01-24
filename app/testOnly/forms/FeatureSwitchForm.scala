@@ -28,8 +28,9 @@ object FeatureSwitchForm {
       ConfigKeys.progressiveDisclosureFeature -> boolean,
       ConfigKeys.filterViewFeature -> boolean,
       ConfigKeys.agentBusinessFilterFeature -> boolean,
-      ConfigKeys.additionalSoftwareFilterFeature -> boolean,
       ConfigKeys.typeOfSoftwareFilterFeature -> boolean,
+      ConfigKeys.additionalSoftwareFilterFeature -> boolean,
+      ConfigKeys.priceFilterFeature -> boolean,
       ConfigKeys.accessibilityFilterFeature -> boolean
     )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
   )

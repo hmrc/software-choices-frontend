@@ -30,8 +30,9 @@ trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEac
     super.beforeEach()
     appConfig.progressiveDisclosureEnabled(true)
     appConfig.agentBusinessFilterEnabled(true)
-    appConfig.additionalSoftwareFilterEnabled(true)
     appConfig.typeOfSoftwareFilterEnabled(true)
+    appConfig.additionalSoftwareFilterEnabled(true)
+    appConfig.priceFilterEnabled(true)
     appConfig.accessibilityFilterEnabled(true)
     appConfig.filterViewEnabled(true)
   }

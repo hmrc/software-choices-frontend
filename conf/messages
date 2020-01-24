@@ -62,6 +62,9 @@ softwareChoices.filter.typeOfSoftware = Software for
 softwareChoices.filter.accountingSoftware = Digital VAT record keeping
 softwareChoices.filter.spreadSheets = Bridging
 
+softwareChoices.filter.price = Price
+softwareChoices.filter.freeVersion = Free version
+
 softwareChoices.filter.accessibilityFeatures = Accessibility features
 softwareChoices.filter.cognitive = Cognitive
 softwareChoices.filter.visual = Visual

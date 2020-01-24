@@ -19,6 +19,7 @@ package testOnly.models
 case class FeatureSwitchModel(progressiveDisclosureEnabled: Boolean,
                               filterViewEnabled: Boolean,
                               agentBusinessFilterEnabled: Boolean,
-                              additionalSoftwareFilterEnabled: Boolean,
                               typeOfSoftwareFilterEnabled: Boolean,
+                              additionalSoftwareFilterEnabled: Boolean,
+                              priceFilterEnabled: Boolean,
                               accessibilityFilterEnabled: Boolean)
