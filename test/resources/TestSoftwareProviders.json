@@ -809,7 +809,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Caliq Software Ltd",
@@ -914,7 +915,8 @@
     "cognitive": true,
     "visual": true,
     "hearing": true,
-    "motor": true
+    "motor": true,
+    "free": true
   },
   {
     "name": "Civica UK Limited ",
@@ -5226,7 +5228,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Reckon One",
