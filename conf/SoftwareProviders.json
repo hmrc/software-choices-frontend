@@ -7802,7 +7802,7 @@
     "business": true,
     "agent": false,
     "accounting": false,
-    "spreadsheets": false,
+    "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
