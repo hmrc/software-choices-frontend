@@ -16,17 +16,15 @@
 
 package controllers
 
+import _root_.utils.TestUtils
 import assets.messages.{CommonMessages, FilterSearchMessages, SoftwareChoicesMessages}
 import forms.{FiltersForm, SearchForm}
 import models.SoftwareProviderModel
 import org.jsoup.Jsoup
 import play.api.http.Status
 import play.api.test.FakeRequest
-import services.SoftwareChoicesService
-import _root_.utils.TestUtils
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
-import views.ViewBaseSpec
 
 
 class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesService {
@@ -61,7 +59,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
       }
 
       "render the basic search page" in {
-        Jsoup.parse(bodyOf(result)).title shouldBe SoftwareChoicesMessages.title
+        Jsoup.parse(contentAsString(result)).title shouldBe SoftwareChoicesMessages.title
       }
     }
 
@@ -80,7 +78,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
       }
 
       "render the filter search page" in {
-        Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.fullTitle
+        Jsoup.parse(contentAsString(result)).title shouldBe FilterSearchMessages.fullTitle
       }
     }
   }
@@ -106,7 +104,8 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         }
 
         "render the basic search results page" in {
-          Jsoup.parse(bodyOf(result)).title shouldBe SoftwareChoicesMessages.title
+          result
+          Jsoup.parse(contentAsString(result)).title shouldBe SoftwareChoicesMessages.title
         }
       }
 
@@ -133,7 +132,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         }
 
         "render the basic search results page" in {
-          Jsoup.parse(bodyOf(result)).title shouldBe s"${CommonMessages.error} ${SoftwareChoicesMessages.title}"
+          Jsoup.parse(contentAsString(result)).title shouldBe s"${CommonMessages.error} ${SoftwareChoicesMessages.title}"
         }
       }
     }
@@ -156,7 +155,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         }
 
         "render the basic search results page" in {
-          Jsoup.parse(bodyOf(result)).title shouldBe FilterSearchMessages.fullTitle
+          Jsoup.parse(contentAsString(result)).title shouldBe FilterSearchMessages.fullTitle
         }
       }
 
@@ -182,7 +181,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         }
 
         "render the filter search results page" in {
-          Jsoup.parse(bodyOf(result)).title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.fullTitle}"
+          Jsoup.parse(contentAsString(result)).title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.fullTitle}"
         }
       }
     }

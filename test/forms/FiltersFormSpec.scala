@@ -18,9 +18,9 @@ package forms
 
 import enums.Filter._
 import models.FiltersFormModel
-import uk.gov.hmrc.play.test.UnitSpec
+import org.scalatest.{Matchers, WordSpec}
 
-class FiltersFormSpec extends UnitSpec {
+class FiltersFormSpec extends WordSpec with Matchers {
 
   "Binding a form with invalid data" when {
 
