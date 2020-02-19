@@ -17,9 +17,9 @@
 package forms
 
 import models.SearchModel
-import uk.gov.hmrc.play.test.UnitSpec
+import org.scalatest.{Matchers, WordSpec}
 
-class SearchFormSpec extends UnitSpec {
+class SearchFormSpec extends WordSpec with Matchers {
 
   "Binding a form with invalid data" when {
 

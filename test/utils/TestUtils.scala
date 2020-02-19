@@ -17,14 +17,13 @@
 package utils
 
 import config.mocks.MockAppConfig
-import org.scalatest.BeforeAndAfterEach
+import org.scalatest.{BeforeAndAfterEach, Matchers, WordSpec}
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.i18n.{Lang, Messages, MessagesApi}
 import play.api.inject.Injector
 import play.api.test.FakeRequest
-import uk.gov.hmrc.play.test.UnitSpec
 
-trait TestUtils extends UnitSpec with GuiceOneAppPerSuite with BeforeAndAfterEach with MaterializerSupport {
+trait TestUtils extends WordSpec with Matchers with GuiceOneAppPerSuite with BeforeAndAfterEach with MaterializerSupport {
 
   override def beforeEach() {
     super.beforeEach()
