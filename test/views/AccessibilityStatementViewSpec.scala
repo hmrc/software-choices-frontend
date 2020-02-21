@@ -19,7 +19,6 @@ package views
 import java.net.URLEncoder
 
 import org.jsoup.nodes.{Document, Element}
-import play.api.test.FakeRequest
 
 class AccessibilityStatementViewSpec extends ViewBaseSpec {
 

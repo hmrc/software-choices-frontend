@@ -17,7 +17,6 @@
 package views.templates
 
 import assets.messages.{SearchMessages, SoftwareChoicesMessages}
-import forms.SearchForm
 import views.ViewBaseSpec
 
 class SearchHeadingTemplateViewSpec extends ViewBaseSpec {

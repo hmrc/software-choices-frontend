@@ -19,9 +19,9 @@ package controllers
 import config.AppConfig
 import forms.{FiltersForm, SearchForm}
 import javax.inject.{Inject, Singleton}
-import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
 import models.SoftwareChoicesViewModel.sortProviders
-import play.api.i18n.{I18nSupport, MessagesApi}
+import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
+import play.api.i18n.I18nSupport
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
@@ -30,8 +30,8 @@ import views.html.{software_choices_filter, software_choices_results, software_c
 
 @Singleton
 class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareChoicesService,
-                                          val messagesApi: MessagesApi,
-                                          implicit val appConfig: AppConfig) extends FrontendController with I18nSupport {
+                                          val mcc: MessagesControllerComponents,
+                                          implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport {
 
   //Feature Switch Routing Logic
   val show: Action[AnyContent] = Action { implicit request =>

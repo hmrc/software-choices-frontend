@@ -18,7 +18,7 @@
 @import templates._
 @import views.utils.ServiceNameTitle
 @import forms.FiltersForm
-@import uk.gov.hmrc.play.views.html.helpers
+@import uk.gov.hmrc.play.views.html.{helpers => uiHelpers}
 @import enums.Filter._
 @import models.components._
 @import views.html.helpers.accordionHelper
@@ -75,7 +75,7 @@
     </div>
 
 
-    @helpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate", 'id -> "searchForm") {
+    @uiHelpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate", 'id -> "searchForm") {
         <div class="grid-row">
 
             <div class="column-one-third form-group">

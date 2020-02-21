@@ -16,11 +16,11 @@
 
 package services.mocks
 
+import _root_.utils.TestUtils
 import enums.Filter
 import models.SoftwareProviderModel
 import org.scalamock.scalatest.MockFactory
 import services.SoftwareChoicesService
-import _root_.utils.TestUtils
 
 trait MockSoftwareChoicesService extends TestUtils with MockFactory{
 

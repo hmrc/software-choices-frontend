@@ -17,7 +17,7 @@
 package models
 
 import _root_.utils.TestUtils
-import views.html.templates.{provider_table_template, result_count_template}
+import views.html.templates.provider_table_template
 
 class SoftwareChoicesFilterViewModelSpec extends TestUtils {
 

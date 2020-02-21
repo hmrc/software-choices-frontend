@@ -19,7 +19,7 @@ package utils
 import config.mocks.MockAppConfig
 import org.scalatest.{BeforeAndAfterEach, Matchers, WordSpec}
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
-import play.api.i18n.{Lang, Messages, MessagesApi}
+import play.api.i18n.{Lang, Messages, MessagesApi, MessagesImpl}
 import play.api.inject.Injector
 import play.api.test.FakeRequest
 
@@ -40,7 +40,7 @@ trait TestUtils extends WordSpec with Matchers with GuiceOneAppPerSuite with Bef
 
   lazy val injector: Injector = app.injector
   lazy val messagesApi: MessagesApi = injector.instanceOf[MessagesApi]
-  implicit lazy val messages: Messages = Messages(Lang("en-GB"), messagesApi)
+  implicit lazy val messages: Messages = MessagesImpl(Lang("en"), messagesApi)
   implicit lazy val appConfig = injector.instanceOf[MockAppConfig]
 
 }

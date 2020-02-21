@@ -18,7 +18,6 @@ package forms
 
 import enums.Filter
 import enums.Filter._
-import forms.SearchForm.maxLength
 import models.FiltersFormModel
 import play.api.data.Form
 import play.api.data.Forms._

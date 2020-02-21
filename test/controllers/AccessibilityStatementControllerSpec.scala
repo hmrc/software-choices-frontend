@@ -20,13 +20,15 @@ import _root_.utils.TestUtils
 import play.api.mvc.Result
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
+import uk.gov.hmrc.play.bootstrap.tools.Stubs.stubMessagesControllerComponents
 
 import scala.concurrent.Future
 
 class AccessibilityStatementControllerSpec extends TestUtils {
 
+
   object TestAccessibilityStatementController extends AccessibilityStatementController(
-    messagesApi,
+    stubMessagesControllerComponents(),
     appConfig
   )
 

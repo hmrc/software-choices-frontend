@@ -16,10 +16,10 @@
 
 package config.features
 
-import play.api.Configuration
+import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 
-class Feature(val key: String)(implicit config: Configuration) {
+class Feature(val key: String)(implicit config: ServicesConfig) {
   def apply(value: Boolean): Unit = sys.props += key -> value.toString
 
-  def apply(): Boolean = sys.props.get(key).fold(config.getBoolean(key).getOrElse(false))(_.toBoolean)
+  def apply(): Boolean = sys.props.get(key).fold(config.getBoolean(key))(_.toBoolean)
 }

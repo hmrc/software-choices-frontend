@@ -18,10 +18,10 @@ package config.features
 
 import config.ConfigKeys
 import javax.inject.{Inject, Singleton}
-import play.api.Configuration
+import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 
 @Singleton
-class Features @Inject()(implicit config: Configuration) {
+class Features @Inject()(implicit config: ServicesConfig) {
   val progressiveDisclosureEnabled = new Feature(ConfigKeys.progressiveDisclosureFeature)
   val filterViewEnabled = new Feature(ConfigKeys.filterViewFeature)
   val agentBusinessFilterEnabled = new Feature(ConfigKeys.agentBusinessFilterFeature)

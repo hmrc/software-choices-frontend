@@ -20,9 +20,9 @@ import config.AppConfig
 import config.features.Features
 import javax.inject.Inject
 import org.scalamock.scalatest.MockFactory
-import play.api.{Configuration, Environment}
+import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 
-class MockAppConfig @Inject()(implicit override val runModeConfiguration: Configuration, environment: Environment)
+class MockAppConfig @Inject()(implicit val sc: ServicesConfig)
   extends AppConfig with MockFactory {
 
   lazy val mockFeatures: Features = mock[Features]
