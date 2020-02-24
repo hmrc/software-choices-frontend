@@ -17,7 +17,7 @@
 package enums
 
 import _root_.utils.TestUtils
-import Filter._
+import enums.Filter._
 
 class FilterSpec extends TestUtils {
 

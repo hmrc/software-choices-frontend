@@ -16,7 +16,7 @@
 
 package views
 
-import assets.messages.{CommonMessages, SearchMessages, SoftwareChoicesMessages}
+import assets.messages.{CommonMessages, SoftwareChoicesMessages}
 import assets.testContants.SoftwareProvidersTestConstants
 import forms.SearchForm
 

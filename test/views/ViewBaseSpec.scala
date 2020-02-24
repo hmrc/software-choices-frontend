@@ -16,11 +16,11 @@
 
 package views
 
+import _root_.utils.TestUtils
 import assets.messages.{CommonMessages, SoftwareChoicesMessages}
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import play.twirl.api.HtmlFormat
-import _root_.utils.TestUtils
 
 trait ViewBaseSpec extends TestUtils {
 
