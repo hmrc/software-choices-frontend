@@ -16,7 +16,7 @@
 
 @(resultCount: Int, totalCount: Int)(implicit messages: Messages)
 
-<span id="search-result-count" class="heading-medium" aria-live="polite">
+<span id="search-result-count" class="heading-medium" role="alert">
     @if(resultCount > 0) {
         @if(resultCount == 1) {
             @messages("common.results.count.oneResult")
