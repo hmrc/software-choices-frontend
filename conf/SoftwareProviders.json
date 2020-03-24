@@ -2492,7 +2492,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Nation Wilcox Systems Limited",
