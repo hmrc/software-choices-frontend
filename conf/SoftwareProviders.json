@@ -1776,7 +1776,7 @@
   },
   {
     "name": "Integra Associates",
-    "url": "http://integra-associates.com/",
+    "url": "https://www.integra-associates.com/making-tax-digital-unit4",
     "business": true,
     "agent": false,
     "accounting": false,
@@ -4824,7 +4824,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Ryan Tax Services UK Limited",
@@ -6659,7 +6660,7 @@
   },
   {
     "name": "Books+",
-    "url": "https://www.ifa.org.uk/members/membershipbenefits/memberbenefits/technologybenefits/online-accounting-software-ipa-booksplus",
+    "url": "https://www.ifa.org.uk/members/membershipbenefits/memberbenefits/technologybenefits/online-accounting-software-ifa-booksplus",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -7961,5 +7962,81 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "Atos",
+    "url": "https://atos.net/en-gb/united-kingdom/making-tax-digital-vat",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "P2 IDEAS",
+    "url": "https://www.p2energysolutions.com/ideas",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "Dynamics AX2009 and AX2012RTM & R2 MTD",
+    "url": "https://sisglobal.com/uk-vat-make-tax-digital-mtd-are-you-compliant/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "Itaxs ShenZhen Technology Co.,Ltd.",
+    "url": "https://www.itaxs.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": false,
+    "motor": true
+  },
+  {
+    "name": "MTDsorted",
+    "url": "https://www.mtdsorted.co.uk/?utm_source=hmrc_mtd_software&utm_medium=referral&utm_campaign=hmrc_mtd_software",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": true
   }
 ]
