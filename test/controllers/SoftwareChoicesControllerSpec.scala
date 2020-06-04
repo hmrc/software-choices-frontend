@@ -20,6 +20,7 @@ import _root_.utils.TestUtils
 import forms.{FiltersForm, SearchForm}
 import models.SoftwareProviderModel
 import play.api.http.Status
+import play.api.libs.json.Json
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
@@ -30,11 +31,10 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
 
   object TestSoftwareChoicesController extends SoftwareChoicesController(
     mockSoftwareChoicesService,
-    stubMessagesControllerComponents(),
-    appConfig
-  )
+    stubMessagesControllerComponents()
+  )(appConfig)
 
-  val softwareProviders = Seq(
+  val softwareProviders: Seq[SoftwareProviderModel] = Seq(
     SoftwareProviderModel("aName", "aUrl"),
     SoftwareProviderModel("anotherName", "anotherUrl"),
     SoftwareProviderModel("andAnotherName", "andAnotherUrl")
@@ -151,7 +151,8 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
           SoftwareProviderModel("andAnotherName", "andAnotherUrl")
         )
 
-        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
+        lazy val result =
+          TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
 
         "return 200 (OK)" in {
           mockReadProviders(softwareProviders)
@@ -200,6 +201,23 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         contentType(result) shouldBe Some("text/html")
         charset(result) shouldBe Some("utf-8")
       }
+    }
+  }
+
+  "SoftwareChoicesController.ajaxProviderJson" should {
+    "return the provider json if the name is valid" in {
+      mockReturnProviderJson(Some(Json.toJson(softwareProviders.head)))
+      val result = TestSoftwareChoicesController.ajaxProviderJson("aName")(FakeRequest())
+
+      status(result) shouldBe OK
+      contentAsJson(result) shouldBe Json.toJson(softwareProviders.head)
+    }
+
+    "return no content if the name is not in list" in {
+      mockReturnProviderJson(None)
+      val result = TestSoftwareChoicesController.ajaxProviderJson("wrongName")(FakeRequest())
+
+      status(result) shouldBe NO_CONTENT
     }
   }
 }

@@ -5,5 +5,6 @@ GET         /assets/*file                                    controllers.Assets.
 GET        /                                                 controllers.SoftwareChoicesController.show
 POST       /                                                 controllers.SoftwareChoicesController.search
 POST       /ajax                                             controllers.SoftwareChoicesController.ajaxFilterSearch
+GET        /ajaxProviderJson                                 controllers.SoftwareChoicesController.ajaxProviderJson(providerName: String)
 
 GET        /accessibility-statement/                         controllers.AccessibilityStatementController.show(pageUri: String)

@@ -15,9 +15,11 @@
  */
 
 package services
+
+import _root_.utils.TestUtils
 import enums.Filter._
 import models.SoftwareProviderModel
-import _root_.utils.TestUtils
+import play.api.libs.json.Json
 
 class SoftwareChoicesServiceSpec extends TestUtils {
 
@@ -97,8 +99,8 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
     "return the correct sequence of filtered software providers" in {
       TestSoftwareChoicesService.searchProviders("t") shouldBe Seq(
-        SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-        SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
+        SoftwareProviderModel("nameTwo", "urlTwo", List(BUSINESS)),
+        SoftwareProviderModel("nameThree", "urlThree", List(BUSINESS, AGENT))
       )
     }
 
@@ -108,9 +110,9 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
     "return all providers where search term matches all" in {
       TestSoftwareChoicesService.searchProviders("na") shouldBe Seq(
-        SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
-        SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-        SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
+        SoftwareProviderModel("nameOne", "urlOne", List(BUSINESS, AGENT)),
+        SoftwareProviderModel("nameTwo", "urlTwo", List(BUSINESS)),
+        SoftwareProviderModel("nameThree", "urlThree", List(BUSINESS, AGENT))
       )
     }
   }
@@ -123,9 +125,9 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
         val actualResult = TestSoftwareChoicesService.filterProviders(List(BUSINESS))
         val expectedResult = Seq(
-          SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
-          SoftwareProviderModel("nameTwo","urlTwo", List(BUSINESS)),
-          SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
+          SoftwareProviderModel("nameOne", "urlOne", List(BUSINESS, AGENT)),
+          SoftwareProviderModel("nameTwo", "urlTwo", List(BUSINESS)),
+          SoftwareProviderModel("nameThree", "urlThree", List(BUSINESS, AGENT))
         )
 
         actualResult shouldBe expectedResult
@@ -147,8 +149,8 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
         val actualResult = TestSoftwareChoicesService.filterProviders(List(AGENT))
         val expectedResult = Seq(
-          SoftwareProviderModel("nameOne","urlOne", List(BUSINESS, AGENT)),
-          SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
+          SoftwareProviderModel("nameOne", "urlOne", List(BUSINESS, AGENT)),
+          SoftwareProviderModel("nameThree", "urlThree", List(BUSINESS, AGENT))
         )
 
         actualResult shouldBe expectedResult
@@ -171,7 +173,7 @@ class SoftwareChoicesServiceSpec extends TestUtils {
         val actualResult = TestSoftwareChoicesService.filterProviders(List(AGENT), Some("name"))
         val expectedResult = Seq(
           SoftwareProviderModel("nameOne", "urlOne", List(BUSINESS, AGENT)),
-          SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT))
+          SoftwareProviderModel("nameThree", "urlThree", List(BUSINESS, AGENT))
         )
 
         actualResult shouldBe expectedResult
@@ -182,10 +184,39 @@ class SoftwareChoicesServiceSpec extends TestUtils {
       "return one correct provider" in {
 
         val actualResult = TestSoftwareChoicesService.filterProviders(List(BUSINESS, AGENT), Some("nameThree"))
-        val expectedResult = Seq(SoftwareProviderModel("nameThree","urlThree", List(BUSINESS, AGENT)))
+        val expectedResult = Seq(SoftwareProviderModel("nameThree", "urlThree", List(BUSINESS, AGENT)))
 
         actualResult shouldBe expectedResult
       }
+    }
+  }
+
+  "SoftwareChoicesService.returnProviderJson" should {
+    "return the json of a provider if found" in {
+      val result = TestSoftwareChoicesService.returnProviderJson("nameOne")
+
+      result shouldBe Some(Json.obj(
+        "name" -> "nameOne",
+        "url" -> "urlOne",
+        "business" -> true,
+        "agent" -> true,
+        "viewReturn" -> false,
+        "viewLiabilities" -> false,
+        "viewPayments" -> false,
+        "accounting" -> false,
+        "spreadsheets" -> false,
+        "cognitive" -> false,
+        "hearing" -> false,
+        "motor" -> false,
+        "visual" -> false,
+        "free" -> false
+      ))
+    }
+
+    "return None if provider not found" in {
+      val result = TestSoftwareChoicesService.returnProviderJson("noName")
+
+      result shouldBe None
     }
   }
 }

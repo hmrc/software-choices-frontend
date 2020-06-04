@@ -23,6 +23,7 @@ import javax.inject.Singleton
 import models.SoftwareProviderModel
 import play.api.Logger
 import play.api.libs.json._
+import uk.gov.hmrc.http.InternalServerException
 
 import scala.io.Source
 
@@ -46,4 +47,8 @@ class SoftwareChoicesService {
   def filterProviders(filters: Seq[Filter.Value], term: Option[String] = None): Seq[SoftwareProviderModel] = providersList.filter { providers =>
     filters.forall(providers.filters.contains(_)) && providers.name.toLowerCase.contains(term.getOrElse("").toLowerCase)
   }
+
+  def returnProviderJson(providerName: String): Option[JsValue] =
+    providersList.find(_.name.equals(providerName)).map(providerModel => Json.toJson(providerModel))
+
 }

@@ -30,8 +30,8 @@ import views.html.{software_choices_filter, software_choices_results, software_c
 
 @Singleton
 class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareChoicesService,
-                                          val mcc: MessagesControllerComponents,
-                                          implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport {
+                                          val mcc: MessagesControllerComponents
+                                         )(implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport {
 
   //Feature Switch Routing Logic
   val show: Action[AnyContent] = Action { implicit request =>
@@ -82,6 +82,13 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
         Ok(provider_table_template(results, softwareChoicesService.providersList.length, filtered))
       }
     )
+  }
+
+  def ajaxProviderJson(providerName: String): Action[AnyContent] = Action { implicit request =>
+    softwareChoicesService.returnProviderJson(providerName) match {
+      case Some(providerJson) => Ok(providerJson)
+      case None => NoContent
+    }
   }
 
 }
