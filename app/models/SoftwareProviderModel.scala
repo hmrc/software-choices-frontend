@@ -17,7 +17,7 @@
 package models
 
 import enums.Filter
-import play.api.libs.json.{Reads, __}
+import play.api.libs.json.{JsValue, Json, Reads, Writes, __}
 
 
 case class SoftwareProviderModel(name: String, url: String, filters: List[Filter.Value] = List.empty) {
@@ -46,4 +46,25 @@ object SoftwareProviderModel {
     free <- (__ \ "free").readNullable[Boolean].map{ boolean => getFilter(Filter.FREE, boolean.getOrElse(false))}
     features = List(business, agent, viewReturn, viewLiabilities, viewPayments, accounting, spreadsheets, cognitive, visual, hearing, motor, free).flatten
   } yield SoftwareProviderModel(name, url, features)
+
+  implicit val writes: Writes[SoftwareProviderModel] = new Writes[SoftwareProviderModel] {
+    override def writes(softwareProvider: SoftwareProviderModel): JsValue = {
+      Json.obj(
+        "name" -> softwareProvider.name,
+        "url" -> softwareProvider.url,
+        "business" -> softwareProvider.filters.contains(Filter.BUSINESS),
+        "agent" -> softwareProvider.filters.contains(Filter.AGENT),
+        "viewReturn" -> softwareProvider.filters.contains(Filter.VIEW_RETURN),
+        "viewLiabilities" -> softwareProvider.filters.contains(Filter.VIEW_LIABILITIES),
+        "viewPayments" -> softwareProvider.filters.contains(Filter.VIEW_PAYMENTS),
+        "accounting" -> softwareProvider.filters.contains(Filter.ACCOUNTING),
+        "spreadsheets" -> softwareProvider.filters.contains(Filter.SPREADSHEETS),
+        "cognitive" -> softwareProvider.filters.contains(Filter.COGNITIVE),
+        "hearing" -> softwareProvider.filters.contains(Filter.HEARING),
+        "motor" -> softwareProvider.filters.contains(Filter.MOTOR),
+        "visual" -> softwareProvider.filters.contains(Filter.VISUAL),
+        "free" -> softwareProvider.filters.contains(Filter.FREE)
+      )
+    }
+  }
 }
