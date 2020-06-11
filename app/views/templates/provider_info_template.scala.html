@@ -1,0 +1,81 @@
+@*
+ * Copyright 2020 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import enums.Filter._
+
+@(provider: SoftwareProviderModel)(implicit messages: Messages)
+
+@accessibilityFilters = @{provider.filters.filter(List(VISUAL, MOTOR, COGNITIVE, HEARING).contains(_))}
+@providerFilters = @{provider.filters.filterNot(accessibilityFilters.toSet)}
+
+@(providerFilters.contains(BUSINESS), providerFilters.contains(AGENT)) match {
+    case (true, true) => {
+        <div class="form-group">@messages("softwareChoices.filter.provider.both", provider.name)</div>
+    }
+    case (true, false) =>  {
+        <div class="form-group">@messages("softwareChoices.filter.provider.business", provider.name)</div>
+    }
+    case (false, true) =>  {
+        <div class="form-group">@messages("softwareChoices.filter.provider.agent", provider.name)</div>
+    }
+    case _ => {}
+}
+
+@(providerFilters.contains(ACCOUNTING), providerFilters.contains(SPREADSHEETS)) match {
+    case (false, false) => {}
+    case (accounting, spreadsheets) => {
+        <h2 class="heading-small">@messages("softwareChoices.filter.provider.typeHeading")</h2>
+        <ul class="list list-bullet form-group">
+            @if(accounting){
+                <li>@messages("softwareChoices.filter.provider.records")</li>
+            }
+            @if(spreadsheets){
+                <li>@messages("softwareChoices.filter.provider.bridging")</li>
+            }
+        </ul>
+    }
+}
+
+
+<h2 class="heading-small">@messages("softwareChoices.filter.provider.featureHeading")</h2>
+<ul class="list list-bullet form-group">
+    <li>@messages("softwareChoices.filter.provider.submitVat")</li>
+    @if(providerFilters.contains(VIEW_RETURN)){
+        <li>@messages("softwareChoices.filter.provider.viewReturns")</li>
+    }
+    @if(providerFilters.contains(VIEW_LIABILITIES)){
+        <li>@messages("softwareChoices.filter.provider.viewLiabilities")</li>
+    }
+    @if(providerFilters.contains(VIEW_PAYMENTS)){
+        <li>@messages("softwareChoices.filter.provider.viewPayments")</li>
+    }
+</ul>
+
+@accessibilityFilters.map(_.toString.toLowerCase) match {
+    case Nil => {}
+    case List(filter) => {
+        <div class="form-group">@messages("softwareChoices.filter.provider.accessibilityOne", filter)</div>
+    }
+    case multipleFilters => {
+        <div class="form-group">@messages("softwareChoices.filter.provider.accessibilityMultiple", multipleFilters.tail.mkString(", "), multipleFilters.head)</div>
+    }
+}
+
+@if(providerFilters.contains(FREE)){
+    <div class="form-group">@messages("softwareChoices.filter.provider.free")</div>
+}
+
+<div class="form-group">@Html(messages("softwareChoices.filter.provider.visit", provider.url, provider.name))</div>

@@ -48,7 +48,7 @@ class SoftwareChoicesService {
     filters.forall(providers.filters.contains(_)) && providers.name.toLowerCase.contains(term.getOrElse("").toLowerCase)
   }
 
-  def returnProviderJson(providerName: String): Option[JsValue] =
-    providersList.find(_.name.equals(providerName)).map(providerModel => Json.toJson(providerModel))
+  def returnProvider(providerName: String): Option[SoftwareProviderModel] =
+    providersList.find(_.name.equals(providerName))
 
 }

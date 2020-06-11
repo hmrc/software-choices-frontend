@@ -29,4 +29,5 @@ class Features @Inject()(implicit config: ServicesConfig) {
   val additionalSoftwareFilterEnabled = new Feature(ConfigKeys.additionalSoftwareFilterFeature)
   val priceFilterEnabled = new Feature(ConfigKeys.priceFilterFeature)
   val accessibilityFilterEnabled = new Feature(ConfigKeys.accessibilityFilterFeature)
+  val providerDetailsEnabled = new Feature(ConfigKeys.providerDetailsFilterFeature)
 }

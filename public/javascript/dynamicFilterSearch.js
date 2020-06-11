@@ -38,6 +38,11 @@ function submitAjaxForm() {
     data: form.serialize(),
     success: function(response) {
       $('#provider-results').replaceWith(response);
+
+      //this resets the GOVUK details polyfill, prevents creating reduntant listeners and runs it again to update new details
+      GOVUK.details.started = false;
+      GOVUK.details.addClickEvent = function() {}
+      GOVUK.details.addDetailsPolyfill();
     },
     error: function(err) {
       form.submit();

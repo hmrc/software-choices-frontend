@@ -14,8 +14,7 @@
  * limitations under the License.
  *@
 
-@(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true)(implicit messages: Messages)
-
+@(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true, providerDetailsFilterFeature: Boolean = false)(implicit messages: Messages)
 
 <div id="provider-results">
 
@@ -29,12 +28,19 @@
         @providers.map { provider =>
             <tr>
                 <td>
-                    <a href="@provider.url"
-                       target="_blank"
-                       class="providers bold"
-                       data-journey-click="link:click:@{provider.name}"
-                       aria-label='@messages("softwareChoices.provider.aria-label", provider.name) @messages("common.newTab")'>@provider.name
-                    </a>
+                    @if(providerDetailsFilterFeature){
+                        <details class="details">
+                            <summary><span class="summary">@{provider.name}</span></summary>
+                            <div class="panel panel-border-narrow"></div>
+                        </details>
+                    } else {
+                        <a href="@provider.url"
+                           target="_blank"
+                           class="providers bold"
+                           data-journey-click="link:click:@{provider.name}"
+                           aria-label='@messages("softwareChoices.provider.aria-label", provider.name) @messages("common.newTab")'>@provider.name
+                        </a>
+                    }
                 </td>
             </tr>
         }

@@ -193,28 +193,17 @@ class SoftwareChoicesServiceSpec extends TestUtils {
 
   "SoftwareChoicesService.returnProviderJson" should {
     "return the json of a provider if found" in {
-      val result = TestSoftwareChoicesService.returnProviderJson("nameOne")
+      val result = TestSoftwareChoicesService.returnProvider("nameOne")
 
-      result shouldBe Some(Json.obj(
-        "name" -> "nameOne",
-        "url" -> "urlOne",
-        "business" -> true,
-        "agent" -> true,
-        "viewReturn" -> false,
-        "viewLiabilities" -> false,
-        "viewPayments" -> false,
-        "accounting" -> false,
-        "spreadsheets" -> false,
-        "cognitive" -> false,
-        "hearing" -> false,
-        "motor" -> false,
-        "visual" -> false,
-        "free" -> false
+      result shouldBe Some(SoftwareProviderModel(
+        "nameOne",
+        "urlOne",
+        List(BUSINESS, AGENT)
       ))
     }
 
     "return None if provider not found" in {
-      val result = TestSoftwareChoicesService.returnProviderJson("noName")
+      val result = TestSoftwareChoicesService.returnProvider("noName")
 
       result shouldBe None
     }

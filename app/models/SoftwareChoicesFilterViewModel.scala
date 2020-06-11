@@ -16,17 +16,24 @@
 
 package models
 
+import config.AppConfig
 import play.api.i18n.Messages
 import play.twirl.api.HtmlFormat
 import views.html.templates.provider_table_template
 
 case class SoftwareChoicesFilterViewModel(allProviders: Seq[SoftwareProviderModel],
-                                          filteredProviders: Option[Seq[SoftwareProviderModel]] = None) {
+                                          filteredProviders: Option[Seq[SoftwareProviderModel]] = None
+                                         )(implicit appConfig: AppConfig) {
 
   private[models] val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
 
   def renderProviders(implicit messages: Messages): HtmlFormat.Appendable =
-    provider_table_template(sortedProviders(filteredProviders.getOrElse(allProviders)), allProviders.length, searchExecuted)
+    provider_table_template(
+      sortedProviders(filteredProviders.getOrElse(allProviders)),
+      allProviders.length,
+      searchExecuted,
+      appConfig.features.providerDetailsEnabled()
+    )
 
   val searchExecuted: Boolean = filteredProviders.isDefined
 }
