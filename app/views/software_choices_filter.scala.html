@@ -28,6 +28,9 @@
 
 @js = {
     <script src='@routes.Assets.at("javascript/dynamicFilterSearch.js")' type="text/javascript"></script>
+    @if(appConfig.features.providerDetailsEnabled()){
+        <script src='@routes.Assets.at("javascript/providerInfo.js")' type="text/javascript"></script>
+    }
 }
 
 @accordionContent = {
@@ -142,7 +145,7 @@
                 </noscript>
             </div>
 
-            <div class="column-two-thirds">
+            <div id="provider-table-container" class="column-two-thirds">
 
                 @search_bar_template(form(FiltersForm.term), true, true)
 

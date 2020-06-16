@@ -23,11 +23,12 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
   object Selectors {
     val providerSelector: Int => String = provider => s"table tr:nth-child($provider) > td > a"
+    val providerDetailsSelector: Int => String = provider => s"table tr:nth-child($provider) > td > details"
   }
 
   "The Provider Table Template" when {
 
-    "a list of providers" should {
+    "a list of providers with hrefs when provider details FS is off" should {
 
       lazy val document = parseView(views.html.templates.provider_table_template(categoryAProviders, 10))
 
@@ -46,6 +47,22 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
           "have the correct aria-label to support screenreaders" in {
             document.select(Selectors.providerSelector(i + 1)).attr("aria-label") shouldBe softwareCompanyAriaLabel(categoryAProviders(i).name)
           }
+        }
+      }
+    }
+
+    "a list of providers accordions when provider details FS is on" should {
+
+      lazy val document = parseView(views.html.templates.provider_table_template(categoryAProviders, 10, providerDetailsFilterFeature = true))
+
+      for (i <- categoryAProviders.indices) {
+
+        s"for provider $i" should {
+
+          s"have the correct name" in {
+            document.select(Selectors.providerDetailsSelector(i + 1)).first().text() shouldBe categoryAProviders(i).name
+          }
+
         }
       }
     }

@@ -25,7 +25,7 @@ import play.api.i18n.I18nSupport
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
-import views.html.templates.provider_table_template
+import views.html.templates.{provider_info_template, provider_table_template}
 import views.html.{software_choices_filter, software_choices_results, software_choices_search}
 
 @Singleton
@@ -35,11 +35,11 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
 
   //Feature Switch Routing Logic
   val show: Action[AnyContent] = Action { implicit request =>
-    if(appConfig.features.filterViewEnabled()) filterView else basicSearchView
+    if (appConfig.features.filterViewEnabled()) filterView else basicSearchView
   }
 
   val search: Action[AnyContent] = Action { implicit request =>
-    if(appConfig.features.filterViewEnabled()) filterSearch else basicSearchSubmit
+    if (appConfig.features.filterViewEnabled()) filterSearch else basicSearchSubmit
   }
 
   //Basic Search View Logic - Production MVP
@@ -59,7 +59,10 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
 
 
   //Filter View Logic
-  lazy val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(softwareChoicesService.providersList)
+  lazy val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(
+    softwareChoicesService.providersList,
+    None
+  )
 
   def filterView(implicit request: Request[_]): Result = Ok(software_choices_filter(softwareProvidersFilterViewModel, FiltersForm.form))
 
@@ -68,7 +71,10 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
         val results =
-          SoftwareChoicesFilterViewModel(softwareChoicesService.providersList, Some(softwareChoicesService.filterProviders(search.filters, search.searchTerm)))
+          SoftwareChoicesFilterViewModel(
+            softwareChoicesService.providersList,
+            Some(softwareChoicesService.filterProviders(search.filters, search.searchTerm))
+          )
         Ok(software_choices_filter(results, FiltersForm.form.fill(search)))
       }
     )
@@ -79,14 +85,19 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       search => {
         val results = sortProviders(softwareChoicesService.filterProviders(search.filters, search.searchTerm))
         val filtered = search.filters.nonEmpty || search.searchTerm.isDefined
-        Ok(provider_table_template(results, softwareChoicesService.providersList.length, filtered))
+        Ok(provider_table_template(
+          results,
+          softwareChoicesService.providersList.length,
+          filtered,
+          appConfig.features.providerDetailsEnabled()
+        ))
       }
     )
   }
 
-  def ajaxProviderJson(providerName: String): Action[AnyContent] = Action { implicit request =>
-    softwareChoicesService.returnProviderJson(providerName) match {
-      case Some(providerJson) => Ok(providerJson)
+  def ajaxProvider(providerName: String): Action[AnyContent] = Action { implicit request =>
+    softwareChoicesService.returnProvider(providerName) match {
+      case Some(provider) => Ok(provider_info_template(provider))
       case None => NoContent
     }
   }

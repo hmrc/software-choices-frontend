@@ -22,4 +22,5 @@ case class FeatureSwitchModel(progressiveDisclosureEnabled: Boolean,
                               typeOfSoftwareFilterEnabled: Boolean,
                               additionalSoftwareFilterEnabled: Boolean,
                               priceFilterEnabled: Boolean,
-                              accessibilityFilterEnabled: Boolean)
+                              accessibilityFilterEnabled: Boolean,
+                              providerDetailsEnabled: Boolean)

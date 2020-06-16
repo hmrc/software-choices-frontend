@@ -20,7 +20,6 @@ import _root_.utils.TestUtils
 import enums.Filter
 import models.SoftwareProviderModel
 import org.scalamock.scalatest.MockFactory
-import play.api.libs.json.JsValue
 import services.SoftwareChoicesService
 
 trait MockSoftwareChoicesService extends TestUtils with MockFactory{
@@ -45,8 +44,8 @@ trait MockSoftwareChoicesService extends TestUtils with MockFactory{
       .returns(softwareProviders)
   }
 
-  def mockReturnProviderJson(providerJson: Option[JsValue]): Unit = {
-    (mockSoftwareChoicesService.returnProviderJson(_: String))
+  def mockReturnProvider(providerJson: Option[SoftwareProviderModel]): Unit = {
+    (mockSoftwareChoicesService.returnProvider(_: String))
       .expects(*)
       .returns(providerJson)
   }

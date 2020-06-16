@@ -33,6 +33,8 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
 
   val softwareProvidersFound = Seq(upperA, lowerA)
 
+  appConfig.providerDetailsEnabled(false)
+
   "SoftwareChoicesFilterViewModel.sortedProviders" should {
 
     "sort the list correctly" in {
