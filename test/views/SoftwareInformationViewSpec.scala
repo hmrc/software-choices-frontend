@@ -1,0 +1,43 @@
+/*
+ * Copyright 2020 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package views
+
+import assets.testContants.SoftwareProvidersTestConstants
+import org.jsoup.nodes.Element
+
+
+class SoftwareInformationViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
+
+  object Messages {
+    val backButton = "Back"
+    val heading = "aName"
+
+  }
+
+  "The software information page" should {
+
+    lazy val document = parseView(views.html.software_choices_software_information(providerA))
+    lazy val body: Element = document.getElementById("content")
+
+    "have a back button" in {
+      body.select("p").text shouldBe Messages.backButton
+    }
+    "have a heading" in {
+      body.select("h1").text shouldBe Messages.heading
+    }
+  }
+}
