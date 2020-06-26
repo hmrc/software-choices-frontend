@@ -29,8 +29,15 @@
             <tr>
                 <td>
                     @if(providerDetailsFilterFeature){
-                        <details class="details">
-                            <summary><span class="summary">@{provider.name}</span></summary>
+                        <noscript>
+                            <a href="/making-tax-digital-software/software-information?providerName=@{provider.name}"
+                               class="providers bold"
+                               data-journey-click="link:click:@{provider.name}"
+                               aria-label='@messages("softwareChoices.provider-details.aria-label", provider.name)'>@provider.name
+                            </a>
+                        </noscript>
+                        <details class="details" style="display:none;">
+                            <summary hidden><span class="summary">@{provider.name}</span></summary>
                             <div class="panel panel-border-narrow"></div>
                         </details>
                     } else {

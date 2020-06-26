@@ -18,6 +18,7 @@ searchForm.term.max = Enter less than {0} characters
 
 softwareChoices.category.aria-label = Software companies beginning with {0}
 softwareChoices.provider.aria-label = {0} software company website
+softwareChoices.provider-details.aria-label = more information about {0} software
 
 softwareChoices.title = Software that works with Making Tax Digital for VAT
 softwareChoices.search.label = Search software by name

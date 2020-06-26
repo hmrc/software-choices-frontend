@@ -24,6 +24,7 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
   object Selectors {
     val providerSelector: Int => String = provider => s"table tr:nth-child($provider) > td > a"
     val providerDetailsSelector: Int => String = provider => s"table tr:nth-child($provider) > td > details"
+    val noscriptLinkSelector: Int => String = provider => s"table tr:nth-child($provider) > td > noscript > a"
   }
 
   "The Provider Table Template" when {
@@ -58,6 +59,12 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
       for (i <- categoryAProviders.indices) {
 
         s"for provider $i" should {
+
+          s"have a noscript tag with a link" in {
+            val url = s"/making-tax-digital-software/software-information?providerName=${categoryAProviders(i).name}"
+
+            document.select(Selectors.noscriptLinkSelector(i + 1)).attr("href") shouldBe url
+          }
 
           s"have the correct name" in {
             document.select(Selectors.providerDetailsSelector(i + 1)).first().text() shouldBe categoryAProviders(i).name

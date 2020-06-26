@@ -21,11 +21,10 @@
 
 @(provider: SoftwareProviderModel)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
-@main_template(title = ServiceNameTitle.fullTitle("softwareChoices.filter.title"),
-    bodyClasses = None) {
-    <div>
-        <p><a id="back" class="link-back" href="javascript:history.back()">@Messages("common.back")</a></p>
-    </div>
+@main_template(title = ServiceNameTitle.fullTitle("softwareChoices.filter.title"), bodyClasses = None) {
+
+    <p><a id="back" class="link-back" href="/making-tax-digital-software">@Messages("common.back")</a></p>
+
 
     <h1 id="heading" class="form-group">@messages(provider.name)</h1>
 
