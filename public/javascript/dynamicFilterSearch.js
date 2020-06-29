@@ -1,3 +1,7 @@
+'use strict';
+
+$('details').show();
+
 var searchTrigger;
 var doneTypingInterval = 500;
 
@@ -43,6 +47,7 @@ function submitAjaxForm() {
       GOVUK.details.started = false;
       GOVUK.details.addClickEvent = function() {}
       GOVUK.details.addDetailsPolyfill();
+      $('details').show();
     },
     error: function(err) {
       form.submit();
