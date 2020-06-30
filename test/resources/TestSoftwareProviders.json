@@ -6526,7 +6526,7 @@
   },
   {
     "name": "vatman mtd",
-    "url": "https://www.x-vat.com/vatman-mtd.html",
+    "url": " https://www.x-vat.com/mtd-vat.html",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -8069,5 +8069,20 @@
     "hearing": false,
     "motor": false,
     "free": true
+  },
+  {
+    "name": "Accsel VAT-MTD Software",
+    "url": " https://www.accsel.co.uk/",
+    "business": false,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   }
 ]
