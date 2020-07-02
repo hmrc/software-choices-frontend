@@ -34,7 +34,7 @@ object FilterSearchMessages {
   val vatPayments = "View VAT payment history"
 
   val typeOfSoftware = "Software for"
-  val accountingSoftware = "Digital VAT record keeping"
+  val accountingSoftware = "VAT record keeping"
   val spreadSheets = "Bridging"
 
   val accessibilityFeatures = "Accessibility features"
@@ -50,9 +50,9 @@ object FilterSearchMessages {
 
   val filterResults = "Apply filters"
 
-  val p1 = "All software listed on this page has been through HMRC's recognition process. Using the software will allow you to submit VAT Returns directly to HMRC without needing to visit HMRC's website. All links open in a new window or tab. HMRC does not endorse or recommend any one product or software provider."
-  val p2 = "You will need to choose software that is suitable for you. If you have problems with your software, you will need to contact your software provider."
-  val p3 = "Some of the software listed below have features that are particularly suitable for those with accessibility needs, for example visual impairment, limited movement etc."
+  val p1 = "Using software will allow you to submit VAT Returns directly to HMRC without needing to visit HMRC’s website. All software listed on this page has been through HMRC’s recognition process. HMRC does not endorse or recommend any one product or software provider."
+  val p2 = "Most of the software listed will require payment though there are some free versions available. You should choose software that is suitable for you."
+  val p3 = "Some of the software listed below have features that are particularly suitable for those with accessibility needs, for example visual impairment and limited movement."
 
   val accordionHeading = "What kind of software is available?"
   val accordionSubHeading1 = "Record keeping software"
