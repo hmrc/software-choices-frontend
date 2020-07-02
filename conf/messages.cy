@@ -1,4 +1,4 @@
-common.service.name = Find software for Making Tax Digital
+common.service.name = Dewch o hyd i feddalwedd Troi Treth yn Ddigidol ar gyfer TAW
 common.gov.uk = GOV.UK
 common.back = Back
 common.errorSummary.heading = There is a problem
@@ -37,43 +37,43 @@ softwareChoicesResults.noResults = We have not found any results. See the full l
 softwareChoicesResults.results.title = Results
 softwareChoicesResults.results = We have found these software packages that work with Making Tax Digital for VAT:
 
-softwareChoices.filter.title = Find software for Making Tax Digital for VAT
-softwareChoices.filter.p1 = Using software will allow you to submit VAT Returns directly to HMRC without needing to visit HMRC’s website. All software listed on this page has been through HMRC’s recognition process. HMRC does not endorse or recommend any one product or software provider.
-softwareChoices.filter.p2 = Most of the software listed will require payment though there are some free versions available. You should choose software that is suitable for you.
-softwareChoices.filter.p3 = Some of the software listed below have features that are particularly suitable for those with accessibility needs, for example visual impairment and limited movement.
+softwareChoices.filter.title = Dewch o hyd i feddalwedd Troi Treth yn Ddigidol ar gyfer TAW
+softwareChoices.filter.p1 = Bydd defnyddio’r meddalwedd hon yn eich galluogi i gyflwyno Ffurflenni TAW yn uniongyrchol i CThEM heb orfod ymweld â gwefan CThEM. Mae’r holl feddalwedd a restrir ar y dudalen hon wedi bod trwy broses adnabod CThEM. Nid yw CThEM yn argymell nac yn cymeradwyo unrhyw gynnyrch neu gyflenwr meddalwedd penodol.
+softwareChoices.filter.p2 = Mae angen talu am y rhan fwyaf o’r feddalwedd sydd wedi’u rhestru, ond mae yn rhai fersiynau ar gael sy’n rhad ac am ddim. Dylech ddewis meddalwedd sy’n addas ar eich cyfer chi.
+softwareChoices.filter.p3 = Mae gan rai o’r meddalwedd a restrir isod nodweddion sy’n arbennig o addas ar gyfer y rhai hynny sydd ag anghenion hygyrchedd, er enghraifft nam ar y golwg, symudiad cyfyngedig etc.
 
-softwareChoices.filter.accordion.heading = What kind of software is available?
-softwareChoices.filter.accordion.subHeading1 = Record keeping software
-softwareChoices.filter.accordion.bullet1 = updates and stores your records digitally
-softwareChoices.filter.accordion.bullet2 = works directly with HMRC systems allowing you to file a VAT Return
-softwareChoices.filter.accordion.subHeading2 = Bridging software
-softwareChoices.filter.accordion.bullet3 = works with non-compatible software like spreadsheets, accounting systems and other digital bookkeeping products
-softwareChoices.filter.accordion.bullet4 = lets you send the required information digitally to HMRC in the correct format
+softwareChoices.filter.accordion.heading = Pa fath o feddalwedd sydd ar gael?
+softwareChoices.filter.accordion.subHeading1 = Meddalwedd cadw cofnodion
+softwareChoices.filter.accordion.bullet1 = mae’n diweddaru ac yn cadw eich cofnodion yn ddigidol
+softwareChoices.filter.accordion.bullet2 = mae’n gweithio’n uniongyrchol â systemau CThEM gan eich galluogi i gyflwyno Ffurflen TAW
+softwareChoices.filter.accordion.subHeading2 = Meddalwedd bontio
+softwareChoices.filter.accordion.bullet3 = mae’n gweithio â meddalwedd nad yw’n cydweddu, megis taenlenni, systemau cyfrifyddu a chynhyrchion digidol ar gyfer cadw cyfrifon
+softwareChoices.filter.accordion.bullet4 = mae’n eich galluogi i anfon yr wybodaeth sydd ei hangen at CThEM yn ddigidol ac yn y fformat cywir
 
-softwareChoices.filter.softwareSuitableFor = Suitable for
-softwareChoices.filter.businesses = Businesses
-softwareChoices.filter.agents = Agents
+softwareChoices.filter.softwareSuitableFor = Addas ar gyfer
+softwareChoices.filter.businesses = Busnesau
+softwareChoices.filter.agents = Asiantau
 
-softwareChoices.filter.typeOfSoftware = Software for
-softwareChoices.filter.accountingSoftware = VAT record keeping
-softwareChoices.filter.spreadSheets = Bridging
+softwareChoices.filter.typeOfSoftware = Meddalwedd ar gyfer
+softwareChoices.filter.accountingSoftware = Cadw cofnodion TAW
+softwareChoices.filter.spreadSheets = Pontio
 
-softwareChoices.filter.additionalSoftwareFeatures = Software features
-softwareChoices.filter.vatReturns = View submitted VAT returns
-softwareChoices.filter.vatLiabilities = Check what VAT you owe
-softwareChoices.filter.vatPayments = View VAT payment history
+softwareChoices.filter.additionalSoftwareFeatures = Nodweddion meddalwedd
+softwareChoices.filter.vatReturns = Bwrw golwg dros y Ffurflenni TAW a gyflwynwyd
+softwareChoices.filter.vatLiabilities = Gwirio pa TAW sydd arnoch
+softwareChoices.filter.vatPayments = Bwrw golwg dros hanes taliadau TAW
 
-softwareChoices.filter.price = Price
-softwareChoices.filter.freeVersion = Free version
+softwareChoices.filter.price = Pris
+softwareChoices.filter.freeVersion = Fersiwn rhad ac am ddim
 
-softwareChoices.filter.softwareLanguage = Software language
-softwareChoices.filter.welsh = Welsh
+softwareChoices.filter.softwareLanguage = Iaith y feddalwedd
+softwareChoices.filter.welsh = Cymraeg
 
-softwareChoices.filter.accessibilityFeatures = Accessibility features
-softwareChoices.filter.cognitive = Cognitive
-softwareChoices.filter.visual = Visual
-softwareChoices.filter.hearing = Hearing
-softwareChoices.filter.motor = Motor
+softwareChoices.filter.accessibilityFeatures = Nodweddion hygyrchedd
+softwareChoices.filter.cognitive = Gwybyddol
+softwareChoices.filter.visual = Gweledol
+softwareChoices.filter.hearing = Clywedol
+softwareChoices.filter.motor = Echddygol
 
 softwareChoices.filter.filterResults = Apply filters
 softwareChoices.filter.hidden.heading = Search results
