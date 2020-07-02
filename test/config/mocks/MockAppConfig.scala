@@ -35,6 +35,7 @@ class MockAppConfig @Inject()(implicit val sc: ServicesConfig)
   def priceFilterEnabled(enabled: Boolean): Unit = mockFeatures.priceFilterEnabled(enabled)
   def accessibilityFilterEnabled(enabled: Boolean): Unit = mockFeatures.accessibilityFilterEnabled(enabled)
   def providerDetailsEnabled(enabled: Boolean): Unit = mockFeatures.providerDetailsEnabled(enabled)
+  def welshEnabled(isEnabled: Boolean): Unit = mockFeatures.welshEnabled(isEnabled)
 
   override val features = mockFeatures
 

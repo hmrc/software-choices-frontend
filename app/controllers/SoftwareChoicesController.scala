@@ -21,7 +21,7 @@ import forms.{FiltersForm, SearchForm}
 import javax.inject.{Inject, Singleton}
 import models.SoftwareChoicesViewModel.sortProviders
 import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
-import play.api.i18n.I18nSupport
+import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
@@ -32,6 +32,9 @@ import views.html.{software_choices_filter, software_choices_results, software_c
 class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareChoicesService,
                                           val mcc: MessagesControllerComponents
                                          )(implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport {
+
+  override implicit def request2Messages(implicit request: RequestHeader): Messages =
+    if(appConfig.features.welshEnabled()) super.request2Messages else messagesApi.preferred(Seq(Lang("en")))
 
   //Feature Switch Routing Logic
   val show: Action[AnyContent] = Action { implicit request =>

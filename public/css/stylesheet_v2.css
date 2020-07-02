@@ -205,3 +205,10 @@ textarea:focus {
 .no-details details summary .arrow-closed {
     display: none !important;
 }
+
+@media only screen and (min-width: 640px) {
+    .language-toggle {
+        display: inline-block;
+        float: right;
+    }
+}

@@ -32,7 +32,8 @@ object AppDependencies {
     "uk.gov.hmrc" %% "play-whitelist-filter" % whitelistFilterVersion,
     "uk.gov.hmrc" %% "govuk-template" % govukTemplateVersion,
     "uk.gov.hmrc" %% "play-ui" % playUiVersion,
-    "uk.gov.hmrc" %% "bootstrap-play-26" % bootstrapVersion
+    "uk.gov.hmrc" %% "bootstrap-play-26" % bootstrapVersion,
+    "uk.gov.hmrc" %% "play-language" % "4.3.0-play-26"
   )
 
   val test = Seq(

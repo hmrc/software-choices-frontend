@@ -34,6 +34,7 @@ trait TestUtils extends WordSpec with Matchers with GuiceOneAppPerSuite with Bef
     appConfig.priceFilterEnabled(true)
     appConfig.accessibilityFilterEnabled(true)
     appConfig.filterViewEnabled(true)
+    appConfig.welshEnabled(false)
   }
   
   implicit lazy val fakeRequest = FakeRequest("GET", "/")
