@@ -38,7 +38,8 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
         additionalSoftwareFilterEnabled = appConfig.features.additionalSoftwareFilterEnabled(),
         priceFilterEnabled = appConfig.features.priceFilterEnabled(),
         accessibilityFilterEnabled = appConfig.features.accessibilityFilterEnabled(),
-        providerDetailsEnabled = appConfig.features.providerDetailsEnabled()
+        providerDetailsEnabled = appConfig.features.providerDetailsEnabled(),
+        welshEnabled = appConfig.features.welshEnabled()
       )
     )))
   }
@@ -58,6 +59,7 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
     appConfig.features.typeOfSoftwareFilterEnabled(model.typeOfSoftwareFilterEnabled)
     appConfig.features.accessibilityFilterEnabled(model.accessibilityFilterEnabled)
     appConfig.features.providerDetailsEnabled(model.providerDetailsEnabled)
+    appConfig.features.welshEnabled(model.welshEnabled)
     Redirect(controllers.routes.SoftwareChoicesController.show())
   }
 

@@ -32,7 +32,8 @@ object FeatureSwitchForm {
       ConfigKeys.additionalSoftwareFilterFeature -> boolean,
       ConfigKeys.priceFilterFeature -> boolean,
       ConfigKeys.accessibilityFilterFeature -> boolean,
-      ConfigKeys.providerDetailsFilterFeature -> boolean
+      ConfigKeys.providerDetailsFilterFeature -> boolean,
+      ConfigKeys.welshFeature -> boolean
     )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
   )
 
