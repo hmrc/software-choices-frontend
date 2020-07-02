@@ -17,20 +17,22 @@
 package controllers
 
 import _root_.utils.TestUtils
+import assets.messages.FilterSearchMessages
 import forms.{FiltersForm, SearchForm}
 import models.SoftwareProviderModel
+import org.jsoup.Jsoup
 import play.api.http.Status
+import play.api.mvc.Cookie
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.tools.Stubs.stubMessagesControllerComponents
 
-
 class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesService {
 
   object TestSoftwareChoicesController extends SoftwareChoicesController(
     mockSoftwareChoicesService,
-    stubMessagesControllerComponents()
+    stubMessagesControllerComponents(messagesApi = messagesApi)
   )(appConfig)
 
   val softwareProviders: Seq[SoftwareProviderModel] = Seq(
@@ -38,6 +40,8 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
     SoftwareProviderModel("anotherName", "anotherUrl"),
     SoftwareProviderModel("andAnotherName", "andAnotherUrl")
   )
+
+  def playLangCookie(welsh: Boolean = false): Cookie = Cookie("PLAY_LANG", if (welsh) "cy" else "en")
 
   "SoftwareChoicesController.show" when {
 
@@ -72,6 +76,47 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         charset(result) shouldBe Some("utf-8")
       }
 
+    }
+  }
+
+  "the Welsh feature is enabled" when {
+    "the welsh language cookie is set to Welsh" should {
+      "show the welsh language toggle" in {
+        appConfig.welshEnabled(true)
+        val request = fakeRequest.withCookies(playLangCookie(welsh = true))
+        lazy val result = TestSoftwareChoicesController.show(request)
+        val doc = Jsoup.parse(contentAsString(result))
+
+        status(result) shouldBe Status.OK
+        doc.select(".language-toggle").isEmpty shouldBe false
+        doc.select("h1").text() shouldBe FilterSearchMessages.welshTitle
+      }
+    }
+    "the welsh language cookie is set to english" should {
+      "use english content" in {
+        appConfig.welshEnabled(true)
+        val request = fakeRequest.withCookies(playLangCookie())
+        lazy val result = TestSoftwareChoicesController.show(request)
+        val doc = Jsoup.parse(contentAsString(result))
+
+        status(result) shouldBe Status.OK
+        doc.select(".language-toggle").isEmpty shouldBe false
+        doc.select("h1").text() shouldBe FilterSearchMessages.title
+      }
+    }
+  }
+  "the welsh language feature is disabled" when {
+    "the welsh language cookie is set to welsh" should {
+      "not show the language toggle and use english content" in {
+        appConfig.welshEnabled(false)
+        val request = fakeRequest.withCookies(playLangCookie(welsh = true))
+        lazy val result = TestSoftwareChoicesController.show(request)
+        val doc = Jsoup.parse(contentAsString(result))
+
+        status(result) shouldBe Status.OK
+        doc.select(".language-toggle").isEmpty shouldBe true
+        doc.select("h1").text() shouldBe FilterSearchMessages.title
+      }
     }
   }
 

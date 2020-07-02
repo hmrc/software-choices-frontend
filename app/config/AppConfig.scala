@@ -21,6 +21,7 @@ import java.util.Base64
 
 import config.features.Features
 import javax.inject.{Inject, Singleton}
+import play.api.i18n.Lang
 import play.api.mvc.Call
 import uk.gov.hmrc.play.binders.ContinueUrl
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
@@ -29,6 +30,13 @@ import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 class AppConfig @Inject()(implicit val config: ServicesConfig) {
 
   private val service: String = "software-choices"
+
+  def languageMap: Map[String, Lang] = Map(
+    "english" -> Lang("en"),
+    "cymraeg" -> Lang("cy")
+  )
+
+  def routeToSwitchLanguage: String => Call = (lang: String) => controllers.routes.LanguageSwitchController.switchToLanguage(lang)
 
   private val contactHost: String = config.getString(ConfigKeys.contactFrontendService)
   private val contactFormServiceIdentifier: String = "MSCC"

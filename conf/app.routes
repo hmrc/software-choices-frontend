@@ -11,3 +11,5 @@ POST       /ajax                                             controllers.Softwar
 GET        /ajaxProvider                                     controllers.SoftwareChoicesController.ajaxProvider(providerName: String)
 
 GET        /accessibility-statement/                         controllers.AccessibilityStatementController.show(pageUri: String)
+
+GET        /language/:lang                                   controllers.LanguageSwitchController.switchToLanguage(lang: String)

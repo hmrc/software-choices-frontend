@@ -21,6 +21,7 @@ import assets.messages.CommonMessages._
 object FilterSearchMessages {
 
   val title = "Find software for Making Tax Digital for VAT"
+  val welshTitle = "Dewch o hyd i feddalwedd Troi Treth yn Ddigidol ar gyfer TAW"
 
   val fullTitle = s"$title - $serviceName - $govUk"
 
