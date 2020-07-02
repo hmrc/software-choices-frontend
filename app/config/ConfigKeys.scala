@@ -40,6 +40,7 @@ object ConfigKeys {
   val priceFilterFeature: String = "features.priceFilter.enabled"
   val accessibilityFilterFeature: String = "features.accessibilityFilter.enabled"
   val providerDetailsFilterFeature: String = "features.providerDetails.enabled"
+  val welshFeature: String = "features.welsh.enabled"
 
   val govUkMtdVatSignUpGuidance = "govuk.mtdvat.signup.url"
 
