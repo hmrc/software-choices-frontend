@@ -19,12 +19,12 @@ import sbt._
 
 object AppDependencies {
 
-  val whitelistFilterVersion = "3.1.0-play-26"
-  val govukTemplateVersion = "5.52.0-play-26"
-  val playUiVersion = "8.8.0-play-26"
+  val whitelistFilterVersion = "3.4.0-play-26"
+  val govukTemplateVersion = "5.55.0-play-26"
+  val playUiVersion = "8.11.0-play-26"
 
-  val jsoupVersion = "1.11.3"
-  val bootstrapVersion = "1.3.0"
+  val jsoupVersion = "1.13.1"
+  val bootstrapVersion = "1.13.0"
   val scalaTestPlusVersion = "3.1.3"
   val scalaMockVersion = "3.6.0"
 
