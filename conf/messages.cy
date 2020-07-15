@@ -3,34 +3,34 @@ common.gov.uk = GOV.UK
 common.back = Back
 common.errorSummary.heading = There is a problem
 common.error = Error:
-common.newTab = opens in a new tab
-common.results.count = {0} results found
-common.results.count.oneResult = 1 result found
-common.results.count.notFound = No results found
+common.newTab = yn agor mewn tab newydd
+common.results.count = Wedi canfod {0} canlyniad
+common.results.count.oneResult = Wedi canfod 1 canlyniad
+common.results.count.notFound = Wedi canfod 0 canlyniad
 
 #Feedback
-feedback.before = This is a new service – your
-feedback.link = feedback
-feedback.after = will help us to improve it.
+feedback.before = Gwasanaeth newydd yn hwn – bydd eich
+feedback.link = adborth
+feedback.after = yn ein helpu i’w wella.
 
 searchForm.term.missing = Enter the name of a software package
 searchForm.term.max = Enter less than {0} characters
 
-softwareChoices.category.aria-label = Software companies beginning with {0}
-softwareChoices.provider.aria-label = {0} software company website
-softwareChoices.provider-details.aria-label = more information about {0} software
+softwareChoices.category.aria-label = Cwmnïau meddalwedd sy’n dechrau gyda {0}
+softwareChoices.provider.aria-label = Mae gwefan cwmni meddalwedd {0}
+softwareChoices.provider-details.aria-label = rhagor o wybodaeth am feddalwedd {0}
 
 softwareChoices.title = Software that works with Making Tax Digital for VAT
-softwareChoices.search.label = Search software by name
+softwareChoices.search.label = Chwilio am feddalwedd yn ôl yr enw
 softwareChoices.search.text1 = Making Tax Digital for VAT is a new way of keeping your VAT records and submitting your VAT Returns using software.
 softwareChoices.search.text2.start = You must also
 softwareChoices.search.text2.link = sign up to Making Tax Digital for VAT
 softwareChoices.search.text2.end = as well as getting software that is connected to it.
-softwareChoices.search.button.text = Search software by name
+softwareChoices.search.button.text = Chwilio am feddalwedd yn ôl yr enw
 softwareChoices.search.clear = Clear search
 softwareChoices.text.p1 = HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly.
 softwareChoices.text.p2 = All links to software packages take you to external websites.
-softwareChoices.show = Software packages
+softwareChoices.show = Pecynnau meddalwedd
 
 softwareChoicesResults.noResults.title = No results found
 softwareChoicesResults.noResults = We have not found any results. See the full list of software packages or try again.
@@ -75,88 +75,88 @@ softwareChoices.filter.visual = Gweledol
 softwareChoices.filter.hearing = Clywedol
 softwareChoices.filter.motor = Echddygol
 
-softwareChoices.filter.filterResults = Apply filters
+softwareChoices.filter.filterResults = Gweithredu hidlyddion
 softwareChoices.filter.hidden.heading = Search results
 
-softwareChoices.filter.provider.both = {0} is suitable for businesses or agents.
-softwareChoices.filter.provider.business = {0} is suitable for businesses.
-softwareChoices.filter.provider.agent = {0} is suitable for agents.
+softwareChoices.filter.provider.both = Mae {0} yn addas ar gyfer busnesau neu asiantau.
+softwareChoices.filter.provider.business = Mae {0} yn addas ar gyfer busnesau.
+softwareChoices.filter.provider.agent = Mae {0} yn addas ar gyfer asiantau.
 
-softwareChoices.filter.provider.typeHeading = Software type
-softwareChoices.filter.provider.records = Record-keeping software
-softwareChoices.filter.provider.bridging = Bridging software
+softwareChoices.filter.provider.typeHeading = Math o feddalwedd
+softwareChoices.filter.provider.records = Meddalwedd cadw cofnodion
+softwareChoices.filter.provider.bridging = Meddalwedd bontio
 
-softwareChoices.filter.provider.featureHeading = VAT specific features
-softwareChoices.filter.provider.submitVat = Submit VAT returns
-softwareChoices.filter.provider.viewReturns = View submitted VAT returns
-softwareChoices.filter.provider.viewLiabilities = Check what VAT you owe
-softwareChoices.filter.provider.viewPayments = View VAT payment history
+softwareChoices.filter.provider.featureHeading = Nodweddion TAW-benodol
+softwareChoices.filter.provider.submitVat = Cyflwyno Ffurflenni TAW
+softwareChoices.filter.provider.viewReturns = Bwrw golwg dros y Ffurflenni TAW a gyflwynwyd
+softwareChoices.filter.provider.viewLiabilities = Gwirio pa TAW sydd arnoch
+softwareChoices.filter.provider.viewPayments = Bwrw golwg dros hanes taliadau TAW
 
-softwareChoices.filter.provider.accessibilityOne = This software includes {0} accessibility features.
-softwareChoices.filter.provider.accessibilityMultiple = This software includes {0} and {1} accessibility features.
+softwareChoices.filter.provider.accessibilityOne = Mae’r feddalwedd hon yn cynnwys nodweddion hygyrchedd {0}.
+softwareChoices.filter.provider.accessibilityMultiple = Mae’r feddalwedd hon yn cynnwys nodweddion hygyrchedd {0} a {1}.
 
-softwareChoices.filter.provider.free = There is a free version of this software.
+softwareChoices.filter.provider.free = Mae fersiwn rhad ac am ddim o’r feddalwedd hon.
 
-softwareChoices.filter.provider.visit = You can <a href="{0}" target="_blank">read more information on the {1} website (opens in a new tab)</a>
+softwareChoices.filter.provider.visit = Gallwch <a href="{0}" target="_blank">ddarllen rhagor o wybodaeth ar wefan {1} (yn agor tab newydd)</a>
 
-accessibilityStatement.title = Accessibility statement for finding software for Making Tax Digital for VAT
-accessibilityStatement.heading = Accessibility statement for finding software for Making Tax Digital for VAT
-accessibilityStatement.para1 = This accessibility statement explains how accessible this service is, what to do if you have difficulty using it, and how to report accessibility problems with the service.
-accessibilityStatement.para2 = This service is part of the wider GOV.UK website. There is a separate {0} for the main GOV.UK website.
-accessibilityStatement.para2.linkText = accessibility statement
-accessibilityStatement.para3 = This page only contains information about finding software for the Making Tax Digital for VAT service, available at {0}
+accessibilityStatement.title = Datganiad hygyrchedd o ran dod o hyd i feddalwedd ar gyfer Troi Treth yn Ddigidol ar gyfer TAW
+accessibilityStatement.heading = Datganiad hygyrchedd o ran dod o hyd i feddalwedd ar gyfer Troi Treth yn Ddigidol ar gyfer TAW
+accessibilityStatement.para1 = Mae’r datganiad hygyrchedd hwn yn esbonio pa mor hygyrch yw’r gwasanaeth hwn, beth i’w wneud os ydych yn cael anhawster wrth ei ddefnyddio, a sut i roi gwybod am broblemau hygyrchedd gyda’r gwasanaeth.
+accessibilityStatement.para2 = Mae’r gwasanaeth hwn yn rhan o wefan ehangach GOV.UK. Mae {0} ar wahân ar gyfer prif wefan GOV.UK.
+accessibilityStatement.para2.linkText = datganiad hygyrchedd
+accessibilityStatement.para3 = Mae’r dudalen hon ond yn cynnwys gwybodaeth am ddod o hyd i feddalwedd ar gyfer y gwasanaeth Troi Treth yn Ddigidol ar gyfer TAW, sydd ar gael yn {0}
 accessibilityStatement.para3.linkText = https://www.tax.service.gov.uk/making-tax-digital-software
 
-accessibilityStatement.usingService.heading = Using this service
-accessibilityStatement.usingService.para1 = This service helps you find compatible software for keeping digital records and submitting VAT Returns to HMRC. You can also find bridging software to connect non-compatible software (like spreadsheets) to HMRC systems.
-accessibilityStatement.usingService.para2 = This service is run by HM Revenue and Customs (HMRC). We want as many people as possible to be able to use this service. This means you should be able to:
-accessibilityStatement.usingService.bullet1 = change colours, contrast levels and fonts
-accessibilityStatement.usingService.bullet2 = zoom in up to 300% without the text spilling off the screen
-accessibilityStatement.usingService.bullet3 = get from the start of the service to the end using just a keyboard
-accessibilityStatement.usingService.bullet4 = get from the start of the service to the end using speech recognition software
-accessibilityStatement.usingService.bullet5 = listen to the service using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
-accessibilityStatement.usingService.para3 = We have also made the text in the service as simple as possible to understand.
-accessibilityStatement.usingService.para4 = {0} has advice on making your device easier to use if you have a disability.
+accessibilityStatement.usingService.heading = Defnyddio’r gwasanaeth hwn
+accessibilityStatement.usingService.para1 = Mae’r gwasanaeth hwn yn eich helpu i ddod o hyd i feddalwedd sy’n cydweddu ar gyfer cadw cofnodion digidol a chyflwyno Ffurflenni TAW i CThEM. Gallwch hefyd ddod o hyd i feddalwedd bontio i gysylltu meddalwedd nad yw’n cydweddu (fel taenlenni) â systemau CThEM.
+accessibilityStatement.usingService.para2 = Mae’r gwasanaeth hwn yn cael ei redeg gan Gyllid a Thollau EM (CThEM). Rydym am i gymaint o bobl â phosibl allu defnyddio’r gwasanaeth hwn. Mae hyn yn golygu y dylech allu:
+accessibilityStatement.usingService.bullet1 = newid lliwiau, lefelau cyferbyniad a ffontiau
+accessibilityStatement.usingService.bullet2 = chwyddo’r sgrin hyd at 300% heb i’r testun ddisgyn oddi ar y sgrin
+accessibilityStatement.usingService.bullet3 = mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio bysellfwrdd yn unig
+accessibilityStatement.usingService.bullet4 = mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio meddalwedd adnabod lleferydd
+accessibilityStatement.usingService.bullet5 = a gwrando ar y gwasanaeth drwy ddefnyddio darllenydd sgrin (gan gynnwys y fersiynau diweddaraf o JAWS, NVDA a VoiceOver)
+accessibilityStatement.usingService.para3 = Rydym hefyd wedi sicrhau bod y testun a ddefnyddir yn y gwasanaeth mor syml â phosibl i’w ddeall.
+accessibilityStatement.usingService.para4 = Mae gan {0} gyngor ar wneud eich dyfais yn haws i’w defnyddio os oes gennych anabledd.
 accessibilityStatement.usingService.para4.linkText = AbilityNet
 
-accessibilityStatement.howAccessible.heading = How accessible this service is
-accessibilityStatement.howAccessible.para1 = This service is partially compliant with the {0}.
-accessibilityStatement.howAccessible.para1.linkText = Web Content Accessibility Guidelines version 2.1 AA standard
-accessibilityStatement.howAccessible.para2 = Some people may find parts of this service difficult to use:
-accessibilityStatement.howAccessible.bullet1 = We use filters to help users find specific software. However, the filter headings are not currently viewable by assistive technology which means screen readers cannot jump to these filters.
-accessibilityStatement.howAccessible.bullet2 = The links to the various software providers doesn’t make it clear they will take the user to the vendor’s home page where users can read more information about the vendor’s software products.
+accessibilityStatement.howAccessible.heading = Pa mor hygyrch yw’r gwasanaeth hwn
+accessibilityStatement.howAccessible.para1 = Mae’r gwasanaeth hwn yn cydymffurfio’n rhannol â {0}.
+accessibilityStatement.howAccessible.para1.linkText = safon ‘AA’ Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1
+accessibilityStatement.howAccessible.para2 = Mae’n bosibl y bydd rhai pobl yn cael anhawster wrth ddefnyddio rhannau o’r gwasanaeth hwn:
+accessibilityStatement.howAccessible.bullet1 = Rydym yn defnyddio hidlyddion i helpu defnyddwyr i ddod o hyd i feddalwedd benodol. Fodd bynnag, nid yw technolegau cynorthwyol yn gallu gweld teitlau’r hidlyddion ar hyn o bryd sy’n golygu nad yw darllenwyr sgrin yn gallu neidio i’r hidlyddion hyn.
+accessibilityStatement.howAccessible.bullet2 = Nid yw’r cysylltiadau i’r gwahanol ddarparwyr meddalwedd yn ei gwneud yn glir y byddant yn mynd â’r defnyddiwr i hafan y gwerthwr, lle y gall defnyddwyr ddarllen rhagor o wybodaeth am gynhyrchion meddalwedd y gwerthwr.
 
-accessibilityStatement.reportingProblems.heading = Reporting accessibility problems with this service
-accessibilityStatement.reportingProblems.para1 = We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, report the {0}.
-accessibilityStatement.reportingProblems.para1.linkText = accessibility problem
+accessibilityStatement.reportingProblems.heading = Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn
+accessibilityStatement.reportingProblems.para1 = Rydym bob amser yn ceisio gwella hygyrchedd y gwasanaeth hwn. Os byddwch yn dod o hyd i unrhyw broblem nad yw wedi’i rhestru ar y dudalen hon, neu os ydych o’r farn nad ydym yn bodloni gofynion hygyrchedd, {0}.
+accessibilityStatement.reportingProblems.para1.linkText = rhowch wybod am y broblem hygyrchedd
 
-accessibilityStatement.ifNotHappy.heading = What to do if you are not happy with how we respond to your complaint
-accessibilityStatement.ifNotHappy.para1 = The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ’accessibility regulations’). If you are not happy with how we respond to your complaint, {0} (EASS), or the {1} (ECNI) if you live in Northern Ireland.
-accessibilityStatement.ifNotHappy.para1.linkText1 = contact the Equality Advisory and Support Service
-accessibilityStatement.ifNotHappy.para1.linkText2 = Equality Commission for Northern Ireland
+accessibilityStatement.ifNotHappy.heading = Beth i’w wneud os nad ydych yn hapus â sut rydym yn ateb eich cwyn
+accessibilityStatement.ifNotHappy.para1 = Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Chymwysiadau Symudol) (Rhif 2) 2018 (y ‘rheoliadau hygyrchedd’). Os nad ydych yn hapus â sut rydym yn ateb eich cwyn, {0} (EASS), neu’r {1} (ECNI) os ydych yn byw yng Ngogledd Iwerddon.
+accessibilityStatement.ifNotHappy.para1.linkText1 = cysylltwch â’r Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS)
+accessibilityStatement.ifNotHappy.para1.linkText2 = Equality Commission for Northern Ireland (ECNI)
 
-accessibilityStatement.contactUs.heading = Contacting us by phone or getting a visit from us in person
-accessibilityStatement.contactUs.para1 = We provide a text relay service if you are deaf, hearing impaired or have a speech impediment.
-accessibilityStatement.contactUs.para2 = We can provide a British Sign Language (BSL) interpreter, or you can arrange a visit from an HMRC advisor to help you complete the service.
-accessibilityStatement.contactUs.para3 = Find out how to {0}.
-accessibilityStatement.contactUs.para3.linkText = contact us
+accessibilityStatement.contactUs.heading = Cysylltu â ni dros y ffôn neu gael ymweliad personol gennym
+accessibilityStatement.contactUs.para1 = Rydym yn cynnig gwasanaeth text relay os ydych yn fyddar, â nam ar eich clyw neu os oes gennych nam ar eich lleferydd.
+accessibilityStatement.contactUs.para2 = Gallwn ddarparu dehonglydd Iaith Arwyddion Prydain (BSL), neu gallwch drefnu ymweliad gan ymgynghorydd CThEM i’ch helpu i gwblhau’r gwasanaeth.
+accessibilityStatement.contactUs.para3 = Gwybodaeth am sut i {0}.
+accessibilityStatement.contactUs.para3.linkText = gysylltu â ni
 
-accessibilityStatement.technicalInformation.heading = Technical information about this service’s accessibility
-accessibilityStatement.technicalInformation.para1 = HMRC is committed to making this service accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
-accessibilityStatement.technicalInformation.para2 = This service is partially compliant with the {0}, due to the non-compliances listed below.
-accessibilityStatement.technicalInformation.para2.linkText = Web Content Accessibility Guidelines version 2.1 AA standard
-accessibilityStatement.technicalInformation.nonAccessibleContent.heading = Non-accessible content
-accessibilityStatement.technicalInformation.nonAccessibleContent.para1 = The content listed below is non-accessible for the following reasons.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.heading = Non-compliance with the accessibility regulations
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.info = We use filters to help users find specific software. However, the filter headings are not currently viewable by assistive technology which means screen readers cannot jump to these filters.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.criteria = This doesn’t meet WCAG 2.1 success criterion 1.3.1 (info and relationships).
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.plan = We plan to add the code necessary to make the filter headings viewable to assistive technologies by November 2019. If we add new headings, we’ll make sure they meet accessibility standards.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.info = The links to the various software providers doesn’t make it clear they will take the user to the vendor’s home page where users can read more information about the vendor’s software products.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.criteria = This doesn’t meet WCAG 2.1 success criterion 2.4.4 (link purpose in context).
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.plan = We’ll label these links to tell users where they go if they click on a link, for example: Visit software provider ABC Accounts Ltd (opens in a new tab). This will be done by November 2019. If we add new links, we’ll make sure they meet accessibility standards.
+accessibilityStatement.technicalInformation.heading = Gwybodaeth dechnegol am hygyrchedd y gwasanaeth hwn
+accessibilityStatement.technicalInformation.para1 = Mae CThEM wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Chymwysiadau Symudol) (Rhif 2) 2018.
+accessibilityStatement.technicalInformation.para2 = Mae’r gwasanaeth hwn yn cydymffurfio’n rhannol â {0}, oherwydd y diffyg cydymffurfio a restrir isod.
+accessibilityStatement.technicalInformation.para2.linkText = safon ‘AA’ Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
+accessibilityStatement.technicalInformation.nonAccessibleContent.heading = Cynnwys nad yw’n hygyrch
+accessibilityStatement.technicalInformation.nonAccessibleContent.para1 = Nid yw’r cynnwys a restrir isod yn hygyrch oherwydd y rhesymau canlynol.
+accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.heading = Diffyg cydymffurfio â’r rheoliadau hygyrchedd
+accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.info = Rydym yn defnyddio hidlyddion i helpu defnyddwyr i ddod o hyd i feddalwedd benodol. Fodd bynnag, nid yw technolegau cynorthwyol yn gallu gweld teitlau’r hidlyddion ar hyn o bryd sy’n golygu nad yw darllenwyr sgrin yn gallu neidio i’r hidlyddion hyn.
+accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.criteria = Nid yw hyn yn bodloni maen prawf llwyddiant 1.3.1 (Info and Relationships) Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
+accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.plan = Rydym yn bwriadu ychwanegu’r cod sy’n angenrheidiol i wneud teitlau’r hidlyddion yn weladwy i dechnolegau cynorthwyol, a hynny erbyn mis Tachwedd 2019. Os byddwn yn ychwanegu teitlau newydd, byddwn yn sicrhau eu bod yn bodloni safonau hygyrchedd.
+accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.info = Nid yw’r cysylltiadau i’r gwahanol ddarparwyr meddalwedd yn ei gwneud yn glir y byddant yn mynd â’r defnyddiwr i hafan y gwerthwr, lle y gall defnyddwyr ddarllen rhagor o wybodaeth am gynhyrchion meddalwedd y gwerthwr.
+accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.criteria = Nid yw hyn yn bodloni maen prawf llwyddiant 2.4.4 (Link Purpose (In Context)) Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
+accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.plan = Byddwn yn labelu’r cysylltiadau hyn i roi gwybod i ddefnyddwyr i ble maent yn mynd os ydynt yn clicio ar gysylltiad, er enghraifft: Ewch i’r darparwr meddalwedd ABC Accounts Ltd (yn agor tab newydd). Caiff hyn ei wneud erbyn mis Tachwedd 2019. Os byddwn yn ychwanegu cysylltiadau newydd, byddwn yn sicrhau eu bod yn bodloni safonau hygyrchedd.
 
-accessibilityStatement.howTested.heading = How we tested this service
-accessibilityStatement.howTested.para1 = The service was last tested on 28 August 2019 and was checked for compliance with WCAG 2.1 AA.
-accessibilityStatement.howTested.para2 = The service was built using parts that were tested by the {0}. The full service was tested by HMRC and included disabled users.
-accessibilityStatement.howTested.para2.linkText = Digital Accessibility Centre
-accessibilityStatement.howTested.para3 = This page was prepared on 19 September 2019. It was last updated on 19 September 2019.
+accessibilityStatement.howTested.heading = Sut gwnaethom brofi’r gwasanaeth hwn
+accessibilityStatement.howTested.para1 = Cafodd y gwasanaeth ei brofi ddiwethaf ar 28 Awst 2019 a gwiriwyd ei fod yn cydymffurfio â safon ‘AA’ Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
+accessibilityStatement.howTested.para2 = Adeiladwyd y gwasanaeth gan ddefnyddio rhannau a brofwyd gan y {0}. Profwyd y gwasanaeth llawn gan CThEM, ac roedd y gwaith o brofi’r gwasanaeth yn cynnwys defnyddwyr anabl.
+accessibilityStatement.howTested.para2.linkText = Canolfan Hygyrchedd Digidol
+accessibilityStatement.howTested.para3 = Paratowyd y dudalen hon ar 19 Medi 2019. Cafodd ei diweddaru ddiwethaf ar 19 Medi 2019.
