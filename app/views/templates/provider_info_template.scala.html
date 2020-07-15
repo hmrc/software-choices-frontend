@@ -67,10 +67,18 @@
 @accessibilityFilters.map(_.toString.toLowerCase) match {
     case Nil => {}
     case List(filter) => {
-        <div class="form-group">@messages("softwareChoices.filter.provider.accessibilityOne", filter)</div>
+        <div class="form-group">
+            @messages("softwareChoices.filter.provider.accessibilityOne", messages(s"softwareChoices.filter.$filter").toLowerCase)
+        </div>
     }
     case multipleFilters => {
-        <div class="form-group">@messages("softwareChoices.filter.provider.accessibilityMultiple", multipleFilters.tail.mkString(", "), multipleFilters.head)</div>
+        <div class="form-group">
+            @messages(
+                "softwareChoices.filter.provider.accessibilityMultiple",
+                multipleFilters.tail.map(v => messages(s"softwareChoices.filter.$v").toLowerCase).mkString(", "),
+                messages(s"softwareChoices.filter.${multipleFilters.head}").toLowerCase
+            )
+        </div>
     }
 }
 
