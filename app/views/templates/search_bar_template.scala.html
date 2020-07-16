@@ -27,7 +27,11 @@
 
     <div class="search-field search-field-darker">
         <div class="search-input search-input-with-button">
-            <label for="term" class="@if(!showLabel){visuallyhidden} bold">@messages("softwareChoices.search.button.text")</label>
+            <h2 class="@if(!showLabel){visuallyhidden} search-label">
+                <label for="term">
+                    @messages("softwareChoices.search.button.text")
+                </label>
+            </h2>
             <input id="term" name="term" type="text" value="@field.value" autocomplete="off">
         </div>
         @noscript {
