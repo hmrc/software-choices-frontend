@@ -44,6 +44,21 @@ body, main {
     line-height: 1.31579;
   }
 }
+
+.search-label {
+  padding-bottom: 0.5em;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.search-label label {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
 .search-field-darker .search-input input {
   border-color: #0b0c0c;
 }
@@ -92,7 +107,12 @@ body, main {
 }
 
 .filter-head {
-  padding: 5px;
+  padding: 0.25em;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  font-weight: 700;
 }
 
 .filter-container {
