@@ -23,6 +23,7 @@ import views.ViewBaseSpec
 class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
   object Selectors {
+    val searchLabelClass = "search-label"
     val searchLabel = "label"
     val search = "input"
     val button = "button"
@@ -41,7 +42,7 @@ class SearchBarTemplateViewSpec extends ViewBaseSpec {
 
       s"have a label for the search input which is visually hidden" in {
         document.select(Selectors.searchLabel).attr("for") shouldBe SearchForm.term
-        document.select(Selectors.searchLabel).hasClass("visuallyhidden") shouldBe true
+        document.getElementsByClass(Selectors.searchLabelClass).hasClass("visuallyhidden") shouldBe true
       }
 
       s"have a search bar with no text" in {
