@@ -51,10 +51,6 @@
             <h2 class="heading-large">@messages("accessibilityStatement.howAccessible.heading")</h2>
             <p>@Html(messages("accessibilityStatement.howAccessible.para1", <a href="https://www.w3.org/TR/WCAG21/">{messages("accessibilityStatement.howAccessible.para1.linkText")}</a>))</p>
             <p>@messages("accessibilityStatement.howAccessible.para2")</p>
-            <ul class="list list-bullet">
-                <li>@messages("accessibilityStatement.howAccessible.bullet1")</li>
-                <li>@messages("accessibilityStatement.howAccessible.bullet2")</li>
-            </ul>
 
             <h2 class="heading-large">@messages("accessibilityStatement.reportingProblems.heading")</h2>
             <p>@Html(messages("accessibilityStatement.reportingProblems.para1", <a href={appConfig.accessibilityReportUrl(pageUri)}>{messages("accessibilityStatement.reportingProblems.para1.linkText")}</a>))</p>
@@ -70,17 +66,6 @@
             <h2 class="heading-large">@messages("accessibilityStatement.technicalInformation.heading")</h2>
             <p>@messages("accessibilityStatement.technicalInformation.para1")</p>
             <p>@Html(messages("accessibilityStatement.technicalInformation.para2", <a href="https://www.w3.org/TR/WCAG21/">{messages("accessibilityStatement.technicalInformation.para2.linkText")}</a>))</p>
-
-            <h3 class="heading-medium">@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.heading")</h3>
-            <p>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.para1")</p>
-
-            <h4>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.heading")</h4>
-            <p>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.info")</p>
-            <p>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.criteria")</p>
-            <p>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.plan")</p>
-            <p>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.info")</p>
-            <p>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.criteria")</p>
-            <p>@messages("accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.plan")</p>
 
             <h2 class="heading-large">@messages("accessibilityStatement.howTested.heading")</h2>
             <p>@messages("accessibilityStatement.howTested.para1")</p>
