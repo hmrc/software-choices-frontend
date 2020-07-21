@@ -120,15 +120,13 @@ accessibilityStatement.usingService.para4 = Mae gan {0} gyngor ar wneud eich dyf
 accessibilityStatement.usingService.para4.linkText = AbilityNet
 
 accessibilityStatement.howAccessible.heading = Pa mor hygyrch yw’r gwasanaeth hwn
-accessibilityStatement.howAccessible.para1 = Mae’r gwasanaeth hwn yn cydymffurfio’n rhannol â {0}.
+accessibilityStatement.howAccessible.para1 = Mae’r gwasanaeth hwn yn cydymffurfio’n llawn â {0}.
 accessibilityStatement.howAccessible.para1.linkText = safon ‘AA’ Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1
-accessibilityStatement.howAccessible.para2 = Mae’n bosibl y bydd rhai pobl yn cael anhawster wrth ddefnyddio rhannau o’r gwasanaeth hwn:
-accessibilityStatement.howAccessible.bullet1 = Rydym yn defnyddio hidlyddion i helpu defnyddwyr i ddod o hyd i feddalwedd benodol. Fodd bynnag, nid yw technolegau cynorthwyol yn gallu gweld teitlau’r hidlyddion ar hyn o bryd sy’n golygu nad yw darllenwyr sgrin yn gallu neidio i’r hidlyddion hyn.
-accessibilityStatement.howAccessible.bullet2 = Nid yw’r cysylltiadau i’r gwahanol ddarparwyr meddalwedd yn ei gwneud yn glir y byddant yn mynd â’r defnyddiwr i hafan y gwerthwr, lle y gall defnyddwyr ddarllen rhagor o wybodaeth am gynhyrchion meddalwedd y gwerthwr.
+accessibilityStatement.howAccessible.para2 = Nid oes unrhyw broblemau hygyrchedd hysbys yn y gwasanaeth hwn.
 
 accessibilityStatement.reportingProblems.heading = Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn
 accessibilityStatement.reportingProblems.para1 = Rydym bob amser yn ceisio gwella hygyrchedd y gwasanaeth hwn. Os byddwch yn dod o hyd i unrhyw broblem nad yw wedi’i rhestru ar y dudalen hon, neu os ydych o’r farn nad ydym yn bodloni gofynion hygyrchedd, {0}.
-accessibilityStatement.reportingProblems.para1.linkText = rhowch wybod am y broblem hygyrchedd
+accessibilityStatement.reportingProblems.para1.linkText = rhowch wybod am y broblem hygyrchedd(yn agor ffenestr neu dab newydd)
 
 accessibilityStatement.ifNotHappy.heading = Beth i’w wneud os nad ydych yn hapus â sut rydym yn ateb eich cwyn
 accessibilityStatement.ifNotHappy.para1 = Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Chymwysiadau Symudol) (Rhif 2) 2018 (y ‘rheoliadau hygyrchedd’). Os nad ydych yn hapus â sut rydym yn ateb eich cwyn, {0} (EASS), neu’r {1} (ECNI) os ydych yn byw yng Ngogledd Iwerddon.
@@ -143,20 +141,11 @@ accessibilityStatement.contactUs.para3.linkText = gysylltu â ni
 
 accessibilityStatement.technicalInformation.heading = Gwybodaeth dechnegol am hygyrchedd y gwasanaeth hwn
 accessibilityStatement.technicalInformation.para1 = Mae CThEM wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Chymwysiadau Symudol) (Rhif 2) 2018.
-accessibilityStatement.technicalInformation.para2 = Mae’r gwasanaeth hwn yn cydymffurfio’n rhannol â {0}, oherwydd y diffyg cydymffurfio a restrir isod.
+accessibilityStatement.technicalInformation.para2 = Mae’r gwasanaeth hwn yn cydymffurfio’n llawn â {0}.
 accessibilityStatement.technicalInformation.para2.linkText = safon ‘AA’ Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
-accessibilityStatement.technicalInformation.nonAccessibleContent.heading = Cynnwys nad yw’n hygyrch
-accessibilityStatement.technicalInformation.nonAccessibleContent.para1 = Nid yw’r cynnwys a restrir isod yn hygyrch oherwydd y rhesymau canlynol.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.heading = Diffyg cydymffurfio â’r rheoliadau hygyrchedd
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.info = Rydym yn defnyddio hidlyddion i helpu defnyddwyr i ddod o hyd i feddalwedd benodol. Fodd bynnag, nid yw technolegau cynorthwyol yn gallu gweld teitlau’r hidlyddion ar hyn o bryd sy’n golygu nad yw darllenwyr sgrin yn gallu neidio i’r hidlyddion hyn.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.criteria = Nid yw hyn yn bodloni maen prawf llwyddiant 1.3.1 (Info and Relationships) Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty1.plan = Rydym yn bwriadu ychwanegu’r cod sy’n angenrheidiol i wneud teitlau’r hidlyddion yn weladwy i dechnolegau cynorthwyol, a hynny erbyn mis Tachwedd 2019. Os byddwn yn ychwanegu teitlau newydd, byddwn yn sicrhau eu bod yn bodloni safonau hygyrchedd.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.info = Nid yw’r cysylltiadau i’r gwahanol ddarparwyr meddalwedd yn ei gwneud yn glir y byddant yn mynd â’r defnyddiwr i hafan y gwerthwr, lle y gall defnyddwyr ddarllen rhagor o wybodaeth am gynhyrchion meddalwedd y gwerthwr.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.criteria = Nid yw hyn yn bodloni maen prawf llwyddiant 2.4.4 (Link Purpose (In Context)) Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
-accessibilityStatement.technicalInformation.nonAccessibleContent.nonCompliance.difficulty2.plan = Byddwn yn labelu’r cysylltiadau hyn i roi gwybod i ddefnyddwyr i ble maent yn mynd os ydynt yn clicio ar gysylltiad, er enghraifft: Ewch i’r darparwr meddalwedd ABC Accounts Ltd (yn agor tab newydd). Caiff hyn ei wneud erbyn mis Tachwedd 2019. Os byddwn yn ychwanegu cysylltiadau newydd, byddwn yn sicrhau eu bod yn bodloni safonau hygyrchedd.
 
 accessibilityStatement.howTested.heading = Sut gwnaethom brofi’r gwasanaeth hwn
 accessibilityStatement.howTested.para1 = Cafodd y gwasanaeth ei brofi ddiwethaf ar 28 Awst 2019 a gwiriwyd ei fod yn cydymffurfio â safon ‘AA’ Canllawiau Hygyrchedd Cynnwys y We, fersiwn 2.1.
 accessibilityStatement.howTested.para2 = Adeiladwyd y gwasanaeth gan ddefnyddio rhannau a brofwyd gan y {0}. Profwyd y gwasanaeth llawn gan CThEM, ac roedd y gwaith o brofi’r gwasanaeth yn cynnwys defnyddwyr anabl.
 accessibilityStatement.howTested.para2.linkText = Canolfan Hygyrchedd Digidol
-accessibilityStatement.howTested.para3 = Paratowyd y dudalen hon ar 19 Medi 2019. Cafodd ei diweddaru ddiwethaf ar 19 Medi 2019.
+accessibilityStatement.howTested.para3 = Paratowyd y dudalen hon ar 19 Medi 2019. Cafodd ei diweddaru ddiwethaf ar 24 Mehefin 2020.

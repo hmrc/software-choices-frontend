@@ -42,13 +42,11 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     val usingServicePara4 = "AbilityNet has advice on making your device easier to use if you have a disability."
 
     val howAccessibleHeading = "How accessible this service is"
-    val howAccessiblePara1 = "This service is partially compliant with the Web Content Accessibility Guidelines version 2.1 AA standard."
-    val howAccessiblePara2 = "Some people may find parts of this service difficult to use:"
-    val howAccessibleBullet1 = "We use filters to help users find specific software. However, the filter headings are not currently viewable by assistive technology which means screen readers cannot jump to these filters."
-    val howAccessibleBullet2 = "The links to the various software providers doesn’t make it clear they will take the user to the vendor’s home page where users can read more information about the vendor’s software products."
+    val howAccessiblePara1 = "This service is fully compliant with the Web Content Accessibility Guidelines version 2.1 AA standard."
+    val howAccessiblePara2 = "There are no known accessibility issues within this service."
 
     val reportingProblemsHeading = "Reporting accessibility problems with this service"
-    val reportingProblemsPara1 = "We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, report the accessibility problem."
+    val reportingProblemsPara1 = "We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, report the accessibility problem(opens in a new window or tab)."
 
     val ifNotHappyHeading = "What to do if you are not happy with how we respond to your complaint"
     val ifNotHappyPara1 = "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ’accessibility regulations’). If you are not happy with how we respond to your complaint, contact the Equality Advisory and Support Service (EASS), or the Equality Commission for Northern Ireland (ECNI) if you live in Northern Ireland."
@@ -60,21 +58,12 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
 
     val technicalInformationHeading = "Technical information about this service’s accessibility"
     val technicalInformationPara1 = "HMRC is committed to making this service accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018."
-    val technicalInformationPara2 = "This service is partially compliant with the Web Content Accessibility Guidelines version 2.1 AA standard, due to the non-compliances listed below."
-    val technicalInformationNonAccessibleHeading = "Non-accessible content"
-    val technicalInformationNonAccessiblePara1 = "The content listed below is non-accessible for the following reasons."
-    val technicalInformationNonAccessibleSubheading = "Non-compliance with the accessibility regulations"
-    val technicalInformationNonAccessibleNonCompliant1Info = "We use filters to help users find specific software. However, the filter headings are not currently viewable by assistive technology which means screen readers cannot jump to these filters."
-    val technicalInformationNonAccessibleNonCompliant1Criteria = "This doesn’t meet WCAG 2.1 success criterion 1.3.1 (info and relationships)."
-    val technicalInformationNonAccessibleNonCompliant1Plan = "We plan to add the code necessary to make the filter headings viewable to assistive technologies by November 2019. If we add new headings, we’ll make sure they meet accessibility standards."
-    val technicalInformationNonAccessibleNonCompliant2Info = "The links to the various software providers doesn’t make it clear they will take the user to the vendor’s home page where users can read more information about the vendor’s software products."
-    val technicalInformationNonAccessibleNonCompliant2Criteria = "This doesn’t meet WCAG 2.1 success criterion 2.4.4 (link purpose in context)."
-    val technicalInformationNonAccessibleNonCompliant2Plan = "We’ll label these links to tell users where they go if they click on a link, for example: Visit software provider ABC Accounts Ltd (opens in a new tab). This will be done by November 2019. If we add new links, we’ll make sure they meet accessibility standards."
+    val technicalInformationPara2 = "This service is fully compliant with the Web Content Accessibility Guidelines version 2.1 AA standard."
 
     val howTestedHeading = "How we tested this service"
     val howTestedPara1 = "The service was last tested on 28 August 2019 and was checked for compliance with WCAG 2.1 AA."
     val howTestedPara2 = "The service was built using parts that were tested by the Digital Accessibility Centre. The full service was tested by HMRC and included disabled users."
-    val howTestedPara3 = "This page was prepared on 19 September 2019. It was last updated on 19 September 2019."
+    val howTestedPara3 = "This page was prepared on 19 September 2019. It was last updated on 24 June 2020."
 
     val govUkAccessibilityStatementLinkText = "accessibility statement"
     val serviceLinkText = "https://www.tax.service.gov.uk/making-tax-digital-software"
@@ -84,7 +73,7 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     val ecniLinkText = "Equality Commission for Northern Ireland"
     val dacLinkText = "Digital Accessibility Centre"
     val emailText = "hmrc-accessibility-problems@digital.hmrc.gov.uk"
-    val accessibilityReporting = "accessibility problem"
+    val accessibilityReporting = "accessibility problem(opens in a new window or tab)"
   }
 
   val page = "/page"
@@ -115,23 +104,13 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
       ).mkString(" ")
     }
 
-    "have a h3" in {
-      body.select("h3").text() shouldBe Messages.technicalInformationNonAccessibleHeading
-    }
-
-    "have a h4" in {
-      body.select("h4").text() shouldBe Messages.technicalInformationNonAccessibleSubheading
-    }
-
     "have multiple bullet points" in {
       body.select("li").text() shouldBe Seq(
         Messages.usingServiceBullet1,
         Messages.usingServiceBullet2,
         Messages.usingServiceBullet3,
         Messages.usingServiceBullet4,
-        Messages.usingServiceBullet5,
-        Messages.howAccessibleBullet1,
-        Messages.howAccessibleBullet2
+        Messages.usingServiceBullet5
       ).mkString(" ")
     }
 
@@ -153,13 +132,6 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
         Messages.contactUsPara3,
         Messages.technicalInformationPara1,
         Messages.technicalInformationPara2,
-        Messages.technicalInformationNonAccessiblePara1,
-        Messages.technicalInformationNonAccessibleNonCompliant1Info,
-        Messages.technicalInformationNonAccessibleNonCompliant1Criteria,
-        Messages.technicalInformationNonAccessibleNonCompliant1Plan,
-        Messages.technicalInformationNonAccessibleNonCompliant2Info,
-        Messages.technicalInformationNonAccessibleNonCompliant2Criteria,
-        Messages.technicalInformationNonAccessibleNonCompliant2Plan,
         Messages.howTestedPara1,
         Messages.howTestedPara2,
         Messages.howTestedPara3
