@@ -46,7 +46,7 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     val howAccessiblePara2 = "There are no known accessibility issues within this service."
 
     val reportingProblemsHeading = "Reporting accessibility problems with this service"
-    val reportingProblemsPara1 = "We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, report the accessibility problem(opens in a new window or tab)."
+    val reportingProblemsPara1 = "We are always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we are not meeting accessibility requirements, report the accessibility problem."
 
     val ifNotHappyHeading = "What to do if you are not happy with how we respond to your complaint"
     val ifNotHappyPara1 = "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ’accessibility regulations’). If you are not happy with how we respond to your complaint, contact the Equality Advisory and Support Service (EASS), or the Equality Commission for Northern Ireland (ECNI) if you live in Northern Ireland."
@@ -73,7 +73,7 @@ class AccessibilityStatementViewSpec extends ViewBaseSpec {
     val ecniLinkText = "Equality Commission for Northern Ireland"
     val dacLinkText = "Digital Accessibility Centre"
     val emailText = "hmrc-accessibility-problems@digital.hmrc.gov.uk"
-    val accessibilityReporting = "accessibility problem(opens in a new window or tab)"
+    val accessibilityReporting = "report the accessibility problem"
   }
 
   val page = "/page"
