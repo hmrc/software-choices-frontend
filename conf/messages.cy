@@ -126,7 +126,7 @@ accessibilityStatement.howAccessible.para2 = Nid oes unrhyw broblemau hygyrchedd
 
 accessibilityStatement.reportingProblems.heading = Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn
 accessibilityStatement.reportingProblems.para1 = Rydym bob amser yn ceisio gwella hygyrchedd y gwasanaeth hwn. Os byddwch yn dod o hyd i unrhyw broblem nad yw wedi’i rhestru ar y dudalen hon, neu os ydych o’r farn nad ydym yn bodloni gofynion hygyrchedd, {0}.
-accessibilityStatement.reportingProblems.para1.linkText = rhowch wybod am y broblem hygyrchedd(yn agor ffenestr neu dab newydd)
+accessibilityStatement.reportingProblems.para1.linkText = rhowch wybod am y broblem hygyrchedd
 
 accessibilityStatement.ifNotHappy.heading = Beth i’w wneud os nad ydych yn hapus â sut rydym yn ateb eich cwyn
 accessibilityStatement.ifNotHappy.para1 = Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Chymwysiadau Symudol) (Rhif 2) 2018 (y ‘rheoliadau hygyrchedd’). Os nad ydych yn hapus â sut rydym yn ateb eich cwyn, {0} (EASS), neu’r {1} (ECNI) os ydych yn byw yng Ngogledd Iwerddon.
