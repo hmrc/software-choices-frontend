@@ -18,7 +18,7 @@ package assets.messages
 
 object CommonMessages {
 
-  val serviceName = "Find software for Making Tax Digital"
+  val serviceName = "Find software for Making Tax Digital for VAT"
 
   val govUk = "GOV.UK"
 

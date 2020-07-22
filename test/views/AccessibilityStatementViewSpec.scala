@@ -23,7 +23,7 @@ import org.jsoup.nodes.{Document, Element}
 class AccessibilityStatementViewSpec extends ViewBaseSpec {
 
   object Messages {
-    val postFix = " - Find software for Making Tax Digital - GOV.UK"
+    val postFix = " - Find software for Making Tax Digital for VAT - GOV.UK"
     val heading = "Accessibility statement for finding software for Making Tax Digital for VAT"
     val title: String = heading + postFix
     val para1 = "This accessibility statement explains how accessible this service is, what to do if you have difficulty using it, and how to report accessibility problems with the service."
