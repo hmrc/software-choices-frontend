@@ -29,11 +29,7 @@ class MockAppConfig @Inject()(implicit val sc: ServicesConfig)
 
   def progressiveDisclosureEnabled(enabled: Boolean): Unit = mockFeatures.progressiveDisclosureEnabled(enabled)
   def filterViewEnabled(enabled: Boolean): Unit = mockFeatures.filterViewEnabled(enabled)
-  def agentBusinessFilterEnabled(enabled: Boolean): Unit = mockFeatures.agentBusinessFilterEnabled(enabled)
-  def typeOfSoftwareFilterEnabled(enabled: Boolean): Unit = mockFeatures.typeOfSoftwareFilterEnabled(enabled)
-  def additionalSoftwareFilterEnabled(enabled: Boolean): Unit = mockFeatures.additionalSoftwareFilterEnabled(enabled)
   def priceFilterEnabled(enabled: Boolean): Unit = mockFeatures.priceFilterEnabled(enabled)
-  def accessibilityFilterEnabled(enabled: Boolean): Unit = mockFeatures.accessibilityFilterEnabled(enabled)
   def providerDetailsEnabled(enabled: Boolean): Unit = mockFeatures.providerDetailsEnabled(enabled)
   def welshEnabled(isEnabled: Boolean): Unit = mockFeatures.welshEnabled(isEnabled)
 

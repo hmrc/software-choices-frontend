@@ -33,11 +33,7 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
       FeatureSwitchModel(
         progressiveDisclosureEnabled = appConfig.features.progressiveDisclosureEnabled(),
         filterViewEnabled = appConfig.features.filterViewEnabled(),
-        agentBusinessFilterEnabled = appConfig.features.agentBusinessFilterEnabled(),
-        typeOfSoftwareFilterEnabled = appConfig.features.typeOfSoftwareFilterEnabled(),
-        additionalSoftwareFilterEnabled = appConfig.features.additionalSoftwareFilterEnabled(),
         priceFilterEnabled = appConfig.features.priceFilterEnabled(),
-        accessibilityFilterEnabled = appConfig.features.accessibilityFilterEnabled(),
         providerDetailsEnabled = appConfig.features.providerDetailsEnabled(),
         welshEnabled = appConfig.features.welshEnabled()
       )
@@ -54,10 +50,6 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
   def handleSuccess(model: FeatureSwitchModel): Result = {
     appConfig.features.progressiveDisclosureEnabled(model.progressiveDisclosureEnabled)
     appConfig.features.filterViewEnabled(model.filterViewEnabled)
-    appConfig.features.agentBusinessFilterEnabled(model.agentBusinessFilterEnabled)
-    appConfig.features.additionalSoftwareFilterEnabled(model.additionalSoftwareFilterEnabled)
-    appConfig.features.typeOfSoftwareFilterEnabled(model.typeOfSoftwareFilterEnabled)
-    appConfig.features.accessibilityFilterEnabled(model.accessibilityFilterEnabled)
     appConfig.features.providerDetailsEnabled(model.providerDetailsEnabled)
     appConfig.features.welshEnabled(model.welshEnabled)
     Redirect(controllers.routes.SoftwareChoicesController.show())
