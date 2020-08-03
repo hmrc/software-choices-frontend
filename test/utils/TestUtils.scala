@@ -28,11 +28,7 @@ trait TestUtils extends WordSpec with Matchers with GuiceOneAppPerSuite with Bef
   override def beforeEach() {
     super.beforeEach()
     appConfig.progressiveDisclosureEnabled(true)
-    appConfig.agentBusinessFilterEnabled(true)
-    appConfig.typeOfSoftwareFilterEnabled(true)
-    appConfig.additionalSoftwareFilterEnabled(true)
     appConfig.priceFilterEnabled(true)
-    appConfig.accessibilityFilterEnabled(true)
     appConfig.filterViewEnabled(true)
     appConfig.welshEnabled(false)
   }

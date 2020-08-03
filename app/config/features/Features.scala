@@ -24,11 +24,7 @@ import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 class Features @Inject()(implicit config: ServicesConfig) {
   val progressiveDisclosureEnabled = new Feature(ConfigKeys.progressiveDisclosureFeature)
   val filterViewEnabled = new Feature(ConfigKeys.filterViewFeature)
-  val agentBusinessFilterEnabled = new Feature(ConfigKeys.agentBusinessFilterFeature)
-  val typeOfSoftwareFilterEnabled = new Feature(ConfigKeys.typeOfSoftwareFilterFeature)
-  val additionalSoftwareFilterEnabled = new Feature(ConfigKeys.additionalSoftwareFilterFeature)
   val priceFilterEnabled = new Feature(ConfigKeys.priceFilterFeature)
-  val accessibilityFilterEnabled = new Feature(ConfigKeys.accessibilityFilterFeature)
   val providerDetailsEnabled = new Feature(ConfigKeys.providerDetailsFilterFeature)
   val welshEnabled = new Feature(ConfigKeys.welshFeature)
 }

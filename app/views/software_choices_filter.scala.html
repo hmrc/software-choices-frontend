@@ -89,8 +89,7 @@
                         Seq(
                             FilterFieldModel(form(business), messages("softwareChoices.filter.businesses")),
                             FilterFieldModel(form(agent), messages("softwareChoices.filter.agents"))
-                        ),
-                        appConfig.features.agentBusinessFilterEnabled()
+                        )
                     )
                 )
 
@@ -100,8 +99,7 @@
                         Seq(
                             FilterFieldModel(form(accounting), messages("softwareChoices.filter.accountingSoftware")),
                             FilterFieldModel(form(spreadsheets), messages("softwareChoices.filter.spreadSheets"))
-                        ),
-                        appConfig.features.typeOfSoftwareFilterEnabled()
+                        )
                     )
                 )
 
@@ -112,8 +110,7 @@
                             FilterFieldModel(form(viewReturn), messages("softwareChoices.filter.vatReturns")),
                             FilterFieldModel(form(viewLiabilities), messages("softwareChoices.filter.vatLiabilities")),
                             FilterFieldModel(form(viewPayments), messages("softwareChoices.filter.vatPayments"))
-                        ),
-                        appConfig.features.additionalSoftwareFilterEnabled()
+                        )
                     )
                 )
 
@@ -135,8 +132,7 @@
                             FilterFieldModel(form(visual), messages("softwareChoices.filter.visual")),
                             FilterFieldModel(form(hearing), messages("softwareChoices.filter.hearing")),
                             FilterFieldModel(form(motor), messages("softwareChoices.filter.motor"))
-                        ),
-                        appConfig.features.accessibilityFilterEnabled()
+                        )
                     )
                 )
 
