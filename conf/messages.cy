@@ -1,8 +1,8 @@
 common.service.name = Dewch o hyd i feddalwedd Troi Treth yn Ddigidol ar gyfer TAW
-common.gov.uk = GOV.UK
-common.back = Back
-common.errorSummary.heading = There is a problem
-common.error = Error:
+common.gov.uk = GOV.UK/CYMRAEG
+common.back = Nôl
+common.errorSummary.heading = Mae problem wedi codi
+common.error = Gwall:
 common.newTab = yn agor mewn tab newydd
 common.results.count = Wedi canfod {0} canlyniad
 common.results.count.oneResult = Wedi canfod 1 canlyniad
@@ -20,22 +20,9 @@ softwareChoices.category.aria-label = Cwmnïau meddalwedd sy’n dechrau gyda {0
 softwareChoices.provider.aria-label = Mae gwefan cwmni meddalwedd {0}
 softwareChoices.provider-details.aria-label = rhagor o wybodaeth am feddalwedd {0}
 
-softwareChoices.title = Software that works with Making Tax Digital for VAT
 softwareChoices.search.label = Chwilio am feddalwedd yn ôl yr enw
-softwareChoices.search.text1 = Making Tax Digital for VAT is a new way of keeping your VAT records and submitting your VAT Returns using software.
-softwareChoices.search.text2.start = You must also
-softwareChoices.search.text2.link = sign up to Making Tax Digital for VAT
-softwareChoices.search.text2.end = as well as getting software that is connected to it.
 softwareChoices.search.button.text = Chwilio am feddalwedd yn ôl yr enw
-softwareChoices.search.clear = Clear search
-softwareChoices.text.p1 = HMRC does not recommend any one software package. In case of issues with software you will need to contact your software company directly.
-softwareChoices.text.p2 = All links to software packages take you to external websites.
 softwareChoices.show = Pecynnau meddalwedd
-
-softwareChoicesResults.noResults.title = No results found
-softwareChoicesResults.noResults = We have not found any results. See the full list of software packages or try again.
-softwareChoicesResults.results.title = Results
-softwareChoicesResults.results = We have found these software packages that work with Making Tax Digital for VAT:
 
 softwareChoices.filter.title = Dewch o hyd i feddalwedd Troi Treth yn Ddigidol ar gyfer TAW
 softwareChoices.filter.p1 = Bydd defnyddio meddalwedd yn eich galluogi i gyflwyno Ffurflenni TAW yn uniongyrchol i CThEM heb orfod ymweld â gwefan CThEM. Mae’r holl feddalwedd a restrir ar y dudalen hon wedi bod trwy broses adnabod CThEM. Nid yw CThEM yn argymell nac yn cymeradwyo unrhyw gynnyrch neu gyflenwr meddalwedd penodol.

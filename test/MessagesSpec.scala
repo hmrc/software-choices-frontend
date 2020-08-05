@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import assets.messages.{CommonMessages, SearchMessages, SoftwareChoicesMessages}
 import _root_.utils.TestUtils
+import assets.messages.{CommonMessages, SearchMessages}
 
 class MessagesSpec extends TestUtils {
 
@@ -30,34 +30,15 @@ class MessagesSpec extends TestUtils {
     messages("common.error") shouldBe CommonMessages.error
     messages("common.newTab") shouldBe CommonMessages.newTab
 
-
     // Feedback
     messages("feedback.before") shouldBe CommonMessages.feedbackBefore
     messages("feedback.link") shouldBe CommonMessages.feedbackLink
     messages("feedback.after") shouldBe CommonMessages.feedbackAfter
 
-    // Software Choices Search/Results
-    messages("softwareChoices.title") shouldBe SoftwareChoicesMessages.title
-    messages("softwareChoices.show") shouldBe SoftwareChoicesMessages.showAll
-
-    // Software Choices Results
-    messages("softwareChoicesResults.noResults.title") shouldBe SoftwareChoicesMessages.noResultsHeader
-    messages("softwareChoicesResults.noResults") shouldBe SoftwareChoicesMessages.noResults
-    messages("softwareChoicesResults.results.title") shouldBe SoftwareChoicesMessages.resultsHeader
-    messages("softwareChoicesResults.results") shouldBe SoftwareChoicesMessages.results
-
     // Search Form
     messages("searchForm.term.missing") shouldBe SearchMessages.searchFormTermMissing
     messages("searchForm.term.max") shouldBe SearchMessages.searchFormTermMax
     messages("softwareChoices.search.label") shouldBe SearchMessages.label
-    messages("softwareChoices.search.text1") shouldBe SearchMessages.text1
-    messages("softwareChoices.search.text2.start") shouldBe SearchMessages.text2Start
-    messages("softwareChoices.search.text2.link") shouldBe SearchMessages.text2Link
-    messages("softwareChoices.search.text2.end") shouldBe SearchMessages.text2End
     messages("softwareChoices.search.button.text") shouldBe SearchMessages.buttonText
-    messages("softwareChoices.search.clear") shouldBe SearchMessages.clear
-    messages("softwareChoices.text.p1") shouldBe SearchMessages.p1
-    messages("softwareChoices.text.p2") shouldBe SearchMessages.p2
-
   }
 }

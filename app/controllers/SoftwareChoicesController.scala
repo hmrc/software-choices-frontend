@@ -17,16 +17,15 @@
 package controllers
 
 import config.AppConfig
-import forms.{FiltersForm, SearchForm}
+import forms.FiltersForm
 import javax.inject.{Inject, Singleton}
-import models.SoftwareChoicesViewModel.sortProviders
-import models.{SoftwareChoicesFilterViewModel, SoftwareChoicesViewModel}
+import models.SoftwareChoicesFilterViewModel
 import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
+import views.html.software_choices_filter
 import views.html.templates.{provider_info_template, provider_table_template}
-import views.html.{software_choices_filter, software_choices_results, software_choices_search}
 
 @Singleton
 class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareChoicesService,
@@ -34,42 +33,13 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
                                          )(implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport {
 
   override implicit def request2Messages(implicit request: RequestHeader): Messages =
-    if(appConfig.features.welshEnabled()) super.request2Messages else messagesApi.preferred(Seq(Lang("en")))
+    if (appConfig.features.welshEnabled()) super.request2Messages else messagesApi.preferred(Seq(Lang("en")))
 
-  //Feature Switch Routing Logic
   val show: Action[AnyContent] = Action { implicit request =>
-    if (appConfig.features.filterViewEnabled()) filterView else basicSearchView
+    Ok(software_choices_filter(softwareProvidersFilterViewModel, FiltersForm.form))
   }
 
   val search: Action[AnyContent] = Action { implicit request =>
-    if (appConfig.features.filterViewEnabled()) filterSearch else basicSearchSubmit
-  }
-
-  //Basic Search View Logic - Production MVP
-  lazy val softwareProviders = SoftwareChoicesViewModel(softwareChoicesService.providersList)
-
-  def basicSearchView(implicit request: Request[_]): Result =
-    Ok(software_choices_search(softwareProviders, SearchForm.form))
-
-  def basicSearchSubmit(implicit request: Request[_]): Result =
-    SearchForm.form.bindFromRequest().fold(
-      error => BadRequest(software_choices_search(softwareProviders, error)),
-      search => {
-        val results = SoftwareChoicesViewModel(softwareChoicesService.providersList, softwareChoicesService.searchProviders(search.term))
-        Ok(software_choices_results(results, SearchForm.form.fill(search)))
-      }
-    )
-
-
-  //Filter View Logic
-  lazy val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(
-    softwareChoicesService.providersList,
-    None
-  )
-
-  def filterView(implicit request: Request[_]): Result = Ok(software_choices_filter(softwareProvidersFilterViewModel, FiltersForm.form))
-
-  def filterSearch(implicit request: Request[_]): Result =
     FiltersForm.form.bindFromRequest().fold(
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
@@ -81,12 +51,18 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
         Ok(software_choices_filter(results, FiltersForm.form.fill(search)))
       }
     )
+  }
+
+  lazy val softwareProvidersFilterViewModel = SoftwareChoicesFilterViewModel(
+    softwareChoicesService.providersList,
+    None
+  )
 
   val ajaxFilterSearch: Action[AnyContent] = Action { implicit request =>
     FiltersForm.form.bindFromRequest().fold(
       error => BadRequest(software_choices_filter(softwareProvidersFilterViewModel, error)),
       search => {
-        val results = sortProviders(softwareChoicesService.filterProviders(search.filters, search.searchTerm))
+        val results = softwareProvidersFilterViewModel.sortedProviders(softwareChoicesService.filterProviders(search.filters, search.searchTerm))
         val filtered = search.filters.nonEmpty || search.searchTerm.isDefined
         Ok(provider_table_template(
           results,

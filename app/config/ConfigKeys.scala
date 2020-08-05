@@ -32,8 +32,6 @@ object ConfigKeys {
   val whitelistExcludedPaths: String = "whitelist.excludedPaths"
   val whitelistEnabled: String = "whitelist.enabled"
 
-  val progressiveDisclosureFeature: String = "features.progressiveDisclosure.enabled"
-  val filterViewFeature: String = "features.filterView.enabled"
   val priceFilterFeature: String = "features.priceFilter.enabled"
   val providerDetailsFilterFeature: String = "features.providerDetails.enabled"
   val welshFeature: String = "features.welsh.enabled"

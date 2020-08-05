@@ -16,8 +16,6 @@
 
 package testOnly.models
 
-case class FeatureSwitchModel(progressiveDisclosureEnabled: Boolean,
-                              filterViewEnabled: Boolean,
-                              priceFilterEnabled: Boolean,
+case class FeatureSwitchModel(priceFilterEnabled: Boolean,
                               providerDetailsEnabled: Boolean,
                               welshEnabled: Boolean)

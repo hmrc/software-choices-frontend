@@ -21,11 +21,6 @@ object SoftwareChoicesMessages {
   val title = "Software that works with Making Tax Digital for VAT"
   val showAll = "Software packages"
 
-  val noResultsHeader = "No results found"
-  val noResults = "We have not found any results. See the full list of software packages or try again."
-  val resultsHeader = "Results"
-  val results = "We have found these software packages that work with Making Tax Digital for VAT:"
-
   val providerAriaLabel: String => String = x => s"$x software company website"
   val categoryAriaLabel: String => String = x => s"Software companies beginning with $x"
 

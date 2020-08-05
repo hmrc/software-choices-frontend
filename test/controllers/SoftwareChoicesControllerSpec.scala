@@ -18,7 +18,7 @@ package controllers
 
 import _root_.utils.TestUtils
 import assets.messages.FilterSearchMessages
-import forms.{FiltersForm, SearchForm}
+import forms.FiltersForm
 import models.SoftwareProviderModel
 import org.jsoup.Jsoup
 import play.api.http.Status
@@ -43,39 +43,18 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
 
   def playLangCookie(welsh: Boolean = false): Cookie = Cookie("PLAY_LANG", if (welsh) "cy" else "en")
 
-  "SoftwareChoicesController.show" when {
+  "SoftwareChoicesController.show" should {
 
-    "the filter view is disabled" should {
+    lazy val result = TestSoftwareChoicesController.show(fakeRequest)
 
-      lazy val result = TestSoftwareChoicesController.show(fakeRequest)
-
-      "return 200 (OK)" in {
-        appConfig.filterViewEnabled(false)
-        mockReadProviders(softwareProviders)
-        status(result) shouldBe Status.OK
-      }
-
-      "return HTML" in {
-        contentType(result) shouldBe Some("text/html")
-        charset(result) shouldBe Some("utf-8")
-      }
-
+    "return 200 (OK)" in {
+      mockReadProviders(softwareProviders)
+      status(result) shouldBe Status.OK
     }
 
-    "the filter view is enabled" should {
-
-      lazy val result = TestSoftwareChoicesController.show(fakeRequest)
-
-      "return 200 (OK)" in {
-        mockReadProviders(softwareProviders)
-        status(result) shouldBe Status.OK
-      }
-
-      "return HTML" in {
-        contentType(result) shouldBe Some("text/html")
-        charset(result) shouldBe Some("utf-8")
-      }
-
+    "return HTML" in {
+      contentType(result) shouldBe Some("text/html")
+      charset(result) shouldBe Some("utf-8")
     }
   }
 
@@ -123,93 +102,45 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
   "SoftwareChoicesController.search" when {
     appConfig.providerDetailsEnabled(false)
 
-    "the filter view is disabled" should {
+    "given a valid search" should {
 
-      "given a valid search" should {
+      lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((FiltersForm.term, "A Team")))
 
-        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
-
-        "return 200 (OK)" in {
-          appConfig.filterViewEnabled(false)
-          mockReadProviders(softwareProviders)
-          setupMockSearchProviders(softwareProviders)
-          status(result) shouldBe Status.OK
-        }
-
-        "return HTML" in {
-          contentType(result) shouldBe Some("text/html")
-          charset(result) shouldBe Some("utf-8")
-        }
-
+      "return 200 (OK)" in {
+        mockReadProviders(softwareProviders)
+        setupMockFilterProviders(softwareProviders)
+        status(result) shouldBe Status.OK
       }
 
-
-      "given a invalid search" should {
-
-        val softwareProviders = Seq(
-          SoftwareProviderModel("aName", "aUrl"),
-          SoftwareProviderModel("anotherName", "anotherUrl"),
-          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
-        )
-
-        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "")))
-
-        "return 200 (OK)" in {
-          appConfig.filterViewEnabled(false)
-          mockReadProviders(softwareProviders)
-          status(result) shouldBe Status.BAD_REQUEST
-        }
-
-        "return HTML" in {
-          contentType(result) shouldBe Some("text/html")
-          charset(result) shouldBe Some("utf-8")
-        }
-
+      "return HTML" in {
+        contentType(result) shouldBe Some("text/html")
+        charset(result) shouldBe Some("utf-8")
       }
+
     }
 
-    "the filter view is enabled" should {
 
-      "given a valid search" should {
+    "given a invalid search" should {
 
-        lazy val result = TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "A Team")))
+      val softwareProviders = Seq(
+        SoftwareProviderModel("aName", "aUrl"),
+        SoftwareProviderModel("anotherName", "anotherUrl"),
+        SoftwareProviderModel("andAnotherName", "andAnotherUrl")
+      )
 
-        "return 200 (OK)" in {
-          mockReadProviders(softwareProviders)
-          setupMockFilterProviders(softwareProviders)
-          status(result) shouldBe Status.OK
-        }
+      lazy val result =
+        TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((FiltersForm.term, "a" * (FiltersForm.maxLength + 1))))
 
-        "return HTML" in {
-          contentType(result) shouldBe Some("text/html")
-          charset(result) shouldBe Some("utf-8")
-        }
-
+      "return 200 (OK)" in {
+        mockReadProviders(softwareProviders)
+        status(result) shouldBe Status.BAD_REQUEST
       }
 
-
-      "given a invalid search" should {
-
-        val softwareProviders = Seq(
-          SoftwareProviderModel("aName", "aUrl"),
-          SoftwareProviderModel("anotherName", "anotherUrl"),
-          SoftwareProviderModel("andAnotherName", "andAnotherUrl")
-        )
-
-        lazy val result =
-          TestSoftwareChoicesController.search(FakeRequest("POST", "/").withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
-
-        "return 200 (OK)" in {
-          mockReadProviders(softwareProviders)
-          status(result) shouldBe Status.BAD_REQUEST
-        }
-
-        "return HTML" in {
-          contentType(result) shouldBe Some("text/html")
-          charset(result) shouldBe Some("utf-8")
-        }
-
+      "return HTML" in {
+        contentType(result) shouldBe Some("text/html")
+        charset(result) shouldBe Some("utf-8")
       }
+
     }
 
   }
@@ -236,7 +167,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
     "the search is invalid" should {
 
       lazy val result = TestSoftwareChoicesController.ajaxFilterSearch(FakeRequest("POST", "/")
-        .withFormUrlEncodedBody((SearchForm.term, "a" * (FiltersForm.maxLength + 1))))
+        .withFormUrlEncodedBody((FiltersForm.term, "a" * (FiltersForm.maxLength + 1))))
 
       "return 400 (BAD_REQUEST)" in {
         mockReadProviders(softwareProviders)

@@ -31,8 +31,6 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
   def featureSwitch: Action[AnyContent] = Action { implicit request =>
     Ok(testOnly.views.html.featureSwitch(FeatureSwitchForm.form.fill(
       FeatureSwitchModel(
-        progressiveDisclosureEnabled = appConfig.features.progressiveDisclosureEnabled(),
-        filterViewEnabled = appConfig.features.filterViewEnabled(),
         priceFilterEnabled = appConfig.features.priceFilterEnabled(),
         providerDetailsEnabled = appConfig.features.providerDetailsEnabled(),
         welshEnabled = appConfig.features.welshEnabled()
@@ -48,8 +46,6 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
   }
 
   def handleSuccess(model: FeatureSwitchModel): Result = {
-    appConfig.features.progressiveDisclosureEnabled(model.progressiveDisclosureEnabled)
-    appConfig.features.filterViewEnabled(model.filterViewEnabled)
     appConfig.features.providerDetailsEnabled(model.providerDetailsEnabled)
     appConfig.features.welshEnabled(model.welshEnabled)
     Redirect(controllers.routes.SoftwareChoicesController.show())
