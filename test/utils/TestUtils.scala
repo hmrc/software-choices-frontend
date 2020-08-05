@@ -27,12 +27,10 @@ trait TestUtils extends WordSpec with Matchers with GuiceOneAppPerSuite with Bef
 
   override def beforeEach() {
     super.beforeEach()
-    appConfig.progressiveDisclosureEnabled(true)
     appConfig.priceFilterEnabled(true)
-    appConfig.filterViewEnabled(true)
     appConfig.welshEnabled(false)
   }
-  
+
   implicit lazy val fakeRequest = FakeRequest("GET", "/")
 
   lazy val injector: Injector = app.injector

@@ -27,10 +27,10 @@ class MockAppConfig @Inject()(implicit val sc: ServicesConfig)
 
   lazy val mockFeatures: Features = mock[Features]
 
-  def progressiveDisclosureEnabled(enabled: Boolean): Unit = mockFeatures.progressiveDisclosureEnabled(enabled)
-  def filterViewEnabled(enabled: Boolean): Unit = mockFeatures.filterViewEnabled(enabled)
   def priceFilterEnabled(enabled: Boolean): Unit = mockFeatures.priceFilterEnabled(enabled)
+
   def providerDetailsEnabled(enabled: Boolean): Unit = mockFeatures.providerDetailsEnabled(enabled)
+
   def welshEnabled(isEnabled: Boolean): Unit = mockFeatures.welshEnabled(isEnabled)
 
   override val features = mockFeatures

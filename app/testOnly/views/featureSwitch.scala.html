@@ -23,23 +23,21 @@
 
 @views.html.main_template(title = "Software Choices Feature Switches", bodyClasses = None) {
 
-    @helper.form(action = testOnly.controllers.routes.FeatureSwitchController.submitFeatureSwitch) {
-        @CSRF.formField
+@helper.form(action = testOnly.controllers.routes.FeatureSwitchController.submitFeatureSwitch) {
+@CSRF.formField
 
-        <div class="form-group">
-            <fieldset>
-                <legend>
-                    <h1 class="heading-medium">Features</h1>
-                </legend>
-                @singleCheckbox(form(ConfigKeys.progressiveDisclosureFeature), "Progressive Disclosure Enabled")
-                @singleCheckbox(form(ConfigKeys.filterViewFeature), "New Filter View Enabled")
-                @singleCheckbox(form(ConfigKeys.providerDetailsFilterFeature), "Show Provider Details Filter")
-                @singleCheckbox(form(ConfigKeys.welshFeature), "Enable Welsh language")
+<div class="form-group">
+    <fieldset>
+        <legend>
+            <h1 class="heading-medium">Features</h1>
+        </legend>
+        @singleCheckbox(form(ConfigKeys.providerDetailsFilterFeature), "Show Provider Details Filter")
+        @singleCheckbox(form(ConfigKeys.welshFeature), "Enable Welsh language")
 
-            </fieldset>
-        </div>
+    </fieldset>
+</div>
 
-        <button class="button" type="submit" id="continue-button">Submit</button>
+<button class="button" type="submit" id="continue-button">Submit</button>
 
-    }
+}
 }

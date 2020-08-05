@@ -25,7 +25,7 @@ case class SoftwareChoicesFilterViewModel(allProviders: Seq[SoftwareProviderMode
                                           filteredProviders: Option[Seq[SoftwareProviderModel]] = None
                                          )(implicit appConfig: AppConfig) {
 
-  private[models] val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
+  val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
 
   def renderProviders(implicit messages: Messages): HtmlFormat.Appendable =
     provider_table_template(
