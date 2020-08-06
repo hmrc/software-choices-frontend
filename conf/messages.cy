@@ -13,8 +13,7 @@ feedback.before = Gwasanaeth newydd yn hwn – bydd eich
 feedback.link = adborth
 feedback.after = yn ein helpu i’w wella.
 
-searchForm.term.missing = Enter the name of a software package
-searchForm.term.max = Enter less than {0} characters
+searchForm.term.max = Nodwch lai na {0} o gymeriadau
 
 softwareChoices.category.aria-label = Cwmnïau meddalwedd sy’n dechrau gyda {0}
 softwareChoices.provider.aria-label = Mae gwefan cwmni meddalwedd {0}
@@ -63,7 +62,7 @@ softwareChoices.filter.hearing = Clywedol
 softwareChoices.filter.motor = Echddygol
 
 softwareChoices.filter.filterResults = Gweithredu hidlyddion
-softwareChoices.filter.hidden.heading = Search results
+softwareChoices.filter.hidden.heading = Canlyniadau’r chwilio
 
 softwareChoices.filter.provider.both = Mae {0} yn addas ar gyfer busnesau neu asiantau.
 softwareChoices.filter.provider.business = Mae {0} yn addas ar gyfer busnesau.
