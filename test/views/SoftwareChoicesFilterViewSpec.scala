@@ -45,7 +45,9 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val spreadsheetsFilter = """label[for="SPREADSHEETS"]"""
     val priceFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(4) > h2"
     val freeFilter = """label[for="FREE"]"""
-    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(5) > h2"
+    val softwareLanguageFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(5) > h2"
+    val welshFilter = """label[for="WELSH"]"""
+    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(6) > h2"
     val cognitiveFilter = """label[for="COGNITIVE"]"""
     val visualFilter = """label[for="VISUAL"]"""
     val hearingFilter = """label[for="HEARING"]"""
@@ -62,9 +64,14 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
   }
 
+  override def beforeEach() {
+    super.beforeEach()
+    appConfig.priceFilterEnabled(true)
+    appConfig.welshEnabled(true)
+  }
+
   "The software choices filter page" when {
-    "the provider details filter is disabled" when {
-      appConfig.providerDetailsEnabled(false)
+    "the provider details filter is disabled and welsh is enabled" when {
       "the search does not contain errors" should {
 
         lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
@@ -167,7 +174,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
         lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
 
-        "contain a filter for Agents and Business which" should {
+        "contain a filter for Agents and Business which" when {
 
           "Suitable for should contain Agents and Business filter header" in {
             document.select(Selectors.suitableForFilterHeader).text shouldBe FilterSearchMessages.suitableFor
@@ -182,7 +189,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           }
         }
 
-        "contain a filter for Type of software" should {
+        "contain a filter for Type of software" when {
 
           "Software for should contain Type of software filter header" in {
             document.select(Selectors.softwareForFilterHeader).text shouldBe FilterSearchMessages.typeOfSoftware
@@ -197,7 +204,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           }
         }
 
-        "contain a filter for Additional Features" should {
+        "contain a filter for Additional Features" when {
 
           "Software features should contain Additional software features filter header" in {
             document.select(Selectors.softwareFeaturesFilterHeader).text shouldBe FilterSearchMessages.additionalSoftwareFeatures
@@ -216,7 +223,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           }
         }
 
-        "contain a filter for Price" should {
+        "contain a filter for Price" when {
 
           "Price should contain Price filter header" in {
             document.select(Selectors.priceFilterHeader).text shouldBe FilterSearchMessages.price
@@ -227,7 +234,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           }
         }
 
-        "contain a filter for Accessibility features" should {
+        "contain a filter for Accessibility features" when {
 
           "Accessibility features should contain Accessibility features filter header" in {
             document.select(Selectors.accessibilityFeaturesFilterHeader).text shouldBe FilterSearchMessages.accessibilityFeatures
@@ -250,7 +257,17 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           }
         }
 
-        "contain a Filter results button which" should {
+        "contain a filter for Software language" when {
+          "Accessibility features should contain Software language filter header" in {
+            document.select(Selectors.softwareLanguageFilterHeader).text shouldBe FilterSearchMessages.language
+          }
+
+          "Filter Label contains WELSH" in {
+            document.select(Selectors.welshFilter).text shouldBe FilterSearchMessages.welsh
+          }
+        }
+
+        "contain a Filter results button which" when {
 
           "have the correct message for the button" in {
             document.select(Selectors.filterResults).text shouldBe FilterSearchMessages.filterResults
