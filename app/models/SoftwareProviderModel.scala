@@ -44,7 +44,9 @@ object SoftwareProviderModel {
     motor <- (__ \ "motor").read[Boolean].map{getFilter(Filter.MOTOR, _)}
     visual <- (__ \ "visual").read[Boolean].map{getFilter(Filter.VISUAL, _)}
     free <- (__ \ "free").readNullable[Boolean].map{ boolean => getFilter(Filter.FREE, boolean.getOrElse(false))}
-    features = List(business, agent, viewReturn, viewLiabilities, viewPayments, accounting, spreadsheets, cognitive, visual, hearing, motor, free).flatten
+    welsh <- (__ \ "welsh").readNullable[Boolean].map{ boolean => getFilter(Filter.WELSH, boolean.getOrElse(false))}
+    features = List(business, agent, viewReturn, viewLiabilities, viewPayments,
+      accounting, spreadsheets, cognitive, visual, hearing, motor, free, welsh).flatten
   } yield SoftwareProviderModel(name, url, features)
 
   implicit val writes: Writes[SoftwareProviderModel] = new Writes[SoftwareProviderModel] {
@@ -63,7 +65,8 @@ object SoftwareProviderModel {
         "hearing" -> softwareProvider.filters.contains(Filter.HEARING),
         "motor" -> softwareProvider.filters.contains(Filter.MOTOR),
         "visual" -> softwareProvider.filters.contains(Filter.VISUAL),
-        "free" -> softwareProvider.filters.contains(Filter.FREE)
+        "free" -> softwareProvider.filters.contains(Filter.FREE),
+        "welsh" -> softwareProvider.filters.contains(Filter.WELSH)
       )
     }
   }

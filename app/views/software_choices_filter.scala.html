@@ -117,12 +117,18 @@
                 @search_filter_template(
                     FilterTemplateModel(
                         messages("softwareChoices.filter.price"),
-                        Seq(FilterFieldModel(form(free), messages("softwareChoices.filter.freeVersion"))
-                        ),
-                    appConfig.features.priceFilterEnabled()
+                        Seq(FilterFieldModel(form(free), messages("softwareChoices.filter.freeVersion"))),
+                        appConfig.features.priceFilterEnabled()
                     )
                 )
 
+                @search_filter_template(
+                    FilterTemplateModel(
+                        messages("softwareChoices.filter.softwareLanguage"),
+                        Seq(FilterFieldModel(form(welsh), messages("softwareChoices.filter.welsh"))),
+                        appConfig.features.welshEnabled()
+                    )
+                )
 
                 @search_filter_template(
                     FilterTemplateModel(

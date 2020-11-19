@@ -30,6 +30,7 @@ object Filter extends Enumeration {
   val MOTOR: Filter.Value = Value
   val VISUAL: Filter.Value = Value
   val FREE: Filter.Value = Value
+  val WELSH: Filter.Value = Value
 
   val UNKNOWN: Filter.Value = Value
 
@@ -45,6 +46,7 @@ object Filter extends Enumeration {
   final val motor = MOTOR.toString
   final val visual = VISUAL.toString
   final val free = FREE.toString
+  final val welsh = WELSH.toString
 
   //scalastyle:off
   def apply(string: String): Filter.Value = string.toUpperCase match {
@@ -60,6 +62,7 @@ object Filter extends Enumeration {
     case `motor` => MOTOR
     case `visual` => VISUAL
     case `free` => FREE
+    case `welsh` => WELSH
     case _ => UNKNOWN
   }
 }

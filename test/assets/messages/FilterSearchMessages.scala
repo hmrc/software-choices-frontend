@@ -47,6 +47,9 @@ object FilterSearchMessages {
   val price = "Price"
   val free = "Free version"
 
+  val language = "Software language"
+  val welsh = "Welsh"
+
   val hiddenHeading = "Search results"
 
   val filterResults = "Apply filters"
