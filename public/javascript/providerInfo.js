@@ -14,7 +14,7 @@ function showLoading(element) {
 function ajaxRequest(element) {
   $.ajax({
     type: "GET",
-    url: $("#searchForm").attr('action') + "/ajaxProvider?providerName=" + $(element).find('.summary').text(),
+    url: $("#searchForm").attr('action') + "/ajaxProvider?providerName=" + encodeURIComponent($(element).find('.summary').text()),
     success: function(result) {
         $(element).find('div').empty().append(result);
     },

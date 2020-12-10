@@ -30,7 +30,7 @@
                 <td>
                     @if(providerDetailsFilterFeature){
                         <noscript>
-                            <a href="/making-tax-digital-software/software-information?providerName=@{provider.name}"
+                            <a href="/making-tax-digital-software/software-information?providerName=@{provider.encodedName}"
                                class="providers bold"
                                data-journey-click="link:click:@{provider.name}"
                                aria-label='@messages("softwareChoices.provider-details.aria-label", provider.name)'>@provider.name

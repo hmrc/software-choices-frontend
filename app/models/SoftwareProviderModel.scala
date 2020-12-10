@@ -16,11 +16,15 @@
 
 package models
 
+import java.net.URLEncoder
+
 import enums.Filter
 import play.api.libs.json.{JsValue, Json, Reads, Writes, __}
 
 
 case class SoftwareProviderModel(name: String, url: String, filters: List[Filter.Value] = List.empty) {
+
+  def encodedName: String = URLEncoder.encode(name, "UTF-8")
 
   val category: String = "^[A-Z]".r.findFirstIn(name.toUpperCase).getOrElse("#")
 }
