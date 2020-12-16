@@ -10,6 +10,4 @@ GET        /software-information                             controllers.Softwar
 POST       /ajax                                             controllers.SoftwareChoicesController.ajaxFilterSearch
 GET        /ajaxProvider                                     controllers.SoftwareChoicesController.ajaxProvider(providerName: String)
 
-GET        /accessibility-statement/                         controllers.AccessibilityStatementController.show(pageUri: String)
-
 GET        /language/:lang                                   controllers.LanguageSwitchController.switchToLanguage(lang: String)
