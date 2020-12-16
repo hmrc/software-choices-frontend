@@ -70,7 +70,7 @@
 
 @footerTop = {}
 @footerLinks = {
-
+    @uiLayouts.footer_links()
 }
 
 @phaseBanner = {
@@ -130,6 +130,6 @@
     insideHeader,
     afterHeader,
     footerTop,
-    Some(uiLayouts.footer_links(accessibilityFooterUrl = Some(controllers.routes.AccessibilityStatementController.show(request.uri).url))),
+    Some(uiLayouts.footer_links()),
     true
 )(content)

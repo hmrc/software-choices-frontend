@@ -41,8 +41,6 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
   private val contactHost: String = config.getString(ConfigKeys.contactFrontendService)
   private val contactFormServiceIdentifier: String = "MSCC"
 
-  def accessibilityReportUrl (userAction: String): String = s"${contactHost}/contact/accessibility-unauthenticated?service=${service}&userAction=${URLEncoder.encode(userAction)}"
-
   lazy val analyticsToken: String = config.getString(ConfigKeys.googleAnalyticsToken)
   lazy val analyticsHost: String = config.getString(ConfigKeys.googleAnalyticsToken)
 
