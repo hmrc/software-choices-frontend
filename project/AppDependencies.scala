@@ -21,7 +21,7 @@ object AppDependencies {
 
   val whitelistFilterVersion = "3.4.0-play-26"
   val govukTemplateVersion = "5.55.0-play-26"
-  val playUiVersion = "8.13.0-play-26"
+  val playUiVersion = "8.19.0-play-26"
 
   val jsoupVersion = "1.13.1"
   val bootstrapVersion = "1.13.0"
