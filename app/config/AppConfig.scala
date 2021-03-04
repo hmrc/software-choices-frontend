@@ -41,9 +41,6 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
   private val contactHost: String = config.getString(ConfigKeys.contactFrontendService)
   private val contactFormServiceIdentifier: String = "MSCC"
 
-  lazy val analyticsToken: String = config.getString(ConfigKeys.googleAnalyticsToken)
-  lazy val analyticsHost: String = config.getString(ConfigKeys.googleAnalyticsToken)
-
   lazy val reportAProblemPartialUrl: String = s"$contactHost/contact/problem_reports_ajax?service=$contactFormServiceIdentifier"
   lazy val reportAProblemNonJSUrl: String = s"$contactHost/contact/problem_reports_nonjs?service=$contactFormServiceIdentifier"
 

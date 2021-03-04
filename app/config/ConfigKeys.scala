@@ -20,11 +20,6 @@ object ConfigKeys {
 
   val contactFrontendService: String = "contact-frontend.host"
 
-  private val googleAnalyticsRoot: String = "google-analytics"
-
-  val googleAnalyticsToken: String = googleAnalyticsRoot + ".token"
-  val googleAnalyticsHost: String = googleAnalyticsRoot + ".host"
-
   val host: String = "host"
 
   val shutterPage: String = "whitelist.shutterPage"
