@@ -1636,10 +1636,10 @@
     "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
     "free": true
   },
   {
@@ -8270,7 +8270,7 @@
     "motor": true
   },
   {
-    "name": "Vatman Pro",
+    "name": "vatman pro",
     "url": "https://vatman.online/",
     "business": true,
     "agent": true,
@@ -8298,5 +8298,21 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "VATIFY",
+    "url": "https://vatify.pinion.services",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": true
   }
 ]
