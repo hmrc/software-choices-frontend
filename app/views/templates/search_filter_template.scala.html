@@ -22,8 +22,8 @@
 @(filter: FilterTemplateModel)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
 @if(filter.isEnabled) {
-    <div class="filter-wrapper form-group">
-        <h2 class="filter-head">
+    <div class="filter-wrapper govuk-form-group">
+        <h2 class="filter-head govuk-body govuk-!-font-size-24">
             @messages(filter.heading)
         </h2>
 

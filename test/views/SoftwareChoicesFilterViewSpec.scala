@@ -33,27 +33,27 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".error-message"
     val hiddenHeading = "#provider-results > h2"
-    val suitableForFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(1) > h2"
+    val suitableForFilterHeader = "#searchForm > div > div.column-one-third.govuk-form-group > div:nth-child(1) > h2"
     val agentFilter = """label[for="AGENT"]"""
     val businessFilter = """label[for="BUSINESS"]"""
-    val softwareForFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(2) > h2"
+    val softwareForFilterHeader = "#searchForm > div > div.column-one-third.govuk-form-group > div:nth-child(2) > h2"
     val vatReturnsFilter = """label[for="VIEW_RETURN"]"""
     val vatLiabilitiesFilter = """label[for="VIEW_LIABILITIES"]"""
     val vatPaymentsFilter = """label[for="VIEW_PAYMENTS"]"""
-    val softwareFeaturesFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(3) > h2"
+    val softwareFeaturesFilterHeader = "#searchForm > div > div.column-one-third.govuk-form-group > div:nth-child(3) > h2"
     val accountingFilter = """label[for="ACCOUNTING"]"""
     val spreadsheetsFilter = """label[for="SPREADSHEETS"]"""
-    val priceFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(4) > h2"
+    val priceFilterHeader = "#searchForm > div > div.column-one-third.govuk-form-group > div:nth-child(4) > h2"
     val freeFilter = """label[for="FREE"]"""
-    val softwareLanguageFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(5) > h2"
+    val softwareLanguageFilterHeader = "#searchForm > div > div.column-one-third.govuk-form-group > div:nth-child(5) > h2"
     val welshFilter = """label[for="WELSH"]"""
-    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.column-one-third.form-group > div:nth-child(6) > h2"
+    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.column-one-third.govuk-form-group > div:nth-child(6) > h2"
     val cognitiveFilter = """label[for="COGNITIVE"]"""
     val visualFilter = """label[for="VISUAL"]"""
     val hearingFilter = """label[for="HEARING"]"""
     val motorFilter = """label[for="MOTOR"]"""
-    val filterResults = "#content > form > div > div.column-one-third button"
-    val p = (i: Int) => s"div.grid-row > div.column-two-thirds > div.form-group > p:nth-of-type($i)"
+    val filterResults = "#main-content > div > form > div > div.column-one-third button"
+    val p = (i: Int) => s"div.grid-row > div.column-two-thirds > div.govuk-form-group > p:nth-of-type($i)"
     val accordionHeading = "details > summary > span"
     val accordionSubHeading1 = (i: Int) => s"details > div > h2:nth-child($i)"
     val accordionBullet1 = (i: Int) => s"details > div > ul > li:nth-child($i)"
@@ -274,7 +274,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           }
 
           "have a form-group class" in {
-            document.select(Selectors.filterResults).hasClass("form-group") shouldBe true
+            document.select(Selectors.filterResults).hasClass("govuk-form-group") shouldBe true
           }
         }
       }

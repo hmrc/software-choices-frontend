@@ -67,7 +67,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         val doc = Jsoup.parse(contentAsString(result))
 
         status(result) shouldBe Status.OK
-        doc.select(".language-toggle").isEmpty shouldBe false
+        doc.select(".hmrc-language-select").isEmpty shouldBe false
         doc.select("h1").text() shouldBe FilterSearchMessages.welshTitle
       }
     }
@@ -79,7 +79,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         val doc = Jsoup.parse(contentAsString(result))
 
         status(result) shouldBe Status.OK
-        doc.select(".language-toggle").isEmpty shouldBe false
+        doc.select(".hmrc-language-select").isEmpty shouldBe false
         doc.select("h1").text() shouldBe FilterSearchMessages.title
       }
     }

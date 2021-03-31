@@ -1,0 +1,10 @@
+$govuk-assets-path: "/making-tax-digital-software/assets/lib/govuk-frontend/govuk/assets/";
+$hmrc-assets-path: "/making-tax-digital-software/assets/lib/hmrc-frontend/hmrc/";
+
+@import "lib/govuk-frontend/govuk/all";
+@import "lib/hmrc-frontend/hmrc/all";
+
+.app-reference-number {
+  display: block;
+  font-weight: bold;
+}

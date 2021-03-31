@@ -49,7 +49,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
 
       lazy val document = parseView(views.html.templates.provider_info_template(providerFull))
 
-      document.select("div.form-group").get(0).text() shouldBe testMessages.forBoth(testName)
+      document.select("div.govuk-body").get(0).text() shouldBe testMessages.forBoth(testName)
 
       document.select("h2").get(0).text() shouldBe testMessages.softwareType
       document.select("ul > li").get(0).text() shouldBe testMessages.records
@@ -61,13 +61,13 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
       document.select("ul > li").get(4).text() shouldBe testMessages.viewLiabilities
       document.select("ul > li").get(5).text() shouldBe testMessages.viewPayments
 
-      document.select("div.form-group").get(1).text() shouldBe testMessages.accessibilityFeatures(
+      document.select("div.govuk-body").get(1).text() shouldBe testMessages.accessibilityFeatures(
         List(COGNITIVE, HEARING, MOTOR, VISUAL).map(_.toString.toLowerCase())
       )
 
-      document.select("div.form-group").get(2).text() shouldBe testMessages.free
+      document.select("div.govuk-body").get(2).text() shouldBe testMessages.free
 
-      document.select("div.form-group").get(3).text() shouldBe testMessages.visit(testName)
+      document.select("div.govuk-body").get(3).text() shouldBe testMessages.visit(testName)
 
       document.select("a").get(0).attr("href") shouldBe testUrl
     }
@@ -84,7 +84,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
       document.select("h2").get(0).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(0).text() shouldBe testMessages.submitVat
 
-      document.select("div.form-group").get(0).text() shouldBe testMessages.visit(testName)
+      document.select("div.govuk-body").get(0).text() shouldBe testMessages.visit(testName)
 
       document.select("a").get(0).attr("href") shouldBe testUrl
     }
@@ -102,7 +102,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
 
       lazy val document = parseView(views.html.templates.provider_info_template(provider))
 
-      document.select("div.form-group").get(0).text() shouldBe testMessages.forBusinesses(testName)
+      document.select("div.govuk-body").get(0).text() shouldBe testMessages.forBusinesses(testName)
 
       document.select("h2").get(0).text() shouldBe testMessages.softwareType
       document.select("ul > li").get(0).text() shouldBe testMessages.records
@@ -110,11 +110,11 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
       document.select("h2").get(1).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(1).text() shouldBe testMessages.submitVat
 
-      document.select("div.form-group").get(1).text() shouldBe testMessages.accessibilityFeature(
+      document.select("div.govuk-body").get(1).text() shouldBe testMessages.accessibilityFeature(
         COGNITIVE.toString.toLowerCase()
       )
 
-      document.select("div.form-group").get(2).text() shouldBe testMessages.visit(testName)
+      document.select("div.govuk-body").get(2).text() shouldBe testMessages.visit(testName)
 
       document.select("a").get(0).attr("href") shouldBe testUrl
     }
@@ -133,7 +133,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
 
       lazy val document = parseView(views.html.templates.provider_info_template(provider))
 
-      document.select("div.form-group").get(0).text() shouldBe testMessages.forAgents(testName)
+      document.select("div.govuk-body").get(0).text() shouldBe testMessages.forAgents(testName)
 
       document.select("h2").get(0).text() shouldBe testMessages.softwareType
       document.select("ul > li").get(0).text() shouldBe testMessages.bridging
@@ -141,11 +141,11 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
       document.select("h2").get(1).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(1).text() shouldBe testMessages.submitVat
 
-      document.select("div.form-group").get(1).text() shouldBe testMessages.accessibilityFeatures(
+      document.select("div.govuk-body").get(1).text() shouldBe testMessages.accessibilityFeatures(
         List(COGNITIVE, HEARING).map(_.toString.toLowerCase())
       )
 
-      document.select("div.form-group").get(2).text() shouldBe testMessages.visit(testName)
+      document.select("div.govuk-body").get(2).text() shouldBe testMessages.visit(testName)
 
       document.select("a").get(0).attr("href") shouldBe testUrl
     }

@@ -20,7 +20,7 @@ import sbt._
 object AppDependencies {
 
   val whitelistFilterVersion = "3.4.0-play-26"
-  val govukTemplateVersion = "5.55.0-play-26"
+  val govukTemplateVersion = "5.65.0-play-26"
   val playUiVersion = "8.19.0-play-26"
 
   val jsoupVersion = "1.13.1"
@@ -33,7 +33,11 @@ object AppDependencies {
     "uk.gov.hmrc" %% "govuk-template" % govukTemplateVersion,
     "uk.gov.hmrc" %% "play-ui" % playUiVersion,
     "uk.gov.hmrc" %% "bootstrap-play-26" % bootstrapVersion,
-    "uk.gov.hmrc" %% "play-language" % "4.3.0-play-26"
+    "uk.gov.hmrc" %% "play-language" % "4.10.0-play-26",
+    "uk.gov.hmrc" %% "play-frontend-govuk" % "0.56.0-play-26",
+    "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.56.0-play-26",
+    "org.webjars.npm" % "govuk-frontend" % "3.7.0",
+    "org.webjars.npm" % "hmrc-frontend" % "1.20.0"
   )
 
   val test = Seq(

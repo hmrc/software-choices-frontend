@@ -22,7 +22,7 @@ class ErrorTemplateViewSpec extends ViewBaseSpec {
 
   object Selectors {
     val heading = "h1"
-    val content = "#content p"
+    val content = "#main-content p"
   }
 
   "The Error Template" when {

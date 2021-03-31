@@ -23,13 +23,13 @@
 
 @(providerFilters.contains(BUSINESS), providerFilters.contains(AGENT)) match {
     case (true, true) => {
-        <div class="form-group">@messages("softwareChoices.filter.provider.both", provider.name)</div>
+        <div class="govuk-body">@messages("softwareChoices.filter.provider.both", provider.name)</div>
     }
     case (true, false) =>  {
-        <div class="form-group">@messages("softwareChoices.filter.provider.business", provider.name)</div>
+        <div class="govuk-body">@messages("softwareChoices.filter.provider.business", provider.name)</div>
     }
     case (false, true) =>  {
-        <div class="form-group">@messages("softwareChoices.filter.provider.agent", provider.name)</div>
+        <div class="govuk-body">@messages("softwareChoices.filter.provider.agent", provider.name)</div>
     }
     case _ => {}
 }
@@ -37,42 +37,42 @@
 @(providerFilters.contains(ACCOUNTING), providerFilters.contains(SPREADSHEETS)) match {
     case (false, false) => {}
     case (accounting, spreadsheets) => {
-        <h2 class="heading-small">@messages("softwareChoices.filter.provider.typeHeading")</h2>
-        <ul class="list list-bullet form-group">
+        <h2 class="govuk-heading-s">@messages("softwareChoices.filter.provider.typeHeading")</h2>
+        <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
             @if(accounting){
-                <li>@messages("softwareChoices.filter.provider.records")</li>
+                <li class="govuk-body">@messages("softwareChoices.filter.provider.records")</li>
             }
             @if(spreadsheets){
-                <li>@messages("softwareChoices.filter.provider.bridging")</li>
+                <li class="govuk-body">@messages("softwareChoices.filter.provider.bridging")</li>
             }
         </ul>
     }
 }
 
 
-<h2 class="heading-small">@messages("softwareChoices.filter.provider.featureHeading")</h2>
-<ul class="list list-bullet form-group">
-    <li>@messages("softwareChoices.filter.provider.submitVat")</li>
+<h2 class="govuk-heading-s">@messages("softwareChoices.filter.provider.featureHeading")</h2>
+<ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
+    <li class="govuk-body">@messages("softwareChoices.filter.provider.submitVat")</li>
     @if(providerFilters.contains(VIEW_RETURN)){
-        <li>@messages("softwareChoices.filter.provider.viewReturns")</li>
+        <li class="govuk-body">@messages("softwareChoices.filter.provider.viewReturns")</li>
     }
     @if(providerFilters.contains(VIEW_LIABILITIES)){
-        <li>@messages("softwareChoices.filter.provider.viewLiabilities")</li>
+        <li class="govuk-body">@messages("softwareChoices.filter.provider.viewLiabilities")</li>
     }
     @if(providerFilters.contains(VIEW_PAYMENTS)){
-        <li>@messages("softwareChoices.filter.provider.viewPayments")</li>
+        <li class="govuk-body">@messages("softwareChoices.filter.provider.viewPayments")</li>
     }
 </ul>
 
 @accessibilityFilters.map(_.toString.toLowerCase) match {
     case Nil => {}
     case List(filter) => {
-        <div class="form-group">
+        <div class="govuk-body">
             @messages("softwareChoices.filter.provider.accessibilityOne", messages(s"softwareChoices.filter.$filter").toLowerCase)
         </div>
     }
     case multipleFilters => {
-        <div class="form-group">
+        <div class="govuk-body">
             @messages(
                 "softwareChoices.filter.provider.accessibilityMultiple",
                 multipleFilters.tail.map(v => messages(s"softwareChoices.filter.$v").toLowerCase).mkString(", "),
@@ -83,7 +83,7 @@
 }
 
 @if(providerFilters.contains(FREE)){
-    <div class="form-group">@messages("softwareChoices.filter.provider.free")</div>
+    <div class="govuk-body">@messages("softwareChoices.filter.provider.free")</div>
 }
 
-<div class="form-group">@Html(messages("softwareChoices.filter.provider.visit", provider.url, provider.name))</div>
+<div class="govuk-body">@Html(messages("softwareChoices.filter.provider.visit", provider.url, provider.name))</div>

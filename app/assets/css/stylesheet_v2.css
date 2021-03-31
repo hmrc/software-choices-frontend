@@ -22,10 +22,10 @@ body, main {
 .search-input input {
   -webkit-appearance: none;
   border-radius: 0;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "GDS Transport", Arial, sans-serif;
   font-weight: 400;
   text-transform: none;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1.25;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -242,4 +242,8 @@ textarea:focus {
         display: inline-block;
         float: right;
     }
+}
+
+.hmrc-banner {
+    border-bottom: 0;
 }

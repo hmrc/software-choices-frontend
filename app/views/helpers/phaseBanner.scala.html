@@ -14,13 +14,17 @@
  * limitations under the License.
  *@
 
-@(field: Field, label: String)(implicit messages: Messages)
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@value = @{ field.value match { case Some(x) => x case None => "false" case x => x }}
+@()(implicit request: Request[_], messages: Messages, appConfig: config.AppConfig)
 
-<div class="multiple-choice">
-    <input id="@{field.name}" name="@{field.name}" type="checkbox" value="true" @if(value == "true"){ checked }>
-    <label class="govuk-!-font-size-19 govuk-label govuk-!-margin-0" for="@{field.name}">@label</label>
+@feedbackBanner = {
+    @messages("feedback.before")
+    <a id="beta-banner-feedback" href="@{appConfig.feedbackUrl}">@messages("feedback.link")</a>
+    @messages("feedback.after")
+}
 
-</div>
-
+@GovukPhaseBanner(PhaseBanner(
+    tag = Some(Tag(content = Text("BETA"))),
+    content = HtmlContent(feedbackBanner)
+))

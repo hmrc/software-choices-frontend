@@ -31,13 +31,12 @@ class SoftwareInformationViewSpec extends ViewBaseSpec with SoftwareProvidersTes
   "The software information page" should {
 
     lazy val document = parseView(views.html.software_choices_software_information(providerA))
-    lazy val body: Element = document.getElementById("content")
 
     "have a back button" in {
-      body.select("p").text shouldBe Messages.backButton
+      document.select(".govuk-back-link").text shouldBe Messages.backButton
     }
     "have a heading" in {
-      body.select("h1").text shouldBe Messages.heading
+      document.select("h1").text shouldBe Messages.heading
     }
   }
 }
