@@ -31,12 +31,12 @@
                     @if(providerDetailsFilterFeature){
                         <noscript>
                             <a href="/making-tax-digital-software/software-information?providerName=@{provider.encodedName}"
-                               class="providers bold"
+                               class="providers govuk-link govuk-!-font-weight-bold"
                                data-journey-click="link:click:@{provider.name}"
                                aria-label='@messages("softwareChoices.provider-details.aria-label", provider.name)'>@provider.name
                             </a>
                         </noscript>
-                        <details class="details" style="display:none;">
+                        <details class="govuk-details govuk-!-margin-0" style="display:none;">
                             <summary hidden><span class="summary">@{provider.name}</span></summary>
                             <div class="panel panel-border-narrow"></div>
                         </details>

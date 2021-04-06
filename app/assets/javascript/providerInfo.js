@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 $('#provider-table-container').on('click', 'details', function() {
     if ($(this).find('div').is(':empty')) {

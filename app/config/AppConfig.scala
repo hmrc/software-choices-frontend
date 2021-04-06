@@ -41,9 +41,6 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
   private val contactHost: String = config.getString(ConfigKeys.contactFrontendService)
   private val contactFormServiceIdentifier: String = "MSCC"
 
-  lazy val reportAProblemPartialUrl: String = s"$contactHost/contact/problem_reports_ajax?service=$contactFormServiceIdentifier"
-  lazy val reportAProblemNonJSUrl: String = s"$contactHost/contact/problem_reports_nonjs?service=$contactFormServiceIdentifier"
-
   lazy val feedbackUrl: String = s"$contactHost/contact/beta-feedback-unauthenticated?service=$contactFormServiceIdentifier" +
     s"&backUrl=${ContinueUrl(host + controllers.routes.SoftwareChoicesController.show().url).encodedUrl}"
 

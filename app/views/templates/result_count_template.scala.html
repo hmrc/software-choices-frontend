@@ -16,7 +16,7 @@
 
 @(resultCount: Int, totalCount: Int)(implicit messages: Messages)
 
-<span id="search-result-count" class="heading-medium" role="alert">
+<span id="search-result-count" class="govuk-heading-m" role="alert">
     @if(resultCount > 0) {
         @if(resultCount == 1) {
             @messages("common.results.count.oneResult")

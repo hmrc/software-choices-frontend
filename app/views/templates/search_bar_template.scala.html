@@ -20,14 +20,14 @@
 
 @(field: Field, showLabel: Boolean = false, includeNoscript: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
-<div class="form-group @if(field.hasErrors){form-field--error"}">
+<div class="govuk-form-group @if(field.hasErrors){form-field--error"}">
 
     @field.errors.map { error => <span class="error-message">@messages(error.message, error.args: _*)</span> }
 
     <div class="search-field search-field-darker">
         <div class="search-input search-input-with-button">
             <h2 class="@if(!showLabel){visuallyhidden} search-label">
-                <label for="term">
+                <label class="govuk-label govuk-!-font-size-24" for="term">
                     @messages("softwareChoices.search.button.text")
                 </label>
             </h2>
