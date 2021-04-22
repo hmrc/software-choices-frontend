@@ -3065,10 +3065,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
+    "cognitive": true,
+    "visual": true,
     "hearing": false,
-    "motor": false
+    "motor": true
   },
   {
     "name": "QuickBooks Bridging Software (Intuit)",
@@ -8313,6 +8313,22 @@
     "visual": true,
     "hearing": true,
     "motor": true,
+    "free": true
+  },
+  {
+    "name": "Countingup",
+    "url": "https://countingup.com/accountants/",
+    "business": false,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
     "free": true
   }
 ]
