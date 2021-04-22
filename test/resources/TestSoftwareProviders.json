@@ -3065,10 +3065,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": false,
-    "cognitive": true,
-    "visual": true,
+    "cognitive": false,
+    "visual": false,
     "hearing": false,
-    "motor": true
+    "motor": false
   },
   {
     "name": "QuickBooks Bridging Software (Intuit)",
@@ -3080,10 +3080,10 @@
     "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
+    "cognitive": true,
+    "visual": true,
     "hearing": false,
-    "motor": false
+    "motor": true
   },
   {
     "name": "QuickFile",
