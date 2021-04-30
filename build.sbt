@@ -38,7 +38,6 @@ lazy val microservice = Project(appName, file("."))
   .settings(publishingSettings: _*)
   .configs(IntegrationTest)
   .settings(integrationTestSettings(): _*)
-  .settings(resolvers ++= Seq(Resolver.jcenterRepo, Resolver.bintrayRepo("hmrc", "releases")))
   .settings(scalaVersion := "2.12.12")
   .settings(
     TwirlKeys.templateImports ++= Seq(
