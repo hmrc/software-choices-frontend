@@ -19,9 +19,13 @@ sbt "run 9590 -Dapplication.router=testOnlyDoNotUseInAppConf.Routes"
 #### Using Service Manager
 
 ```
-sm --start SOFTWARE_CHOICES_ALL -f
+sm --start SOFTWARE_CHOICES_ALL -r
 ```
 The above command will run all the dependent services and start software choices frontend. 
+
+Link to app running locally:
+
+http://localhost:9590/making-tax-digital-software
 
 ### License
 
