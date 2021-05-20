@@ -619,22 +619,6 @@
     "motor": false
   },
   {
-    "name": "Avalara MTD Filer",
-    "url": "https://www.avalara.com/vatlive/en/vat-news/avalara-mtd-filer-free-tool-for-hmrcs-mtd.html",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
-    "free": true
-  },
-  {
     "name": "axisfirst",
     "url": "https://www.axisfirst.co.uk/software/",
     "business": true,
@@ -801,7 +785,7 @@
   },
   {
     "name": "Buzzacott LLP",
-    "url": "https://www.buzzacott.co.uk/vat",
+    "url": "https://www.buzzacott.co.uk/making-tax-digital",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -1538,14 +1522,14 @@
   },
   {
     "name": "FinanSys – SunSystems",
-    "url": "https://www.finansys.com/sunsystems-making-tax-digital/",
+    "url": "https://finansys.com/sunsystems-solutions/making-tax-digital-sunsystems/",
     "business": true,
     "agent": true,
     "accounting": true,
-    "spreadsheets": false,
+    "spreadsheets": true,
     "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -3823,7 +3807,7 @@
   },
   {
     "name": "Vertex Global Tax Solutions",
-    "url": "https://www.vertexinc.com/global-tax-solutions",
+    "url": "https://www.vertexinc.com/solutions",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3988,7 +3972,7 @@
   },
   {
     "name": "Yardi Systems Ltd",
-    "url": "https://www.yardi.com/uk/newsletters-uk/what-is-making-tax-digital/",
+    "url": "https://www.yardi.co.uk/newsletters/what-is-making-tax-digital/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -5397,21 +5381,6 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "ProWare Cloud",
-    "url": "https://www.proware.io",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -6949,7 +6918,7 @@
   },
   {
     "name": "Chase Software Solutions",
-    "url": "https://www.chasesoftware.biz/contacts/",
+    "url": "https://www.chasesoftware.biz/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -7878,8 +7847,8 @@
     "motor": false
   },
   {
-    "name": "KG SAP add-on for MTD UK",
-    "url": "http://www.key-group.nl/en/services/tax-and-sap/sap-add-on-mtd-uk-for-vat/",
+    "name": "KGT SAP add-on for MTD UK",
+    "url": "http://kgtapplications.com/Home/MTD",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -8330,5 +8299,20 @@
     "hearing": false,
     "motor": false,
     "free": true
+  },
+  {
+    "name": "MTD for Accounting Seed",
+    "url": "https://www.alpha-index.co.uk/mtd4as/",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   }
 ]
