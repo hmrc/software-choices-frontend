@@ -2483,6 +2483,21 @@
     "free": true
   },
   {
+    "name": "MYT",
+    "url": "https://mytbusiness.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
     "name": "Neilson James Technology",
     "url": "https://www.neilsonjamestech.co.uk/",
     "business": true,
@@ -3669,6 +3684,21 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "Tyretec",
+    "url": "https://www.tyretec.co.uk",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   },
   {
     "name": "Vanilla Solutions Limited",
@@ -7410,6 +7440,21 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "SmartAccounting (Entertainment Partners)",
+    "url": "https://www.ep.com/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   },
   {
     "name": "Stansoft for Linux",
