@@ -7449,7 +7449,7 @@
     "accounting": true,
     "spreadsheets": false,
     "viewReturn": false,
-    "viewLiabilities": true,
+    "viewLiabilities": false,
     "viewPayments": false,
     "cognitive": true,
     "visual": true,
