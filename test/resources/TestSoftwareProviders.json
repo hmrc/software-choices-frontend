@@ -60,22 +60,6 @@
     "motor": false
   },
   {
-    "name": "@DataDear Excel Add-in",
-    "url": "https://www.datadear.com/hmrc-vat-return-making-tax-digital/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
-    "free": true
-  },
-  {
     "name": "@Gosimpletax Ltd (VAT record keeping)",
     "url": "https://books.gosimplesoftware.co.uk/",
     "business": true,
@@ -1087,7 +1071,7 @@
   },
   {
     "name": "Cynare",
-    "url": "http://cynare.com/mtd.html",
+    "url": "https://cynare.com/cynare-platform/firm-portal/tax-compliance/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -8216,6 +8200,21 @@
     "business": true,
     "agent": true,
     "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "RealPage Accounting",
+    "url": "https://www.realpage.com/property-management-software/accounting-software/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
     "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": true,
