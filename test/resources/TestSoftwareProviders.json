@@ -3982,7 +3982,8 @@
     "cognitive": true,
     "visual": true,
     "hearing": true,
-    "motor": true
+    "motor": true,
+    "free": true
   },
   {
     "name": "EVOPOS UK LTD",
@@ -6466,21 +6467,6 @@
     "motor": false
   },
   {
-    "name": "AW-APPS ACCOUNTING",
-    "url": "http://aw-apps.co.uk/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "LOVAT Compliance",
     "url": "https://vatcompliance.net/en/",
     "business": true,
@@ -7621,21 +7607,6 @@
     "motor": false
   },
   {
-    "name": "XAL",
-    "url": "http://www.thedochertypartnership.com",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "PwC Enterprise - Comply First Time",
     "url": "https://globalvatonline.pwc.com/services/pwc-enterprise-cft",
     "business": true,
@@ -7832,7 +7803,7 @@
   },
   {
     "name": "Sage X3",
-    "url": "https://my.sage.co.uk/public/help.aspx#/customer/support/x3/category/mtd",
+    "url": "https://www.sage.com/en-gb/making-tax-digital/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -7847,7 +7818,7 @@
   },
   {
     "name": "Sage Intacct",
-    "url": "https://www.sage.com/uk/intacct",
+    "url": "https://www.sage.com/en-gb/making-tax-digital/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -8216,6 +8187,36 @@
     "agent": true,
     "accounting": true,
     "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "#taxuk",
+    "url": "https://taxuk.org",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": false,
+    "motor": true
+  },
+  {
+    "name": "#GoFile",
+    "url": "https://gofile.co.uk/vat/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
