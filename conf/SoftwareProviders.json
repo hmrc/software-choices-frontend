@@ -4693,12 +4693,12 @@
     "motor": false
   },
   {
-    "name": "Rhino",
-    "url": "https://rhinoapps.com/introduction-to-mtd-for-vat/",
+    "name": "FSB Making Tax Digital",
+    "url": "https://www.fsb.org.uk/mtd",
     "business": true,
     "agent": false,
     "accounting": true,
-    "spreadsheets": false,
+    "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": false,
