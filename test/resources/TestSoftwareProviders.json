@@ -302,21 +302,6 @@
     "motor": false
   },
   {
-    "name": "Accountz.com Ltd",
-    "url": "https://www.accountz.com/pages/making-tax-digital-for-vat",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Accuman - Integrated Management Accounts",
     "url": "http://www.accu-man.co.uk/index.htm",
     "business": true,
@@ -2451,7 +2436,7 @@
     "motor": false
   },
   {
-    "name": "My Digital Bridge",
+    "name": "#My Digital Bridge",
     "url": "https://page.mydigitalaccounts.com/mdb/",
     "business": true,
     "agent": true,
@@ -2995,7 +2980,7 @@
   },
   {
     "name": "QuickBooks (Intuit)",
-    "url": "https://quickbooks.intuit.com/uk/mtd-software/",
+    "url": "https://quickbooks.intuit.com/uk/making-tax-digital/#2",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -3010,7 +2995,7 @@
   },
   {
     "name": "QuickBooks Bridging Software (Intuit)",
-    "url": "https://quickbooks.intuit.com/uk/bridging-software/?cid=ref_uk_HMRC_bridging-software_link_021519-021521",
+    "url": "https://quickbooks.intuit.com/uk/making-tax-digital/#2",
     "business": true,
     "agent": true,
     "accounting": false,
@@ -8223,6 +8208,23 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "welsh": true,
+    "free": true
+  },
+  {
+    "name": "OnlineFilings",
+    "url": "https://www.onlinefilings.co.uk/company/hmrc/vatReturn/product/",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   }
 ]
