@@ -859,6 +859,22 @@
     "motor": false
   },
   {
+    "name": "CaptainBI",
+    "url": "https://www.captainbi.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false
+  },
+  {
     "name": "CHM MTD Bridge",
     "url": "https://www.chm-software.co.uk/",
     "business": true,
@@ -3173,6 +3189,22 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "SafeAccounts",
+    "url": "https://www.safeaccounts.co.uk",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": true
   },
   {
     "name": "Sanderson Plc – UnityF8 Food & Drink ERP",
