@@ -15,6 +15,9 @@
  *@
 
 @import config.AppConfig
+
+@this(govukWrapper: govuk_wrapper)
+
 @(title: String,
   sidebarLinks: Option[Html] = None,
   contentHeader: Option[Html] = None,
@@ -24,7 +27,7 @@
   showBackLink: Boolean = false)(mainContent: Html)(implicit request : Request[_], messages: Messages, appConfig: AppConfig)
 
 
-@govuk_wrapper(title = title,
+@govukWrapper(title = title,
                mainClass = mainClass,
                bodyClasses = bodyClasses,
                mainContent = mainContent,

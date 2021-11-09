@@ -17,11 +17,27 @@
 package views
 
 import assets.messages.{CommonMessages, FilterSearchMessages}
-import assets.testContants.SoftwareProvidersTestConstants
+import config.AppConfig
+import testContants.SoftwareProvidersTestConstants
 import forms.FiltersForm
+import models.{SoftwareChoicesFilterViewModel, SoftwareProviderModel}
+import views.html.software_choices_filter
+import views.html.templates.provider_table_template
 
 
 class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
+
+
+  val viewProvider = app.injector.instanceOf[provider_table_template]
+  val view = app.injector.instanceOf[software_choices_filter]
+
+  def filterViewProviders(implicit appConfig: AppConfig): SoftwareChoicesFilterViewModel = SoftwareChoicesFilterViewModel(
+      allProviders = Seq(
+        SoftwareProviderModel("#Name", "#Url"),
+        SoftwareProviderModel("aName", "aUrl"),
+        SoftwareProviderModel("bName", "bUrl")
+      ), None , viewProvider
+    )
 
   object Selectors {
     val pageHeading = "h1"
@@ -74,7 +90,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     "the provider details filter is disabled and welsh is enabled" when {
       "the search does not contain errors" should {
 
-        lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
+        lazy val document = parseView(view(filterViewProviders, FiltersForm.form))
 
         s"have the correct document title" in {
           document.title shouldBe FilterSearchMessages.fullTitle
@@ -146,7 +162,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
         val errorForm = FiltersForm.form.withError("term", "AN ERROR")
 
-        lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, errorForm))
+        lazy val document = parseView(view(filterViewProviders, errorForm))
 
         "page title should be prefixed with Error" in {
           document.title shouldBe s"${CommonMessages.error} ${FilterSearchMessages.fullTitle}"
@@ -172,7 +188,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
       "Filter search" should {
 
-        lazy val document = parseView(views.html.software_choices_filter(filterViewProviders, FiltersForm.form))
+        lazy val document = parseView(view(filterViewProviders, FiltersForm.form))
 
         "contain a filter for Agents and Business which" when {
 

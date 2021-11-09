@@ -22,13 +22,14 @@ import play.twirl.api.HtmlFormat
 import views.html.templates.provider_table_template
 
 case class SoftwareChoicesFilterViewModel(allProviders: Seq[SoftwareProviderModel],
-                                          filteredProviders: Option[Seq[SoftwareProviderModel]] = None
+                                          filteredProviders: Option[Seq[SoftwareProviderModel]] = None,
+                                          view: provider_table_template
                                          )(implicit appConfig: AppConfig) {
 
   val sortedProviders: Seq[SoftwareProviderModel] => Seq[SoftwareProviderModel] = _.sortBy(_.name.toLowerCase)
 
   def renderProviders(implicit messages: Messages): HtmlFormat.Appendable =
-    provider_table_template(
+    view(
       sortedProviders(filteredProviders.getOrElse(allProviders)),
       allProviders.length,
       searchExecuted,

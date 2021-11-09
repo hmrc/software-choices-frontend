@@ -16,13 +16,16 @@
 
 package views.templates
 
-import assets.testContants.SoftwareProvidersTestConstants
+import testContants.SoftwareProvidersTestConstants
 import models.components.{FilterFieldModel, FilterTemplateModel}
 import play.api.data.Form
 import play.api.data.Forms.{mapping, text}
 import views.ViewBaseSpec
+import views.html.templates.search_filter_template
 
 class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
+
+  val view = app.injector.instanceOf[search_filter_template]
 
   case class TestModel(foo: String, bar: String)
 
@@ -48,7 +51,7 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
 
     "given a title and 3 FilterTemplateModels" should {
 
-      lazy val document = parseView(views.html.templates.search_filter_template(FilterTemplateModel("A Title",  filterTemplateModels, true)))
+      lazy val document = parseView(view(FilterTemplateModel("A Title",  filterTemplateModels, true)))
 
       "have a title" in {
         val actualResult = document.select(Selectors.title).text

@@ -20,8 +20,11 @@ import models.SoftwareProviderModel
 import views.ViewBaseSpec
 import enums.Filter._
 import messages.{ProviderInfoTemplateMessages => testMessages}
+import views.html.templates.provider_info_template
 
 class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
+
+  val view = app.injector.instanceOf[provider_info_template]
 
   val testName = "testName"
   val testUrl = "testUrl"
@@ -47,7 +50,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
         )
       )
 
-      lazy val document = parseView(views.html.templates.provider_info_template(providerFull))
+      lazy val document = parseView(view(providerFull))
 
       document.select("div.govuk-body").get(0).text() shouldBe testMessages.forBoth(testName)
 
@@ -79,7 +82,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
         List()
       )
 
-      lazy val document = parseView(views.html.templates.provider_info_template(provider))
+      lazy val document = parseView(view(provider))
 
       document.select("h2").get(0).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(0).text() shouldBe testMessages.submitVat
@@ -100,7 +103,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
         )
       )
 
-      lazy val document = parseView(views.html.templates.provider_info_template(provider))
+      lazy val document = parseView(view(provider))
 
       document.select("div.govuk-body").get(0).text() shouldBe testMessages.forBusinesses(testName)
 
@@ -131,7 +134,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
         )
       )
 
-      lazy val document = parseView(views.html.templates.provider_info_template(provider))
+      lazy val document = parseView(view(provider))
 
       document.select("div.govuk-body").get(0).text() shouldBe testMessages.forAgents(testName)
 

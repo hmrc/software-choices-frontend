@@ -18,11 +18,18 @@
 @import templates._
 @import views.utils.ServiceNameTitle
 @import forms.FiltersForm
-@import uk.gov.hmrc.play.views.html.{helpers => uiHelpers}
 @import enums.Filter._
 @import models.components._
+@import uk.gov.hmrc.play.views.html.helpers._
 @import views.html.helpers.accordionHelper
 
+@this(error_summary_template: error_summary_template,
+        accordionHelper: accordionHelper,
+        formWithCSRF: FormWithCSRF,
+        search_filter_template: search_filter_template,
+        search_bar_template: search_bar_template,
+        main_template: main_template
+)
 
 @(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[FiltersFormModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
@@ -34,16 +41,16 @@
 }
 
 @accordionContent = {
-    <h2 class="govuk-heading-s">@Messages("softwareChoices.filter.accordion.subHeading1")</h2>
+    <h2 class="govuk-heading-s">@messages("softwareChoices.filter.accordion.subHeading1")</h2>
      <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
-        <li class="govuk-body">@Messages("softwareChoices.filter.accordion.bullet1")</li>
-        <li class="govuk-body">@Messages("softwareChoices.filter.accordion.bullet2")</li>
+        <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet1")</li>
+        <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet2")</li>
      </ul>
 
-    <h2 class ="govuk-heading-s">@Messages("softwareChoices.filter.accordion.subHeading2")</h2>
+    <h2 class ="govuk-heading-s">@messages("softwareChoices.filter.accordion.subHeading2")</h2>
      <ul class="govuk-list--bullet govuk-body">
-        <li class="govuk-body">@Messages("softwareChoices.filter.accordion.bullet3")</li>
-        <li class="govuk-body">@Messages("softwareChoices.filter.accordion.bullet4")</li>
+        <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet3")</li>
+        <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet4")</li>
      </ul>
 }
 
@@ -69,7 +76,7 @@
 
 
                 @accordionHelper(
-                    Messages("softwareChoices.filter.accordion.heading"),
+                    messages("softwareChoices.filter.accordion.heading"),
                     accordionContent
                 )
             </div>
@@ -78,7 +85,7 @@
     </div>
 
 
-    @uiHelpers.form(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate", 'id -> "searchForm") {
+    @formWithCSRF(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate", 'id -> "searchForm") {
         <div class="grid-row">
 
             <div class="column-one-third govuk-form-group">

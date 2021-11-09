@@ -16,11 +16,13 @@
 
 package views
 
-import assets.testContants.SoftwareProvidersTestConstants
-import org.jsoup.nodes.Element
+import testContants.SoftwareProvidersTestConstants
+import views.html.software_choices_software_information
 
 
 class SoftwareInformationViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
+
+  val view = app.injector.instanceOf[software_choices_software_information]
 
   object Messages {
     val backButton = "Back"
@@ -30,7 +32,7 @@ class SoftwareInformationViewSpec extends ViewBaseSpec with SoftwareProvidersTes
 
   "The software information page" should {
 
-    lazy val document = parseView(views.html.software_choices_software_information(providerA))
+    lazy val document = parseView(view(providerA))
 
     "have a back button" in {
       document.select(".govuk-back-link").text shouldBe Messages.backButton

@@ -21,14 +21,17 @@ import models.SoftwareProviderModel
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
-import uk.gov.hmrc.play.bootstrap.tools.Stubs.stubMessagesControllerComponents
+import views.html.software_choices_software_information
 
 
 class SoftwareInformationControllerSpec extends TestUtils with MockSoftwareChoicesService {
 
+  val view = app.injector.instanceOf[software_choices_software_information]
+
   object TestSoftwareInformationController extends SoftwareInformationController(
     stubMessagesControllerComponents(),
-    mockSoftwareChoicesService
+    mockSoftwareChoicesService,
+    view
   )(appConfig)
 
   val softwareProviders: Seq[SoftwareProviderModel] = Seq(

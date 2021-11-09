@@ -19,24 +19,19 @@ import sbt._
 
 object AppDependencies {
 
-  val whitelistFilterVersion = "3.4.0-play-26"
-  val govukTemplateVersion = "5.65.0-play-26"
-  val playUiVersion = "8.19.0-play-26"
+  val govukTemplateVersion = "5.72.0-play-28"
+  val playUiVersion = "9.7.0-play-28"
   val jsoupVersion = "1.13.1"
-  val bootstrapVersion = "4.0.0"
+  val bootstrapVersion = "5.6.0"
   val scalaTestPlusVersion = "3.1.3"
   val scalaMockVersion = "3.6.0"
 
   val compile = Seq(
-    "uk.gov.hmrc" %% "play-whitelist-filter" % whitelistFilterVersion,
     "uk.gov.hmrc" %% "govuk-template" % govukTemplateVersion,
     "uk.gov.hmrc" %% "play-ui" % playUiVersion,
-    "uk.gov.hmrc" %% "bootstrap-play-26" % bootstrapVersion,
-    "uk.gov.hmrc" %% "play-language" % "4.10.0-play-26",
-    "uk.gov.hmrc" %% "play-frontend-govuk" % "0.56.0-play-26",
-    "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.56.0-play-26",
-    "org.webjars.npm" % "govuk-frontend" % "3.7.0",
-    "org.webjars.npm" % "hmrc-frontend" % "1.20.0"
+    "uk.gov.hmrc" %% "bootstrap-frontend-play-28" % bootstrapVersion,
+    "uk.gov.hmrc" %% "play-language" % "5.1.0-play-28",
+    "uk.gov.hmrc" %% "play-frontend-hmrc" % "1.22.0-play-28"
   )
 
   val test = Seq(
@@ -44,7 +39,6 @@ object AppDependencies {
     "com.typesafe.play" %% "play-test" % current % "test",
     "org.scalatestplus.play" %% "scalatestplus-play" % scalaTestPlusVersion % "test",
     "org.scalamock" %% "scalamock-scalatest-support" % scalaMockVersion % "test",
-    "uk.gov.hmrc" %% "bootstrap-play-26" % bootstrapVersion % Test classifier "tests",
     "org.pegdown" % "pegdown" % "1.6.0" % "test"
   )
 

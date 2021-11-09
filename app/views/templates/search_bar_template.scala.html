@@ -14,9 +14,10 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.play.views.html.helpers
 @import config.AppConfig
 @import play.api.data.Field
+
+@this()
 
 @(field: Field, showLabel: Boolean = false, includeNoscript: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 

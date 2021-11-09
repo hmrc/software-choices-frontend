@@ -14,7 +14,13 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.Aliases.PhaseBanner
+@import uk.gov.hmrc.govukfrontend.views.html.components.GovukPhaseBanner
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.content.HtmlContent
+@import uk.gov.hmrc.govukfrontend.views.Aliases.Tag
+@import uk.gov.hmrc.govukfrontend.views.Aliases.Text
+
+@this(GovukPhaseBanner: GovukPhaseBanner)
 
 @()(implicit request: Request[_], messages: Messages, appConfig: config.AppConfig)
 

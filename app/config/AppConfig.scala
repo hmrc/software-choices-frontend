@@ -16,15 +16,13 @@
 
 package config
 
-import java.net.URLEncoder
-import java.util.Base64
-
 import config.features.Features
-import javax.inject.{Inject, Singleton}
 import play.api.i18n.Lang
 import play.api.mvc.Call
-import uk.gov.hmrc.play.binders.ContinueUrl
+import uk.gov.hmrc.play.bootstrap.binders.RedirectUrl
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
+
+import javax.inject.{Inject, Singleton}
 
 @Singleton
 class AppConfig @Inject()(implicit val config: ServicesConfig) {
@@ -42,17 +40,9 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
   private val contactFormServiceIdentifier: String = "MSCC"
 
   lazy val feedbackUrl: String = s"$contactHost/contact/beta-feedback-unauthenticated?service=$contactFormServiceIdentifier" +
-    s"&backUrl=${ContinueUrl(host + controllers.routes.SoftwareChoicesController.show().url).encodedUrl}"
+    s"&backUrl=${RedirectUrl(host + controllers.routes.SoftwareChoicesController.show.url)}"
 
   lazy val host: String = config.getString(ConfigKeys.host)
-
-  private def whitelistConfig(key: String): Seq[String] =
-    Some(new String(Base64.getDecoder.decode(config.getString(key)), "UTF-8")).map(_.split(",")).getOrElse(Array.empty).toSeq
-
-  lazy val shutterPage: String = config.getString(ConfigKeys.shutterPage)
-  lazy val whitelistIps: Seq[String] = whitelistConfig(ConfigKeys.whitelistIps)
-  lazy val whitelistExcludedPaths: Seq[Call] = whitelistConfig(ConfigKeys.whitelistExcludedPaths).map(path => Call("GET", path))
-  lazy val whiteListEnabled: Boolean = config.getBoolean(ConfigKeys.whitelistEnabled)
 
   lazy val govUkMtdVatSignUpGuidanceUrl = config.getString(ConfigKeys.govUkMtdVatSignUpGuidance)
 

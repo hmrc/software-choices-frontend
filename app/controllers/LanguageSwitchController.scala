@@ -31,6 +31,6 @@ class LanguageSwitchController @Inject()(appConfig: AppConfig,
 
   def languageMap: Map[String, Lang] = appConfig.languageMap
 
-  protected[controllers] def fallbackURL: String = routes.SoftwareChoicesController.show().url
+  protected[controllers] def fallbackURL: String = routes.SoftwareChoicesController.show.url
 
 }

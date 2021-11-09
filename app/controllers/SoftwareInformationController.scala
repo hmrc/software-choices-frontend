@@ -17,22 +17,24 @@
 package controllers
 
 import config.AppConfig
+
 import javax.inject.{Inject, Singleton}
 import play.api.i18n.I18nSupport
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
-import uk.gov.hmrc.play.bootstrap.controller.FrontendController
+import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.software_choices_software_information
 
 @Singleton
 class SoftwareInformationController @Inject()(val mcc: MessagesControllerComponents,
-                                              val softwareChoicesService: SoftwareChoicesService
+                                              val softwareChoicesService: SoftwareChoicesService,
+                                              view: software_choices_software_information
                                              )(implicit val appConfig: AppConfig)
   extends FrontendController(mcc) with I18nSupport {
 
   def show(providerName: String): Action[AnyContent] = Action { implicit request =>
     softwareChoicesService.returnProvider(providerName) match {
-      case Some(provider) => Ok(software_choices_software_information(provider))
+      case Some(provider) => Ok(view(provider))
       case None => NoContent
     }
   }

@@ -16,9 +16,11 @@
 
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.{Header, HmrcHeader}
 
+@this(hmrcHeader: HmrcHeader)
+
 @(showSignOut: Boolean = true)(implicit messages: Messages)
 
-@HmrcHeader(Header(
+@hmrcHeader(Header(
     homepageUrl = controllers.routes.SoftwareChoicesController.show.url,
     serviceName = Some(messages("common.service.name")),
     serviceUrl = controllers.routes.SoftwareChoicesController.show.url,
