@@ -16,10 +16,13 @@
 
 package views.templates
 
-import assets.testContants.SoftwareProvidersTestConstants
+import testContants.SoftwareProvidersTestConstants
 import views.ViewBaseSpec
+import views.html.templates.provider_table_template
 
 class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
+
+  val view = app.injector.instanceOf[provider_table_template]
 
   object Selectors {
     val providerSelector: Int => String = provider => s"table tr:nth-child($provider) > td > a"
@@ -31,7 +34,7 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
     "a list of providers with hrefs when provider details FS is off" should {
 
-      lazy val document = parseView(views.html.templates.provider_table_template(categoryAProviders, 10))
+      lazy val document = parseView(view(categoryAProviders, 10))
 
       for (i <- categoryAProviders.indices) {
 
@@ -54,7 +57,7 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
     "a list of providers accordions when provider details FS is on" should {
 
-      lazy val document = parseView(views.html.templates.provider_table_template(categoryAProviders, 10, providerDetailsFilterFeature = true))
+      lazy val document = parseView(view(categoryAProviders, 10, providerDetailsFilterFeature = true))
 
       for (i <- categoryAProviders.indices) {
 

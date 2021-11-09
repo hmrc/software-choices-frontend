@@ -14,6 +14,8 @@
  * limitations under the License.
  *@
 
+@this(result_count_template: templates.result_count_template)
+
 @(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true, providerDetailsFilterFeature: Boolean = false)(implicit messages: Messages)
 
 <div id="provider-results">

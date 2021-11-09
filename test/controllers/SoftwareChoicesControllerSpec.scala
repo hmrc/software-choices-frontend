@@ -22,17 +22,27 @@ import forms.FiltersForm
 import models.SoftwareProviderModel
 import org.jsoup.Jsoup
 import play.api.http.Status
-import play.api.mvc.Cookie
+import play.api.mvc.{Cookie, DefaultMessagesControllerComponents, MessagesControllerComponents}
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
-import uk.gov.hmrc.play.bootstrap.tools.Stubs.stubMessagesControllerComponents
+import views.html.software_choices_filter
+import views.html.templates.{provider_info_template, provider_table_template}
 
 class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesService {
 
+  val view = app.injector.instanceOf[software_choices_filter]
+  val viewProvider = app.injector.instanceOf[provider_table_template]
+  val viewInfo = app.injector.instanceOf[provider_info_template]
+  val mcc = app.injector.instanceOf[MessagesControllerComponents]
+
+
   object TestSoftwareChoicesController extends SoftwareChoicesController(
     mockSoftwareChoicesService,
-    stubMessagesControllerComponents(messagesApi = messagesApi)
+    mcc,
+    view,
+    viewProvider,
+    viewInfo
   )(appConfig)
 
   val softwareProviders: Seq[SoftwareProviderModel] = Seq(

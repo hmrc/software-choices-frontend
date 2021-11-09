@@ -22,11 +22,6 @@ object ConfigKeys {
 
   val host: String = "host"
 
-  val shutterPage: String = "whitelist.shutterPage"
-  val whitelistIps: String = "whitelist.ips"
-  val whitelistExcludedPaths: String = "whitelist.excludedPaths"
-  val whitelistEnabled: String = "whitelist.enabled"
-
   val priceFilterFeature: String = "features.priceFilter.enabled"
   val providerDetailsFilterFeature: String = "features.providerDetails.enabled"
   val welshFeature: String = "features.welsh.enabled"

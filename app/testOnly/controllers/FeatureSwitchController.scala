@@ -17,19 +17,22 @@
 package testOnly.controllers
 
 import config.AppConfig
+
 import javax.inject.Inject
 import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents, Result}
 import testOnly.forms.FeatureSwitchForm
 import testOnly.models.FeatureSwitchModel
-import uk.gov.hmrc.play.bootstrap.controller.FrontendController
+import testOnly.views.html.featureSwitch
+import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 
 class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
+                                        view: featureSwitch,
                                         implicit val appConfig: AppConfig)
   extends FrontendController(mcc) with I18nSupport {
 
   def featureSwitch: Action[AnyContent] = Action { implicit request =>
-    Ok(testOnly.views.html.featureSwitch(FeatureSwitchForm.form.fill(
+    Ok(view(FeatureSwitchForm.form.fill(
       FeatureSwitchModel(
         priceFilterEnabled = appConfig.features.priceFilterEnabled(),
         providerDetailsEnabled = appConfig.features.providerDetailsEnabled(),
@@ -40,7 +43,7 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
 
   def submitFeatureSwitch: Action[AnyContent] = Action { implicit request =>
     FeatureSwitchForm.form.bindFromRequest().fold(
-      _ => Redirect(routes.FeatureSwitchController.featureSwitch()),
+      _ => Redirect(routes.FeatureSwitchController.featureSwitch),
       success = handleSuccess
     )
   }
@@ -48,7 +51,7 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
   def handleSuccess(model: FeatureSwitchModel): Result = {
     appConfig.features.providerDetailsEnabled(model.providerDetailsEnabled)
     appConfig.features.welshEnabled(model.welshEnabled)
-    Redirect(controllers.routes.SoftwareChoicesController.show())
+    Redirect(controllers.routes.SoftwareChoicesController.show)
   }
 
 }

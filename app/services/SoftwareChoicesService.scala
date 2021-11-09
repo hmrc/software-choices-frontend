@@ -16,23 +16,21 @@
 
 package services
 
-import java.io.InputStream
-
 import enums.Filter
-import javax.inject.Singleton
 import models.SoftwareProviderModel
-import play.api.Logger
+import play.api.Logging
 import play.api.libs.json._
-import uk.gov.hmrc.http.InternalServerException
 
+import java.io.InputStream
+import javax.inject.Singleton
 import scala.io.Source
 
 
 @Singleton
-class SoftwareChoicesService {
+class SoftwareChoicesService extends Logging{
 
   protected lazy val jsonFile: String = {
-    Logger.debug("[SoftwareChoicesService][providersList] Loading providers from file")
+    logger.debug("[SoftwareChoicesService][providersList] Loading providers from file")
     val stream: InputStream = getClass.getResourceAsStream("/SoftwareProviders.json")
     Source.fromInputStream(stream).getLines().mkString
   }

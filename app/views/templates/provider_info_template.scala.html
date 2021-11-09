@@ -16,6 +16,8 @@
 
 @import enums.Filter._
 
+@this()
+
 @(provider: SoftwareProviderModel)(implicit messages: Messages)
 
 @accessibilityFilters = @{provider.filters.filter(List(VISUAL, MOTOR, COGNITIVE, HEARING).contains(_))}

@@ -17,8 +17,11 @@
 package views.templates
 
 import views.ViewBaseSpec
+import views.html.templates.error_template
 
 class ErrorTemplateViewSpec extends ViewBaseSpec {
+
+  val view = app.injector.instanceOf[error_template]
 
   object Selectors {
     val heading = "h1"
@@ -29,7 +32,7 @@ class ErrorTemplateViewSpec extends ViewBaseSpec {
 
     "given a title and some Html content" should {
 
-      lazy val document = parseView(views.html.templates.error_template("A Title", "A Heading", "Some Text"))
+      lazy val document = parseView(view("A Title", "A Heading", "Some Text"))
 
       "have the correct title" in {
         document.title shouldBe "A Title"

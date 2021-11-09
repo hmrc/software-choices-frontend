@@ -21,6 +21,8 @@ import views.html.templates.provider_table_template
 
 class SoftwareChoicesFilterViewModelSpec extends TestUtils {
 
+  val view = app.injector.instanceOf[provider_table_template]
+
   val upperA = SoftwareProviderModel("Abc", "url")
   val lowerA = SoftwareProviderModel("abc", "url")
   val upperZ = SoftwareProviderModel("Zyx", "url")
@@ -40,7 +42,7 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
     "sort the list correctly" in {
 
       val expected = Seq(hashSymbol, number, atSymbol, upperA, lowerA, upperZ, lowerZ)
-      val actual = SoftwareChoicesFilterViewModel(softwareProvidersAll).sortedProviders(softwareProvidersAll)
+      val actual = SoftwareChoicesFilterViewModel(softwareProvidersAll, None, view).sortedProviders(softwareProvidersAll)
 
       actual shouldBe expected
     }
@@ -53,8 +55,8 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
 
       "render the expected provider table with all providers" in {
 
-        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll)
-        val expected = provider_table_template(model.sortedProviders(softwareProvidersAll), softwareProvidersAll.length, showCount = false)
+        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, None, view)
+        val expected = view(model.sortedProviders(softwareProvidersAll), softwareProvidersAll.length, showCount = false)
 
         model.renderProviders shouldEqual expected
       }
@@ -64,8 +66,8 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
 
       "render the expected provider table with the found providers" in {
 
-        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(softwareProvidersFound))
-        val expected = provider_table_template(model.sortedProviders(softwareProvidersFound), softwareProvidersAll.length)
+        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(softwareProvidersFound), view)
+        val expected = view(model.sortedProviders(softwareProvidersFound), softwareProvidersAll.length)
 
         model.renderProviders shouldEqual expected
       }
@@ -75,8 +77,8 @@ class SoftwareChoicesFilterViewModelSpec extends TestUtils {
 
       "render the expected provider table with no providers" in {
 
-        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(Seq()))
-        val expected = provider_table_template(model.sortedProviders(Seq()), softwareProvidersAll.length)
+        val model = SoftwareChoicesFilterViewModel(softwareProvidersAll, Some(Seq()), view)
+        val expected = view(model.sortedProviders(Seq()), softwareProvidersAll.length)
 
         model.renderProviders shouldEqual expected
       }

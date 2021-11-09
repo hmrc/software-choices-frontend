@@ -17,14 +17,17 @@
 @import helper.CSRF
 @import config.ConfigKeys
 @import testOnly.models.FeatureSwitchModel
-@import views.html.templates.singleCheckbox
+@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
+
+@this(main_template: main_template,
+        singleCheckbox: templates.singleCheckbox,
+        formWithCSRF: FormWithCSRF)
 
 @(form: Form[FeatureSwitchModel])(implicit request: Request[_], messages: Messages, appConfig: config.AppConfig)
 
-@views.html.main_template(title = "Software Choices Feature Switches", bodyClasses = None) {
+@main_template(title = "Software Choices Feature Switches", bodyClasses = None) {
 
-@helper.form(action = testOnly.controllers.routes.FeatureSwitchController.submitFeatureSwitch) {
-@CSRF.formField
+@formWithCSRF(action = testOnly.controllers.routes.FeatureSwitchController.submitFeatureSwitch) {
 
 <div class="form-group">
     <fieldset>

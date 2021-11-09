@@ -18,6 +18,7 @@ package views.utils
 
 import _root_.utils.TestUtils
 import assets.messages.{CommonMessages, FilterSearchMessages}
+import play.api.i18n.Messages
 
 class ServiceNameTitleSpec extends TestUtils {
 
@@ -28,7 +29,7 @@ class ServiceNameTitleSpec extends TestUtils {
       "return the correct full title without an error" in {
 
         val expectedResult = FilterSearchMessages.fullTitle
-        val actualResult = ServiceNameTitle.fullTitle("softwareChoices.filter.title")
+        val actualResult = ServiceNameTitle.fullTitle(Messages("softwareChoices.filter.title"))
 
         actualResult shouldBe expectedResult
       }
@@ -39,7 +40,7 @@ class ServiceNameTitleSpec extends TestUtils {
       "return the correct full title without an error" in {
 
         val expectedResult = s"${CommonMessages.error} ${FilterSearchMessages.fullTitle}"
-        val actualResult = ServiceNameTitle.fullTitle("softwareChoices.filter.title", true)
+        val actualResult = ServiceNameTitle.fullTitle(Messages("softwareChoices.filter.title"), true)
 
         actualResult shouldBe expectedResult
       }

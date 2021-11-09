@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package assets.testContants
+package testContants
 
-import config.AppConfig
-import models.{SoftwareChoicesFilterViewModel, SoftwareProviderModel}
+import models.SoftwareProviderModel
 
 trait SoftwareProvidersTestConstants {
 
@@ -27,25 +26,6 @@ trait SoftwareProvidersTestConstants {
   val providerA4 = SoftwareProviderModel("a4Name", "a4Url")
   val providerB = SoftwareProviderModel("bName", "bUrl")
   val providerHash = SoftwareProviderModel("#Name", "#Url")
-
-  def filterViewProviders(implicit appConfig: AppConfig): SoftwareChoicesFilterViewModel = SoftwareChoicesFilterViewModel(
-    allProviders = Seq(
-      providerHash,
-      providerA,
-      providerB
-    )
-  )
-
-  def filterViewFoundProviders(implicit appConfig: AppConfig): SoftwareChoicesFilterViewModel = SoftwareChoicesFilterViewModel(
-    allProviders = Seq(
-      providerHash,
-      providerA,
-      providerB
-    ),
-    filteredProviders = Some(Seq(
-      providerA
-    ))
-  )
 
   val categoryAProviders = Seq(providerA, providerA2, providerA3, providerA4)
 }

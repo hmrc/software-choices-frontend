@@ -14,10 +14,12 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.play.views.html.helpers.{errorSummary => summary}
+@import uk.gov.hmrc.play.views.html.helpers.ErrorSummary
+
+@this(errorSummary: ErrorSummary)
 
 @(heading: String, form: Form[_])(implicit messages: Messages)
 
 @if(form.hasErrors) {
-  @summary(messages(heading), form)
+  @errorSummary(messages(heading),form)
 }

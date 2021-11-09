@@ -14,10 +14,10 @@
  * limitations under the License.
  *@
 
-@import views.html.templates.singleCheckbox
 @import config.AppConfig
 @import models.components.FilterTemplateModel
-@import play.api.data.Field
+
+@this(singleCheckbox: templates.singleCheckbox)
 
 @(filter: FilterTemplateModel)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
 
