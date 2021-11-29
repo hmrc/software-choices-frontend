@@ -4243,7 +4243,7 @@
     "motor": false
   },
   {
-    "name": "SAP Localization Hub Advanced Compliance Reporting",
+    "name": "SAP Document and Reporting Compliance Service",
     "url": "https://help.sap.com/viewer/product/SLH_advanced_compliance_reporting_service/CLOUD/en-US",
     "business": true,
     "agent": false,
@@ -5357,6 +5357,22 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "Acumatica – Acumatica UK",
+    "url": "https://www.acumatica.com/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false
   },
   {
     "name": "Acumatica – Pinnacle",
@@ -7828,10 +7844,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
+    "cognitive": true,
     "visual": false,
-    "hearing": false,
-    "motor": false
+    "hearing": true,
+    "motor": true
   },
   {
     "name": "Sage Intacct",
