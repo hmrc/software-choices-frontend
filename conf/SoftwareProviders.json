@@ -56,10 +56,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
+    "cognitive": true,
+    "visual": true,
     "hearing": false,
-    "motor": false,
+    "motor": true,
     "free": false
   },
   {
@@ -72,10 +72,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
     "free": false
   },
   {
@@ -215,7 +215,7 @@
     "motor": false
   },
   {
-    "name": "ABC VAT Bridge by ABC Self Assessment Ltd",
+    "name": "#ABC VAT Bridge",
     "url": "https://abcsa.co.uk/pages/vat-bridge",
     "business": true,
     "agent": true,
@@ -5000,7 +5000,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "Web Control (UK) Ltd",
@@ -5094,19 +5095,19 @@
   },
   {
     "name": "MAGIC TAX",
-    "url": "https://magictax.co.uk",
+    "url": "https://motortrade.magictax.co.uk/",
     "business": true,
-    "agent": true,
+    "agent": false,
     "accounting": false,
     "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
-    "free": true
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false
   },
   {
     "name": "VT Software Limited",
