@@ -3898,7 +3898,7 @@
   },
   {
     "name": "Xero",
-    "url": "https://www.xero.com/uk/resources/making-tax-digital/",
+    "url": "https://www.xero.com/uk/programme/making-tax-digital/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -8258,5 +8258,20 @@
     "visual": true,
     "hearing": true,
     "motor": true
+  },
+  {
+    "name": "Abacus Financials",
+    "url": "http://www.abacusfinancials.com/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   }
 ]
