@@ -8321,9 +8321,54 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
+  },
+  {
+    "name": "Lloyds Bank Business Finance Assistant",
+    "url": "https://www.lloydsbank.com/business/accounting-software.html?WT.ac=lloyds-bb_and_sme-products_and_services-homepage-accountancy_software_tile-page-business_finance_assistant",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
+  },
+  {
+    "name": "Bank of Scotland Business Finance Assistant",
+    "url": "https://business.bankofscotland.co.uk/accounting-software.html",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
+  },
+  {
+    "name": "Keynect",
+    "url": "https://www.keynect.co.uk/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   }
 ]
