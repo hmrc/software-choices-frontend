@@ -17,4 +17,6 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.8.0")
 
 addSbtPlugin("org.irundaia.sbt" % "sbt-sassify" % "1.4.11")
 
+addSbtPlugin("uk.gov.hmrc" % "sbt-bobby" % "3.4.0")
+
 
