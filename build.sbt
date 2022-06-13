@@ -1,5 +1,6 @@
 import uk.gov.hmrc.DefaultBuildSettings.integrationTestSettings
 import uk.gov.hmrc.SbtArtifactory
+import uk.gov.hmrc.SbtBobbyPlugin.BobbyKeys.bobbyRulesURL
 import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin.publishingSettings
 
 val appName = "software-choices-frontend"
@@ -39,6 +40,9 @@ lazy val microservice = Project(appName, file("."))
   .configs(IntegrationTest)
   .settings(integrationTestSettings(): _*)
   .settings(scalaVersion := "2.12.12")
+  .settings(
+    bobbyRulesURL := Some(new URL("https://webstore.tax.service.gov.uk/bobby-config/deprecated-dependencies.json"))
+  )
   .settings(
     TwirlKeys.templateImports ++= Seq(
       "uk.gov.hmrc.hmrcfrontend.views.html.helpers._",
