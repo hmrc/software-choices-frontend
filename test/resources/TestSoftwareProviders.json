@@ -8370,5 +8370,51 @@
     "visual": true,
     "hearing": true,
     "motor": true
+  },
+  {
+    "name": "Vaxist",
+    "url": "https://en.axisacct.com/index.aspx",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "Cuimake MTD for Ecommerce",
+    "url": "https://www.cmkmtd.com",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": true
+  },
+  {
+    "name": "MTD VAT for Dynamics AX2009",
+    "url": "https://teqhou.com/products/ax2009-products/making-tax-digital-mtd/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   }
 ]
