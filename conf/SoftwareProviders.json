@@ -154,22 +154,6 @@
     "motor": false
   },
   {
-    "name": "1 Click Accounts",
-    "url": "https://1clickaccounts.com/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
-    "welsh": true
-  },
-  {
     "name": "10 Minute Accounts",
     "url": "https://10minuteaccounts.com/",
     "business": true,
@@ -802,11 +786,11 @@
     "motor": false
   },
   {
-    "name": "Business Micro Systems Ltd",
+    "name": "Maxton Cloud",
     "url": "https://www.maxtoncloud.co.uk/",
     "business": true,
     "agent": true,
-    "accounting": false,
+    "accounting": true,
     "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
@@ -7062,7 +7046,7 @@
     "motor": false
   },
   {
-    "name": "FreshBooks Cloud Accounting",
+    "name": "Fresh Books",
     "url": "https://www.freshbooks.com/",
     "business": true,
     "agent": true,
