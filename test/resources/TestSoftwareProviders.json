@@ -2533,7 +2533,7 @@
   },
   {
     "name": "MYT",
-    "url": "https://mytbusiness.com/",
+    "url": "https://getmyt.com/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -2759,6 +2759,22 @@
   {
     "name": "Open Answers Limited (Portico Free)",
     "url": "https://vat.portico.openanswers.co.uk/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": true
+  },
+  {
+    "name": "Open Answers - My Tax Digital (Free)",
+    "url": "https://mytaxdigital.co.uk",
     "business": true,
     "agent": true,
     "accounting": true,
