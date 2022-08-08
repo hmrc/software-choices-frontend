@@ -801,6 +801,22 @@
     "motor": false
   },
   {
+    "name": "Bromcom Finance",
+    "url": "www.bromcom.com",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false
+  },
+  {
     "name": "Buzzacott LLP",
     "url": "https://www.buzzacott.co.uk/making-tax-digital",
     "business": true,
@@ -1477,6 +1493,22 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "ERPNext extension by casesolved.co.uk",
+    "url": "https://www.casesolved.co.uk/erpnext-features/UK-MTD-VAT",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false
   },
   {
     "name": "Exel Computer Systems plc",
@@ -2773,22 +2805,6 @@
     "free": true
   },
   {
-    "name": "Open Answers - My Tax Digital (Free)",
-    "url": "https://mytaxdigital.co.uk",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true,
-    "free": true
-  },
-  {
     "name": "Openda Ltd",
     "url": "http://www.openda.com/",
     "business": true,
@@ -3271,6 +3287,22 @@
     "motor": false
   },
   {
+    "name": "Safaristar",
+    "url": "https://safaristar.cn/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false
+  },
+  {
     "name": "SafeAccounts",
     "url": "https://www.safeaccounts.co.uk",
     "business": true,
@@ -3476,10 +3508,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   },
   {
     "name": "Solar Accounts Online",
@@ -4092,10 +4124,10 @@
     "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
     "free": true
   },
   {
@@ -4483,10 +4515,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   },
   {
     "name": "Skynet Applied Systems Limited",
@@ -4806,7 +4838,7 @@
     "motor": false
   },
   {
-    "name": "FSB Making Tax Digital",
+    "name": "Federation of Small Businesses MTD",
     "url": "https://www.fsb.org.uk/mtd",
     "business": true,
     "agent": false,
@@ -4814,7 +4846,7 @@
     "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
-    "viewPayments": false,
+    "viewPayments": true,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -6683,7 +6715,7 @@
     "viewPayments": true,
     "cognitive": false,
     "visual": false,
-    "hearing": true,
+    "hearing": false,
     "motor": false
   },
   {
@@ -8182,10 +8214,10 @@
     "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
   },
   {
     "name": "000-VAT for iPhone",
