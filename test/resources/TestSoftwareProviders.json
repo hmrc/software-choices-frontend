@@ -2805,6 +2805,22 @@
     "free": true
   },
   {
+    "name": "Open Answers - My Tax Digital (Free)",
+    "url": "https://mytaxdigital.co.uk",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": true
+  },
+  {
     "name": "Openda Ltd",
     "url": "http://www.openda.com/",
     "business": true,
@@ -7919,6 +7935,22 @@
     "motor": true
   },
   {
+    "name": "Sage 300",
+    "url": "https://www.sage.com/en-gb/making-tax-digital/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false
+  },
+  {
     "name": "Sage 50cloud Accounts",
     "url": "https://www.sage.com/en-gb/making-tax-digital/",
     "business": true,
@@ -7934,7 +7966,7 @@
     "motor": false
   },
   {
-    "name": "Sage 200cloud",
+    "name": "Sage 200",
     "url": "https://www.sage.com/en-gb/making-tax-digital/",
     "business": true,
     "agent": true,
