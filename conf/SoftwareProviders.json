@@ -2810,7 +2810,7 @@
     "business": true,
     "agent": true,
     "accounting": true,
-    "spreadsheets": true,
+    "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
