@@ -22,11 +22,11 @@ object AppDependencies {
   val govukTemplateVersion = "5.72.0-play-28"
   val playUiVersion = "9.7.0-play-28"
   val jsoupVersion = "1.13.1"
-  val bootstrapVersion = "5.6.0"
+  val bootstrapVersion = "7.3.0"
   val scalaTestPlusVersion = "3.1.3"
   val scalaMockVersion = "3.6.0"
 
-  val compile = Seq(
+  val compile: Seq[ModuleID] = Seq(
     "uk.gov.hmrc" %% "govuk-template" % govukTemplateVersion,
     "uk.gov.hmrc" %% "play-ui" % playUiVersion,
     "uk.gov.hmrc" %% "bootstrap-frontend-play-28" % bootstrapVersion,
@@ -34,7 +34,7 @@ object AppDependencies {
     "uk.gov.hmrc" %% "play-frontend-hmrc" % "1.22.0-play-28"
   )
 
-  val test = Seq(
+  val test: Seq[ModuleID] = Seq(
     "org.jsoup" % "jsoup" % jsoupVersion % "test",
     "com.typesafe.play" %% "play-test" % current % "test",
     "org.scalatestplus.play" %% "scalatestplus-play" % scalaTestPlusVersion % "test",
