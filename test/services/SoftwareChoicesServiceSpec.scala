@@ -19,7 +19,6 @@ package services
 import _root_.utils.TestUtils
 import enums.Filter._
 import models.SoftwareProviderModel
-import play.api.libs.json.Json
 
 class SoftwareChoicesServiceSpec extends TestUtils {
 
