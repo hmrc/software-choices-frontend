@@ -19,7 +19,6 @@ import sbt._
 
 object AppDependencies {
 
-  val govukTemplateVersion = "5.72.0-play-28"
   val playUiVersion = "9.7.0-play-28"
   val jsoupVersion = "1.13.1"
   val bootstrapVersion = "7.3.0"
@@ -27,7 +26,6 @@ object AppDependencies {
   val scalaMockVersion = "3.6.0"
 
   val compile: Seq[ModuleID] = Seq(
-    "uk.gov.hmrc" %% "govuk-template" % govukTemplateVersion,
     "uk.gov.hmrc" %% "play-ui" % playUiVersion,
     "uk.gov.hmrc" %% "bootstrap-frontend-play-28" % bootstrapVersion,
     "uk.gov.hmrc" %% "play-language" % "5.1.0-play-28",
