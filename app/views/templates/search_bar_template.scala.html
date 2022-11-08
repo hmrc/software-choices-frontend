@@ -23,7 +23,7 @@
 
 <div class="govuk-form-group @if(field.hasErrors){form-field--error"}">
 
-    @field.errors.map { error => <span class="error-message">@messages(error.message, error.args: _*)</span> }
+    @field.errors.map { error => <span class="govuk-error-message">@messages(error.message, error.args: _*)</span> }
 
     <div class="search-field search-field-darker">
         <div class="search-input search-input-with-button">
@@ -36,7 +36,7 @@
         </div>
         @noscript {
             <div class="search-submit">
-                <button class="button" type="submit" value="@messages("softwareChoices.search.button.text")">
+                <button class="govuk-button" type="submit" value="@messages("softwareChoices.search.button.text")">
                     @messages("softwareChoices.search.button.text")
                 </button>
             </div>

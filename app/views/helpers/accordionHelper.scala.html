@@ -18,8 +18,10 @@
 
 @(accordionTitleText: String, paragraphText: Html)
 
-<details class="govuk-body">
- <summary><span class="summary">@accordionTitleText</span></summary>
- <div class="panel panel-border-narrow">@paragraphText</div>
+<details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">@accordionTitleText</span>
+    </summary>
+   <div class="govuk-details__text">@paragraphText</div>
 </details>
 

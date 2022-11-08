@@ -17,8 +17,8 @@ function createSearchTrigger() {
 }
 
 function clearErrors() {
-  $('#error-summary-display').remove();
-  $('.error-message').remove();
+  $('.govuk-error-summary').remove();
+  $('.govuk-error-message').remove();
   $('.form-field--error').removeClass("form-field--error");
   $('title').html($('title').html().split(": ")[1]);
 }
@@ -42,11 +42,6 @@ function submitAjaxForm() {
     data: form.serialize(),
     success: function(response) {
       $('#provider-results').replaceWith(response);
-
-      //this resets the GOVUK details polyfill, prevents creating reduntant listeners and runs it again to update new details
-      GOVUK.details.started = false;
-      GOVUK.details.addClickEvent = function() {}
-      GOVUK.details.addDetailsPolyfill();
       $('details').show();
     },
     error: function(err) {

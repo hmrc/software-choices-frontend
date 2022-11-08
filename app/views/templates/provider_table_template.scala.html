@@ -26,32 +26,38 @@
         <h2 class="visuallyhidden">@messages("softwareChoices.filter.hidden.heading")</h2>
     }
 
-    <table id="provider-table" role="presentation">
-        @providers.map { provider =>
-            <tr>
-                <td>
-                    @if(providerDetailsFilterFeature){
-                        <noscript>
-                            <a href="/making-tax-digital-software/software-information?providerName=@{provider.encodedName}"
-                               class="providers govuk-link govuk-!-font-weight-bold"
+    <table id="provider-table" role="presentation" class="govuk-table">
+
+        <tbody class="govuk-table__body">
+
+            @for((provider, index) <- providers.zipWithIndex){
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        @if(providerDetailsFilterFeature){
+                            <noscript>
+                                <a href="/making-tax-digital-software/software-information?providerName=@{provider.encodedName}"
+                                   class="providers govuk-link govuk-!-font-weight-bold"
+                                   data-journey-click="link:click:@{provider.name}"
+                                   aria-label='@messages("softwareChoices.provider-details.aria-label", provider.name)'>@provider.name
+                                </a>
+                            </noscript>
+                            <details class="govuk-details govuk-!-margin-0" data-module="govuk-details" role="group" style="display:none;">
+                                <summary class="govuk-details__summary" aria-controls="details-content-@{index + 1}" aria-expanded="false" role="button">
+                                    <span class="govuk-details__summary-text">@{provider.name}</span>
+                                </summary>
+                                <div class="govuk-details__text" aria-controls="details-content-@{index + 1}" aria-hidden="true"></div>
+                            </details>
+                        } else {
+                            <a href="@provider.url"
+                               target="_blank"
+                               class="providers bold"
                                data-journey-click="link:click:@{provider.name}"
-                               aria-label='@messages("softwareChoices.provider-details.aria-label", provider.name)'>@provider.name
+                               aria-label='@messages("softwareChoices.provider.aria-label", provider.name) @messages("common.newTab")'>@provider.name
                             </a>
-                        </noscript>
-                        <details class="govuk-details govuk-!-margin-0" style="display:none;">
-                            <summary hidden><span class="summary">@{provider.name}</span></summary>
-                            <div class="panel panel-border-narrow"></div>
-                        </details>
-                    } else {
-                        <a href="@provider.url"
-                           target="_blank"
-                           class="providers bold"
-                           data-journey-click="link:click:@{provider.name}"
-                           aria-label='@messages("softwareChoices.provider.aria-label", provider.name) @messages("common.newTab")'>@provider.name
-                        </a>
-                    }
-                </td>
-            </tr>
-        }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>

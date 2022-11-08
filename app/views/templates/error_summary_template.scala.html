@@ -14,12 +14,13 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.play.views.html.helpers.ErrorSummary
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
 
-@this(errorSummary: ErrorSummary)
+@this(govukErrorSummary: GovukErrorSummary)
 
 @(heading: String, form: Form[_])(implicit messages: Messages)
 
 @if(form.hasErrors) {
-  @errorSummary(messages(heading),form)
+  @govukErrorSummary(ErrorSummary().withFormErrorsAsText(form))
 }

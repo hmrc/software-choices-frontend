@@ -19,10 +19,9 @@
 @(field: Field, label: String)(implicit messages: Messages)
 
 @value = @{ field.value match { case Some(x) => x case None => "false" case x => x }}
+    <div class="govuk-checkboxes__item">
+        <input id="@{field.name}" name="@{field.name}" class="govuk-checkboxes__input" type="checkbox" value="true" @if(value == "true"){ checked }>
+        <label class="govuk-!-font-size-19 govuk-label govuk-checkboxes__label govuk-!-margin-0" for="@{field.name}">@label</label>
+    </div>
 
-<div class="multiple-choice">
-    <input id="@{field.name}" name="@{field.name}" type="checkbox" value="true" @if(value == "true"){ checked }>
-    <label class="govuk-!-font-size-19 govuk-label govuk-!-margin-0" for="@{field.name}">@label</label>
-
-</div>
 
