@@ -18,39 +18,35 @@ package models
 
 import _root_.utils.TestUtils
 import enums.Filter._
-import play.api.libs.json.Json
+import play.api.libs.json.{JsObject, Json}
 
 class SoftwareProviderModelSpec extends TestUtils {
 
+  val model: SoftwareProviderModel = SoftwareProviderModel(
+    name = "name",
+    url = "url",
+    filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR, FREE)
+  )
+
+  val json: JsObject = Json.obj(
+    "name" -> "name",
+    "url" -> "url",
+    "business" -> true,
+    "agent" -> true,
+    "accounting" -> true,
+    "spreadsheets" -> true,
+    "viewReturn" -> true,
+    "viewLiabilities" -> true,
+    "viewPayments" -> true,
+    "cognitive" -> true,
+    "visual" -> true,
+    "hearing" -> true,
+    "motor" -> true,
+    "free" -> true,
+    "welsh" -> false
+  )
+
   "SoftwareProviderModel" should {
-
-    "read from Json correctly with all filters" in {
-
-      val expectedResult = SoftwareProviderModel(
-        name = "name",
-        url = "url",
-        filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR, FREE)
-      )
-
-      val actualResult = Json.obj(
-        "name" -> "name",
-        "url" -> "url",
-        "business" -> true,
-        "agent" -> true,
-        "accounting" -> true,
-        "spreadsheets" -> true,
-        "viewReturn" -> true,
-        "viewLiabilities" -> true,
-        "viewPayments" -> true,
-        "cognitive" -> true,
-        "visual" -> true,
-        "hearing" -> true,
-        "motor" -> true,
-        "free" -> true
-      ).as[SoftwareProviderModel]
-
-      actualResult shouldBe expectedResult
-    }
 
     "read from Json correctly with no filters" in {
 
@@ -78,6 +74,14 @@ class SoftwareProviderModelSpec extends TestUtils {
       ).as[SoftwareProviderModel]
 
       actualResult shouldBe expectedResult
+    }
+
+    "read from Json correctly with all filters" in {
+      json.as[SoftwareProviderModel] shouldBe model
+    }
+
+    "write to Json correctly with all filters" in {
+      Json.toJson(model) shouldBe json
     }
   }
 }
