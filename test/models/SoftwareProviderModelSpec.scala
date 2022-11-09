@@ -25,7 +25,7 @@ class SoftwareProviderModelSpec extends TestUtils {
   val model: SoftwareProviderModel = SoftwareProviderModel(
     name = "name",
     url = "url",
-    filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR, FREE)
+    filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR, FREE, WELSH)
   )
 
   val json: JsObject = Json.obj(
@@ -43,7 +43,7 @@ class SoftwareProviderModelSpec extends TestUtils {
     "hearing" -> true,
     "motor" -> true,
     "free" -> true,
-    "welsh" -> false
+    "welsh" -> true
   )
 
   "SoftwareProviderModel" should {
