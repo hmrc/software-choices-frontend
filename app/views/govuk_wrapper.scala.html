@@ -63,7 +63,7 @@
 @beforeContentBlock = {
     @phaseBanner()
     @HmrcBanner(Banner(if(messages.lang.code == "cy") {Cy} else {En}))
-    @HmrcLanguageSelectHelper()
+    @if(appConfig.features.welshEnabled()){@HmrcLanguageSelectHelper()}
     @if(showBackLink) {
         @backLink(BackLink("/making-tax-digital-software"))
     }
