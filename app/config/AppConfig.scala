@@ -27,8 +27,6 @@ import javax.inject.{Inject, Singleton}
 @Singleton
 class AppConfig @Inject()(implicit val config: ServicesConfig) {
 
-  private val service: String = "software-choices"
-
   def languageMap: Map[String, Lang] = Map(
     "english" -> Lang("en"),
     "cymraeg" -> Lang("cy")
