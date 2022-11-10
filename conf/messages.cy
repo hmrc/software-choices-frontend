@@ -83,4 +83,4 @@ softwareChoices.filter.provider.accessibilityMultiple = Mae’r feddalwedd hon y
 
 softwareChoices.filter.provider.free = Mae fersiwn rhad ac am ddim o’r feddalwedd hon.
 
-softwareChoices.filter.provider.visit = Gallwch <a class="govuk-link" href="{0}" target="_blank">ddarllen rhagor o wybodaeth ar wefan {1} (yn agor tab newydd)</a>
+softwareChoices.filter.provider.visit = Gallwch <a class="govuk-link" href="{0}" rel="noreferrer noopener" target="_blank">ddarllen rhagor o wybodaeth ar wefan {1} (yn agor tab newydd)</a>
