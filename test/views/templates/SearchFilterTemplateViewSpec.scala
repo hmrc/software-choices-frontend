@@ -43,8 +43,8 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
 
   object Selectors {
     val title = ".filter-head"
-    val checkbox: Int => String = n => s"fieldset > div:nth-of-type($n) > input[type='checkbox']"
-    val label: Int => String = n => s"fieldset > div:nth-of-type($n) > label"
+    val checkbox: Int => String = n => s"fieldset > div > div:nth-of-type($n) > input[type='checkbox']"
+    val label: Int => String = n => s"fieldset > div > div:nth-of-type($n) > label"
   }
 
   "The Filter Template" when{

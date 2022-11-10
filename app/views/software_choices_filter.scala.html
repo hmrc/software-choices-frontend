@@ -20,7 +20,7 @@
 @import forms.FiltersForm
 @import enums.Filter._
 @import models.components._
-@import uk.gov.hmrc.play.views.html.helpers._
+@import uk.gov.hmrc.govukfrontend.views.html.components.FormWithCSRF
 @import views.html.helpers.accordionHelper
 
 @this(error_summary_template: error_summary_template,
@@ -34,7 +34,6 @@
 @(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[FiltersFormModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @js = {
-    <script src='@routes.Assets.versioned("javascript/dynamicFilterSearch.js")' type="text/javascript"></script>
     @if(appConfig.features.providerDetailsEnabled()){
         <script src='@routes.Assets.versioned("javascript/providerInfo.js")' type="text/javascript"></script>
     }
@@ -61,9 +60,9 @@
 
     @error_summary_template("common.errorSummary.heading", form)
 
-    <div class="grid-row">
+    <div class="govuk-grid-row">
 
-        <div class="column-two-thirds">
+        <div class="govuk-grid-column-two-thirds">
             <div class="govuk-form-group">
 
                 <h1 class="govuk-heading-xl">@messages("softwareChoices.filter.title")</h1>
@@ -85,10 +84,10 @@
     </div>
 
 
-    @formWithCSRF(action = controllers.routes.SoftwareChoicesController.search, 'novalidate -> "novalidate", 'id -> "searchForm") {
-        <div class="grid-row">
+    @formWithCSRF(action = controllers.routes.SoftwareChoicesController.search, 'id -> "searchForm") {
+        <div class="govuk-grid-row">
 
-            <div class="column-one-third govuk-form-group">
+            <div class="govuk-grid-column-one-third govuk-form-group">
 
                 @search_filter_template(
                     FilterTemplateModel(
@@ -150,15 +149,16 @@
                 )
 
                 <noscript>
-                    <button type="submit" class="button govuk-form-group">@messages("softwareChoices.filter.filterResults")</button>
+                    <button type="submit" class="govuk-button" data-module="govuk-button">@messages("softwareChoices.filter.filterResults")</button>
                 </noscript>
             </div>
 
-            <div id="provider-table-container" class="column-two-thirds">
+            <div id="provider-table-container" class="govuk-grid-column-two-thirds">
 
                 @search_bar_template(form(FiltersForm.term), true, true)
 
                 @softwareChoices.renderProviders
+
             </div>
 
         </div>

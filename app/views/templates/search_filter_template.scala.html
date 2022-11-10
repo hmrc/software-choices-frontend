@@ -28,11 +28,13 @@
         </h2>
 
         <div class="filter-container">
-            <fieldset class="filter-options">
+            <fieldset class="filter-options govuk-fieldset">
                 <legend class="visuallyhidden">@messages(filter.heading)</legend>
-                @filter.filters.map { option =>
-                    @singleCheckbox(option.field, option.label)
-                }
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    @filter.filters.map { option =>
+                        @singleCheckbox(option.field, option.label)
+                    }
+                </div>
             </fieldset>
         </div>
     </div>

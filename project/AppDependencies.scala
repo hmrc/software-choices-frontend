@@ -21,15 +21,15 @@ object AppDependencies {
 
   val playUiVersion = "9.7.0-play-28"
   val jsoupVersion = "1.13.1"
-  val bootstrapVersion = "7.3.0"
+  val bootstrapVersion = "7.4.0"
   val scalaTestPlusVersion = "3.1.3"
   val scalaMockVersion = "3.6.0"
 
   val compile: Seq[ModuleID] = Seq(
-    "uk.gov.hmrc" %% "play-ui" % playUiVersion,
     "uk.gov.hmrc" %% "bootstrap-frontend-play-28" % bootstrapVersion,
     "uk.gov.hmrc" %% "play-language" % "5.1.0-play-28",
-    "uk.gov.hmrc" %% "play-frontend-hmrc" % "1.22.0-play-28"
+    "uk.gov.hmrc" %% "play-frontend-hmrc" % "3.28.0-play-28",
+    "org.webjars" % "jquery" % "3.6.0"
   )
 
   val test: Seq[ModuleID] = Seq(
