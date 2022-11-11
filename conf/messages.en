@@ -84,4 +84,4 @@ softwareChoices.filter.provider.accessibilityMultiple = This software includes {
 
 softwareChoices.filter.provider.free = There is a free version of this software.
 
-softwareChoices.filter.provider.visit = You can <a class="govuk-link" href="{0}" target="_blank">read more information on the {1} website (opens in a new tab)</a>
+softwareChoices.filter.provider.visit = You can <a class="govuk-link" href="{0}" rel="noreferrer noopener" target="_blank">read more information on the {1} website (opens in a new tab)</a>
