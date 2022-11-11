@@ -14,7 +14,6 @@
  * limitations under the License.
  *@
 
-@import helper.CSRF
 @import config.ConfigKeys
 @import testOnly.models.FeatureSwitchModel
 @import uk.gov.hmrc.govukfrontend.views.html.components.FormWithCSRF
@@ -27,20 +26,20 @@
 
 @main_template(title = "Software Choices Feature Switches", bodyClasses = None) {
 
-@formWithCSRF(action = testOnly.controllers.routes.FeatureSwitchController.submitFeatureSwitch) {
+    @formWithCSRF(action = testOnly.controllers.routes.FeatureSwitchController.submitFeatureSwitch) {
 
-<div class="form-group">
-    <fieldset>
-        <legend>
-            <h1 class="heading-medium">Features</h1>
-        </legend>
-        @singleCheckbox(form(ConfigKeys.providerDetailsFilterFeature), "Show Provider Details Filter")
-        @singleCheckbox(form(ConfigKeys.welshFeature), "Enable Welsh language")
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">Features</h1>
+                </legend>
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    @singleCheckbox(form(ConfigKeys.providerDetailsFilterFeature), "Show Provider Details Filter")
+                    @singleCheckbox(form(ConfigKeys.welshFeature), "Enable Welsh language")
+                </div>
+            </fieldset>
+        </div>
 
-    </fieldset>
-</div>
-
-<button class="button" type="submit" id="continue-button">Submit</button>
-
-}
+        <button class="govuk-button" data-module="govuk-button" type="submit" id="continue-button">Submit</button>
+    }
 }
