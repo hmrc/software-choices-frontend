@@ -19,7 +19,7 @@
 
 @this(singleCheckbox: templates.singleCheckbox)
 
-@(filter: FilterTemplateModel)(implicit messages: Messages, request: Request[_], appConfig: AppConfig)
+@(filter: FilterTemplateModel)(implicit messages: Messages)
 
 @if(filter.isEnabled) {
     <div class="filter-wrapper govuk-form-group">

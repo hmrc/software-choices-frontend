@@ -22,7 +22,7 @@
 
 @this(GovukPhaseBanner: GovukPhaseBanner)
 
-@()(implicit request: Request[_], messages: Messages, appConfig: config.AppConfig)
+@()(implicit messages: Messages, appConfig: config.AppConfig)
 
 @feedbackBanner = {
     @messages("feedback.before")
