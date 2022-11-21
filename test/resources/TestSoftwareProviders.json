@@ -1075,8 +1075,8 @@
     "motor": false
   },
   {
-    "name": "Cooper Software",
-    "url": "http://blog-coopersoftware-co-uk-4431823.hs-sites.com/",
+    "name": "Cooper Software – MTD for IFS",
+    "url": "https://www.coopersoftware.com/products/mtd",
     "business": true,
     "agent": false,
     "accounting": false,
@@ -7110,7 +7110,7 @@
     "motor": false
   },
   {
-    "name": "Fresh Books",
+    "name": "FreshBooks",
     "url": "https://www.freshbooks.com/",
     "business": true,
     "agent": true,
