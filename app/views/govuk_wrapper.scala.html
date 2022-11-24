@@ -16,6 +16,7 @@
 
 @import config.AppConfig
 @import play.twirl.api.HtmlFormat
+@import views.html.helper.CSPNonce
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukTemplate
 @import uk.gov.hmrc.govukfrontend.views.Aliases.BackLink
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukBackLink
@@ -40,19 +41,17 @@
   showBackLink: Boolean = false)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @scripts = {
-    <script>window.GOVUKFrontend.initAll();
-    window.HMRCFrontend.initAll()</script>
-    <script src="@routes.Assets.versioned("lib/jquery/jquery.min.js")"></script>
-    <script src="@routes.Assets.versioned("javascript/dynamicFilterSearch.js")" type="text/javascript"></script>
+    <script @{CSPNonce.attr} src="@routes.Assets.versioned("lib/jquery/jquery.min.js")"></script>
+    <script @{CSPNonce.attr} src="@routes.Assets.versioned("javascript/dynamicFilterSearch.js")" type="text/javascript"></script>
     @scriptElem.map(x => x)
 }
 
 @head = {
-    <!--[if lte IE 8]><link href='@routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" /><![endif]-->
-    <!--[if gt IE 8]><!--> <link href='@routes.Assets.versioned("stylesheets/application.css")' media="screen" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 8]><link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if gt IE 8]><!--> <link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application.css")' media="screen" rel="stylesheet" type="text/css" />
     <!--<![endif]-->
-    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/stylesheet_v2.css")'>
-    <noscript><link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/no-js_v1.css")'></noscript>
+    <link @{CSPNonce.attr} rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/stylesheet_v2.css")'>
+    <noscript><link @{CSPNonce.attr} rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/no-js_v1.css")'></noscript>
     <meta name="format-detection" content="telephone=no" />
 }
 
@@ -80,10 +79,11 @@
 @GovukTemplate(
     htmlLang = Some(messages.lang.code),
     pageTitle = Some(title),
-    headBlock = Some(hmrcHead(headBlock = Some(head))),
+    headBlock = Some(hmrcHead(nonce = CSPNonce.get, headBlock = Some(head))),
     headerBlock = headerBlock,
     beforeContentBlock = Some(beforeContentBlock),
     footerBlock = HmrcStandardFooter(),
     mainClasses = Some("govuk-main-wrapper--auto-spacing"),
-    bodyEndBlock = Some(hmrcScripts(scriptsBlock = Some(scripts)))
+    bodyEndBlock = Some(hmrcScripts(nonce = CSPNonce.get, scriptsBlock = Some(scripts))),
+    cspNonce = CSPNonce.get
 )(content)
