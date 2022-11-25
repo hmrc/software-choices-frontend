@@ -16,6 +16,7 @@
 
 @import config.AppConfig
 @import templates._
+@import views.html.helper.CSPNonce
 @import views.utils.ServiceNameTitle
 @import forms.FiltersForm
 @import enums.Filter._
@@ -35,7 +36,7 @@
 
 @js = {
     @if(appConfig.features.providerDetailsEnabled()){
-        <script src='@routes.Assets.versioned("javascript/providerInfo.js")' type="text/javascript"></script>
+        <script @{CSPNonce.attr} src='@routes.Assets.versioned("javascript/providerInfo.js")' type="text/javascript"></script>
     }
 }
 

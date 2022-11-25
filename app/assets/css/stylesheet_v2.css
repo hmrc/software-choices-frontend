@@ -132,27 +132,6 @@ body, main {
   margin-bottom: 5px;
 }
 
-# Styling commented out owing to change from assets frontend to play-frontend-hmrc
-#[type=checkbox] + label::before {
-    #top: 4px !important;
-    #left: 4px !important;
-    #width: 24px !important;
-    #height: 24px !important;
-#}
-
-#[type=checkbox] + label::after {
-#    -webkit-transform : rotate(-45deg) scale(0.8) !important; /* Chrome, Opera 15+, Safari 3.1+ */
-#    -ms-transform     : rotate(-45deg) scale(0.8) !important; /* IE 9 */
-#    transform         : rotate(-45deg) scale(0.8) !important; /* Firefox 16+, IE 10+, Opera */
-#}
-
-#.multiple-choice [type=checkbox]:focus+label::before {
-#    border: 2px solid black;
-#    outline: 3px solid black;
-#    -webkit-box-shadow: 0 0 0 5px #ffdd00;
-#    box-shadow: 0 0 0 5px #ffdd00;
-#}
-
 [type=text]:focus {
     outline: 3px solid #ffdd00; !important;
     outline-offset: 0;
