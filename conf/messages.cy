@@ -1,6 +1,7 @@
 common.service.name = Dewch o hyd i feddalwedd Troi Treth yn Ddigidol ar gyfer TAW
 common.gov.uk = GOV.UK/CYMRAEG
 common.back = Nôl
+common.homepageUrl = https://www.gov.uk/
 common.errorSummary.heading = Mae problem wedi codi
 common.error = Gwall:
 common.newTab = yn agor mewn tab newydd

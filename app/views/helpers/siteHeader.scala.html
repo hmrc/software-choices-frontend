@@ -21,7 +21,7 @@
 @(showSignOut: Boolean = true)(implicit messages: Messages)
 
 @hmrcHeader(Header(
-    homepageUrl = controllers.routes.SoftwareChoicesController.show.url,
+    homepageUrl = messages("common.homepageUrl"),
     serviceName = Some(messages("common.service.name")),
     serviceUrl = controllers.routes.SoftwareChoicesController.show.url,
     containerClasses = "govuk-width-container",
