@@ -15,8 +15,9 @@
  *@
 
 @import enums.Filter._
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.newtablinkhelper.NewTabLinkHelper
 
-@this()
+@this(hmrcNewTabLinkHelper: HmrcNewTabLinkHelper)
 
 @(provider: SoftwareProviderModel)(implicit messages: Messages)
 
@@ -88,4 +89,10 @@
     <div class="govuk-body">@messages("softwareChoices.filter.provider.free")</div>
 }
 
-<div class="govuk-body">@Html(messages("softwareChoices.filter.provider.visit", provider.url, provider.name))</div>
+<div class="govuk-body">
+    @messages("softwareChoices.filter.provider.visit.prefix")
+    @{hmrcNewTabLinkHelper(
+        NewTabLinkHelper(
+            text = messages("softwareChoices.filter.provider.visit", provider.name),
+            href = Some(provider.url)))}
+</div>

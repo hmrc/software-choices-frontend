@@ -3,7 +3,7 @@ common.gov.uk = GOV.UK
 common.back = Back
 common.errorSummary.heading = There is a problem
 common.error = Error:
-common.newTab = opens in a new tab
+common.newTab = opens in new tab
 common.results.count = {0} results found
 common.results.count.oneResult = 1 result found
 common.results.count.notFound = No results found
@@ -84,4 +84,5 @@ softwareChoices.filter.provider.accessibilityMultiple = This software includes {
 
 softwareChoices.filter.provider.free = There is a free version of this software.
 
-softwareChoices.filter.provider.visit = You can <a class="govuk-link" href="{0}" rel="noreferrer noopener" target="_blank">read more information on the {1} website (opens in a new tab)</a>
+softwareChoices.filter.provider.visit.prefix = You can
+softwareChoices.filter.provider.visit = read more information on the {0} website
