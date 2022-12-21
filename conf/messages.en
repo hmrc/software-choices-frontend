@@ -1,7 +1,6 @@
 common.service.name = Find software for Making Tax Digital for VAT
 common.gov.uk = GOV.UK
 common.back = Back
-common.homepageUrl = https://www.gov.uk/
 common.errorSummary.heading = There is a problem
 common.error = Error:
 common.newTab = opens in a new tab
