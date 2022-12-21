@@ -16,10 +16,9 @@
 
 @import config.AppConfig
 @import play.twirl.api.HtmlFormat
-@import views.html.helper.CSPNonce
-@import uk.gov.hmrc.govukfrontend.views.html.components.GovukTemplate
 @import uk.gov.hmrc.govukfrontend.views.Aliases.BackLink
-@import uk.gov.hmrc.govukfrontend.views.html.components.GovukBackLink
+@import uk.gov.hmrc.govukfrontend.views.html.components.{GovukBackLink, GovukTemplate}
+@import views.html.helper.CSPNonce
 
 @this(phaseBanner: helpers.phaseBanner,
         hmrcHead: HmrcHead,
@@ -28,7 +27,7 @@
         GovukTemplate: GovukTemplate,
         HmrcStandardFooter: HmrcStandardFooter,
         HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
-        siteHeader: helpers.siteHeader,
+        hmrcStandardHeader: HmrcStandardHeader,
         HmrcBanner: HmrcBanner,
         backLink: GovukBackLink)
 
@@ -56,7 +55,12 @@
 }
 
 @headerBlock = {
-    @siteHeader()
+    @hmrcStandardHeader(
+        serviceUrl = Some(controllers.routes.SoftwareChoicesController.show.url),
+        serviceName = Some(messages("common.service.name")),
+        signOutUrl = None,
+        phaseBanner = None
+    )
 }
 
 @beforeContentBlock = {
