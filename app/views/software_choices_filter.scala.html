@@ -63,8 +63,7 @@
 
     <div class="govuk-grid-row">
 
-        <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-form-group">
+        <div class="govuk-form-group">
 
                 <h1 class="govuk-heading-xl">@messages("softwareChoices.filter.title")</h1>
 
@@ -80,15 +79,13 @@
                     accordionContent
                 )
             </div>
-        </div>
-
     </div>
 
 
     @formWithCSRF(action = controllers.routes.SoftwareChoicesController.search, 'id -> "searchForm") {
         <div class="govuk-grid-row">
 
-            <div class="govuk-grid-column-one-third govuk-form-group">
+            <div class="govuk-grid-column-one-half">
 
                 @search_filter_template(
                     FilterTemplateModel(
@@ -153,13 +150,14 @@
                     <button type="submit" class="govuk-button" data-module="govuk-button">@messages("softwareChoices.filter.filterResults")</button>
                 </noscript>
             </div>
-
-            <div id="provider-table-container" class="govuk-grid-column-two-thirds">
+            <div class="govuk-form-group">
+            <div id="provider-table-container" class="govuk-!-grid-column-one-half">
 
                 @search_bar_template(form(FiltersForm.term), true, true)
 
                 @softwareChoices.renderProviders
 
+            </div>
             </div>
 
         </div>
