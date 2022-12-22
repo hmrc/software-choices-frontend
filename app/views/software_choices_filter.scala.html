@@ -150,14 +150,12 @@
                     <button type="submit" class="govuk-button" data-module="govuk-button">@messages("softwareChoices.filter.filterResults")</button>
                 </noscript>
             </div>
-            <div class="govuk-form-group">
-            <div id="provider-table-container" class="govuk-!-grid-column-one-half">
+                <div id="provider-table-container" class="govuk-grid-column-one-half govuk-form-group">
 
                 @search_bar_template(form(FiltersForm.term), true, true)
 
                 @softwareChoices.renderProviders
 
-            </div>
             </div>
 
         </div>
