@@ -16,7 +16,7 @@
   },
   {
     "name": "#1 ANNA free VAT filer",
-    "url": "https://anna.money/free-tools/vat-filing/",
+    "url": "https://anna.money/free-tools/vat-filing?utm_source=tax.service.gov.uk",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -1948,6 +1948,21 @@
     "motor": false
   },
   {
+    "name": "IRIS Elements",
+    "url": "https://www.iris.co.uk/products/iris-elements/",
+    "business": false,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
     "name": "IRIS PTP",
     "url": "https://www.iris.co.uk/ptp-software/",
     "business": false,
@@ -3719,6 +3734,21 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false
+  },
+  {
+    "name": "Tide Platform Ltd",
+    "url": "https://www.tide.co/features/tide-accounting/",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": false,
     "cognitive": false,
     "visual": false,
     "hearing": false,
