@@ -14,7 +14,6 @@
  * limitations under the License.
  *@
 
-@import config.AppConfig
 @import models.components.FilterTemplateModel
 
 @this(singleCheckbox: templates.singleCheckbox)
@@ -29,7 +28,6 @@
 
         <div class="filter-container govuk-!-padding-left-1">
             <fieldset class="filter-options govuk-fieldset">
-                <legend class="visuallyhidden">@messages(filter.heading)</legend>
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                     @filter.filters.map { option =>
                         @singleCheckbox(option.field, option.label)
