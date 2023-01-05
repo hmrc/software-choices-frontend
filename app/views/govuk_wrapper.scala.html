@@ -67,12 +67,7 @@
 
 
 @content = {
-        <div class="govuk-!-margin-bottom-6">
-            <div class="govuk-main-wrapper--auto-spacing">
-                @mainContent
-            </div>
-        </div>
-
+    @mainContent
     @hmrcReportTechnicalIssue(ReportTechnicalIssue(
         language = if(messages.lang.code == "cy") Cy else En
     ))
