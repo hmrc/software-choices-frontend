@@ -21,6 +21,7 @@
 @import views.html.helper.CSPNonce
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.{HmrcReportTechnicalIssue,HmrcHeader}
 @import uk.gov.hmrc.hmrcfrontend.views.viewmodels.reporttechnicalissue.ReportTechnicalIssue
+@import views.html.helpers.FullWidthContent
 
 @this(hmrcHead: HmrcHead,
         hmrcHeader: HmrcHeader,
@@ -31,6 +32,7 @@
         HmrcStandardFooter: HmrcStandardFooter,
         HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
         hmrcStandardHeader: HmrcStandardHeader,
+        fullWidthPageLayout: FullWidthContent,
         standardBetaBanner: StandardBetaBanner)
 
 @(title: String,
@@ -77,6 +79,7 @@
     pageTitle = Some(title),
     isWelshTranslationAvailable = true,
     additionalHeadBlock = Some(head),
+mainContentLayout = Some(fullWidthPageLayout(_)),
     phaseBanner = Some(standardBetaBanner(url = appConfig.feedbackUrl)),
     displayHmrcBanner = true,
     nonce = CSPNonce.get,
