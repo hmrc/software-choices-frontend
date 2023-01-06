@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@ import config.AppConfig
 import testContants.SoftwareProvidersTestConstants
 import forms.FiltersForm
 import models.{SoftwareChoicesFilterViewModel, SoftwareProviderModel}
+import org.jsoup.nodes.Element
+import org.jsoup.select.Elements
 import views.html.software_choices_filter
 import views.html.templates.provider_table_template
 
@@ -50,26 +52,26 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".govuk-error-message"
     val hiddenHeading = "#provider-results > h2"
-    val suitableForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third.govuk-form-group > div:nth-child(1) > h2"
+    val suitableForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(1) > h2"
     val agentFilter = """label[for="AGENT"]"""
     val businessFilter = """label[for="BUSINESS"]"""
-    val softwareForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third.govuk-form-group > div:nth-child(2) > h2"
+    val softwareForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(2) > h2"
     val vatReturnsFilter = """label[for="VIEW_RETURN"]"""
     val vatLiabilitiesFilter = """label[for="VIEW_LIABILITIES"]"""
     val vatPaymentsFilter = """label[for="VIEW_PAYMENTS"]"""
-    val softwareFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third.govuk-form-group > div:nth-child(3) > h2"
+    val softwareFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(3) > h2"
     val accountingFilter = """label[for="ACCOUNTING"]"""
     val spreadsheetsFilter = """label[for="SPREADSHEETS"]"""
-    val priceFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third.govuk-form-group > div:nth-child(4) > h2"
+    val priceFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(4) > h2"
     val freeFilter = """label[for="FREE"]"""
-    val softwareLanguageFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third.govuk-form-group > div:nth-child(5) > h2"
+    val softwareLanguageFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(5) > h2"
     val welshFilter = """label[for="WELSH"]"""
-    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third.govuk-form-group > div:nth-child(6) > h2"
+    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(6) > h2"
     val cognitiveFilter = """label[for="COGNITIVE"]"""
     val visualFilter = """label[for="VISUAL"]"""
     val hearingFilter = """label[for="HEARING"]"""
     val motorFilter = """label[for="MOTOR"]"""
-    val filterResults = "#searchForm > div > div.govuk-grid-column-one-third.govuk-form-group button"
+    val filterResults = "#searchForm > div > div.govuk-grid-column-one-third button"
     val p = (i: Int) => s"#main-content > div > div > div > div > p:nth-child($i)"
     val accordionHeading = "details > summary > span"
     val accordionSubHeading1 = (i: Int) => s"details > div > h2:nth-child($i)"
@@ -79,6 +81,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val accordionBullet3 = (i: Int) => s"details > div > ul > li:nth-child($i)"
     val accordionBullet4 = (i: Int) => s"details > div > ul > li:nth-child($i)"
 
+  }
+  implicit class ElementExtensions(element: Element) {
+
+    lazy val getParagraphs: Elements = element.getElementsByTag("p")
   }
 
   override def beforeEach() {
@@ -92,7 +98,6 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
       "the search does not contain errors" should {
 
         lazy val document = parseView(view(filterViewProviders, FiltersForm.form))
-
         s"have the correct document title" in {
           document.title shouldBe FilterSearchMessages.fullTitle
         }
@@ -102,15 +107,15 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
         }
 
         "include correct p1" in {
-          document.select(Selectors.p(2)).text shouldBe FilterSearchMessages.p1
+          document.getParagraphs.get(2).text shouldBe FilterSearchMessages.p1
         }
 
         "include correct p2" in {
-          document.select(Selectors.p(3)).text shouldBe FilterSearchMessages.p2
+          document.getParagraphs.get(3).text shouldBe FilterSearchMessages.p2
         }
 
         "include correct p3" in {
-          document.select(Selectors.p(4)).text shouldBe FilterSearchMessages.p3
+          document.getParagraphs.get(4).text shouldBe FilterSearchMessages.p3
         }
 
         "include accordion heading" in {

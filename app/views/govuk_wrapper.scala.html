@@ -1,5 +1,5 @@
 @*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,22 @@
 
 @import config.AppConfig
 @import play.twirl.api.HtmlFormat
-@import uk.gov.hmrc.govukfrontend.views.Aliases.BackLink
-@import uk.gov.hmrc.govukfrontend.views.html.components.{GovukBackLink, GovukTemplate}
 @import views.html.helper.CSPNonce
+@import uk.gov.hmrc.hmrcfrontend.views.config.StandardBetaBanner
+@import views.html.helper.CSPNonce
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.{HmrcReportTechnicalIssue,HmrcHeader}
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.reporttechnicalissue.ReportTechnicalIssue
 
-@this(phaseBanner: helpers.phaseBanner,
-        hmrcHead: HmrcHead,
+@this(hmrcHead: HmrcHead,
+        hmrcHeader: HmrcHeader,
         hmrcScripts: HmrcScripts,
-        HmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
-        GovukTemplate: GovukTemplate,
+        hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper,
+        hmrcReportTechnicalIssue: HmrcReportTechnicalIssue,
+        hmrcLayout: HmrcLayout,
         HmrcStandardFooter: HmrcStandardFooter,
         HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
         hmrcStandardHeader: HmrcStandardHeader,
-        HmrcBanner: HmrcBanner,
-        backLink: GovukBackLink)
+        standardBetaBanner: StandardBetaBanner)
 
 @(title: String,
   mainClass: Option[String] = None,
@@ -63,31 +65,22 @@
     )
 }
 
-@beforeContentBlock = {
-    @phaseBanner()
-    @HmrcBanner(Banner(if(messages.lang.code == "cy") {Cy} else {En}))
-    @if(appConfig.features.welshEnabled()){@HmrcLanguageSelectHelper()}
-    @if(showBackLink) {
-        @backLink(BackLink("/making-tax-digital-software"))
-    }
-}
 
 @content = {
-        <div class="govuk-!-margin-bottom-6 @bodyClasses">
-            @mainContent
-        </div>
-
-        @HmrcReportTechnicalIssueHelper()
+    @mainContent
+    @hmrcReportTechnicalIssue(ReportTechnicalIssue(
+        language = if(messages.lang.code == "cy") Cy else En
+    ))
 }
 
-@GovukTemplate(
-    htmlLang = Some(messages.lang.code),
+@hmrcLayout(
     pageTitle = Some(title),
-    headBlock = Some(hmrcHead(nonce = CSPNonce.get, headBlock = Some(head))),
-    headerBlock = headerBlock,
-    beforeContentBlock = Some(beforeContentBlock),
-    footerBlock = HmrcStandardFooter(),
-    mainClasses = Some("govuk-main-wrapper--auto-spacing"),
-    bodyEndBlock = Some(hmrcScripts(nonce = CSPNonce.get, scriptsBlock = Some(scripts))),
-    cspNonce = CSPNonce.get
+    isWelshTranslationAvailable = true,
+    additionalHeadBlock = Some(head),
+    mainContentLayout = None,
+    phaseBanner = Some(standardBetaBanner(url = appConfig.feedbackUrl)),
+    displayHmrcBanner = true,
+    nonce = CSPNonce.get,
+    backLinkUrl = Some("#"),
+    additionalScriptsBlock = Some(scripts)
 )(content)

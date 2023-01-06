@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         val doc = Jsoup.parse(contentAsString(result))
 
         status(result) shouldBe Status.OK
-        doc.select(".hmrc-language-select").isEmpty shouldBe true
+        doc.select(".hmrc-language-select").isEmpty shouldBe false
         doc.select("h1").text() shouldBe FilterSearchMessages.title
       }
     }
