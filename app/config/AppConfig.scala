@@ -35,9 +35,9 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
   def routeToSwitchLanguage: String => Call = (lang: String) => controllers.routes.LanguageSwitchController.switchToLanguage(lang)
 
   private val contactHost: String = config.getString(ConfigKeys.contactFrontendService)
-  private val contactFormServiceIdentifier: String = "MSCC"
+  private val contactFormServiceIdentifier: String = "vrs"
 
-  lazy val feedbackUrl: String = s"$contactHost/contact/beta-feedback-unauthenticated?service=$contactFormServiceIdentifier" +
+  lazy val feedbackUrl: String = s"$contactHost/contact/beta-feedback?service=$contactFormServiceIdentifier" +
     s"&backUrl=${RedirectUrl(host + controllers.routes.SoftwareChoicesController.show.url)}"
 
   lazy val host: String = config.getString(ConfigKeys.host)
