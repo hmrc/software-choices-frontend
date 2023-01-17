@@ -36,6 +36,6 @@ object ProviderInfoTemplateMessages {
 
   val free = "There is a free version of this software."
 
-  def link(name: String): String = s"read more information on the $name website (opens in a new tab)"
+  def link(name: String): String = s"read more information on the $name website (opens in new tab)"
   def visit(name: String): String = "You can " + link(name)
 }
