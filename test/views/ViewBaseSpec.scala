@@ -17,7 +17,6 @@
 package views
 
 import _root_.utils.TestUtils
-import assets.messages.{CommonMessages, SoftwareChoicesMessages}
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import play.twirl.api.HtmlFormat
@@ -25,10 +24,4 @@ import play.twirl.api.HtmlFormat
 trait ViewBaseSpec extends TestUtils {
 
   lazy val parseView: HtmlFormat.Appendable => Document = x => Jsoup.parse(x.body)
-
-  val opensInANewTabSuffix: String => String = _ + " " + CommonMessages.newTab
-
-  val softwareCategoryAriaLabel: String => String = x => SoftwareChoicesMessages.categoryAriaLabel(x)
-  val softwareCompanyAriaLabel: String => String = x => opensInANewTabSuffix(SoftwareChoicesMessages.providerAriaLabel(x))
-
 }

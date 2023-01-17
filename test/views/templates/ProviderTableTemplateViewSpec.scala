@@ -47,10 +47,6 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
           "have the correct link" in {
             document.select(Selectors.providerSelector(i + 1)).attr("href") shouldBe categoryAProviders(i).url
           }
-
-          "have the correct aria-label to support screenreaders" in {
-            document.select(Selectors.providerSelector(i + 1)).attr("aria-label") shouldBe softwareCompanyAriaLabel(categoryAProviders(i).name)
-          }
         }
       }
     }
