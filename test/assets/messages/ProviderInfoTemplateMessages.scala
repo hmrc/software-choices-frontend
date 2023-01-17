@@ -21,11 +21,11 @@ object ProviderInfoTemplateMessages {
   def forBusinesses(name: String): String = s"$name is suitable for businesses."
   def forAgents(name: String): String = s"$name is suitable for agents."
 
-  val softwareType = "Software type"
+  val softwareType = "Software type:"
   val records = "Record-keeping software"
   val bridging = "Bridging software"
 
-  val softwareFeatures = "VAT specific features"
+  val softwareFeatures = "VAT specific features:"
   val submitVat = "Submit VAT returns"
   val viewReturns = "View submitted VAT returns"
   val viewLiabilities = "Check what VAT you owe"

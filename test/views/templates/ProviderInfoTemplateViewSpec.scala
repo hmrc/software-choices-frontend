@@ -54,11 +54,11 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
 
       document.select("div.govuk-body").get(0).text() shouldBe testMessages.forBoth(testName)
 
-      document.select("h2").get(0).text() shouldBe testMessages.softwareType
+      document.select("p").get(0).text() shouldBe testMessages.softwareType
       document.select("ul > li").get(0).text() shouldBe testMessages.records
       document.select("ul > li").get(1).text() shouldBe testMessages.bridging
 
-      document.select("h2").get(1).text() shouldBe testMessages.softwareFeatures
+      document.select("p").get(1).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(2).text() shouldBe testMessages.submitVat
       document.select("ul > li").get(3).text() shouldBe testMessages.viewReturns
       document.select("ul > li").get(4).text() shouldBe testMessages.viewLiabilities
@@ -84,7 +84,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
 
       lazy val document = parseView(view(provider))
 
-      document.select("h2").get(0).text() shouldBe testMessages.softwareFeatures
+      document.select("p").get(0).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(0).text() shouldBe testMessages.submitVat
 
       document.select("div.govuk-body").get(0).text() shouldBe testMessages.visit(testName)
@@ -107,10 +107,10 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
 
       document.select("div.govuk-body").get(0).text() shouldBe testMessages.forBusinesses(testName)
 
-      document.select("h2").get(0).text() shouldBe testMessages.softwareType
+      document.select("p").get(0).text() shouldBe testMessages.softwareType
       document.select("ul > li").get(0).text() shouldBe testMessages.records
 
-      document.select("h2").get(1).text() shouldBe testMessages.softwareFeatures
+      document.select("p").get(1).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(1).text() shouldBe testMessages.submitVat
 
       document.select("div.govuk-body").get(1).text() shouldBe testMessages.accessibilityFeature(
@@ -138,10 +138,10 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
 
       document.select("div.govuk-body").get(0).text() shouldBe testMessages.forAgents(testName)
 
-      document.select("h2").get(0).text() shouldBe testMessages.softwareType
+      document.select("p").get(0).text() shouldBe testMessages.softwareType
       document.select("ul > li").get(0).text() shouldBe testMessages.bridging
 
-      document.select("h2").get(1).text() shouldBe testMessages.softwareFeatures
+      document.select("p").get(1).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(1).text() shouldBe testMessages.submitVat
 
       document.select("div.govuk-body").get(1).text() shouldBe testMessages.accessibilityFeatures(

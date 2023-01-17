@@ -31,7 +31,7 @@ object CommonMessages {
   val feedbackLink = "feedback"
   val feedbackAfter = "will help us to improve it."
 
-  val noResults = "No results found"
+  val noResults = "0 results found"
   val oneResult =  "1 result found"
   val results: Int => String = n => s"$n results found"
 }

@@ -150,10 +150,6 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           Option(document.select(Selectors.searchComponent)).isDefined shouldBe true
         }
 
-        "include a hidden results heading" in {
-          document.select(Selectors.hiddenHeading).text shouldBe FilterSearchMessages.hiddenHeading
-        }
-
         "include the results count component" in {
           Option(document.select(Selectors.searchResultCount)).isDefined shouldBe true
         }

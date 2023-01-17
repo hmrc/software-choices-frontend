@@ -40,7 +40,7 @@
 @(providerFilters.contains(ACCOUNTING), providerFilters.contains(SPREADSHEETS)) match {
     case (false, false) => {}
     case (accounting, spreadsheets) => {
-        <h2 class="govuk-heading-s">@messages("softwareChoices.filter.provider.typeHeading")</h2>
+        <p class="govuk-heading">@messages("softwareChoices.filter.provider.typeHeading")</p>
         <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
             @if(accounting){
                 <li class="govuk-body">@messages("softwareChoices.filter.provider.records")</li>
@@ -53,7 +53,7 @@
 }
 
 
-<h2 class="govuk-heading-s">@messages("softwareChoices.filter.provider.featureHeading")</h2>
+<p class="govuk-heading">@messages("softwareChoices.filter.provider.featureHeading")</p>
 <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
     <li class="govuk-body">@messages("softwareChoices.filter.provider.submitVat")</li>
     @if(providerFilters.contains(VIEW_RETURN)){
