@@ -18,7 +18,7 @@
 
 @(resultCount: Int, totalCount: Int, search: Boolean)(implicit messages: Messages)
 
-<span id="search-result-count" class="govuk-heading-m" role="alert">
+<h2 id="search-result-count" class="govuk-heading-m" role="alert">
     @if(search == true) {
         @if(resultCount > 0) {
             @if(resultCount == 1) {
@@ -41,4 +41,4 @@
         }
     }
 
-</span>
+</h2>

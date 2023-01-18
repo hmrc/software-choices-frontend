@@ -22,5 +22,5 @@
 @(heading: String, form: Form[_])(implicit messages: Messages)
 
 @if(form.hasErrors) {
-  @govukErrorSummary(ErrorSummary().withFormErrorsAsText(form))
+  @govukErrorSummary(ErrorSummary(title = Text(messages("common.errorSummary.heading"))).withFormErrorsAsText(form))
 }
