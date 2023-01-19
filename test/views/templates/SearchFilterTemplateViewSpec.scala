@@ -42,7 +42,7 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
   val filterTemplateModels = Seq(filterTemplateModel1, filterTemplateModel2)
 
   object Selectors {
-    val title = ".filter-head"
+    val heading = ".visuallyhidden"
     val checkbox: Int => String = n => s"fieldset > div > div:nth-of-type($n) > input[type='checkbox']"
     val label: Int => String = n => s"fieldset > div > div:nth-of-type($n) > label"
   }
@@ -54,7 +54,7 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
       lazy val document = parseView(view(FilterTemplateModel("A Title",  filterTemplateModels, true)))
 
       "have a title" in {
-        val actualResult = document.select(Selectors.title).text
+        val actualResult = document.select(Selectors.heading).text
         val expectedResult = "A Title"
         actualResult shouldBe expectedResult
       }
