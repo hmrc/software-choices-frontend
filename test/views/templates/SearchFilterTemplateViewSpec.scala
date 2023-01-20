@@ -42,7 +42,7 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
   val filterTemplateModels = Seq(filterTemplateModel1, filterTemplateModel2)
 
   object Selectors {
-    val heading = ".visuallyhidden"
+    val heading = ".filter-head"
     val checkbox: Int => String = n => s"fieldset > div > div:nth-of-type($n) > input[type='checkbox']"
     val label: Int => String = n => s"fieldset > div > div:nth-of-type($n) > label"
   }

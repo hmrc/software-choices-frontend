@@ -106,13 +106,17 @@ body, main {
 }
 
 .filter-head {
-  padding: 0.25em;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
   font-weight: 700;
-}
+  font-family: "GDS Transport", Arial, sans-serif;
+  font-size: 24px;
+  background-color: #DEE0E2;
+  border: 5px solid #DEE0E2;
+  width: 101%;
+  padding-top: 0px;
+  position: relative;
+  left: -10px;
+  right: 15px;
+  }
 
 .filter-container {
   background-color: #FFFFFF;
