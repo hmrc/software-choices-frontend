@@ -52,21 +52,21 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val formFieldError = ".form-field--error"
     val fieldErrorMessage = ".govuk-error-message"
     val hiddenHeading = "#provider-results > h2"
-    val suitableForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(1) > h2"
+    val suitableForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(2) legend"
     val agentFilter = """label[for="AGENT"]"""
     val businessFilter = """label[for="BUSINESS"]"""
-    val softwareForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(2) > h2"
+    val softwareForFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(3) legend"
     val vatReturnsFilter = """label[for="VIEW_RETURN"]"""
     val vatLiabilitiesFilter = """label[for="VIEW_LIABILITIES"]"""
     val vatPaymentsFilter = """label[for="VIEW_PAYMENTS"]"""
-    val softwareFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(3) > h2"
+    val softwareFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(4) legend"
     val accountingFilter = """label[for="ACCOUNTING"]"""
     val spreadsheetsFilter = """label[for="SPREADSHEETS"]"""
-    val priceFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(4) > h2"
+    val priceFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(5) legend"
     val freeFilter = """label[for="FREE"]"""
-    val softwareLanguageFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(5) > h2"
+    val softwareLanguageFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(6) legend"
     val welshFilter = """label[for="WELSH"]"""
-    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(6) > h2"
+    val accessibilityFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(7) legend"
     val cognitiveFilter = """label[for="COGNITIVE"]"""
     val visualFilter = """label[for="VISUAL"]"""
     val hearingFilter = """label[for="HEARING"]"""
@@ -148,10 +148,6 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
         "include the search component" in {
           Option(document.select(Selectors.searchComponent)).isDefined shouldBe true
-        }
-
-        "include a hidden results heading" in {
-          document.select(Selectors.hiddenHeading).text shouldBe FilterSearchMessages.hiddenHeading
         }
 
         "include the results count component" in {

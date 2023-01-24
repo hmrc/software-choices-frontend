@@ -33,7 +33,7 @@ class ResultCountTemplateViewSpec extends ViewBaseSpec {
     "There are more than 1 result found" should {
 
       "Return 'x results found'" in {
-        val document = parseView(view(2, 10))
+        val document = parseView(view(2, 10, true))
         document.select(Selectors.result).text shouldBe CommonMessages.results(2)
       }
     }
@@ -41,7 +41,7 @@ class ResultCountTemplateViewSpec extends ViewBaseSpec {
     "There is 1 result found" should {
 
       "Return '1 result found'" in {
-        val document = parseView(view(1, 10))
+        val document = parseView(view(1, 10, true))
         document.select(Selectors.result).text shouldBe CommonMessages.oneResult
       }
     }
@@ -49,7 +49,7 @@ class ResultCountTemplateViewSpec extends ViewBaseSpec {
     "There are 0 results found" should {
 
       "Return 'No results found'" in {
-        val document = parseView(view(0, 10))
+        val document = parseView(view(0, 10, true))
         document.select(Selectors.result).text shouldBe CommonMessages.noResults
       }
     }

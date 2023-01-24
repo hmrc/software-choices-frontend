@@ -22,12 +22,9 @@
 
 @if(filter.isEnabled) {
     <div class="filter-wrapper govuk-form-group">
-        <h2 class="filter-head govuk-body govuk-!-font-size-24">
-            @messages(filter.heading)
-        </h2>
-
         <div class="filter-container govuk-!-padding-left-1">
             <fieldset class="filter-options govuk-fieldset">
+                <legend class="filter-head">@messages(filter.heading)</legend>
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                     @filter.filters.map { option =>
                         @singleCheckbox(option.field, option.label)

@@ -32,7 +32,7 @@
         main_template: main_template
 )
 
-@(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[FiltersFormModel])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[FiltersFormModel], titlePrefix: Option[String] = None)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @js = {
     @if(appConfig.features.providerDetailsEnabled()){
@@ -55,7 +55,10 @@
 }
 
 
-@main_template(title = ServiceNameTitle.fullTitle("softwareChoices.filter.title", form.hasErrors),
+@main_template(title = titlePrefix match {
+                        case None => ServiceNameTitle.fullTitle("softwareChoices.filter.title", form.hasErrors)
+                        case Some(titlePrefix) => ServiceNameTitle.fullTitleNoJs(titlePrefix.toString, "softwareChoices.filter.title", form.hasErrors)
+              },
                bodyClasses = None,
                scriptElem = Some(js)) {
 
@@ -85,6 +88,8 @@
         <div class="govuk-grid-row">
 
             <div class="govuk-grid-column-one-third">
+
+                <h2 class="govuk-heading-m">@messages("softwareChoices.filter.filters")</h2>
 
                 @search_filter_template(
                     FilterTemplateModel(

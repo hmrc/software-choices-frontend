@@ -19,12 +19,13 @@ package controllers
 import config.AppConfig
 import forms.FiltersForm
 import models.SoftwareChoicesFilterViewModel
-import play.api.i18n.{I18nSupport, Lang, Messages}
+import play.api.data.validation.Constraint
+import play.api.i18n.{I18nSupport, Lang, Messages, MessagesApi}
 import play.api.mvc.{AnyContent, _}
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.software_choices_filter
-import views.html.templates.{provider_info_template, provider_table_template}
+import views.html.templates.{provider_info_template, provider_table_template, result_count_template}
 
 import javax.inject.{Inject, Singleton}
 
@@ -43,6 +44,18 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
     Ok(view(softwareProvidersFilterViewModel, FiltersForm.form))
   }
 
+   private def titlePrefixMessages(resultCount: Int)(implicit messages: Messages): String = {
+      if (resultCount > 0) {
+        if (resultCount == 0) {
+          messages("common.results.count.oneResult")
+        } else {
+          messages("common.results.count", resultCount)
+        }
+      } else {
+        messages("common.results.count.notFound")
+      }
+    }
+
   val search: Action[AnyContent] = Action { implicit request =>
     FiltersForm.form.bindFromRequest().fold(
       error => BadRequest(view(softwareProvidersFilterViewModel, error)),
@@ -53,7 +66,8 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
             Some(softwareChoicesService.filterProviders(search.filters, search.searchTerm)),
             providerView
           )
-        Ok(view(results, FiltersForm.form.fill(search)))
+        val titlePrefix = titlePrefixMessages(results.filteredProviders.get.length)
+        Ok(view(results, FiltersForm.form.fill(search), Some(titlePrefix)))
       }
     )
   }

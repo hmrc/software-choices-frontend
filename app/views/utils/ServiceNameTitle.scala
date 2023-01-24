@@ -27,6 +27,12 @@ object ServiceNameTitle {
   def fullTitle(titleMessage: String, hasErrors: Boolean = false)(implicit messages: Messages): String = {
 
     val title = s"${messages(titleMessage)} - ${messages(serviceName)} - ${messages(govUk)}"
-    if(hasErrors) s"${messages(error)} $title" else title
+    if (hasErrors) s"${messages(error)} $title" else title
+  }
+
+  def fullTitleNoJs(titlePrefix: String, titleMessage: String, hasErrors: Boolean = false)(implicit messages: Messages): String = {
+
+    val title = s"${titlePrefix} - ${messages(titleMessage)} - ${messages(serviceName)} - ${messages(govUk)}"
+    if (hasErrors) s"${messages(error)} $title" else title
   }
 }

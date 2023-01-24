@@ -16,16 +16,29 @@
 
 @this()
 
-@(resultCount: Int, totalCount: Int)(implicit messages: Messages)
+@(resultCount: Int, totalCount: Int, search: Boolean)(implicit messages: Messages)
 
-<span id="search-result-count" class="govuk-heading-m" role="alert">
-    @if(resultCount > 0) {
-        @if(resultCount == 1) {
-            @messages("common.results.count.oneResult")
+<h2 id="search-result-count" class="govuk-heading-m" role="alert">
+    @if(search == true) {
+        @if(resultCount > 0) {
+            @if(resultCount == 1) {
+                @messages("common.results.count.oneResult")
+            } else {
+                @messages("common.results.count", resultCount)
+            }
         } else {
-            @messages("common.results.count", resultCount)
+            @messages("common.results.count.notFound")
         }
     } else {
-        @messages("common.results.count.notFound")
+     @if(resultCount > 0) {
+            @if(resultCount == 1) {
+                @messages("common.results.count.oneResult.nofilters")
+            } else {
+                @messages("common.results.count.nofilters", resultCount)
+            }
+        } else {
+            @messages("common.results.count.notFound.nofilters")
+        }
     }
-</span>
+
+</h2>

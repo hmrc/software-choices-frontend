@@ -21,9 +21,9 @@
 <div id="provider-results">
 
     @if(showCount){
-        @result_count_template(providers.length, totalProviders)
+        @result_count_template(providers.length, totalProviders, true)
     } else {
-        <h2 class="visuallyhidden">@messages("softwareChoices.filter.hidden.heading")</h2>
+        @result_count_template(providers.length, totalProviders, false)
     }
 
     <table id="provider-table" role="presentation" class="govuk-table">

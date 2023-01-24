@@ -6,7 +6,10 @@ common.error = Error:
 common.newTab = opens in new tab
 common.results.count = {0} results found
 common.results.count.oneResult = 1 result found
-common.results.count.notFound = No results found
+common.results.count.notFound = 0 results found
+common.results.count.nofilters = {0} results
+common.results.count.oneResult.nofilters = 1 result
+common.results.count.notFound.nofilters = 0 results
 
 #Feedback
 feedback.before = This is a new service – your
@@ -64,16 +67,17 @@ softwareChoices.filter.motor = Motor
 
 softwareChoices.filter.filterResults = Apply filters
 softwareChoices.filter.hidden.heading = Search results
+softwareChoices.filter.filters = Filters
 
 softwareChoices.filter.provider.both = {0} is suitable for businesses or agents.
 softwareChoices.filter.provider.business = {0} is suitable for businesses.
 softwareChoices.filter.provider.agent = {0} is suitable for agents.
 
-softwareChoices.filter.provider.typeHeading = Software type
+softwareChoices.filter.provider.typeHeading = Software type:
 softwareChoices.filter.provider.records = Record-keeping software
 softwareChoices.filter.provider.bridging = Bridging software
 
-softwareChoices.filter.provider.featureHeading = VAT specific features
+softwareChoices.filter.provider.featureHeading = VAT specific features:
 softwareChoices.filter.provider.submitVat = Submit VAT returns
 softwareChoices.filter.provider.viewReturns = View submitted VAT returns
 softwareChoices.filter.provider.viewLiabilities = Check what VAT you owe
