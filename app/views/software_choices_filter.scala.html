@@ -23,9 +23,13 @@
 @import models.components._
 @import uk.gov.hmrc.govukfrontend.views.html.components.FormWithCSRF
 @import views.html.helpers.accordionHelper
+@import uk.gov.hmrc.govukfrontend.views.Aliases.Text
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.skiplink.SkipLink
+@import uk.gov.hmrc.govukfrontend.views.html.components.GovukSkipLink
 
 @this(error_summary_template: error_summary_template,
         accordionHelper: accordionHelper,
+        govukSkipLink: GovukSkipLink,
         formWithCSRF: FormWithCSRF,
         search_filter_template: search_filter_template,
         search_bar_template: search_bar_template,
@@ -67,19 +71,19 @@
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-form-group">
 
-                <h1 class="govuk-heading-xl">@messages("softwareChoices.filter.title")</h1>
+                    <h1 class="govuk-heading-xl">@messages("softwareChoices.filter.title")</h1>
 
-                <p class="govuk-body">@messages("softwareChoices.filter.p1")</p>
+                    <p class="govuk-body">@messages("softwareChoices.filter.p1")</p>
 
-                <p class="govuk-body">@messages("softwareChoices.filter.p2")</p>
+                    <p class="govuk-body">@messages("softwareChoices.filter.p2")</p>
 
-                <p class="govuk-body">@messages("softwareChoices.filter.p3")</p>
+                    <p class="govuk-body">@messages("softwareChoices.filter.p3")</p>
 
-
-                @accordionHelper(
-                    messages("softwareChoices.filter.accordion.heading"),
-                    accordionContent
-                )
+                    @accordionHelper(
+                        messages("softwareChoices.filter.accordion.heading"),
+                        accordionContent
+                    )
+                    @govukSkipLink(SkipLink(href="#provider-results", content = Text("Skip to search results")))
                  </div>
             </div>
         </div>
