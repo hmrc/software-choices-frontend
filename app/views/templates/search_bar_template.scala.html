@@ -21,7 +21,7 @@
 
 @(field: Field, showLabel: Boolean = false, includeNoscript: Boolean = false)(implicit messages: Messages)
 
-<div class="govuk-form-group @if(field.hasErrors){form-field--error"}">
+<div class="govuk-form-group @if(field.hasErrors){form-field--error"}" role="search">
 
     @field.errors.map { error => <span class="govuk-error-message">@messages(error.message, error.args: _*)</span> }
 

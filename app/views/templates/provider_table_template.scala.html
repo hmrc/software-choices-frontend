@@ -18,7 +18,7 @@
 
 @(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true, providerDetailsFilterFeature: Boolean = false)(implicit messages: Messages)
 
-<div id="provider-results">
+<div id="provider-results" role="region" aria-label="Search results">
 
     @if(showCount){
         @result_count_template(providers.length, totalProviders, true)
@@ -26,13 +26,10 @@
         @result_count_template(providers.length, totalProviders, false)
     }
 
-    <table id="provider-table" role="presentation" class="govuk-table">
-
-        <tbody class="govuk-table__body">
+    <ul id="provider-table" class="govuk-list">
 
             @for((provider, index) <- providers.zipWithIndex){
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
+                    <li class=" govuk-!-margin-left-0 govuk-table__cell">
                         @if(providerDetailsFilterFeature){
                             <noscript>
                                 <a href="/making-tax-digital-software/software-information?providerName=@{provider.encodedName}"
@@ -54,9 +51,7 @@
                                data-journey-click="link:click:@{provider.name}">@provider.name
                             </a>
                         }
-                    </td>
-                </tr>
+                    </li>
             }
-        </tbody>
-    </table>
+    </ul>
 </div>
