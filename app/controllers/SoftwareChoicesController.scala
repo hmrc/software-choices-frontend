@@ -19,13 +19,12 @@ package controllers
 import config.AppConfig
 import forms.FiltersForm
 import models.SoftwareChoicesFilterViewModel
-import play.api.data.validation.Constraint
-import play.api.i18n.{I18nSupport, Lang, Messages, MessagesApi}
-import play.api.mvc.{AnyContent, _}
+import play.api.i18n.{I18nSupport, Lang, Messages}
+import play.api.mvc._
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.software_choices_filter
-import views.html.templates.{provider_info_template, provider_table_template, result_count_template}
+import views.html.templates.{provider_info_template, provider_table_template}
 
 import javax.inject.{Inject, Singleton}
 

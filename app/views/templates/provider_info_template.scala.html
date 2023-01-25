@@ -26,13 +26,13 @@
 
 @(providerFilters.contains(BUSINESS), providerFilters.contains(AGENT)) match {
     case (true, true) => {
-        <div class="govuk-body">@messages("softwareChoices.filter.provider.both", provider.name)</div>
+        <p class="govuk-body">@messages("softwareChoices.filter.provider.both", provider.name)</p>
     }
     case (true, false) =>  {
-        <div class="govuk-body">@messages("softwareChoices.filter.provider.business", provider.name)</div>
+        <p class="govuk-body">@messages("softwareChoices.filter.provider.business", provider.name)</p>
     }
     case (false, true) =>  {
-        <div class="govuk-body">@messages("softwareChoices.filter.provider.agent", provider.name)</div>
+        <p class="govuk-body">@messages("softwareChoices.filter.provider.agent", provider.name)</p>
     }
     case _ => {}
 }
@@ -40,7 +40,7 @@
 @(providerFilters.contains(ACCOUNTING), providerFilters.contains(SPREADSHEETS)) match {
     case (false, false) => {}
     case (accounting, spreadsheets) => {
-        <p class="govuk-heading">@messages("softwareChoices.filter.provider.typeHeading")</p>
+        <p class="govuk-body">@messages("softwareChoices.filter.provider.typeHeading")</p>
         <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
             @if(accounting){
                 <li class="govuk-body">@messages("softwareChoices.filter.provider.records")</li>
@@ -53,7 +53,7 @@
 }
 
 
-<p class="govuk-heading">@messages("softwareChoices.filter.provider.featureHeading")</p>
+<p class="govuk-body">@messages("softwareChoices.filter.provider.featureHeading")</p>
 <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
     <li class="govuk-body">@messages("softwareChoices.filter.provider.submitVat")</li>
     @if(providerFilters.contains(VIEW_RETURN)){
@@ -70,29 +70,29 @@
 @accessibilityFilters.map(_.toString.toLowerCase) match {
     case Nil => {}
     case List(filter) => {
-        <div class="govuk-body">
+        <p class="govuk-body">
             @messages("softwareChoices.filter.provider.accessibilityOne", messages(s"softwareChoices.filter.$filter").toLowerCase)
-        </div>
+        </p>
     }
     case multipleFilters => {
-        <div class="govuk-body">
+        <p class="govuk-body">
             @messages(
                 "softwareChoices.filter.provider.accessibilityMultiple",
                 multipleFilters.tail.map(v => messages(s"softwareChoices.filter.$v").toLowerCase).mkString(", "),
                 messages(s"softwareChoices.filter.${multipleFilters.head}").toLowerCase
             )
-        </div>
+        </p>
     }
 }
 
 @if(providerFilters.contains(FREE)){
-    <div class="govuk-body">@messages("softwareChoices.filter.provider.free")</div>
+    <p class="govuk-body">@messages("softwareChoices.filter.provider.free")</p>
 }
 
-<div class="govuk-body">
+<p class="govuk-body">
     @messages("softwareChoices.filter.provider.visit.prefix")
     @{hmrcNewTabLinkHelper(
         NewTabLinkHelper(
             text = messages("softwareChoices.filter.provider.visit", provider.name),
             href = Some(provider.url)))}
-</div>
+</p>

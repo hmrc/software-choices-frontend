@@ -25,9 +25,9 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
   val view = app.injector.instanceOf[provider_table_template]
 
   object Selectors {
-    val providerSelector: Int => String = provider => s"table tr:nth-child($provider) > td > a"
-    val providerDetailsSelector: Int => String = provider => s"table tr:nth-child($provider) > td > details"
-    val noscriptLinkSelector: Int => String = provider => s"table tr:nth-child($provider) > td > noscript > a"
+    val providerSelector: Int => String = provider => s"ul li:nth-of-type($provider) > a"
+    val providerDetailsSelector: Int => String = provider => s"ul li:nth-of-type($provider) > details"
+    val noscriptLinkSelector: Int => String = provider => s"ul li:nth-of-type($provider) > noscript > a"
   }
 
   "The Provider Table Template" when {
