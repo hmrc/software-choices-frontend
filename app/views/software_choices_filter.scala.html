@@ -46,23 +46,23 @@
 
 @accordionContent = {
     <h2 class="govuk-heading-s">@messages("softwareChoices.filter.accordion.subHeading1")</h2>
-     <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
+    <ul class="govuk-list--bullet govuk-!-margin-bottom-4 govuk-body">
         <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet1")</li>
         <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet2")</li>
-     </ul>
+    </ul>
 
     <h2 class ="govuk-heading-s">@messages("softwareChoices.filter.accordion.subHeading2")</h2>
-     <ul class="govuk-list--bullet govuk-body">
+    <ul class="govuk-list--bullet govuk-body">
         <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet3")</li>
         <li class="govuk-body">@messages("softwareChoices.filter.accordion.bullet4")</li>
-     </ul>
+    </ul>
 }
 
 
 @main_template(title = titlePrefix match {
-                        case None => ServiceNameTitle.fullTitle("softwareChoices.filter.title", form.hasErrors)
-                        case Some(titlePrefix) => ServiceNameTitle.fullTitleNoJs(titlePrefix.toString, "softwareChoices.filter.title", form.hasErrors)
-              },
+                 case None => ServiceNameTitle.fullTitle("softwareChoices.filter.title", form.hasErrors)
+                 case Some(titlePrefix) => ServiceNameTitle.fullTitleNoJs(titlePrefix.toString, "softwareChoices.filter.title", form.hasErrors)
+               },
                bodyClasses = None,
                scriptElem = Some(js)) {
 
@@ -70,31 +70,25 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-form-group">
-
                     <h1 class="govuk-heading-xl">@messages("softwareChoices.filter.title")</h1>
-
                     <p class="govuk-body">@messages("softwareChoices.filter.p1")</p>
-
                     <p class="govuk-body">@messages("softwareChoices.filter.p2")</p>
-
                     <p class="govuk-body">@messages("softwareChoices.filter.p3")</p>
 
                     @accordionHelper(
                         messages("softwareChoices.filter.accordion.heading"),
                         accordionContent
                     )
-                    @govukSkipLink(SkipLink(href="#provider-results", content = Text("Skip to search results")))
+
+                    @govukSkipLink(SkipLink(href = "#provider-results", content = Text(messages("softwareChoices.filter.skipLink"))))
                  </div>
             </div>
         </div>
 
     @formWithCSRF(action = controllers.routes.SoftwareChoicesController.search, 'id -> "searchForm") {
         <div class="govuk-grid-row">
-
             <div class="govuk-grid-column-one-third" role="region" aria-label="Filters">
-
                 <h2 class="govuk-heading-m">@messages("softwareChoices.filter.filters")</h2>
-
                 @search_filter_template(
                     FilterTemplateModel(
                         messages("softwareChoices.filter.softwareSuitableFor"),
@@ -158,14 +152,11 @@
                     <button type="submit" class="govuk-button" data-module="govuk-button">@messages("softwareChoices.filter.filterResults")</button>
                 </noscript>
             </div>
-                <div id="provider-table-container" class="govuk-grid-column-two-thirds govuk-form-group">
 
+            <div id="provider-table-container" class="govuk-grid-column-two-thirds govuk-form-group">
                 @search_bar_template(form(FiltersForm.term), true, true)
-
                 @softwareChoices.renderProviders
-
             </div>
-
         </div>
     }
 }

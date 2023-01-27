@@ -16,29 +16,31 @@
 
 @this()
 
-@(resultCount: Int, totalCount: Int, search: Boolean)(implicit messages: Messages)
+@(resultCount: Int, totalCount: Int, doSearch: Boolean)(implicit messages: Messages)
 
-<h2 id="search-result-count" class="govuk-heading-m" role="alert">
-    @if(search == true) {
-        @if(resultCount > 0) {
-            @if(resultCount == 1) {
-                @messages("common.results.count.oneResult")
+<div role="status">
+    <h2 id="search-result-count" class="govuk-heading-m">
+        @if(doSearch) {
+            @if(resultCount > 0) {
+                @if(resultCount == 1) {
+                    @messages("common.results.count.oneResult")
+                } else {
+                    @messages("common.results.count", resultCount)
+                }
             } else {
-                @messages("common.results.count", resultCount)
+                @messages("common.results.count.notFound")
             }
         } else {
-            @messages("common.results.count.notFound")
-        }
-    } else {
-     @if(resultCount > 0) {
-            @if(resultCount == 1) {
-                @messages("common.results.count.oneResult.nofilters")
+            @if(resultCount > 0) {
+                @if(resultCount == 1) {
+                    @messages("common.results.count.oneResult.nofilters")
+                } else {
+                    @messages("common.results.count.nofilters", resultCount)
+                }
             } else {
-                @messages("common.results.count.nofilters", resultCount)
+                @messages("common.results.count.notFound.nofilters")
             }
-        } else {
-            @messages("common.results.count.notFound.nofilters")
         }
-    }
 
-</h2>
+    </h2>
+</div>
