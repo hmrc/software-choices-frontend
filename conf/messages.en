@@ -32,6 +32,8 @@ softwareChoices.filter.p1 = Using software will allow you to submit VAT Returns 
 softwareChoices.filter.p2 = Most of the software listed will require payment though there are some free versions available. You should choose software that is suitable for you.
 softwareChoices.filter.p3 = Some of the software listed below have features that are particularly suitable for those with accessibility needs, for example visual impairment and limited movement.
 
+softwareChoices.filter.skipLink = Skip to results
+
 softwareChoices.filter.accordion.heading = What kind of software is available?
 softwareChoices.filter.accordion.subHeading1 = Record keeping software
 softwareChoices.filter.accordion.bullet1 = updates and stores your records digitally

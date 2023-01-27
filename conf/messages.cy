@@ -31,6 +31,8 @@ softwareChoices.filter.p1 = Bydd defnyddio meddalwedd yn eich galluogi i gyflwyn
 softwareChoices.filter.p2 = Mae angen talu am y rhan fwyaf o’r feddalwedd sydd wedi’u rhestru, ond mae yna rhai fersiynau ar gael sy’n rhad ac am ddim. Dylech ddewis meddalwedd sy’n addas ar eich cyfer chi.
 softwareChoices.filter.p3 = Mae gan rai o’r feddalwedd a restrir isod nodweddion sy’n arbennig o addas ar gyfer y rhai hynny sydd ag anghenion hygyrchedd, er enghraifft nam ar y golwg a symudiad cyfyngedig.
 
+softwareChoices.filter.skipLink = Ewch yn syth i’r canlyniadau
+
 softwareChoices.filter.accordion.heading = Pa fath o feddalwedd sydd ar gael?
 softwareChoices.filter.accordion.subHeading1 = Meddalwedd cadw cofnodion
 softwareChoices.filter.accordion.bullet1 = mae’n diweddaru ac yn cadw eich cofnodion yn ddigidol

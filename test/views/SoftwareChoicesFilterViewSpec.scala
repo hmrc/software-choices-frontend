@@ -146,6 +146,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           document.select(Selectors.accordionBullet4(2)).text should include(FilterSearchMessages.accordionBullet4)
         }
 
+        "include a 'skip to results' link" in {
+          document.select("main a").first().text shouldBe "Skip to results"
+        }
+
         "include the search component" in {
           Option(document.select(Selectors.searchComponent)).isDefined shouldBe true
         }
