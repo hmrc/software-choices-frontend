@@ -37,6 +37,9 @@ class SoftwareInformationViewSpec extends ViewBaseSpec with SoftwareProvidersTes
     "have a back button" in {
       document.select(".govuk-back-link").text shouldBe Messages.backButton
     }
+    "have a back button with the correct url" in {
+      document.select(".govuk-back-link").attr("href") shouldBe "/making-tax-digital-software"
+    }
     "have a heading" in {
       document.select("h1").text shouldBe Messages.heading
     }
