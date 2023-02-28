@@ -8,8 +8,8 @@ $('#provider-table-container').on('click', 'details', function() {
 
     } else {
 
-         $(this).find('.govuk-details__summary').attr("aria-expanded", false);
-         $(this).find('.govuk-details__text').attr("aria-hidden", true);
+         $(this).find('.govuk-details__summary');
+         $(this).find('.govuk-details__text');
     }
 });
 
@@ -26,15 +26,15 @@ function ajaxRequest(element) {
 
         $(element).find('div').empty().append(result);
 
-        $(element).find('.govuk-details__summary').attr("aria-expanded", true);
-        $(element).find('.govuk-details__text').attr("aria-hidden", false);
+        $(element).find('.govuk-details__summary');
+        $(element).find('.govuk-details__text');
 
     },
     error: function(e) {
         $(element).find('div').empty().append('<div>Provider lookup failure.</div>');
 
-        $(element).find('.govuk-details__summary').attr("aria-expanded", true);
-        $(element).find('.govuk-details__text').attr("aria-hidden", false);
+        $(element).find('.govuk-details__summary');
+        $(element).find('.govuk-details__text');
     }
   });
 }
