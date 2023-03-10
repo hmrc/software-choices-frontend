@@ -140,7 +140,7 @@
   },
   {
     "name": "1 2 3 Sheets Ltd",
-    "url": "https://123sheets.co.uk/",
+    "url": "https://123sheets.com/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -151,7 +151,8 @@
     "cognitive": false,
     "visual": false,
     "hearing": false,
-    "motor": false
+    "motor": false,
+    "free": true
   },
   {
     "name": "10 Minute Accounts",
@@ -8525,5 +8526,21 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "#OneVAT",
+    "url": "https://www.onevat.com",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": true
   }
 ]
