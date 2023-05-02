@@ -36,13 +36,16 @@
         main_template: main_template
 )
 
-@(softwareChoices: SoftwareChoicesFilterViewModel, form: Form[FiltersFormModel], titlePrefix: Option[String] = None)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(
+        softwareChoices: SoftwareChoicesFilterViewModel,
+        form: Form[FiltersFormModel],
+        titlePrefix: Option[String] = None,
+        skipToResults:Option[Html] = None)(
+        implicit request: Request[_],
+        messages: Messages,
+        appConfig: AppConfig
+)
 
-@js = {
-    @if(appConfig.features.providerDetailsEnabled()){
-        <script @{CSPNonce.attr} src='@routes.Assets.versioned("javascript/providerInfo.js")' type="text/javascript"></script>
-    }
-}
 
 @accordionContent = {
     <h2 class="govuk-heading-s">@messages("softwareChoices.filter.accordion.subHeading1")</h2>
@@ -61,10 +64,9 @@
 
 @main_template(title = titlePrefix match {
                  case None => ServiceNameTitle.fullTitle("softwareChoices.filter.title", form.hasErrors)
-                 case Some(titlePrefix) => ServiceNameTitle.fullTitleNoJs(titlePrefix.toString, "softwareChoices.filter.title", form.hasErrors)
+                 case Some(titlePrefix) => ServiceNameTitle.fullTitleNoJs(titlePrefix, "softwareChoices.filter.title", form.hasErrors)
                },
-               bodyClasses = None,
-               scriptElem = Some(js)) {
+               bodyClasses = None, skipToResults = skipToResults) {
 
     @error_summary_template("common.errorSummary.heading", form)
         <div class="govuk-grid-row">
@@ -148,13 +150,12 @@
                     )
                 )
 
-                <noscript>
-                    <button type="submit" class="govuk-button" data-module="govuk-button">@messages("softwareChoices.filter.filterResults")</button>
-                </noscript>
+                <button type="submit" class="govuk-button" data-module="govuk-button" value="@messages("softwareChoices.filter.filterResults")">@messages("softwareChoices.filter.filterResults")</button>
+
             </div>
 
             <div id="provider-table-container" class="govuk-grid-column-two-thirds govuk-form-group">
-                @search_bar_template(form(FiltersForm.term), true, true)
+                @search_bar_template(form(FiltersForm.term), showLabel = true)
                 @softwareChoices.renderProviders
             </div>
         </div>

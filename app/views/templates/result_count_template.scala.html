@@ -18,8 +18,8 @@
 
 @(resultCount: Int, totalCount: Int, doSearch: Boolean)(implicit messages: Messages)
 
-<div role="status">
-    <h2 id="search-result-count" class="govuk-heading-m">
+<div role="alert">
+    <h2 id="search-result-count" class="govuk-heading-m" aria-live="polite">
         @if(doSearch) {
             @if(resultCount > 0) {
                 @if(resultCount == 1) {

@@ -26,7 +26,7 @@ import play.api.mvc.{Cookie, MessagesControllerComponents}
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import services.mocks.MockSoftwareChoicesService
-import views.html.software_choices_filter
+import views.html.{gov_skip_link, software_choices_filter}
 import views.html.templates.{provider_info_template, provider_table_template}
 
 class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesService {
@@ -35,14 +35,15 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
   val viewProvider: provider_table_template = app.injector.instanceOf[provider_table_template]
   val viewInfo: provider_info_template = app.injector.instanceOf[provider_info_template]
   val mcc: MessagesControllerComponents = app.injector.instanceOf[MessagesControllerComponents]
-
+  val gov_skip_link: gov_skip_link = app.injector.instanceOf[gov_skip_link]
 
   object TestSoftwareChoicesController extends SoftwareChoicesController(
     mockSoftwareChoicesService,
     mcc,
     view,
     viewProvider,
-    viewInfo
+    viewInfo,
+    gov_skip_link
   )(appConfig)
 
   val softwareProviders: Seq[SoftwareProviderModel] = Seq(

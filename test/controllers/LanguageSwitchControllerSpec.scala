@@ -16,40 +16,50 @@
 
 package controllers
 
-import play.api.i18n.Lang
-import play.api.mvc.MessagesControllerComponents
-import uk.gov.hmrc.play.language.LanguageUtils
+import org.scalatest.MustMatchers.convertToAnyMustWrapper
+import play.api.Application
+import play.api.inject.guice.GuiceApplicationBuilder
+import play.api.mvc.{Cookies, Result}
+import play.api.test.FakeRequest
+import play.api.test.Helpers.{cookies, defaultAwaitTimeout}
 import utils.TestUtils
+
+import scala.concurrent.Future
 
 class LanguageSwitchControllerSpec extends TestUtils {
 
-  val mcc: MessagesControllerComponents = app.injector.instanceOf[MessagesControllerComponents]
-  val lu: LanguageUtils = app.injector.instanceOf[LanguageUtils]
+  override def fakeApplication(): Application =
+    new GuiceApplicationBuilder()
+      .build()
 
-  val languages: Map[String, Lang] = Map("english" -> Lang("en"), "cymraeg" -> Lang("cy"))
-  val fallbackUrl = "/making-tax-digital-software"
-
-  object TestLanguageSwitchController extends LanguageSwitchController(
-    appConfig,
-    mcc,
-    lu
-  )
-
-  "LanguageSwitchController.languageMap" should {
-
-    lazy val result = TestLanguageSwitchController.languageMap
-
-    "return languages from app config" in {
-      result shouldBe languages
+  val controller: LanguageSwitchController = app.injector.instanceOf[LanguageSwitchController]
+  "Validating english/welsh switch" should {
+    "display english when 'english' selected" in {
+      val result: Future[Result] =
+        controller.switchToEnglish().apply(FakeRequest().withHeaders("Referer" -> "/paperless/choose"))
+      val cook: Cookies = cookies(result)
+      cook.get("PLAY_LANG").get.value mustBe "en"
     }
-  }
 
-  "LanguageSwitchController.fallbackURL" should {
+    "display welsh when 'welsh' selected" in {
+      val result: Future[Result] =
+        controller.switchToWelsh().apply(FakeRequest().withHeaders("Referer" -> "/paperless/choose"))
+      val cook: Cookies = cookies(result)
+      cook.get("PLAY_LANG").get.value mustBe "cy"
+    }
 
-    lazy val result = TestLanguageSwitchController.fallbackURL
+    "display english when 'english' selected and no referrer is present" in {
+      val result: Future[Result] =
+        controller.switchToEnglish().apply(FakeRequest())
+      val cook: Cookies = cookies(result)
+      cook.get("PLAY_LANG").get.value mustBe "en"
+    }
 
-    "return correct fallback url" in {
-      result shouldBe fallbackUrl
+    "display welsh when 'welsh' selected and no referrer is present" in {
+      val result: Future[Result] =
+        controller.switchToWelsh().apply(FakeRequest())
+      val cook: Cookies = cookies(result)
+      cook.get("PLAY_LANG").get.value mustBe "cy"
     }
   }
 }

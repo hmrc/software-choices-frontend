@@ -26,13 +26,13 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
 
   object Selectors {
     val providerSelector: Int => String = provider => s"ul li:nth-of-type($provider) > a"
-    val providerDetailsSelector: Int => String = provider => s"ul li:nth-of-type($provider) > details"
+    val providerDetailsSelector: Int => String = provider => s"ul li:nth-of-type($provider) > details > summary"
     val noscriptLinkSelector: Int => String = provider => s"ul li:nth-of-type($provider) > noscript > a"
   }
 
   "The Provider Table Template" when {
 
-    "a list of providers with hrefs when provider details FS is off" should {
+    "a list of providers with hrefs when provider details Feature Switch is off" should {
 
       lazy val document = parseView(view(categoryAProviders, 10))
 
@@ -51,22 +51,16 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
       }
     }
 
-    "a list of providers accordions when provider details FS is on" should {
+    "a list of providers accordions when provider details Feature Switch is on" should {
 
-      lazy val document = parseView(view(categoryAProviders, 10, providerDetailsFilterFeature = true))
+      val document = parseView(view(categoryAProviders, 10, providerDetailsFilterFeature = true))
 
       for (i <- categoryAProviders.indices) {
 
         s"for provider $i" should {
 
-          s"have a noscript tag with a link" in {
-            val url = s"/making-tax-digital-software/software-information?providerName=${categoryAProviders(i).name}"
-
-            document.select(Selectors.noscriptLinkSelector(i + 1)).attr("href") shouldBe url
-          }
-
           s"have the correct name" in {
-            document.select(Selectors.providerDetailsSelector(i + 1)).first().text() shouldBe categoryAProviders(i).name
+            document.select(Selectors.providerDetailsSelector(i + 1)).text() shouldBe categoryAProviders(i).name
           }
 
         }

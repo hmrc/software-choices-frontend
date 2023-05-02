@@ -7,9 +7,8 @@ GET        /assets/*file                                     controllers.Assets.
 GET        /                                                 controllers.SoftwareChoicesController.show
 POST       /                                                 controllers.SoftwareChoicesController.search
 
-GET        /software-information                             controllers.SoftwareInformationController.show(providerName: String)
-
 POST       /ajax                                             controllers.SoftwareChoicesController.ajaxFilterSearch
 GET        /ajaxProvider                                     controllers.SoftwareChoicesController.ajaxProvider(providerName: String)
 
-GET        /language/:lang                                   controllers.LanguageSwitchController.switchToLanguage(lang: String)
+GET         /switch-to-welsh                                 controllers.LanguageSwitchController.switchToWelsh
+GET         /switch-to-english                               controllers.LanguageSwitchController.switchToEnglish
