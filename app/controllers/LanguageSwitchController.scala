@@ -16,21 +16,38 @@
 
 package controllers
 
-import config.AppConfig
-import play.api.i18n.Lang
-import play.api.mvc.MessagesControllerComponents
-import uk.gov.hmrc.play.language.{LanguageController, LanguageUtils}
+import controllers.LanguageSwitchController.{english, welsh}
+import play.api.Logging
+import play.api.i18n.{I18nSupport, Lang}
+import play.api.mvc.{Action, AnyContent, Flash, MessagesControllerComponents}
+import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 
-import javax.inject.{Inject, Singleton}
+import javax.inject.Inject
 
-@Singleton
-class LanguageSwitchController @Inject()(appConfig: AppConfig,
-                                         mcc: MessagesControllerComponents,
-                                         languageUtils: LanguageUtils
-                                        ) extends LanguageController(languageUtils, mcc) {
 
-  def languageMap: Map[String, Lang] = appConfig.languageMap
+class LanguageSwitchController @Inject()(cc: MessagesControllerComponents)
+  extends FrontendController(cc)
+    with I18nSupport
+    with Logging {
 
-  protected[controllers] def fallbackURL: String = routes.SoftwareChoicesController.show.url
+  def switchToEnglish: Action[AnyContent] = switchToLang(english)
 
+  def switchToWelsh: Action[AnyContent] = switchToLang(welsh)
+
+  private def switchToLang(lang: Lang): Action[AnyContent] = Action { implicit request =>
+    request.headers.get(REFERER) match {
+      case Some(referrer) => Redirect(referrer).withLang(lang).flashing(LanguageSwitchController.FlashWithSwitchIndicator)
+      case None =>
+        logger.warn("Unable to get the referrer, so sending them to the start.")
+        Redirect(routes.SoftwareChoicesController.show).withLang(lang)
+    }
+  }
+
+}
+
+object LanguageSwitchController {
+  private val SwitchIndicatorKey: String      = "switching-language"
+  private val FlashWithSwitchIndicator: Flash = Flash(Map(SwitchIndicatorKey -> "true"))
+  val english: Lang                           = Lang("en")
+  val welsh: Lang                             = Lang("cy")
 }

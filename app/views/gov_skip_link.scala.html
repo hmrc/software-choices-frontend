@@ -14,19 +14,11 @@
  * limitations under the License.
  *@
 
-@import config.AppConfig
-@import templates._
-@import views.utils.ServiceNameTitle
+@import uk.gov.hmrc.govukfrontend.views.html.components.GovukSkipLink
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.skiplink.SkipLink
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
+@import play.api.i18n.Messages
 
-@this(provider_info_template: provider_info_template,
-        main_template: main_template)
-
-@(provider: SoftwareProviderModel)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
-
-@main_template(title = ServiceNameTitle.fullTitle(provider.name), bodyClasses = Some("govuk-body"), showBackLink = true, backLinkUrl = Some(controllers.routes.SoftwareChoicesController.show.url)) {
-
-    <h1 id="heading" class="govuk-heading-l">@messages(provider.name)</h1>
-
-    @provider_info_template(provider)
-
-}
+@this(govukSkipLink: GovukSkipLink)
+@()(implicit messages: Messages)
+@govukSkipLink(SkipLink(href = "#search-result-count", content = Text(messages("softwareChoices.filter.skipLink"))))

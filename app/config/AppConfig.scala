@@ -18,7 +18,7 @@ package config
 
 import config.features.Features
 import play.api.i18n.Lang
-import play.api.mvc.Call
+import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.{Cy, En, Language}
 import uk.gov.hmrc.play.bootstrap.binders.RedirectUrl
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 
@@ -32,8 +32,6 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
     "cymraeg" -> Lang("cy")
   )
 
-  def routeToSwitchLanguage: String => Call = (lang: String) => controllers.routes.LanguageSwitchController.switchToLanguage(lang)
-
   private val contactHost: String = config.getString(ConfigKeys.contactFrontendService)
   private val contactFormServiceIdentifier: String = "vrs"
 
@@ -45,5 +43,11 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
   lazy val govUkMtdVatSignUpGuidanceUrl = config.getString(ConfigKeys.govUkMtdVatSignUpGuidance)
 
   val features = new Features
+
+  def languageLinks: Seq[(Language, String)] =
+    Seq(
+      (En, controllers.routes.LanguageSwitchController.switchToEnglish.url),
+      (Cy, controllers.routes.LanguageSwitchController.switchToWelsh.url)
+    )
 
 }

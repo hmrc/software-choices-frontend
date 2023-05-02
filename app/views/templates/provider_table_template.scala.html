@@ -14,16 +14,18 @@
  * limitations under the License.
  *@
 
-@this(result_count_template: templates.result_count_template)
+@import views.html.templates.provider_info_template
+
+@this(result_count_template: templates.result_count_template, provider_info_template: provider_info_template)
 
 @(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true, providerDetailsFilterFeature: Boolean = false)(implicit messages: Messages)
 
 <div id="provider-results" role="region" aria-label="Search results">
 
     @if(showCount){
-        @result_count_template(providers.length, totalProviders, true)
+        @result_count_template(providers.length, totalProviders, doSearch = true)
     } else {
-        @result_count_template(providers.length, totalProviders, false)
+        @result_count_template(providers.length, totalProviders, doSearch = false)
     }
 
     <ul id="provider-table" class="govuk-list">
@@ -31,17 +33,13 @@
             @for((provider, index) <- providers.zipWithIndex){
                     <li class=" govuk-!-margin-left-0 govuk-table__cell">
                         @if(providerDetailsFilterFeature){
-                            <noscript>
-                                <a href="/making-tax-digital-software/software-information?providerName=@{provider.encodedName}"
-                                   class="providers govuk-link govuk-!-font-weight-bold"
-                                   data-journey-click="link:click:@{provider.name}">@provider.name
-                                </a>
-                            </noscript>
                             <details class="govuk-details govuk-!-margin-0" data-module="govuk-details" role="group">
                                 <summary class="govuk-details__summary">
                                     <span class="govuk-details__summary-text">@{provider.name}</span>
                                 </summary>
-                                <div class="govuk-details__text"></div>
+                                <div class="govuk-details__text">
+                                    @provider_info_template(provider)
+                                </div>
                             </details>
                         } else {
                             <a href="@provider.url"

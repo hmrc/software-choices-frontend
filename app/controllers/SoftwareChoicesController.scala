@@ -23,8 +23,8 @@ import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.mvc._
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
-import views.html.software_choices_filter
 import views.html.templates.{provider_info_template, provider_table_template}
+import views.html.{gov_skip_link, software_choices_filter}
 
 import javax.inject.{Inject, Singleton}
 
@@ -33,13 +33,14 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
                                           val mcc: MessagesControllerComponents,
                                           view: software_choices_filter,
                                           providerView: provider_table_template,
-                                          providerInfo: provider_info_template
+                                          providerInfo: provider_info_template,
+                                          gov_skip_link: gov_skip_link
                                          )(implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport {
 
   override implicit def request2Messages(implicit request: RequestHeader): Messages =
     if (appConfig.features.welshEnabled()) super.request2Messages else messagesApi.preferred(Seq(Lang("en")))
 
-  val show: Action[AnyContent] = Action { implicit request =>
+  def show: Action[AnyContent] = Action { implicit request =>
     Ok(view(softwareProvidersFilterViewModel, FiltersForm.form))
   }
 
@@ -55,7 +56,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       }
     }
 
-  val search: Action[AnyContent] = Action { implicit request =>
+  def search: Action[AnyContent] = Action { implicit request =>
     FiltersForm.form.bindFromRequest().fold(
       error => BadRequest(view(softwareProvidersFilterViewModel, error)),
       search => {
@@ -66,7 +67,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
             providerView
           )
         val titlePrefix = titlePrefixMessages(results.filteredProviders.get.length)
-        Ok(view(results, FiltersForm.form.fill(search), Some(titlePrefix)))
+        Ok(view(results, FiltersForm.form.fill(search), Some(titlePrefix), skipToResults = Some(gov_skip_link())))
       }
     )
   }

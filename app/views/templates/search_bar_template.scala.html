@@ -19,7 +19,7 @@
 
 @this()
 
-@(field: Field, showLabel: Boolean = false, includeNoscript: Boolean = false)(implicit messages: Messages)
+@(field: Field, showLabel: Boolean = false)(implicit messages: Messages)
 
 <div class="govuk-form-group @if(field.hasErrors){form-field--error"}" role="search">
 
@@ -34,20 +34,11 @@
             </h2>
             <input id="term" name="term" type="text" value="@field.value" autocomplete="off">
         </div>
-        @noscript {
             <div class="search-submit">
                 <button class="govuk-button" type="submit" value="@messages("softwareChoices.search.button.text")">
                     @messages("softwareChoices.search.button.text")
                 </button>
             </div>
-        }
+
     </div>
 </div>
-
-@noscript(content: Html) = {
-    @if(includeNoscript) {
-        <noscript>@content</noscript>
-    } else {
-        @content
-    }
-}
