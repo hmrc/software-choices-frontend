@@ -39,10 +39,10 @@ object FilterSearchMessages {
   val spreadSheets = "Bridging"
 
   val accessibilityFeatures = "Accessibility features"
-  val cognitive = "Cognitive"
-  val visual = "Visual"
-  val hearing = "Hearing"
-  val motor = "Motor"
+  val cognitive = "Cognitive impairments"
+  val visual = "Blindness or impaired vision"
+  val hearing = "Deafness or impaired hearing"
+  val motor = "Motor or physical difficulties"
 
   val price = "Price"
   val free = "Free version"

@@ -21,7 +21,7 @@
 
 @(provider: SoftwareProviderModel)(implicit messages: Messages)
 
-@accessibilityFilters = @{provider.filters.filter(List(VISUAL, MOTOR, COGNITIVE, HEARING).contains(_))}
+@accessibilityFilters = @{provider.filters.filter(List(VISUAL, HEARING, MOTOR, COGNITIVE).contains(_))}
 @providerFilters = @{provider.filters.filterNot(accessibilityFilters.toSet)}
 
 @(providerFilters.contains(BUSINESS), providerFilters.contains(AGENT)) match {

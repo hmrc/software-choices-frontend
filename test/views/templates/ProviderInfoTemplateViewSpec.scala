@@ -43,9 +43,9 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
           ACCOUNTING,
           SPREADSHEETS,
           COGNITIVE,
+          VISUAL,
           HEARING,
           MOTOR,
-          VISUAL,
           FREE
         )
       )
@@ -65,9 +65,13 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
       document.select("ul > li").get(5).text() shouldBe testMessages.viewPayments
 
       document.select("p").get(3).text() shouldBe testMessages.accessibilityFeatures(
-        List(COGNITIVE, HEARING, MOTOR, VISUAL).map(_.toString.toLowerCase())
+        List(
+          messages("softwareChoices.filter.cognitive"),
+          messages("softwareChoices.filter.visual"),
+          messages("softwareChoices.filter.hearing"),
+          messages("softwareChoices.filter.motor")
+          ).map(_.toLowerCase())
       )
-
       document.select("p").get(4).text() shouldBe testMessages.free
 
       document.select("p").get(5).text() shouldBe testMessages.visit(testName)
@@ -113,9 +117,7 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
       document.select("p").get(2).text() shouldBe testMessages.softwareFeatures
       document.select("ul > li").get(1).text() shouldBe testMessages.submitVat
 
-      document.select("p").get(3).text() shouldBe testMessages.accessibilityFeature(
-        COGNITIVE.toString.toLowerCase()
-      )
+      document.select("p").get(3).text() shouldBe testMessages.accessibilityFeature(messages("softwareChoices.filter.cognitive").toLowerCase())
 
       document.select("p").get(4).text() shouldBe testMessages.visit(testName)
 
@@ -145,9 +147,8 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
       document.select("ul > li").get(1).text() shouldBe testMessages.submitVat
 
       document.select("p").get(3).text() shouldBe testMessages.accessibilityFeatures(
-        List(COGNITIVE, HEARING).map(_.toString.toLowerCase())
+        List(messages("softwareChoices.filter.cognitive"), messages("softwareChoices.filter.hearing")).map(_.toLowerCase())
       )
-
       document.select("p").get(4).text() shouldBe testMessages.visit(testName)
 
       document.select("a").get(0).attr("href") shouldBe testUrl
