@@ -62,10 +62,10 @@ softwareChoices.filter.softwareLanguage = Software language
 softwareChoices.filter.welsh = Welsh
 
 softwareChoices.filter.accessibilityFeatures = Accessibility features
-softwareChoices.filter.cognitive = Cognitive
-softwareChoices.filter.visual = Visual
-softwareChoices.filter.hearing = Hearing
-softwareChoices.filter.motor = Motor
+softwareChoices.filter.cognitive = Cognitive impairments
+softwareChoices.filter.visual = Blindness or impaired vision
+softwareChoices.filter.hearing = Deafness or impaired hearing
+softwareChoices.filter.motor = Motor or physical difficulties
 
 softwareChoices.filter.filterResults = Apply filters
 softwareChoices.filter.hidden.heading = Search results

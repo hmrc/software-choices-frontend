@@ -61,10 +61,10 @@ softwareChoices.filter.softwareLanguage = Iaith y feddalwedd
 softwareChoices.filter.welsh = Cymraeg
 
 softwareChoices.filter.accessibilityFeatures = Nodweddion hygyrchedd
-softwareChoices.filter.cognitive = Gwybyddol
-softwareChoices.filter.visual = Gweledol
-softwareChoices.filter.hearing = Clywedol
-softwareChoices.filter.motor = Echddygol
+softwareChoices.filter.cognitive = Anawsterau gwybyddol
+softwareChoices.filter.visual = Dallineb neu nam ar eu golwg
+softwareChoices.filter.hearing = Trymder clyw neu nam ar eu clyw
+softwareChoices.filter.motor = Anawsterau echddygol neu gorfforol
 
 softwareChoices.filter.filterResults = Gweithredu hidlyddion
 softwareChoices.filter.hidden.heading = Canlyniadau’r chwilio
