@@ -8347,5 +8347,20 @@
     "visual": false,
     "hearing": false,
     "motor": false
+  },
+  {
+    "name": "! Bridge It MTD",
+    "url": "https://www.bridgeitmtd.co.uk/",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   }
 ]
