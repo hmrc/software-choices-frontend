@@ -18,8 +18,8 @@ package services
 
 import enums.Filter
 import models.SoftwareProviderModel
-import play.api.Logging
 import play.api.libs.json._
+import utils.LoggingUtil
 
 import java.io.InputStream
 import javax.inject.Singleton
@@ -27,10 +27,10 @@ import scala.io.Source
 
 
 @Singleton
-class SoftwareChoicesService extends Logging{
+class SoftwareChoicesService extends LoggingUtil {
 
   protected lazy val jsonFile: String = {
-    logger.debug("[SoftwareChoicesService][providersList] Loading providers from file")
+    debug("[SoftwareChoicesService][providersList] Loading providers from file")
     val stream: InputStream = getClass.getResourceAsStream("/SoftwareProviders.json")
     Source.fromInputStream(stream).getLines().mkString
   }
