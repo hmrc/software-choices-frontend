@@ -23,6 +23,7 @@ import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.mvc._
 import services.SoftwareChoicesService
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
+import utils.LoggingUtil
 import views.html.templates.{provider_info_template, provider_table_template}
 import views.html.{gov_skip_link, software_choices_filter}
 
@@ -35,7 +36,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
                                           providerView: provider_table_template,
                                           providerInfo: provider_info_template,
                                           gov_skip_link: gov_skip_link
-                                         )(implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport {
+                                         )(implicit val appConfig: AppConfig) extends FrontendController(mcc) with I18nSupport with LoggingUtil {
 
   override implicit def request2Messages(implicit request: RequestHeader): Messages =
     if (appConfig.features.welshEnabled()) super.request2Messages else messagesApi.preferred(Seq(Lang("en")))
@@ -58,8 +59,12 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
 
   def search: Action[AnyContent] = Action { implicit request =>
     FiltersForm.form.bindFromRequest().fold(
-      error => BadRequest(view(softwareProvidersFilterViewModel, error)),
+      error => {
+        warnLog("[SoftwareChoicesController][search] Invalid form")
+        BadRequest(view(softwareProvidersFilterViewModel, error))
+      },
       search => {
+        infoLog("[SoftwareChoicesController][search] Performing search")
         val results =
           SoftwareChoicesFilterViewModel(
             softwareChoicesService.providersList,

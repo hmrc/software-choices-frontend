@@ -17,10 +17,10 @@
 package controllers
 
 import controllers.LanguageSwitchController.{english, welsh}
-import play.api.Logging
 import play.api.i18n.{I18nSupport, Lang}
 import play.api.mvc.{Action, AnyContent, Flash, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
+import utils.LoggingUtil
 
 import javax.inject.Inject
 
@@ -28,7 +28,7 @@ import javax.inject.Inject
 class LanguageSwitchController @Inject()(cc: MessagesControllerComponents)
   extends FrontendController(cc)
     with I18nSupport
-    with Logging {
+    with LoggingUtil {
 
   def switchToEnglish: Action[AnyContent] = switchToLang(english)
 
@@ -38,7 +38,7 @@ class LanguageSwitchController @Inject()(cc: MessagesControllerComponents)
     request.headers.get(REFERER) match {
       case Some(referrer) => Redirect(referrer).withLang(lang).flashing(LanguageSwitchController.FlashWithSwitchIndicator)
       case None =>
-        logger.warn("Unable to get the referrer, so sending them to the start.")
+        warnLog("[LanguageSwitchController][switchToLang] Unable to get the referrer, so sending them to the start.")
         Redirect(routes.SoftwareChoicesController.show).withLang(lang)
     }
   }
