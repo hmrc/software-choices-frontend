@@ -8362,5 +8362,21 @@
     "visual": true,
     "hearing": true,
     "motor": true
+  },
+  {
+    "name": "DTax software - Kiya.ai",
+    "url": "https://www.kiya.ai/universal-regtech-solutions/reporting-solutions/dtax/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false
   }
 ]
