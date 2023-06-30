@@ -8378,5 +8378,22 @@
     "hearing": false,
     "motor": false,
     "free": false
+  },
+  {
+    "name": "PanEuroVAT",
+    "url": "https://paneurovat.com/",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
