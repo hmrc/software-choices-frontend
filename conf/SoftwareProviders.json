@@ -2249,21 +2249,6 @@
     "motor": false
   },
   {
-    "name": "Liquid VAT filer",
-    "url": "https://liquidaccounts.com/mtd-vat-filer/",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Logican Solutions",
     "url": "https://www.logican.co.uk/property-portfolio-management-software/",
     "business": true,
