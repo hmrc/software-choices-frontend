@@ -47,7 +47,7 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
 
    private def titlePrefixMessages(resultCount: Int)(implicit messages: Messages): String = {
       if (resultCount > 0) {
-        if (resultCount == 0) {
+        if (resultCount == 1) {
           messages("common.results.count.oneResult")
         } else {
           messages("common.results.count", resultCount)
