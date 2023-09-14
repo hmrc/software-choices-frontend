@@ -34,7 +34,7 @@ object ProviderInfoTemplateMessages {
   def accessibilityFeature(feature: String): String = s"This software includes $feature accessibility features."
   def accessibilityFeatures(features: List[String]): String = s"This software includes ${features.tail.mkString(", ")} and ${features.head} accessibility features."
 
-  val free = "There is a free version of this software."
+  val free = "There is a free version of this software. Please see the company’s website for information on their definition of ‘free’."
 
   def link(name: String): String = s"read more information on the $name website (opens in new tab)"
   def visit(name: String): String = "You can " + link(name)

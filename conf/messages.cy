@@ -87,7 +87,7 @@ softwareChoices.filter.provider.viewPayments = Bwrw golwg dros hanes taliadau TA
 softwareChoices.filter.provider.accessibilityOne = Mae’r feddalwedd hon yn cynnwys nodweddion hygyrchedd {0}.
 softwareChoices.filter.provider.accessibilityMultiple = Mae’r feddalwedd hon yn cynnwys nodweddion hygyrchedd {0} a {1}.
 
-softwareChoices.filter.provider.free = Mae fersiwn rhad ac am ddim o’r feddalwedd hon.
+softwareChoices.filter.provider.free = Mae fersiwn rhad ac am ddim o’r feddalwedd hon. Gweler gwefan y cwmni am wybodaeth am eu diffiniad o ‘am ddim’.
 
 softwareChoices.filter.provider.visit.prefix = Gallwch
 softwareChoices.filter.provider.visit = ddarllen rhagor o wybodaeth ar wefan {0}

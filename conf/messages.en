@@ -88,7 +88,7 @@ softwareChoices.filter.provider.viewPayments = View VAT payment history
 softwareChoices.filter.provider.accessibilityOne = This software includes {0} accessibility features.
 softwareChoices.filter.provider.accessibilityMultiple = This software includes {0} and {1} accessibility features.
 
-softwareChoices.filter.provider.free = There is a free version of this software.
+softwareChoices.filter.provider.free = There is a free version of this software. Please see the company’s website for information on their definition of ‘free’.
 
 softwareChoices.filter.provider.visit.prefix = You can
 softwareChoices.filter.provider.visit = read more information on the {0} website
