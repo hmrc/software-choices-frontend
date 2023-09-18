@@ -73,7 +73,6 @@ class ProviderInfoTemplateViewSpec extends ViewBaseSpec {
           ).map(_.toLowerCase())
       )
       document.select("p").get(4).text() shouldBe testMessages.free
-
       document.select("p").get(5).text() shouldBe testMessages.visit(testName)
 
       document.select("a").get(0).attr("href") shouldBe testUrl
