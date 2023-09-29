@@ -8416,5 +8416,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "Uome",
+    "url": "https://www.myuome.com/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": true
   }
 ]
