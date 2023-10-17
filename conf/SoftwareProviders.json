@@ -4282,21 +4282,6 @@
     "motor": false
   },
   {
-    "name": "Mobile Tax Digital for VAT",
-    "url": "http://www.mtdvat.com/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Grosvenor Systems Limited (Propman)",
     "url": "https://www.grosvenorsystems.com/blog/propman-making-tax-digital/",
     "business": true,
