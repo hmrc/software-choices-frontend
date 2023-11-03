@@ -964,10 +964,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
     "free": true
   },
   {
