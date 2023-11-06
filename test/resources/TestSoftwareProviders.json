@@ -8418,5 +8418,22 @@
     "motor": true,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "Collabify MTD Filer",
+    "url": "https://vat.collabify.net/",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": false,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
