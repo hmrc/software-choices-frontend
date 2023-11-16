@@ -2610,21 +2610,6 @@
     "motor": false
   },
   {
-    "name": "Norais Software Solutions",
-    "url": "https://sites.google.com/view/norais-software-solutions",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Oakley Global Business Solutions Ltd",
     "url": "https://www.o-erp.co.uk/300mtd/",
     "business": true,
