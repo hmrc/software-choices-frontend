@@ -742,21 +742,6 @@
     "motor": false
   },
   {
-    "name": "Boox",
-    "url": "https://www.boox.co.uk",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "BTC MTDfVAT",
     "url": "https://mtdfvat.co.uk/",
     "business": true,
@@ -4656,22 +4641,6 @@
     "visual": false,
     "hearing": false,
     "motor": false
-  },
-  {
-    "name": "BusinessGT",
-    "url": "https://www.businessgt.co.uk/mtd-free",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
-    "free": true
   },
   {
     "name": "Dataflair Integrated Business Systems Ltd",
