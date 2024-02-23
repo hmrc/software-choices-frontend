@@ -96,7 +96,7 @@
 
 @hmrcLayout(
     pageTitle = Some(title),
-    headBlock = Some(hmrcHead(Some(head), CSPNonce.get)),
+    headBlock = Some(hmrcHead(Some(head))),
     htmlLang = Some(messages.lang.code),
     headerBlock = hmrcStandardHeader(
         serviceUrl = Some(controllers.routes.SoftwareChoicesController.show.url),
