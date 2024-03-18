@@ -6929,21 +6929,6 @@
     "motor": false
   },
   {
-    "name": "ABACUS",
-    "url": "http://www.abacusonline.net",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Price A Job Ltd",
     "url": "https://www.priceajob.co.uk",
     "business": true,
