@@ -1316,21 +1316,6 @@
     "motor": false
   },
   {
-    "name": "Dimples Accounting (Farm Solutions Ltd)",
-    "url": "https://dimplesaccounting.co.uk/index.html",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Easy Books",
     "url": "https://www.easybooksapp.com/making-tax-digital",
     "business": true,
@@ -8166,23 +8151,6 @@
     "free": false
   },
   {
-    "name": "Beluga Int'l",
-    "url": "https://www.bjguoji.cn",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true,
-    "welsh": false,
-    "free": true
-  },
-  {
     "name": "! A Free Mobile MTDVAT",
     "url": "https://www.mtdvat.com",
     "business": true,
@@ -8212,6 +8180,23 @@
     "cognitive": true,
     "visual": true,
     "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
+  },
+  {
+    "name": "Wincomply SaaS",
+    "url": "https://www.wincomply.com/",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": false,
     "motor": true,
     "free": false,
     "welsh": false
