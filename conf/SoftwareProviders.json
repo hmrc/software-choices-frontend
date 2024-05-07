@@ -8200,5 +8200,22 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Sapphire Systems Ltd - MTD for InforSunSystems",
+    "url": "https://www.sapphiresystems.com",
+    "business": false,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false,
+    "welsh": false
   }
 ]
