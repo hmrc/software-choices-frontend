@@ -8200,5 +8200,22 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Rootstock",
+    "url": "www.Rootstock.com",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false,
+    "welsh": false
   }
 ]
