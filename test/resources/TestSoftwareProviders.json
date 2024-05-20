@@ -6044,21 +6044,6 @@
     "motor": false
   },
   {
-    "name": "Transport Exchange Group Ltd",
-    "url": "http://www.transportexchangegroup.com/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "InvoiceAnywhere",
     "url": "https://invoiceanywhere.co.uk",
     "business": true,
