@@ -8217,5 +8217,22 @@
     "motor": false,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Osome",
+    "url": "http://www.osome.com",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false,
+    "welsh": false
   }
 ]
