@@ -8219,5 +8219,22 @@
     "motor": false,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Tessaract Practice Management Solution",
+    "url": "https://www.tessaract.io/en-gb/",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
   }
 ]
