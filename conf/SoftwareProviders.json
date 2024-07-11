@@ -4132,21 +4132,6 @@
     "motor": false
   },
   {
-    "name": "Customer Focus Software Limited",
-    "url": "http://www.customerfocushelp.com/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Motor Traders Assistant",
     "url": "https://www.motortradersassistant.co.uk",
     "business": true,
@@ -4227,21 +4212,6 @@
     "business": true,
     "agent": false,
     "accounting": false,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Dms Navigator",
-    "url": "https://www.dmsnavigator.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
     "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": true,
@@ -7334,21 +7304,6 @@
     "motor": false
   },
   {
-    "name": "eVat master",
-    "url": "https://evatmaster.com/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Connected Business",
     "url": "http://www.connected-business.uk/",
     "business": true,
@@ -7954,22 +7909,6 @@
     "visual": false,
     "hearing": false,
     "motor": false
-  },
-  {
-    "name": "#OneVAT",
-    "url": "https://www.onevat.com",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
-    "free": true
   },
   {
     "name": "Skycm.com",
