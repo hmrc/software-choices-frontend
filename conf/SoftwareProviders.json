@@ -2942,7 +2942,7 @@
   },
   {
     "name": "PwC Enterprise (GITC)",
-    "url": "https://globalvatonline.pwc.com/services/pwc-enterprise-gitc",
+    "url": "https://knowledgenavigator.pwc.co.uk/vat/services/indirect-tax-edge/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -7170,7 +7170,7 @@
   },
   {
     "name": "PwC Enterprise (STARS)",
-    "url": "https://globalvatonline.pwc.com/services/pwc-enterprise-stars",
+    "url": "https://knowledgenavigator.pwc.co.uk/vat/services/indirect-tax-edge/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -7260,7 +7260,7 @@
   },
   {
     "name": "PwC Enterprise - Comply First Time",
-    "url": "https://globalvatonline.pwc.com/services/pwc-enterprise-cft",
+    "url": "https://knowledgenavigator.pwc.co.uk/vat/services/indirect-tax-edge/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -7622,7 +7622,7 @@
   },
   {
     "name": "PwC Indirect Tax Edge",
-    "url": "https://globalvatonline.pwc.com/services/indirect-tax-edge",
+    "url": "https://knowledgenavigator.pwc.co.uk/vat/services/indirect-tax-edge/",
     "business": true,
     "agent": true,
     "accounting": true,
