@@ -8059,7 +8059,7 @@
     "url": "https://www.okout.co.uk/",
     "business": true,
     "agent": false,
-    "accounting": false,
+    "accounting": true,
     "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": true,
