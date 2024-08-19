@@ -8104,5 +8104,23 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Sapphire Systems Ltd - MTD for SAP Business One",
+    "url": "https://www.sapphiresystems.com/what-we-do/solutions",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
   }
 ]
+
