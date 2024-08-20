@@ -8104,5 +8104,22 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Fonoa Returns",
+    "url": "https://www.fonoa.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
   }
 ]
