@@ -8052,7 +8052,7 @@
     "url": "https://nttdata-solutions.com/uk/products/product-index",
     "business": true,
     "agent": true,
-    "accounting": false,
+    "accounting": true,
     "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
