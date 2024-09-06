@@ -6583,21 +6583,6 @@
     "motor": false
   },
   {
-    "name": "Floral Frog",
-    "url": "https://floralfrog.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Cygnet Infotech Limited",
     "url": "https://www.cygnet.one/products/indirect-tax-compliance/vat-compliance/eu",
     "business": true,
