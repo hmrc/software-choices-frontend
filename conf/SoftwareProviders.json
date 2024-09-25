@@ -863,22 +863,6 @@
     "motor": false
   },
   {
-    "name": "CaptainBI",
-    "url": "https://www.captainbi.com/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false,
-    "free": false
-  },
-  {
     "name": "CHM MTD Bridge",
     "url": "https://www.chm-software.co.uk/",
     "business": true,
