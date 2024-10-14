@@ -4,7 +4,7 @@
 This is a Scala/Play Framework microservice that provides a UI to search a database of MTD VAT Software Providers. 
 Having suitable software to submit VAT returns is a requirement of MTD VAT.
 
-The list of software providers is loaded from the `SofwareProviders.json` file. To add new providers, update this file and the `TestSoftwareProviders.json` file then run the tests.
+The list of software providers is loaded from the `SoftwareProviders.json` file. To add new providers, update this file and the `TestSoftwareProviders.json` file then run the tests.
 
 ### Running the service locally
 

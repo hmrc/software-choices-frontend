@@ -4121,14 +4121,14 @@
     "business": true,
     "agent": false,
     "accounting": true,
-    "spreadsheets": false,
+    "spreadsheets": true,
     "viewReturn": false,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
   },
   {
     "name": "Grosvenor Systems Limited (Propman)",
