@@ -4115,6 +4115,21 @@
     "motor": false
   },
   {
+    "name": "SAP Document and Reporting Compliance",
+    "url": "https://www.sap.com/uk/products/financial-management/document-reporting-compliance.html",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true
+  },
+  {
     "name": "Grosvenor Systems Limited (Propman)",
     "url": "https://www.grosvenorsystems.com/blog/propman-making-tax-digital/",
     "business": true,
