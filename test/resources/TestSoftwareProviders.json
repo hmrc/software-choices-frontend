@@ -4130,6 +4130,23 @@
     "motor": true
   },
   {
+    "name": "Tax Agile – VAT Calc Filer",
+    "url": "https://www.vatcalc.com",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
+  },
+  {
     "name": "Grosvenor Systems Limited (Propman)",
     "url": "https://www.grosvenorsystems.com/blog/propman-making-tax-digital/",
     "business": true,
