@@ -18,11 +18,21 @@ Prior to starting the service locally, make sure the instance running in service
 ### From source code on your local machine
 1. Clone this repository into the development environment on your machine.
 2. Open a terminal and navigate to the folder you cloned the service into.
-3. Run either `./run.sh` or `sbt "run 9590 -Dapplication.router=testOnlyDoNotUseInAppConf.Routes` to start the service locally.
+3. Run either `./run.sh` or `sbt "run 9590" -Dapplication.router=testOnlyDoNotUseInAppConf.Routes` to start the service locally.
 4. Ensure all dependent services are started, using the `SOFTWARE_CHOICES_ALL` service manager profile.
 5. In a browser, navigate to `http://localhost:9590/making-tax-digital-software`.
 
 This service can be used by both JavaScript users and non-Javascript users. If you want to test the service with no JavaScript enabled, disable it in your browser site settings and reload the page.
+
+### Feature flags and their UI labels
+Each feature flag in the configuration controls a specific section or functionality on the UI, as shown below:
+1. `business`: Businesses
+2. `agent`: Agents
+3. `accounting`: VAT record keeping
+4. `spreadsheets`: Bridging
+5. `viewReturn`: View submitted VAT returns
+6. `viewLiabilities`: Check what VAT you owe
+7. `viewPayments`: View VAT payment history
 
 ### Set feature switches
 The service has two feature switches: 
