@@ -8066,5 +8066,22 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Squeegee",
+    "url": "https://squeeg.ee",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
   }
 ]
