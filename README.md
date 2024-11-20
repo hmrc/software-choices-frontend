@@ -25,7 +25,7 @@ Prior to starting the service locally, make sure the instance running in service
 This service can be used by both JavaScript users and non-Javascript users. If you want to test the service with no JavaScript enabled, disable it in your browser site settings and reload the page.
 
 ### Feature flags and their UI labels
-Each feature flag in the configuration controls a specific section or functionality on the UI, as shown below:
+Each feature flag controls the corresponding functionality on the UI, as shown below:
 1. `business`: Businesses
 2. `agent`: Agents
 3. `accounting`: VAT record keeping
@@ -33,6 +33,12 @@ Each feature flag in the configuration controls a specific section or functional
 5. `viewReturn`: View submitted VAT returns
 6. `viewLiabilities`: Check what VAT you owe
 7. `viewPayments`: View VAT payment history
+8. `cognitive`: Cognitive impairments
+9. `visual`: Blindness or impaired vision 
+10. `hearing`: Deafness or impaired hearing 
+11. `motor`: Motor or physical difficulties
+12. `free`: Free version
+13. `welsh`: Welsh
 
 ### Set feature switches
 The service has two feature switches: 
