@@ -2986,21 +2986,6 @@
     "motor": false
   },
   {
-    "name": "Redware Research Ltd",
-    "url": "http://www.redware.com/vat",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "RedSky",
     "url": "http://www.redskyit.com/",
     "business": true,
