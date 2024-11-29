@@ -6599,21 +6599,6 @@
     "motor": false
   },
   {
-    "name": "Swift VAT Pro",
-    "url": "http://www.swiftvatpro.co.uk/",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Capita Integra",
     "url": "https://www.capita-ibs.co.uk/",
     "business": true,
