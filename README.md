@@ -9,11 +9,12 @@ The list of software providers is loaded from the `SoftwareProviders.json` file.
 ### Running the service locally
 
 #### Using Service Manager
-To run all the dependent services and start software choices frontend, you can either use `sm --start SOFTWARE_CHOICES_ALL -r` or `sm2 --start SOFTWARE_CHOICES_ALL -r` if you are using sm2.
+To run all the dependent services and start software choices frontend, use `sm2 --start SOFTWARE_CHOICES_ALL`.
 
-Alternatively, if you want to start the service individually, you can either use `sm --start SOFTWARE_CHOICES_FRONTEND -r` or `sm2 --start SOFTWARE_CHOICES_FRONTEND -r` if you are using sm2.
+Alternatively, if you want to start the service individually, use `sm2 --start SOFTWARE_CHOICES_FRONTEND`.
 
-Prior to starting the service locally, make sure the instance running in service manager is stopped. This can be done by running either `sm --stop SOFTWARE_CHOICES_FRONTEND`, or `sm2 --stop SOFTWARE_CHOICES_FRONTEND` if you are using sm2.
+Prior to starting the service locally, make sure the instance running in service manager is stopped. 
+This can be done by running either `sm2 --stop SOFTWARE_CHOICES_FRONTEND`.
 
 ### From source code on your local machine
 1. Clone this repository into the development environment on your machine.

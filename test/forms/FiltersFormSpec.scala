@@ -18,9 +18,10 @@ package forms
 
 import enums.Filter._
 import models.FiltersFormModel
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class FiltersFormSpec extends WordSpec with Matchers {
+class FiltersFormSpec extends AnyWordSpec with Matchers {
 
   "Binding a form with invalid data" when {
 

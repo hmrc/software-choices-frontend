@@ -17,25 +17,28 @@
 package utils
 
 import config.mocks.MockAppConfig
-import org.scalatest.{BeforeAndAfterEach, Matchers, WordSpec}
+import org.scalatest.BeforeAndAfterEach
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.i18n.{Lang, Messages, MessagesApi, MessagesImpl}
 import play.api.inject.Injector
+import play.api.mvc.AnyContentAsEmpty
 import play.api.test.FakeRequest
 
-trait TestUtils extends WordSpec with Matchers with GuiceOneAppPerSuite with BeforeAndAfterEach with MaterializerSupport {
+trait TestUtils extends AnyWordSpec with Matchers with GuiceOneAppPerSuite with BeforeAndAfterEach with MaterializerSupport {
 
-  override def beforeEach() {
+  override def beforeEach(): Unit = {
     super.beforeEach()
     appConfig.priceFilterEnabled(true)
     appConfig.welshEnabled(false)
   }
 
-  implicit lazy val fakeRequest = FakeRequest("GET", "/")
+  implicit lazy val fakeRequest: FakeRequest[AnyContentAsEmpty.type] = FakeRequest("GET", "/")
 
   lazy val injector: Injector = app.injector
   lazy val messagesApi: MessagesApi = injector.instanceOf[MessagesApi]
   implicit lazy val messages: Messages = MessagesImpl(Lang("en"), messagesApi)
-  implicit lazy val appConfig = injector.instanceOf[MockAppConfig]
+  implicit lazy val appConfig: MockAppConfig = injector.instanceOf[MockAppConfig]
 
 }

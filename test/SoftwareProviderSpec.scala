@@ -29,7 +29,7 @@ class SoftwareProviderSpec extends TestUtils {
         Source.fromInputStream(stream).getLines.toSeq
       }
 
-      val expectedProviders: Seq[String] = Source.fromFile("test/resources/TestSoftwareProviders.json").getLines.toSeq
+      val expectedProviders: Seq[String] = Source.fromFile("test/resources/TestSoftwareProviders.json").getLines().toSeq
 
       for (i <- expectedProviders.indices) {
         actualProviders(i) shouldBe expectedProviders(i)
