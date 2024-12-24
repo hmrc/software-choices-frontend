@@ -24,7 +24,6 @@ import utils.LoggingUtil
 
 import javax.inject.Inject
 
-
 class LanguageSwitchController @Inject()(cc: MessagesControllerComponents)
   extends FrontendController(cc)
     with I18nSupport

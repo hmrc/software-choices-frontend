@@ -5210,7 +5210,7 @@
     "agent": false,
     "accounting": true,
     "spreadsheets": false,
-    "viewReturn": true,
+    "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": false,
     "cognitive": false,
