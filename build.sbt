@@ -1,13 +1,10 @@
-import sbt.Keys.scalacOptions
-import uk.gov.hmrc.DefaultBuildSettings.integrationTestSettings
-import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin.publishingSettings
+import sbt.*
 
 val appName = "software-choices-frontend"
+val silencerVersion = "1.7.19"
 
-val silencerVersion = "1.7.0"
-
-lazy val coverageSettings: Seq[Setting[_]] = {
-  import scoverage.ScoverageKeys
+lazy val coverageSettings: Seq[Def.Setting[?]] = {
+  import scoverage.*
 
   val excludedPackages = Seq(
     "<empty>",
@@ -24,23 +21,24 @@ lazy val coverageSettings: Seq[Setting[_]] = {
 
   Seq(
     ScoverageKeys.coverageExcludedPackages := excludedPackages.mkString(";"),
-    ScoverageKeys.coverageMinimum := 90,
-    ScoverageKeys.coverageFailOnMinimum := false,
-    ScoverageKeys.coverageHighlighting := true
+    ScoverageKeys.coverageMinimumStmtTotal := 90,
+    ScoverageKeys.coverageFailOnMinimum    := false,
+    ScoverageKeys.coverageHighlighting     := true
   )
 }
 
-lazy val microservice = Project(appName, file("."))
-  .enablePlugins(play.sbt.PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtDistributablesPlugin)
-  .settings(coverageSettings: _*)
+lazy val microservice: Project = Project(appName, file("."))
+  .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
+  .disablePlugins(JUnitXmlReportPlugin)
+
+  .settings(coverageSettings *)
   .settings(
     majorVersion := 0,
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test
   )
-  .settings(publishingSettings: _*)
+  .settings(scalaVersion := "2.13.14")
   .configs(IntegrationTest)
-  .settings(integrationTestSettings(): _*)
-  .settings(scalaVersion := "2.12.12")
+  .settings(inConfig(IntegrationTest)(Defaults.itSettings): _*)
   .settings(
     TwirlKeys.templateImports ++= Seq(
       "uk.gov.hmrc.hmrcfrontend.views.html.helpers._",
@@ -53,7 +51,7 @@ lazy val microservice = Project(appName, file("."))
     // You may turn it on for `views` too to suppress warnings from unused imports in compiled twirl templates, but this will hide other warnings.
     scalacOptions += "-P:silencer:pathFilters=views;routes",
     libraryDependencies ++= Seq(
-      compilerPlugin("com.github.ghik" % "silencer-plugin" % silencerVersion cross CrossVersion.full),
-      "com.github.ghik" % "silencer-lib" % silencerVersion % Provided cross CrossVersion.full
+      compilerPlugin("com.github.ghik" % "silencer-plugin"  % silencerVersion cross CrossVersion.full),
+                     "com.github.ghik" % "silencer-lib"     % silencerVersion % Provided cross CrossVersion.full
     )
   )

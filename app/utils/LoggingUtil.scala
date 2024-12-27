@@ -23,15 +23,23 @@ import uk.gov.hmrc.http.{HeaderNames, HttpResponse, SessionKeys}
 
 trait LoggingUtil extends LoggerLike {
 
-  lazy val trueClientIp: Request[_] => Option[String] = request => request.headers.get(HeaderNames.trueClientIp).map(trueClientIp => s"trueClientIp: $trueClientIp ")
+  lazy val trueClientIp: Request[_] => Option[String] =
+      request => request.headers.get(HeaderNames.trueClientIp).map(trueClientIp => s"trueClientIp: $trueClientIp ")
 
-  lazy val sessionId: Request[_] => Option[String] = request => request.session.get(SessionKeys.sessionId).map(sessionId => s"sessionId: $sessionId ")
+  lazy val sessionId: Request[_] => Option[String] =
+      request => request.session.get(SessionKeys.sessionId).map(sessionId => s"sessionId: $sessionId ")
 
-  lazy val identifiers: Request[_] => String = request => Seq(trueClientIp(request), sessionId(request)).flatten.foldLeft("")(_ + _)
+  lazy val identifiers: Request[_] => String =
+      request => Seq(trueClientIp(request), sessionId(request)).flatten.foldLeft("")(_ + _)
 
-  lazy val trueClientIpFromHttpResponse: HttpResponse => Option[String] = httpResponse => httpResponse.headers.get(HeaderNames.trueClientIp).map(trueClientIp => s"trueClientIp: $trueClientIp")
-  lazy val sessionIdFromHttpResponse: HttpResponse => Option[String] = httpResponse => httpResponse.headers.get(HeaderNames.xSessionId).map(sessionId => s"sessionId: $sessionId")
-  lazy val identifiersFromHttpResponse: HttpResponse => String = request => Seq(trueClientIpFromHttpResponse(request), sessionIdFromHttpResponse(request)).flatten.foldLeft("")(_ + _)
+  lazy val trueClientIpFromHttpResponse: HttpResponse => Option[String] =
+      httpResponse => httpResponse.headers.get(HeaderNames.trueClientIp).map(trueClientIp => s"trueClientIp: $trueClientIp")
+
+  lazy val sessionIdFromHttpResponse: HttpResponse => Option[String] =
+      httpResponse => httpResponse.headers.get(HeaderNames.xSessionId).map(sessionId => s"sessionId: $sessionId")
+
+  lazy val identifiersFromHttpResponse: HttpResponse => String =
+      request => Seq(trueClientIpFromHttpResponse(request), sessionIdFromHttpResponse(request)).flatten.foldLeft("")(_ + _)
 
   lazy val logger: Logger = LoggerFactory.getLogger(getClass)
 
