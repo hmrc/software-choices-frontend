@@ -8070,5 +8070,22 @@
     "motor": true,
     "free": true,
     "welsh": false
+  },
+  {
+    "name": "Acting Office",
+    "url": "https://www.actingoffice.com",
+    "business": false,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": false,
+    "motor": true,
+    "free": false,
+    "welsh": false
   }
 ]
