@@ -8087,5 +8087,23 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "cbs Corporate Business Solutions",
+    "url": "https://e-world.cloud",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "submitReturn": true,
+    "viewObligations": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false
   }
 ]
