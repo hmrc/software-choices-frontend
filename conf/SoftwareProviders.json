@@ -456,8 +456,8 @@
     "motor": false
   },
   {
-    "name": "AMANA consulting GmbH",
-    "url": "https://amana-consulting.de/en/vatgtc.html",
+    "name": "Lucanet Software GmbH",
+    "url": "https://www.lucanet.com/en/solutions/vat-software/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -1571,7 +1571,7 @@
   },
   {
     "name": "FreeAgent",
-    "url": "https://www.freeagent.com/try/free-vat-software/",
+    "url": "https://www.freeagent.com/guides/making-tax-digital?utm_source=govuk&utm_medium=referral&utm_campaign=mtd_vat_page",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -8105,5 +8105,22 @@
     "hearing": false,
     "motor": false,
     "free": false
+  },
+  {
+    "name": "BooksClvr",
+    "url": "https://booksclvr.com",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
   }
 ]
