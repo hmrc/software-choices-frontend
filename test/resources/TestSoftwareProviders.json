@@ -7914,5 +7914,22 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "AbraTax",
+    "url": "https://www.abratax.co.uk/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": true,
+    "welsh": false
   }
 ]
