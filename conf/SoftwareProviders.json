@@ -64,7 +64,7 @@
   },
   {
     "name": "Global Shop Solutions",
-    "url": "https://www.globalshopsolutions.com/",
+    "url": "https://www.globalshopsolutions.com/united-kingdom",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -759,7 +759,7 @@
   },
   {
     "name": "Cam Systems Ltd",
-    "url": "http://www.cam-systems.com/",
+    "url": "www.cam-systems.com/cameo",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -1300,7 +1300,7 @@
   },
   {
     "name": "Engage Finance by Double First Ltd",
-    "url": "http://www.doublefirst.com/school-management-information-system/engage-finance/282-engage-accounts-school-financial-system",
+    "url": "https://www.educationhorizons.com/solutions/engage/school-fees-collection-software",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -1406,7 +1406,7 @@
   },
   {
     "name": "Farmplan",
-    "url": "https://farmplan.co.uk/solutions-business-2/?cmpid=PLC%7CUK%7CACC%7C2023_FBC_GTM%7CFPACC-2023-04-HMRC_web_listing",
+    "url": "https://farmplan.co.uk/mtd-compatible/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -1480,8 +1480,8 @@
     "motor": false
   },
   {
-    "name": "Foriba SAP MTD Cockpit",
-    "url": "https://www.foriba.com/en/mtd",
+    "name": "Sovos SAP MTD Cockpit",
+    "url": "https://sovos.com/vat/tax-rules/uk-making-tax-digital/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -1843,7 +1843,7 @@
   },
   {
     "name": "KAI Consulting",
-    "url": "https://www.kaiuk.co.uk/#octopus-pmi",
+    "url": "https://www.kaiuk.co.uk/#octopuspmi",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -1887,21 +1887,6 @@
     "motor": false
   },
   {
-    "name": "Keytime",
-    "url": "https://www.keytime.co.uk/",
-    "business": false,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Khaos Control Solutions Ltd",
     "url": "https://www.khaoscontrol.com/",
     "business": true,
@@ -1918,7 +1903,7 @@
   },
   {
     "name": "Kingswood Computing",
-    "url": "http://www.kingswoodcomputing.com/index.php?id=28",
+    "url": "https://info.herdwatch.com/kingswood-making-tax-digital-mtd",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -1978,7 +1963,7 @@
   },
   {
     "name": "Landmark Systems Ltd",
-    "url": "http://www.landmarksystems.co.uk/",
+    "url": "https://www.landmarksystems.co.uk/our-products/farm-accounting-payroll/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -2459,7 +2444,7 @@
   },
   {
     "name": "Odoo - Accounting",
-    "url": "https://www.odoo.com/page/accounting ",
+    "url": "https://www.odoo.com/documentation/18.0/applications/finance/fiscal_localizations/united_kingdom.html",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3019,7 +3004,7 @@
   },
   {
     "name": "Sanderson Plc – UnityF8 Food & Drink ERP",
-    "url": "https://www.sanderson.com/software/food-beverage-erp-software",
+    "url": "https://www.aptean.com/en-GB/solutions/erp/products/aptean-unityf8-erp",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3034,7 +3019,7 @@
   },
   {
     "name": "Sanderson Unity ERP",
-    "url": "https://www.sanderson.com/software/manufacturing-erp-mrp-software",
+    "url": "https://www.aptean.com/en-GB/solutions/erp/products/aptean-unity-erp",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3274,7 +3259,7 @@
   },
   {
     "name": "TechnologyOne",
-    "url": "https://www.technologyonecorp.co.uk/",
+    "url": "https://www.technology1.co.uk/products/financials",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3319,7 +3304,7 @@
   },
   {
     "name": "Tide Platform Ltd",
-    "url": "https://www.tide.co/features/tide-accounting/",
+    "url": "https://www.tide.co/features/accounting-software/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3620,7 +3605,7 @@
   },
   {
     "name": "Workday",
-    "url": "https://www.workday.com/en-gb/homepage.html",
+    "url": "https://www.workday.com/en-gb/products/financial-management/global-foundation.html",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3786,7 +3771,7 @@
   },
   {
     "name": "Sanderson UnityExpress ERP",
-    "url": "https://www.sanderson.com/software/manufacturing-erp-mrp-software/small-business",
+    "url": "https://www.aptean.com/en-GB/insights/blog/manufacturing-erp-mrp-software-unity-small-business",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -4081,21 +4066,6 @@
     "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "BARCODEX",
-    "url": "http://www.barcodex.co.uk/barcodex-mtd",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -4465,7 +4435,7 @@
   },
   {
     "name": "Agathos Systems",
-    "url": "https://www.agathos.co.uk",
+    "url": "https://agathos.co.uk/software",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -4692,38 +4662,8 @@
     "motor": false
   },
   {
-    "name": "RADsite Ltd",
-    "url": "https://www.radsite.co.uk/WebAdmin",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Datos Professional Solutions Ltd",
     "url": "http://datos.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Moveware",
-    "url": "http://www.moveware.com.au/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5084,21 +5024,6 @@
     "motor": false
   },
   {
-    "name": "FiLOS Software Ltd",
-    "url": "http://www.filossoftware.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "99VAT (Basetax)",
     "url": "https://www.basetax.co.uk/",
     "business": true,
@@ -5175,7 +5100,7 @@
   },
   {
     "name": "Integrated Concepts (Shenzhen) International Limited",
-    "url": "https://it.ufreight.com/",
+    "url": "https://it.ufreight.com/index.php/homepage/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5370,7 +5295,7 @@
   },
   {
     "name": "Jonas Club Management",
-    "url": "https://jonasclub.co.uk/Home",
+    "url": "https://www.jonasclub.co.uk/club-accounting",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5378,21 +5303,6 @@
     "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Epaccsys Limited",
-    "url": "https://www.epaccsys.com/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -5490,7 +5400,7 @@
   },
   {
     "name": "SANDERSON - Sanderson Wholesale Software",
-    "url": "https://www.sanderson.com/software/wholesale-distribution-software",
+    "url": "https://www.aptean.com/en-GB/solutions/erp/products/aptean-wholesale-distribution-erp",
     "business": true,
     "agent": false,
     "accounting": false,
@@ -5504,23 +5414,8 @@
     "motor": false
   },
   {
-    "name": "SANDERSON - Proteus",
-    "url": "https://www.sanderson.com/proteus",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Grand Retail Solutions Ltd",
-    "url": "http://www.grandretail.co.uk/",
+    "url": "https://grandretail.co.uk/MTD.htm",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5580,7 +5475,7 @@
   },
   {
     "name": "Focus Micro Systems",
-    "url": "https://www.focus-property.co.uk",
+    "url": "https://focus-property.co.uk/plugins-integrations/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -5594,38 +5489,8 @@
     "motor": false
   },
   {
-    "name": "RECY Systems",
-    "url": "http://www.recy-systems.co.uk",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Flyingboat Wealth Management Software",
+    "name": "Acumen",
     "url": "https://www.vegatechnology.com/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Azyra Systems",
-    "url": "https://azyra.com/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5730,7 +5595,7 @@
   },
   {
     "name": "Big Red Cloud",
-    "url": "https://www.bigredcloud.com/",
+    "url": "https://bigredcloud.com/making-tax-digital/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -5745,7 +5610,7 @@
   },
   {
     "name": "Delta Business Solutions Ltd",
-    "url": "http://www.deltabsl.co.uk",
+    "url": "https://www.deltabsl.co.uk/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5760,7 +5625,7 @@
   },
   {
     "name": "Microsoft Dynamics 365 for Finance and Operations",
-    "url": "https://dynamics.microsoft.com/en-us/finance-and-operations/overview/",
+    "url": "https://learn.microsoft.com/en-us/dynamics365/finance/localizations/united-kingdom/emea-gbr-mtd-vat-integration",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -6375,7 +6240,7 @@
   },
   {
     "name": "Capita Integra",
-    "url": "https://www.capita-ibs.co.uk/",
+    "url": "https://www.ibsoftwaresolutions.com/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -6548,21 +6413,6 @@
     "viewReturn": true,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "SEEBURGER Cloud Services - UK VAT Portal",
-    "url": "https://www.seeburger.com/cloud/uk-vat-portal/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -6870,7 +6720,7 @@
   },
   {
     "name": "Connected Business",
-    "url": "http://www.connected-business.uk/",
+    "url": "http://accelerateconnectedbusiness.com",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -7035,40 +6885,10 @@
     "motor": false
   },
   {
-    "name": "Atos Make Tax Digital",
-    "url": "https://atos.net/en-gb/united-kingdom/making-tax-digital-vat",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "P2 IDEAS",
     "url": "https://www.p2energysolutions.com/ideas",
     "business": true,
     "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Dynamics AX2009 and AX2012RTM & R2 MTD",
-    "url": "https://sisglobal.com/uk-vat-make-tax-digital-mtd-are-you-compliant/",
-    "business": true,
-    "agent": true,
     "accounting": true,
     "spreadsheets": false,
     "viewReturn": false,
@@ -7157,7 +6977,7 @@
   },
   {
     "name": "PSL+ (Cast & Crew)",
-    "url": "https://www.castandcrew.com/solutions/accounting-financial/accounting",
+    "url": "https://www.castandcrew.com/products/accounting-and-financial/psl/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -7187,7 +7007,7 @@
   },
   {
     "name": "oxaion",
-    "url": "https://www.oxaion.de",
+    "url": "https://www.aptean.com/en-GB/solutions/erp/products/aptean-erp-oxaion",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -7447,7 +7267,7 @@
   },
   {
     "name": "Adsum Works (FREE)",
-    "url": "https://adsum-works.com/vat-advances/",
+    "url": "https://www.adsum-works.com/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -7525,7 +7345,7 @@
   },
   {
     "name": "Receipt Bot",
-    "url": "https://receipt-bot.com/",
+    "url": "https://receipt-bot.com/calculate-vat",
     "business": true,
     "agent": true,
     "accounting": false,
@@ -7661,7 +7481,7 @@
   },
   {
     "name": "Rootstock",
-    "url": "https://www.Rootstock.com",
+    "url": "https://clouderp.rootstock.com/hmrc-making-tax-digital-rootstock",
     "business": true,
     "agent": false,
     "accounting": false,
@@ -7763,7 +7583,7 @@
   },
   {
     "name": "Fonoa Returns",
-    "url": "https://www.fonoa.com/",
+    "url": "https://www.fonoa.com/products/returns",
     "business": true,
     "agent": true,
     "accounting": true,
