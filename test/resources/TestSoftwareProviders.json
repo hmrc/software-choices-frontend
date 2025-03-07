@@ -7696,7 +7696,7 @@
     "name": "Minefield Navigator",
     "url": "https://minefieldnavigator.com",
     "business": true,
-    "agent": true,
+    "agent": false,
     "accounting": false,
     "spreadsheets": true,
     "viewReturn": true,
