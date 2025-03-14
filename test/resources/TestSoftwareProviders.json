@@ -7539,7 +7539,7 @@
     "welsh": false
   },
   {
-    "name": "Sapphire Systems Ltd - MTD for SAP Business One",
+    "name": "NTT DATA Business Solutions – Making Tax Digital for SAP Business One",
     "url": "https://nttdata-solutions.com/uk/products/product-index",
     "business": true,
     "agent": true,
@@ -7556,7 +7556,7 @@
     "welsh": false
   },
   {
-    "name": "Sapphire Systems Ltd - MTD for Infor SunSystems",
+    "name": "NTT DATA Business Solutions – Making Tax Digital for Infor SunSystems",
     "url": "https://nttdata-solutions.com/uk/products/product-index/",
     "business": true,
     "agent": true,
@@ -7707,6 +7707,23 @@
     "hearing": true,
     "motor": true,
     "free": true,
+    "welsh": false
+  },
+  {
+    "name": "Thomson Reuters – ONESOURCE Indirect Compliance",
+    "url": "https://emea1.onesourcetax.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "free": false,
     "welsh": false
   }
 ]
