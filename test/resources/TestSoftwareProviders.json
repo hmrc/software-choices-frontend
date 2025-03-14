@@ -7719,7 +7719,7 @@
     "viewReturn": true,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": true,
+    "cognitive": false,
     "visual": false,
     "hearing": false,
     "motor": false,
