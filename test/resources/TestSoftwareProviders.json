@@ -78,21 +78,6 @@
     "motor": false
   },
   {
-    "name": "Sensible Computing Solutions",
-    "url": "https://sensible.co.uk/mtd-vat/",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "VATMonkey",
     "url": "https://www.vatmonkey.co.uk",
     "business": true,
@@ -804,7 +789,7 @@
   },
   {
     "name": "Catalyst Computer Systems Ltd - Platinum Software",
-    "url": "https://www.catalyst-uk.com/partners/",
+    "url": "https://www.catalyst-uk.com/news/making-tax-digital/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -850,7 +835,7 @@
   },
   {
     "name": "Civica UK Limited ",
-    "url": "https://www.civica.com/",
+    "url": "https://www.civica.com/en-gb/product-pages/financial-management-software-for-local-government/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -1344,22 +1329,6 @@
     "motor": false
   },
   {
-    "name": "ERPNext extension by casesolved.co.uk",
-    "url": "https://www.casesolved.co.uk/services/uk-hmrc-submission",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true,
-    "free": false
-  },
-  {
     "name": "Exel Computer Systems plc",
     "url": "https://www.exel.co.uk/",
     "business": true,
@@ -1632,21 +1601,6 @@
     "motor": false
   },
   {
-    "name": "INFOR, INC",
-    "url": "https://www.infor.com/products",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "inniAccounts",
     "url": "https://www.inniaccounts.co.uk/",
     "business": true,
@@ -1865,21 +1819,6 @@
     "spreadsheets": false,
     "viewReturn": false,
     "viewLiabilities": true,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Kerridge Commercial Systems",
-    "url": "https://www.kerridgecs.com/articles/news/1450",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": false,
-    "viewLiabilities": false,
     "viewPayments": false,
     "cognitive": false,
     "visual": false,
@@ -2143,7 +2082,7 @@
   },
   {
     "name": "Meridian Global Services",
-    "url": "https://www.meridianglobalservices.com/",
+    "url": "https://www.meridianglobalservices.com/VAT-Registrations-and-Returns",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -2353,8 +2292,8 @@
     "motor": false
   },
   {
-    "name": "No Worries - Simplifi",
-    "url": "http://www.simplifi-hq.com/",
+    "name": "Joypilot",
+    "url": "https://joypilot.co/gbr/sales-tax-reports/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -2429,7 +2368,7 @@
   },
   {
     "name": "Ob-serve Business Computing Ltd",
-    "url": "http://ob-serve.co.uk/",
+    "url": "https://www.ob-serve.co.uk",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -2503,21 +2442,6 @@
     "motor": false
   },
   {
-    "name": "One Office 3000/Global 3000 (Kerridge Commercial Systems)",
-    "url": "http://www.mrsys.co.uk/one_office_3000_product_info.php",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Open Answers - My Tax Digital (Free)",
     "url": "https://mytaxdigital.co.uk",
     "business": true,
@@ -2565,7 +2489,7 @@
   },
   {
     "name": "OrderWise",
-    "url": "https://www.orderwise.co.uk/",
+    "url": "https://orderwise.co.uk/en/solutions/accounts-software",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -3033,7 +2957,7 @@
     "motor": false
   },
   {
-    "name": "SAP for SAP Business One",
+    "name": "SAP Business One",
     "url": "https://www.sap.com/uk/products/business-one.html",
     "business": true,
     "agent": false,
@@ -3048,7 +2972,7 @@
     "motor": false
   },
   {
-    "name": "SDA Logic",
+    "name": "Systems Design Associates",
     "url": "http://www.sdalogic.com/",
     "business": true,
     "agent": false,
@@ -3905,21 +3829,6 @@
     "motor": false
   },
   {
-    "name": "Vixsoft Systems Ltd",
-    "url": "http://www.vixsoft.co.uk",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Image Retail Solutions Ltd",
     "url": "https://imagesoft.co.uk/proepos.html",
     "business": true,
@@ -4148,7 +4057,7 @@
   },
   {
     "name": "Debitoor",
-    "url": "https://debitoor.com/",
+    "url": "https://www.sumup.com/en-gb/invoices/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -4185,21 +4094,6 @@
     "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Johnston Smillie Chartered Accountants",
-    "url": "https://www.jsca.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
     "viewPayments": false,
     "cognitive": false,
     "visual": false,
@@ -4269,7 +4163,7 @@
   },
   {
     "name": "Durell Software Ltd",
-    "url": "http://www.durell.co.uk",
+    "url": "https://www.durell.co.uk/system/software/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -4465,21 +4359,6 @@
     "free": true
   },
   {
-    "name": "itzbITs Ltd",
-    "url": "http://www.itzbits.co.uk",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "XKS Ltd - IBM i VAT",
     "url": "http://www.xks.co.uk/xvats.shtml",
     "business": true,
@@ -4547,21 +4426,6 @@
     "agent": true,
     "accounting": true,
     "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Vooware",
-    "url": "http://www.vooware.com/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
@@ -4843,21 +4707,6 @@
     "motor": false
   },
   {
-    "name": "Claritech Ltd",
-    "url": "http://www.mtdsimple.co.uk",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Integrated Management Solutions (Global) Ltd.",
     "url": "https://www.imsolutions.info/managed-solutions/finance-solutions/",
     "business": true,
@@ -5009,21 +4858,6 @@
     "motor": false
   },
   {
-    "name": "Hoge 100 Business Systems Ltd",
-    "url": "https://www.hoge100.co.uk/making-tax-digital.html",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "99VAT (Basetax)",
     "url": "https://www.basetax.co.uk/",
     "business": true,
@@ -5055,7 +4889,7 @@
   },
   {
     "name": "DutyPay GmbH",
-    "url": "https://dutypay.eu",
+    "url": "https://www.dutypay.eu/en-GB/service/vat-service",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -5144,21 +4978,6 @@
     "motor": false
   },
   {
-    "name": "Pinnula Limited (Uniplan)",
-    "url": "http://www.pinnula.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "HeatingSave",
     "url": "https://mtd.heatingsave.com/",
     "business": true,
@@ -5195,21 +5014,6 @@
     "agent": true,
     "accounting": true,
     "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Pracctice Limited – Osprey Approach",
-    "url": "https://www.ospreyapproach.com",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
@@ -5328,21 +5132,6 @@
     "url": "https://www.meridianlegalsystems.co.uk/",
     "business": true,
     "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Swan Retail Ltd",
-    "url": "https://www.swanretail.co.uk/",
-    "business": true,
-    "agent": false,
     "accounting": true,
     "spreadsheets": false,
     "viewReturn": true,
@@ -5639,21 +5428,6 @@
     "motor": false
   },
   {
-    "name": "Qsys.co.uk ERP & Accounting for commercial growers of Horticultural & Vegetables products",
-    "url": "http://www.qsys.co.uk/",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "CGI - Making tax digital integration hub for SAP",
     "url": "https://www.cgi-group.co.uk/makingtaxdigital",
     "business": true,
@@ -5712,21 +5486,6 @@
     "visual": true,
     "hearing": true,
     "motor": true
-  },
-  {
-    "name": "GlobalMTD",
-    "url": "https://www.onesys.co.uk/software-solutions/software-integrations/globalmtd/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
   },
   {
     "name": "LOVAT Compliance",
@@ -5843,21 +5602,6 @@
     "viewReturn": true,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "J B Software Services",
-    "url": "https://www.jbsoft.co.uk",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -5999,21 +5743,6 @@
     "motor": false
   },
   {
-    "name": "Joy of Sales",
-    "url": "https://www.joyofsales.com/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Integrated SAP MTD-VAT Connector by PIKON",
     "url": "https://www.pikon.co.uk/",
     "business": true,
@@ -6045,7 +5774,7 @@
   },
   {
     "name": "Label Traxx",
-    "url": "https://labeltraxx.com/",
+    "url": "https://www.amtechsoftware.com/solutions/label-traxx/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -6154,21 +5883,6 @@
     "business": true,
     "agent": true,
     "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Taxually",
-    "url": "https://taxually.com/",
-    "business": true,
-    "agent": true,
-    "accounting": false,
     "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
@@ -6434,21 +6148,6 @@
     "motor": false
   },
   {
-    "name": "VATomator - Essentia Tax Technologies",
-    "url": "https://essentiatax.io/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "excelvatreturn.co.uk",
     "url": "https://www.excelvatreturn.co.uk/",
     "business": true,
@@ -6458,21 +6157,6 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "ISB Smart Solution MTD",
-    "url": "https://www.isb-global.com/smartworld-making-tax-digital-app/",
-    "business": true,
-    "agent": false,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -6548,21 +6232,6 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Computers For Flooring Ltd",
-    "url": "https://computersforflooring.com/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
     "cognitive": false,
     "visual": false,
     "hearing": false,
@@ -6870,21 +6539,6 @@
     "motor": false
   },
   {
-    "name": "P2 IDEAS",
-    "url": "https://www.p2energysolutions.com/ideas",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "MTDsorted",
     "url": "https://www.mtdsorted.co.uk/?utm_source=hmrc_mtd_software&utm_medium=referral&utm_campaign=hmrc_mtd_software",
     "business": true,
@@ -7173,21 +6827,6 @@
     "visual": true,
     "hearing": true,
     "motor": true
-  },
-  {
-    "name": "Vaxist",
-    "url": "https://en.axisacct.com/index.aspx",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
   },
   {
     "name": "Cuimake MTD for Ecommerce",
@@ -7711,7 +7350,7 @@
   },
   {
     "name": "Thomson Reuters – ONESOURCE Indirect Compliance",
-    "url": "https://emea1.onesourcetax.com/",
+    "url": "https://tax.thomsonreuters.co.uk/onesource/indirect-tax/vat-compliance/",
     "business": true,
     "agent": true,
     "accounting": true,
