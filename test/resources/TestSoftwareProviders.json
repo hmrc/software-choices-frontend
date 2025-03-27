@@ -2442,21 +2442,6 @@
     "motor": false
   },
   {
-    "name": "One Office 3000/Global 3000 (Kerridge Commercial Systems)",
-    "url": "http://www.mrsys.co.uk/one_office_3000_product_info.php",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Open Answers - My Tax Digital (Free)",
     "url": "https://mytaxdigital.co.uk",
     "business": true,
