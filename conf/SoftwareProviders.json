@@ -7381,5 +7381,22 @@
     "motor": true,
     "free": true,
     "welsh": false
+  },
+  {
+    "name": "Artifact AI",
+    "url": " https://www.artifactai.uk",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
   }
 ]
