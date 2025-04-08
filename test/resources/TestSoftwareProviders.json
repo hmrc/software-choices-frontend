@@ -531,36 +531,6 @@
     "motor": false
   },
   {
-    "name": "Autopart",
-    "url": "https://www.mamsoftware.com/en",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Autowork Online",
-    "url": "https://www.mamsoftware.com/en",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "axisfirst",
     "url": "https://www.axisfirst.co.uk/software/",
     "business": true,
@@ -1059,7 +1029,7 @@
     "motor": false
   },
   {
-    "name": "Datatracks",
+    "name": "DataTracks",
     "url": "https://www.datatracks.co.uk/making-tax-digital-solution",
     "business": true,
     "agent": true,
@@ -5912,21 +5882,6 @@
     "url": "http://www.laitlegal.com/",
     "business": true,
     "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "abasERP",
-    "url": "https://abas-erp.com/",
-    "business": true,
-    "agent": false,
     "accounting": true,
     "spreadsheets": false,
     "viewReturn": false,
