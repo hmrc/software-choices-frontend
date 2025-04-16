@@ -864,21 +864,6 @@
     "motor": false
   },
   {
-    "name": "Compact Software Ltd",
-    "url": "http://compact-software.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Concept2Engineering Ltd",
     "url": "https://www.concept2engineering.com/software/tax-in-thyme.html",
     "business": true,
@@ -4769,7 +4754,7 @@
   },
   {
     "name": "Causeway",
-    "url": "https://campaign.causeway.com/vixen-bundles",
+    "url": "https://www.causeway.com/causeway-vixen-mtd",
     "business": true,
     "agent": false,
     "accounting": true,
