@@ -6546,7 +6546,7 @@
     "viewPayments": true,
     "cognitive": true,
     "visual": true,
-    "hearing": true,
+    "hearing": false,
     "motor": true,
     "welsh": false,
     "free": false
@@ -6946,6 +6946,23 @@
   {
     "name": "Artifact AI",
     "url": " https://www.artifactai.uk",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "free": false,
+    "welsh": false
+  },
+  {
+    "name": "HiveMTD",
+    "url": "https://hivemtd.com/",
     "business": true,
     "agent": true,
     "accounting": true,
