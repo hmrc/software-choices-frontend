@@ -26,6 +26,7 @@ object AppDependencies {
 
   val compile: Seq[ModuleID] = Seq(
     "uk.gov.hmrc" %%  "bootstrap-frontend-play-30" % bootstrapVersion,
+    "uk.gov.hmrc" %%  "bootstrap-test-play-30"     % bootstrapVersion,
     "uk.gov.hmrc" %%  "play-frontend-hmrc-play-30" % "8.5.0",
     "org.webjars" %   "jquery"                     % "3.7.1"
   )
