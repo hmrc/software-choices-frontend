@@ -6976,5 +6976,22 @@
     "motor": true,
     "free": false,
     "welsh": false
+  },
+  {
+    "name": "Compact Software Ltd",
+    "url": "http://compact-software.co.uk/winaccs",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "welsh": false,
+    "free": false
   }
 ]
