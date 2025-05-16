@@ -2534,7 +2534,7 @@
   },
   {
     "name": "PWC spreadsheet",
-    "url": "https://digitalvat.pwc.co.uk/",
+    "url": "https://store.pwc.co.uk/en/products/vat-e-file-spreadsheet",
     "business": true,
     "agent": true,
     "accounting": false,
@@ -2793,7 +2793,7 @@
   },
   {
     "name": "SAP Business One",
-    "url": "https://www.sap.com/uk/products/business-one.html",
+    "url": "https://help.sap.com/docs/SAP_BUSINESS_ONE/bf2b8e2b3984475fb1c51e53310c32b0/b337045555b74ce99ce308ad6d677b31.html",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3635,7 +3635,7 @@
   },
   {
     "name": "SAP Document and Reporting Compliance Service",
-    "url": "https://help.sap.com/viewer/product/SLH_advanced_compliance_reporting_service/CLOUD/en-US",
+    "url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/3cc1da1e1e364fadb9b1af653a9597d2/8f5a0c817e91422c9c0bc89c2b9d8ca4.html",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3650,7 +3650,7 @@
   },
   {
     "name": "SAP Document and Reporting Compliance",
-    "url": "https://www.sap.com/uk/products/financial-management/document-reporting-compliance.html",
+    "url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/3cc1da1e1e364fadb9b1af653a9597d2/8f5a0c817e91422c9c0bc89c2b9d8ca4.html",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -4468,7 +4468,7 @@
   },
   {
     "name": "Acumatica - Arcus Universe UK",
-    "url": "https://www.arcus-universe.com",
+    "url": "https://www.arcus-universe.com/making-tax-digital/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5189,7 +5189,7 @@
   },
   {
     "name": "LOVAT Compliance",
-    "url": "https://vatcompliance.net/en/",
+    "url": "https://vatcompliance.co/making-tax-digital-software-for-vat/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5384,7 +5384,7 @@
   },
   {
     "name": "SAP Business ByDesign",
-    "url": "https://www.sap.com/uk/products/business-bydesign.html",
+    "url": "https://help.sap.com/docs/SAP_BUSINESS_BYDESIGN/2e30d84496214461ad763692c3a0b4a5/3c82075784af4766ac94567d927f6efd.html",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -5654,7 +5654,7 @@
   },
   {
     "name": "TopNotepad",
-    "url": "https://topnotepad.com",
+    "url": "https://topnotepad.com/uk/easiest-mtd-vat-software",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -5900,21 +5900,6 @@
     "accounting": false,
     "spreadsheets": false,
     "viewReturn": false,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Clickentry Limited",
-    "url": "https://clickentry.co.uk",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
     "cognitive": false,
