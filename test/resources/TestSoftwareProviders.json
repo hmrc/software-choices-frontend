@@ -3635,7 +3635,7 @@
   },
   {
     "name": "SAP Document and Reporting Compliance Service",
-    "url": "https://help.sap.com/docs/SAP_S4HANA_ONPREMISE/3cc1da1e1e364fadb9b1af653a9597d2/8f5a0c817e91422c9c0bc89c2b9d8a4.html",
+    "url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/3cc1da1e1e364fadb9b1af653a9597d2/8f5a0c817e91422c9c0bc89c2b9d8ca4.html\n",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5384,7 +5384,7 @@
   },
   {
     "name": "SAP Business ByDesign",
-    "url": "https://help.sap.com/docs/SAP_BUSINESS_BYDESIGN/2e30d84496214461ad763692c3a0b4a5/3c82075784af4766ac94567d927f6fd.html",
+    "url": "https://help.sap.com/docs/SAP_BUSINESS_BYDESIGN/2e30d84496214461ad763692c3a0b4a5/3c82075784af4766ac94567d927f6efd.html",
     "business": true,
     "agent": true,
     "accounting": true,
