@@ -2913,7 +2913,7 @@
   },
   {
     "name": "Sovos Compliance",
-    "url": "https://sovos.com/product/vat-reporting/",
+    "url": "https://sovos.com/vat/tax-rules/uk-making-tax-digital/",
     "business": true,
     "agent": true,
     "accounting": true,
@@ -3831,7 +3831,7 @@
     "motor": false
   },
   {
-    "name": "Debitoor",
+    "name": "SumUp",
     "url": "https://www.sumup.com/en-gb/invoices/",
     "business": true,
     "agent": false,
@@ -4423,7 +4423,7 @@
   },
   {
     "name": "Brightpearl",
-    "url": "https://www.brightpearl.com/",
+    "url": "https://www.brightpearl.com/retail-accounting-software",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -5534,7 +5534,7 @@
   },
   {
     "name": "Taxback International",
-    "url": "https://taxbackinternational.com/",
+    "url": "https://taxbackinternational.com/making-tax-digital/",
     "business": true,
     "agent": true,
     "accounting": false,
@@ -5834,7 +5834,7 @@
   },
   {
     "name": "SmartAccounting (Entertainment Partners)",
-    "url": "https://www.ep.com/",
+    "url": "https://www.ep.com/smartaccounting/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -6759,7 +6759,7 @@
   },
   {
     "name": "Squeegee",
-    "url": "https://squeeg.ee",
+    "url": "https://squeeg.ee/mtd",
     "business": true,
     "agent": false,
     "accounting": true,
