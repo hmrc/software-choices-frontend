@@ -6885,5 +6885,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "OpenVAT",
+    "url": "https://openvat.co.uk",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": true
   }
 ]
