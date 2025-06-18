@@ -6890,7 +6890,7 @@
     "name": "OpenVAT",
     "url": "https://openvat.co.uk",
     "business": true,
-    "agent": true,
+    "agent": false,
     "accounting": false,
     "spreadsheets": true,
     "viewReturn": true,
