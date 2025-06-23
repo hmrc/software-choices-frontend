@@ -80,6 +80,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         status(result) shouldBe Status.OK
         doc.select(".hmrc-language-select").isEmpty shouldBe false
         doc.select("h1").text() shouldBe FilterSearchMessages.welshTitle
+        doc.getElementsByClass("govuk-warning-text").text() shouldBe FilterSearchMessages.boldWarningTextWelsh
       }
     }
     "the welsh language cookie is set to english" should {
@@ -92,6 +93,7 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
         status(result) shouldBe Status.OK
         doc.select(".hmrc-language-select").isEmpty shouldBe false
         doc.select("h1").text() shouldBe FilterSearchMessages.title
+        doc.getElementsByClass("govuk-warning-text").text() shouldBe FilterSearchMessages.boldWarningText
       }
     }
   }
