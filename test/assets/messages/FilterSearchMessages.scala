@@ -50,13 +50,12 @@ object FilterSearchMessages {
   val language = "Software language"
   val welsh = "Welsh"
 
-  val hiddenHeading = "Search results"
-
   val filterResults = "Apply filters"
 
-  val p1 = "Using software will allow you to submit VAT Returns directly to HMRC without needing to visit HMRC’s website. All software listed on this page has been through HMRC’s recognition process. HMRC does not endorse or recommend any one product or software provider."
+  val p1 = "Using software will allow you to submit VAT Returns directly to HMRC without needing to visit HMRC’s website. All software listed on this page has been through HMRC’s recognition process."
   val p2 = "Most of the software listed will require payment though there are some free versions available. You should choose software that is suitable for you."
   val p3 = "Some of the software listed below have features that are particularly suitable for those with accessibility needs, for example visual impairment and limited movement."
+  val boldWarningText = "! Warning HMRC cannot recommend one software product or service over another and is not responsible for any problems you have with software that you’ve bought."
 
   val accordionHeading = "What kind of software is available?"
   val accordionSubHeading1 = "Record keeping software"

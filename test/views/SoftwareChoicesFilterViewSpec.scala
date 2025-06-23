@@ -110,6 +110,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           document.getParagraphs.get(1).text shouldBe FilterSearchMessages.p1
         }
 
+        "include correct bold warning test" in {
+          document.getElementsByClass("govuk-warning-text").text() shouldBe FilterSearchMessages.boldWarningText
+        }
+
         "include correct p2" in {
           document.getParagraphs.get(2).text shouldBe FilterSearchMessages.p2
         }
