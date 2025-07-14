@@ -6902,5 +6902,22 @@
     "motor": true,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "Digital Tax Solution for SAP Business One",
+    "url": "https://info.vision33.co.uk/digital-tax-submission-software",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": false,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
