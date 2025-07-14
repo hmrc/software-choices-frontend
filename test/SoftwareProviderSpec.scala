@@ -26,7 +26,7 @@ class SoftwareProviderSpec extends TestUtils {
 
       val actualProviders: Seq[String] = {
         val stream = getClass.getResourceAsStream("/SoftwareProviders.json")
-        Source.fromInputStream(stream).getLines.toSeq
+        Source.fromInputStream(stream).getLines().toSeq
       }
 
       val expectedProviders: Seq[String] = Source.fromFile("test/resources/TestSoftwareProviders.json").getLines().toSeq

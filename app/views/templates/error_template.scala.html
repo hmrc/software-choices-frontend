@@ -18,7 +18,7 @@
 
 @this(govuk_wrapper: govuk_wrapper)
 
-@(pageTitle: String, heading: String, message: String)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(pageTitle: String, heading: String, message: String)(implicit request: RequestHeader, messages: Messages, appConfig: AppConfig)
 
 @mainContent = {
  <h1>@heading</h1>

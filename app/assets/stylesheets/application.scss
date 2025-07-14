@@ -1,7 +1,8 @@
-$govuk-assets-path: "/making-tax-digital-software/assets/lib/govuk-frontend/govuk/assets/";
+$govuk-assets-path: "/making-tax-digital-software/assets/lib/govuk-frontend/dist/govuk/assets/";
 $hmrc-assets-path: "/making-tax-digital-software/assets/lib/hmrc-frontend/hmrc/";
+$govuk-new-organisation-colours: true;
 
-@import "lib/govuk-frontend/govuk/all";
+@import "lib/govuk-frontend/dist/govuk/index";
 @import "lib/hmrc-frontend/hmrc/all";
 
 .app-reference-number {
