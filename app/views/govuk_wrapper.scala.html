@@ -50,7 +50,7 @@
         showBackLink: Boolean = false,
         backLinkUrl: Option[String] = Some("#"),
         skipLink: Option[Html] = None
-)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+)(implicit request: RequestHeader, messages: Messages, appConfig: AppConfig)
 
     @head = {
             <!--[if lte IE 8]><link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" /><![endif]-->

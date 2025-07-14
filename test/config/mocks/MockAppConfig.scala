@@ -18,9 +18,9 @@ package config.mocks
 
 import config.AppConfig
 import config.features.Features
-import javax.inject.Inject
 import org.scalamock.scalatest.MockFactory
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
+import javax.inject.Inject
 
 class MockAppConfig @Inject()(implicit val sc: ServicesConfig)
   extends AppConfig with MockFactory {

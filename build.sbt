@@ -36,7 +36,7 @@ lazy val microservice: Project = Project(appName, file("."))
     majorVersion := 0,
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test
   )
-  .settings(scalaVersion := "2.13.14")
+  .settings(scalaVersion := "2.13.16")
   .configs(IntegrationTest)
   .settings(inConfig(IntegrationTest)(Defaults.itSettings): _*)
   .settings(

@@ -37,8 +37,8 @@ class SoftwareChoicesService extends LoggingUtil {
 
   lazy val providersJson: Seq[JsValue] = Json.parse(jsonFile).as[Seq[JsValue]]
 
-  def readProviders: Seq[SoftwareProviderModel] = providersJson.map(_.as[SoftwareProviderModel])
-  lazy val providersList: Seq[SoftwareProviderModel] = readProviders
+  def readProviders(): Seq[SoftwareProviderModel] = providersJson.map(_.as[SoftwareProviderModel])
+  lazy val providersList: Seq[SoftwareProviderModel] = readProviders()
 
   def searchProviders(term: String): Seq[SoftwareProviderModel] = providersList.filter(_.name.toLowerCase.contains(term.toLowerCase))
 
