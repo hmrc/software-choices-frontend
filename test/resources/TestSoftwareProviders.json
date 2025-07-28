@@ -6970,5 +6970,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "ADERANT Expert",
+    "url": "https://www.aderant.com/streamline-filing-and-ensure-vat-compliance/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": true
   }
 ]
