@@ -19,14 +19,14 @@ import sbt.*
 
 object AppDependencies {
 
-  val jsoupVersion          = "1.18.3"
-  val bootstrapVersion      = "9.16.0"
-  val scalaTestPlusVersion  = "7.0.1"
+  val jsoupVersion          = "1.21.2"
+  val bootstrapVersion      = "9.19.0"
+  val scalaTestPlusVersion  = "7.0.2"
   val scalaMockVersion      = "5.2.0"
 
   val compile: Seq[ModuleID] = Seq(
     "uk.gov.hmrc" %%  "bootstrap-frontend-play-30" % bootstrapVersion,
-    "uk.gov.hmrc" %%  "play-frontend-hmrc-play-30" % "12.6.0",
+    "uk.gov.hmrc" %%  "play-frontend-hmrc-play-30" % "12.10.0",
     "org.webjars" %   "jquery"                     % "3.7.1"
   )
 
@@ -35,7 +35,6 @@ object AppDependencies {
     "org.playframework"       %% "play-test"           % current               % "test",
     "org.scalatestplus.play"  %% "scalatestplus-play"  % scalaTestPlusVersion  % "test",
     "org.scalamock"           %% "scalamock"           % scalaMockVersion      % "test",
-    "org.pegdown"             %  "pegdown"             % "1.6.0"               % "test",
     "com.vladsch.flexmark"    %  "flexmark-all"        % "0.64.8"              % "test"
   )
 
