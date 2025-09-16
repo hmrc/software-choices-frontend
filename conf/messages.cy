@@ -28,7 +28,8 @@ softwareChoices.show = Pecynnau meddalwedd
 
 softwareChoices.filter.title = Dewch o hyd i feddalwedd Troi Treth yn Ddigidol ar gyfer TAW
 softwareChoices.filter.p1 = Bydd defnyddio meddalwedd yn eich galluogi i gyflwyno Ffurflenni TAW yn uniongyrchol i CThEF heb orfod mynd i wefan CThEF. Mae’r holl feddalwedd a restrir ar y dudalen hon wedi bod drwy broses gydnabod CThEF.
-softwareChoices.filter.boldWarning = Ni all CThEF argymell un gwasanaeth neu gynnyrch meddalwedd dros un arall ac nid yw’n gyfrifol am unrhyw broblemau sydd gennych gyda meddalwedd rydych chi wedi’i phrynu.
+softwareChoices.filter.boldWarning.warning = Rhybudd
+softwareChoices.filter.boldWarning.text = Ni all CThEF argymell un gwasanaeth neu gynnyrch meddalwedd dros un arall ac nid yw’n gyfrifol am unrhyw broblemau sydd gennych gyda meddalwedd rydych chi wedi’i phrynu.
 softwareChoices.filter.p2 = Mae angen talu am y rhan fwyaf o’r feddalwedd sydd wedi’u rhestru, ond mae yna rhai fersiynau ar gael sy’n rhad ac am ddim. Dylech ddewis meddalwedd sy’n addas ar eich cyfer chi.
 softwareChoices.filter.p3 = Mae gan rai o’r feddalwedd a restrir isod nodweddion sy’n arbennig o addas ar gyfer y rhai hynny sydd ag anghenion hygyrchedd, er enghraifft nam ar y golwg a symudiad cyfyngedig.
 

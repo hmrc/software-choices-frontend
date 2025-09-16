@@ -56,7 +56,7 @@ object FilterSearchMessages {
   val p2 = "Most of the software listed will require payment though there are some free versions available. You should choose software that is suitable for you."
   val p3 = "Some of the software listed below have features that are particularly suitable for those with accessibility needs, for example visual impairment and limited movement."
   val boldWarningText = "! Warning HMRC cannot recommend one software product or service over another and is not responsible for any problems you have with software that you’ve bought."
-  val boldWarningTextWelsh = "! Warning Ni all CThEF argymell un gwasanaeth neu gynnyrch meddalwedd dros un arall ac nid yw’n gyfrifol am unrhyw broblemau sydd gennych gyda meddalwedd rydych chi wedi’i phrynu."
+  val boldWarningTextWelsh = "! Rhybudd Ni all CThEF argymell un gwasanaeth neu gynnyrch meddalwedd dros un arall ac nid yw’n gyfrifol am unrhyw broblemau sydd gennych gyda meddalwedd rydych chi wedi’i phrynu."
 
   val accordionHeading = "What kind of software is available?"
   val accordionSubHeading1 = "Record keeping software"
