@@ -2472,21 +2472,6 @@
     "motor": false
   },
   {
-    "name": "PwC Enterprise (GITC)",
-    "url": "https://knowledgenavigator.pwc.co.uk/vat/services/indirect-tax-edge/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "PWC spreadsheet",
     "url": "https://store.pwc.co.uk/en/products/vat-e-file-spreadsheet",
     "business": true,
