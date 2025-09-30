@@ -7040,5 +7040,22 @@
     "motor": false,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "Zempler Bank Free MTD VAT",
+    "url": "https://www.zemplerbank.com/business/current-account/feature/making-tax-digital/",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": false,
+    "visual": false,
+    "hearing": false,
+    "motor": false,
+    "welsh": false,
+    "free": true
   }
 ]
