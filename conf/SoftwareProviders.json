@@ -5742,21 +5742,6 @@
     "motor": false
   },
   {
-    "name": "excelvatreturn.co.uk",
-    "url": "https://www.excelvatreturn.co.uk/",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "SmartAccounting (Entertainment Partners)",
     "url": "https://www.ep.com/smartaccounting/",
     "business": true,
