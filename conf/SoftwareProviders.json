@@ -7042,5 +7042,22 @@
     "motor": false,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "Syngco Digitax",
+    "url": "https://platned.com/tax-digital-for-ifs-with-platned-digitax",
+    "business": true,
+    "agent": false,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
