@@ -7076,5 +7076,22 @@
     "motor": true,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "Acxite",
+    "url": "https://acxite.com/mtd-vat-software/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": true
   }
 ]
