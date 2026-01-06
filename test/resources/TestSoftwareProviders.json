@@ -1,7 +1,7 @@
 [
   {
     "name": "Deltek Vision/Vantagepoint",
-    "url": "http://www.deltek.com/Vantagepoint",
+    "url": "https://www.deltek.com/en-gb/erp/vantagepoint",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -1389,7 +1389,7 @@
   },
   {
     "name": "FormaServe Systems Ltd",
-    "url": "http://www.formaserve.co.uk/products_fmtd.php",
+    "url": "https://www.formaserve.co.uk/products_fmtd.html",
     "business": true,
     "agent": false,
     "accounting": false,
