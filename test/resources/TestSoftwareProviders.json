@@ -6397,23 +6397,6 @@
     "free": false
   },
   {
-    "name": "Receipt Bot",
-    "url": "https://receipt-bot.com/calculate-vat",
-    "business": true,
-    "agent": true,
-    "accounting": false,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true,
-    "welsh": false,
-    "free": false
-  },
-  {
     "name": "Aedon.Accounting",
     "url": "https://www.aedon.co/",
     "business": true,
