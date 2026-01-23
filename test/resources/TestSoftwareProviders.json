@@ -7078,5 +7078,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "ACCTAX (Online) Ltd",
+    "url": "https://www.selftax.co.uk/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": false,
+    "visual": false,
+    "hearing": true,
+    "motor": false,
+    "welsh": false,
+    "free": false
   }
 ]
