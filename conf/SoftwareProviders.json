@@ -7061,5 +7061,22 @@
     "motor": true,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "11TaxAssist",
+    "url": "https://11taxassist.co.uk",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
