@@ -1464,21 +1464,6 @@
     "motor": false
   },
   {
-    "name": "hibooks",
-    "url": "https://www.hibooks.com",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "HansaWorld UK Ltd",
     "url": "https://www.hansaworld.com/en",
     "business": true,
