@@ -7112,5 +7112,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "MTD Sheets",
+    "url": "https://mtdsheets.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": true
   }
 ]
