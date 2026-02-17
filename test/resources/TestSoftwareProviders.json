@@ -5772,21 +5772,6 @@
     "motor": false
   },
   {
-    "name": "PwC Enterprise (STARS)",
-    "url": "https://knowledgenavigator.pwc.co.uk/vat/services/indirect-tax-edge/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "TheNAVPeople MTD Bridge",
     "url": "https://the365people.com/making-tax-digital",
     "business": true,
@@ -5826,21 +5811,6 @@
     "viewReturn": false,
     "viewLiabilities": false,
     "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "PwC Enterprise - Comply First Time",
-    "url": "https://knowledgenavigator.pwc.co.uk/vat/services/indirect-tax-edge/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
     "cognitive": false,
     "visual": false,
     "hearing": false,
