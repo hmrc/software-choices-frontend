@@ -7092,7 +7092,7 @@
     "spreadsheets": true,
     "viewReturn": true,
     "viewLiabilities": true,
-    "viewPayments": false,
+    "viewPayments": true,
     "cognitive": true,
     "visual": true,
     "hearing": true,
