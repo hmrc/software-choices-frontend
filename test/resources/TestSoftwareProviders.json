@@ -7069,5 +7069,22 @@
     "motor": true,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "Starling",
+    "url": "https://www.starlingbank.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
