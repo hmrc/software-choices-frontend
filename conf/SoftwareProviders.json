@@ -6162,7 +6162,7 @@
     "viewPayments": true,
     "cognitive": true,
     "visual": true,
-    "hearing": false,
+    "hearing": true,
     "motor": true
   },
   {
