@@ -26,16 +26,17 @@ object AppDependencies {
 
   val compile: Seq[ModuleID] = Seq(
     "uk.gov.hmrc" %%  "bootstrap-frontend-play-30" % bootstrapVersion,
-    "uk.gov.hmrc" %%  "play-frontend-hmrc-play-30" % "12.15.0",
-    "org.webjars" %   "jquery"                     % "3.7.1"
+    "uk.gov.hmrc" %%  "play-frontend-hmrc-play-30" % "12.32.0",
+    "org.webjars" %   "jquery"                     % "4.0.0"
   )
 
   val test: Seq[ModuleID] = Seq(
-    "org.jsoup"               %  "jsoup"               % jsoupVersion          % "test",
-    "org.playframework"       %% "play-test"           % current               % "test",
-    "org.scalatestplus.play"  %% "scalatestplus-play"  % scalaTestPlusVersion  % "test",
-    "org.scalamock"           %% "scalamock"           % scalaMockVersion      % "test",
-    "com.vladsch.flexmark"    %  "flexmark-all"        % "0.64.8"              % "test"
+    "org.jsoup"               %  "jsoup"                    % jsoupVersion          % "test",
+    "org.playframework"       %% "play-test"                % current               % "test",
+    "org.scalatestplus.play"  %% "scalatestplus-play"       % scalaTestPlusVersion  % "test",
+    "uk.gov.hmrc"             %% "bootstrap-test-play-30"   % bootstrapVersion     % "test",
+    "org.scalamock"           %% "scalamock"                % scalaMockVersion      % "test",
+    "com.vladsch.flexmark"    %  "flexmark-all"             % "0.64.8"              % "test"
   )
 
   def apply(): Seq[sbt.ModuleID] = compile ++ test
