@@ -107,7 +107,7 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
         }
 
         "include correct p1" in {
-          document.getParagraphs.get(1).text shouldBe FilterSearchMessages.p1
+          document.getParagraphs.get(0).text shouldBe FilterSearchMessages.p1
         }
 
         "include correct bold warning test" in {
@@ -115,11 +115,11 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
         }
 
         "include correct p2" in {
-          document.getParagraphs.get(2).text shouldBe FilterSearchMessages.p2
+          document.getParagraphs.get(1).text shouldBe FilterSearchMessages.p2
         }
 
         "include correct p3" in {
-          document.getParagraphs.get(3).text shouldBe FilterSearchMessages.p3
+          document.getParagraphs.get(2).text shouldBe FilterSearchMessages.p3
         }
 
         "include accordion heading" in {
