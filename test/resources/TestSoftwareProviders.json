@@ -5917,10 +5917,10 @@
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
-    "cognitive": true,
+    "cognitive": false,
     "visual": false,
-    "hearing": true,
-    "motor": true
+    "hearing": false,
+    "motor": false
   },
   {
     "name": "Sage Intacct",
