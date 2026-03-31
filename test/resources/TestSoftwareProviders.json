@@ -3876,8 +3876,8 @@
     "motor": false
   },
   {
-    "name": "Federation of Small Businesses MTD",
-    "url": "https://www.fsb.org.uk/mtd",
+    "name": "DIY Tax",
+    "url": "https://diy-tax.co.uk/",
     "business": true,
     "agent": false,
     "accounting": true,
@@ -3889,6 +3889,7 @@
     "visual": false,
     "hearing": false,
     "motor": false,
+    "welsh": false,
     "free": true
   },
   {
