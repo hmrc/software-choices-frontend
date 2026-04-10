@@ -20,7 +20,7 @@ This can be done by running either `sm2 --stop SOFTWARE_CHOICES_FRONTEND`.
 1. Clone this repository into the development environment on your machine.
 2. Open a terminal and navigate to the folder you cloned the service into.
 3. Run either `./run.sh` or `sbt "run 9590" -Dapplication.router=testOnlyDoNotUseInAppConf.Routes` to start the service locally.
-4. Ensure all dependent services are started, using the `SOFTWARE_CHOICES_ALL` service manager profile.
+4. Ensure all dependent services are started, using the `sm2 --start SOFTWARE_CHOICES_ALL` service manager profile.
 5. In a browser, navigate to `http://localhost:9590/making-tax-digital-software`.
 
 This service can be used by both JavaScript users and non-Javascript users. If you want to test the service with no JavaScript enabled, disable it in your browser site settings and reload the page.
