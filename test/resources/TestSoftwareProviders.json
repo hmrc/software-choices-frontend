@@ -6544,7 +6544,7 @@
     "viewPayments": false,
     "cognitive": true,
     "visual": true,
-    "hearing": false,
+    "hearing": true,
     "motor": true,
     "free": false,
     "welsh": false
