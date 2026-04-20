@@ -6526,7 +6526,7 @@
     "viewLiabilities": false,
     "viewPayments": false,
     "cognitive": true,
-    "visual": true,
+    "visual": false,
     "hearing": true,
     "motor": true,
     "free": false,
