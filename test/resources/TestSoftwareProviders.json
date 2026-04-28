@@ -5278,21 +5278,6 @@
     "motor": false
   },
   {
-    "name": "Fuelsoft",
-    "url": "http://www.fuelsoft.co.uk/fuelsoft/index.asp",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": false,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Integrated SAP MTD-VAT Connector by PIKON",
     "url": "https://www.pikon.co.uk/",
     "business": true,
@@ -5503,7 +5488,7 @@
     "motor": false
   },
   {
-    "name": "Capita Integra",
+    "name": "IBSS Integra",
     "url": "https://www.ibsoftwaresolutions.com/",
     "business": true,
     "agent": false,
