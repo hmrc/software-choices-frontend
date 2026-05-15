@@ -33,7 +33,7 @@ class SearchFilterTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersTe
     mapping(
       "foo" -> text,
       "bar" -> text
-    )(TestModel.apply)(TestModel.unapply)
+    )(TestModel.apply)(testTexts => Some(Tuple.fromProductTyped(testTexts)))
   )
 
   val filterTemplateModel1 = FilterFieldModel(form("foo"), "FilterValue1")

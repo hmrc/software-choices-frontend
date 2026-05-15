@@ -16,7 +16,7 @@
 
 package controllers
 
-import org.scalatest.matchers.must.Matchers.convertToAnyMustWrapper
+import org.scalatest.matchers.must.Matchers._
 import play.api.Application
 import play.api.inject.guice.GuiceApplicationBuilder
 import play.api.mvc.{Cookies, Result}
@@ -36,28 +36,28 @@ class LanguageSwitchControllerSpec extends TestUtils {
   "Validating english/welsh switch" should {
     "display english when 'english' selected" in {
       val result: Future[Result] =
-        controller.switchToEnglish().apply(FakeRequest().withHeaders("Referer" -> "/paperless/choose"))
+        controller.switchToEnglish.apply(FakeRequest().withHeaders("Referer" -> "/paperless/choose"))
       val cook: Cookies = cookies(result)
       cook.get("PLAY_LANG").get.value mustBe "en"
     }
 
     "display welsh when 'welsh' selected" in {
       val result: Future[Result] =
-        controller.switchToWelsh().apply(FakeRequest().withHeaders("Referer" -> "/paperless/choose"))
+        controller.switchToWelsh.apply(FakeRequest().withHeaders("Referer" -> "/paperless/choose"))
       val cook: Cookies = cookies(result)
       cook.get("PLAY_LANG").get.value mustBe "cy"
     }
 
     "display english when 'english' selected and no referrer is present" in {
       val result: Future[Result] =
-        controller.switchToEnglish().apply(FakeRequest())
+        controller.switchToEnglish.apply(FakeRequest())
       val cook: Cookies = cookies(result)
       cook.get("PLAY_LANG").get.value mustBe "en"
     }
 
     "display welsh when 'welsh' selected and no referrer is present" in {
       val result: Future[Result] =
-        controller.switchToWelsh().apply(FakeRequest())
+        controller.switchToWelsh.apply(FakeRequest())
       val cook: Cookies = cookies(result)
       cook.get("PLAY_LANG").get.value mustBe "cy"
     }

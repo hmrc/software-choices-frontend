@@ -26,7 +26,7 @@ import play.api.inject.Injector
 import play.api.mvc.AnyContentAsEmpty
 import play.api.test.FakeRequest
 
-trait TestUtils extends AnyWordSpec with Matchers with GuiceOneAppPerSuite with BeforeAndAfterEach with MaterializerSupport {
+trait TestUtils extends AnyWordSpec with Matchers with GuiceOneAppPerSuite with BeforeAndAfterEach {
 
   override def beforeEach(): Unit = {
     super.beforeEach()

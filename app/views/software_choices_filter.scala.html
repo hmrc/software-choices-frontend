@@ -96,7 +96,7 @@
             </div>
         </div>
 
-    @formWithCSRF(action = controllers.routes.SoftwareChoicesController.search, 'id -> "searchForm") {
+    @formWithCSRF(action = controllers.routes.SoftwareChoicesController.search, Symbol("id") -> "searchForm") {
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third" role="region" aria-label="Filters">
                 <h2 class="govuk-heading-m">@messages("softwareChoices.filter.filters")</h2>
