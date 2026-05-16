@@ -1,9 +1,9 @@
 import sbt.*
+import scoverage.ScoverageKeys
 
 val appName = "software-choices-frontend"
 
 lazy val coverageSettings: Seq[Def.Setting[?]] = {
-  import scoverage.*
 
   val excludedPackages = Seq(
     "<empty>",
@@ -21,8 +21,8 @@ lazy val coverageSettings: Seq[Def.Setting[?]] = {
   Seq(
     ScoverageKeys.coverageExcludedPackages := excludedPackages.mkString(";"),
     ScoverageKeys.coverageMinimumStmtTotal := 90,
-    ScoverageKeys.coverageFailOnMinimum    := false,
-    ScoverageKeys.coverageHighlighting     := true
+    ScoverageKeys.coverageFailOnMinimum := false,
+    ScoverageKeys.coverageHighlighting := true
   )
 }
 
@@ -47,9 +47,6 @@ lazy val microservice: Project = Project(appName, file("."))
     // Use the silencer plugin to suppress warnings
     // You may turn it on for `views` too to suppress warnings from unused imports in compiled twirl templates, but this will hide other warnings.
     scalacOptions += "-Wconf:msg=unused import&src=html/.*:s",
-    scalacOptions += "-Wconf:msg=Flag.*repeatedly:s",
-    scalacOptions ++= Seq(
-      baseDirectory.value.getCanonicalPath
-    )
+    scalacOptions += "-Wconf:msg=Flag.*repeatedly:s"
 
   )

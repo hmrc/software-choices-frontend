@@ -19,10 +19,10 @@ import sbt.*
 
 object AppDependencies {
 
-  val jsoupVersion          = "1.22.2"
-  val bootstrapVersion      = "9.19.0"
-  val scalaTestPlusVersion  = "7.0.2"
-  val scalaMockVersion      = "7.5.5"
+  val jsoupVersion = "1.22.2"
+  val bootstrapVersion = "10.7.0"
+  val scalaTestPlusVersion = "7.0.2"
+  val scalaMockVersion = "7.5.5"
 
   val compile: Seq[ModuleID] = Seq(
     "uk.gov.hmrc" %%  "bootstrap-frontend-play-30" % bootstrapVersion,
