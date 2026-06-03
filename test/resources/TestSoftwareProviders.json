@@ -6184,7 +6184,7 @@
     "viewPayments": true,
     "cognitive": true,
     "visual": true,
-    "hearing": false,
+    "hearing": true,
     "motor": true,
     "welsh": false,
     "free": false
@@ -7009,6 +7009,23 @@
   {
     "name": "DIY Accounting Submit",
     "url": "https://submit.diyaccounting.co.uk/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
+  },
+  {
+    "name": "0T TinyTax",
+    "url": "https://tinytax.co.uk/mtd-vat",
     "business": true,
     "agent": true,
     "accounting": true,
