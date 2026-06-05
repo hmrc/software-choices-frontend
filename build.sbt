@@ -23,7 +23,12 @@ lazy val coverageSettings: Seq[Def.Setting[?]] = {
     ScoverageKeys.coverageMinimumStmtTotal := 90,
     ScoverageKeys.coverageFailOnMinimum := false,
     ScoverageKeys.coverageHighlighting := true,
-    ScoverageKeys.coverageDataDir :=  target.value / "scoverage-report"
+    coverageReport := {
+      val _ = coverageReport.value
+      val src = (target.value / s"scala-${scalaBinaryVersion.value}" / "scoverage-report")
+      val dest = target.value / "scoverage-report"
+      IO.copyDirectory(src, dest)
+    }
   )
 }
 
