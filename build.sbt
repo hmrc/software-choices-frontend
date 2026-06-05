@@ -22,7 +22,8 @@ lazy val coverageSettings: Seq[Def.Setting[?]] = {
     ScoverageKeys.coverageExcludedPackages := excludedPackages.mkString(";"),
     ScoverageKeys.coverageMinimumStmtTotal := 90,
     ScoverageKeys.coverageFailOnMinimum := false,
-    ScoverageKeys.coverageHighlighting := true
+    ScoverageKeys.coverageHighlighting := true,
+    ScoverageKeys.coverageDataDir :=  target.value / "scoverage-report"
   )
 }
 
