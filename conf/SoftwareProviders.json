@@ -3408,21 +3408,6 @@
     "motor": false
   },
   {
-    "name": "Compilator AB, Product: TEAM 2",
-    "url": "https://compilator.com/en/team2/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "Motor Traders Assistant",
     "url": "https://www.motortradersassistant.co.uk",
     "business": true,
@@ -3961,21 +3946,6 @@
     "agent": true,
     "accounting": true,
     "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
-    "name": "Indigo Legal Systems Ltd.",
-    "url": "http://www.IndigoLegalSystems.com",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": false,
     "viewReturn": true,
     "viewLiabilities": true,
     "viewPayments": true,
