@@ -3,7 +3,7 @@ import scoverage.ScoverageKeys
 
 val appName = "software-choices-frontend"
 
-lazy val coverageSettings: Seq[Def.Setting[?]] = {
+lazy val coverageSettings = {
 
   val excludedPackages = Seq(
     "<empty>",
@@ -23,12 +23,8 @@ lazy val coverageSettings: Seq[Def.Setting[?]] = {
     ScoverageKeys.coverageMinimumStmtTotal := 90,
     ScoverageKeys.coverageFailOnMinimum := false,
     ScoverageKeys.coverageHighlighting := true,
-    coverageReport := {
-      val _ = coverageReport.value
-      val src = (target.value / s"scala-${scalaBinaryVersion.value}" / "scoverage-report")
-      val dest = target.value / "scoverage-report"
-      IO.copyDirectory(src, dest)
-    }
+    Test / parallelExecution := false
+
   )
 }
 
