@@ -23,7 +23,10 @@ lazy val coverageSettings = {
     ScoverageKeys.coverageMinimumStmtTotal := 90,
     ScoverageKeys.coverageFailOnMinimum := false,
     ScoverageKeys.coverageHighlighting := true,
-    Test / parallelExecution := false
+    Test / parallelExecution := false,
+    coverageAggregate / coverageReport := {
+      (coverageAggregate / coverageReport).dependsOn(Test / test).value
+    }
 
   )
 }
