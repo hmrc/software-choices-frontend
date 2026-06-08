@@ -34,7 +34,8 @@ lazy val coverageSettings = {
 lazy val microservice: Project = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .disablePlugins(JUnitXmlReportPlugin)
-
+  .configs(IntegrationTest)
+  .settings(inConfig(IntegrationTest)(Defaults.itSettings): _*)
   .settings(coverageSettings *)
   .settings(
     majorVersion := 0,
