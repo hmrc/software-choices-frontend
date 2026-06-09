@@ -1,10 +1,9 @@
 import sbt.*
+import scoverage.ScoverageKeys
 
 val appName = "software-choices-frontend"
-val silencerVersion = "1.7.19"
 
-lazy val coverageSettings: Seq[Def.Setting[?]] = {
-  import scoverage.*
+lazy val coverageSettings = {
 
   val excludedPackages = Seq(
     "<empty>",
@@ -22,23 +21,27 @@ lazy val coverageSettings: Seq[Def.Setting[?]] = {
   Seq(
     ScoverageKeys.coverageExcludedPackages := excludedPackages.mkString(";"),
     ScoverageKeys.coverageMinimumStmtTotal := 90,
-    ScoverageKeys.coverageFailOnMinimum    := false,
-    ScoverageKeys.coverageHighlighting     := true
+    ScoverageKeys.coverageFailOnMinimum := false,
+    ScoverageKeys.coverageHighlighting := true,
+    Test / parallelExecution := false,
+    coverageAggregate / coverageReport := {
+      (coverageAggregate / coverageReport).dependsOn(Test / test).value
+    }
+
   )
 }
 
 lazy val microservice: Project = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .disablePlugins(JUnitXmlReportPlugin)
-
+  .configs(IntegrationTest)
+  .settings(inConfig(IntegrationTest)(Defaults.itSettings): _*)
   .settings(coverageSettings *)
   .settings(
     majorVersion := 0,
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test
   )
-  .settings(scalaVersion := "2.13.18")
-  .configs(IntegrationTest)
-  .settings(inConfig(IntegrationTest)(Defaults.itSettings): _*)
+  .settings(scalaVersion := "3.3.7")
   .settings(
     TwirlKeys.templateImports ++= Seq(
       "uk.gov.hmrc.hmrcfrontend.views.html.helpers._",
@@ -49,9 +52,7 @@ lazy val microservice: Project = Project(appName, file("."))
     // ***************
     // Use the silencer plugin to suppress warnings
     // You may turn it on for `views` too to suppress warnings from unused imports in compiled twirl templates, but this will hide other warnings.
-    scalacOptions += "-P:silencer:pathFilters=views;routes",
-    libraryDependencies ++= Seq(
-      compilerPlugin("com.github.ghik" % "silencer-plugin"  % silencerVersion cross CrossVersion.full),
-                     "com.github.ghik" % "silencer-lib"     % silencerVersion % Provided cross CrossVersion.full
-    )
+    scalacOptions += "-Wconf:msg=unused import&src=html/.*:s",
+    scalacOptions += "-Wconf:msg=Flag.*repeatedly:s"
+
   )

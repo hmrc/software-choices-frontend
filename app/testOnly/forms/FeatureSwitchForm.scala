@@ -18,17 +18,17 @@ package testOnly.forms
 
 import config.ConfigKeys
 import play.api.data.Form
-import play.api.data.Forms._
+import play.api.data.Forms.*
 import testOnly.models.FeatureSwitchModel
 
 object FeatureSwitchForm {
 
-  val form: Form[FeatureSwitchModel] = Form(
-    mapping(
-      ConfigKeys.priceFilterFeature -> boolean,
-      ConfigKeys.providerDetailsFilterFeature -> boolean,
-      ConfigKeys.welshFeature -> boolean
-    )(FeatureSwitchModel.apply)(FeatureSwitchModel.unapply)
-  )
+    val form: Form[FeatureSwitchModel] = Form(
+      mapping(
+        ConfigKeys.priceFilterFeature -> boolean,
+        ConfigKeys.providerDetailsFilterFeature -> boolean,
+        ConfigKeys.welshFeature -> boolean
+      )(FeatureSwitchModel.apply)(details => Some(Tuple.fromProductTyped(details)))
+    )
 
 }

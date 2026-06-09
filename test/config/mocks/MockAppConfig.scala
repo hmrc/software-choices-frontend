@@ -19,11 +19,13 @@ package config.mocks
 import config.AppConfig
 import config.features.Features
 import org.scalamock.scalatest.MockFactory
+import org.scalatest.TestSuite
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
+
 import javax.inject.Inject
 
 class MockAppConfig @Inject()(implicit val sc: ServicesConfig)
-  extends AppConfig with MockFactory {
+  extends AppConfig with TestSuite with MockFactory {
 
   lazy val mockFeatures: Features = mock[Features]
 

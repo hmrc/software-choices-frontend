@@ -30,8 +30,8 @@ import views.html.templates.provider_table_template
 class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersTestConstants {
 
 
-  val viewProvider = app.injector.instanceOf[provider_table_template]
-  val view = app.injector.instanceOf[software_choices_filter]
+  val viewProvider: provider_table_template = app.injector.instanceOf[provider_table_template]
+  val view: software_choices_filter = app.injector.instanceOf[software_choices_filter]
 
   def filterViewProviders(implicit appConfig: AppConfig): SoftwareChoicesFilterViewModel = SoftwareChoicesFilterViewModel(
       allProviders = Seq(
@@ -72,14 +72,14 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val hearingFilter = """label[for="HEARING"]"""
     val motorFilter = """label[for="MOTOR"]"""
     val filterResults = "#searchForm > div > div.govuk-grid-column-one-third button"
-    val p = (i: Int) => s"#main-content > div > div > div > div > p:nth-child($i)"
+    val p: Int => String = (i: Int) => s"#main-content > div > div > div > div > p:nth-child($i)"
     val accordionHeading = "details > summary > span"
-    val accordionSubHeading1 = (i: Int) => s"details > div > h2:nth-child($i)"
-    val accordionBullet1 = (i: Int) => s"details > div > ul > li:nth-child($i)"
-    val accordionBullet2 = (i: Int) => s"details > div > ul > li:nth-child($i)"
-    val accordionSubHeading2 = (i: Int) => s"details > div > h2:nth-child($i)"
-    val accordionBullet3 = (i: Int) => s"details > div > ul > li:nth-child($i)"
-    val accordionBullet4 = (i: Int) => s"details > div > ul > li:nth-child($i)"
+    val accordionSubHeading1: Int => String = (i: Int) => s"details > div > h2:nth-child($i)"
+    val accordionBullet1: Int => String = (i: Int) => s"details > div > ul > li:nth-child($i)"
+    val accordionBullet2: Int => String = (i: Int) => s"details > div > ul > li:nth-child($i)"
+    val accordionSubHeading2: Int => String = (i: Int) => s"details > div > h2:nth-child($i)"
+    val accordionBullet3: Int => String = (i: Int) => s"details > div > ul > li:nth-child($i)"
+    val accordionBullet4: Int => String = (i: Int) => s"details > div > ul > li:nth-child($i)"
 
   }
   implicit class ElementExtensions(element: Element) {
@@ -87,11 +87,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     lazy val getParagraphs: Elements = element.getElementsByTag("p")
   }
 
-  override def beforeEach() {
+  override def beforeEach(): Unit =
     super.beforeEach()
     appConfig.priceFilterEnabled(true)
     appConfig.welshEnabled(true)
-  }
 
   "The software choices filter page" when {
     "the provider details filter is disabled and welsh is enabled" when {
