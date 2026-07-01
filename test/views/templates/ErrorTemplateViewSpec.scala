@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import views.html.templates.error_template
 
 class ErrorTemplateViewSpec extends ViewBaseSpec {
 
-  val view = app.injector.instanceOf[error_template]
+  val view: error_template = app.injector.instanceOf[error_template]
 
   object Selectors {
     val heading = "h1"
