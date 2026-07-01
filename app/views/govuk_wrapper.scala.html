@@ -1,5 +1,5 @@
 @*
- * Copyright 2024 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,18 +27,18 @@
 
 
 @this(hmrcHead: HmrcHead,
-        hmrcHeader: HmrcHeader,
-        hmrcScripts: HmrcScripts,
-        hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper,
-        hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
-        hmrcLayout: GovukTemplate,
-        hmrcStandardFooter: HmrcStandardFooter,
-        HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
-        hmrcStandardHeader: HmrcStandardHeader,
-        standardBetaBanner: StandardBetaBanner,
-        hmrcLanguageSelect: HmrcLanguageSelect,
-        hmrcBanner: HmrcBanner,
-        govukBackLink: GovukBackLink,
+    hmrcHeader: HmrcHeader,
+    hmrcScripts: HmrcScripts,
+    hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper,
+    hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
+    hmrcLayout: GovukTemplate,
+    hmrcStandardFooter: HmrcStandardFooter,
+    HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
+    hmrcStandardHeader: HmrcStandardHeader,
+    standardBetaBanner: StandardBetaBanner,
+    hmrcLanguageSelect: HmrcLanguageSelect,
+    hmrcBanner: HmrcBanner,
+    govukBackLink: GovukBackLink,
 )
 
 @(title: String,
@@ -66,8 +66,7 @@
     }}
 
     @beforeContentBlock = {
-
-        @backLinkUrl.map{ url =>
+        @backLinkUrl.map { url =>
             <div>@govukBackLink(
                 BackLink(
                     href = url,
@@ -76,22 +75,22 @@
             )</div>
         }
 
-    @{
-        hmrcLanguageSelect(LanguageSelect(
-            playLangToUiLanguage(messages.lang),
-            appConfig.languageLinks: _*
-        ))
-    }
+        @if(!appConfig.isServiceNavigationEnabled){
+            @hmrcLanguageSelect(LanguageSelect(
+                playLangToUiLanguage(messages.lang),
+                appConfig.languageLinks: _*
+            ))
+        }
     }
 
     @footerDefault = {
-    @hmrcStandardFooter()
+        @hmrcStandardFooter()
     }
 
 
 @content = {
-@mainContent
-@hmrcReportTechnicalIssueHelper()
+    @mainContent
+    @hmrcReportTechnicalIssueHelper()
 }
 
 @hmrcLayout(
@@ -102,7 +101,8 @@
         serviceUrl = Some(controllers.routes.SoftwareChoicesController.show.url),
         serviceName = Some(messages("common.service.name")),
         signOutUrl = None,
-        phaseBanner = None
+        phaseBanner = None,
+        isWelshTranslationAvailable = true
     ),
     beforeContentBlock = Some(beforeContentBlock),
     footerBlock = footerDefault,

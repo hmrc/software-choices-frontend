@@ -21,11 +21,12 @@ import play.api.i18n.Lang
 import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.{Cy, En, Language}
 import uk.gov.hmrc.play.bootstrap.binders.RedirectUrl
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
-
+import play.api.Configuration
 import javax.inject.{Inject, Singleton}
 
 @Singleton
-class AppConfig @Inject()(implicit val config: ServicesConfig) {
+class AppConfig @Inject()(implicit val config: ServicesConfig,
+                          configuration: Configuration) {
 
   def languageMap: Map[String, Lang] = Map(
     "english" -> Lang("en"),
@@ -50,4 +51,5 @@ class AppConfig @Inject()(implicit val config: ServicesConfig) {
       (Cy, controllers.routes.LanguageSwitchController.switchToWelsh.url)
     )
 
+  lazy val isServiceNavigationEnabled: Boolean = configuration.getOptional[Boolean]("play-frontend-hmrc.forceServiceNavigation").getOrElse(false)
 }

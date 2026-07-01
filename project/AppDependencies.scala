@@ -34,7 +34,7 @@ object AppDependencies {
     "org.jsoup"               %  "jsoup"                    % jsoupVersion          % "test",
     "org.playframework"       %% "play-test"                % current               % "test",
     "org.scalatestplus.play"  %% "scalatestplus-play"       % scalaTestPlusVersion  % "test",
-    "uk.gov.hmrc"             %% "bootstrap-test-play-30"   % bootstrapVersion     % "test",
+    "uk.gov.hmrc"             %% "bootstrap-test-play-30"   % bootstrapVersion      % "test",
     "org.scalamock"           %% "scalamock"                % scalaMockVersion      % "test",
     "com.vladsch.flexmark"    %  "flexmark-all"             % "0.64.8"              % "test"
   )
