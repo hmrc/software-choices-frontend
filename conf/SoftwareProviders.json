@@ -3924,22 +3924,6 @@
     "motor": false
   },
   {
-    "name": "!Easy MTD VAT",
-    "url": "https://easymtdvat.com/",
-    "business": true,
-    "agent": true,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": true,
-    "viewPayments": true,
-    "cognitive": true,
-    "visual": true,
-    "hearing": true,
-    "motor": true,
-    "free": true
-  },
-  {
     "name": "Web Control (UK) Ltd",
     "url": "https://makingtaxdigital.azurewebsites.net/",
     "business": true,
@@ -7043,5 +7027,39 @@
     "motor": true,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "Entrilia",
+    "url": "https://www.entrilia.com/",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
+  },
+  {
+    "name": "Regilyze VAT",
+    "url": "https://regilyze.com",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
