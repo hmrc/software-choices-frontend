@@ -18,4 +18,5 @@ package testOnly.models
 
 case class FeatureSwitchModel(priceFilterEnabled: Boolean,
                               providerDetailsEnabled: Boolean,
-                              welshEnabled: Boolean)
+                              welshEnabled: Boolean,
+                              urBannerEnabled: Boolean)

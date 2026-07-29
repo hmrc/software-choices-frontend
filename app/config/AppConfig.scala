@@ -52,4 +52,6 @@ class AppConfig @Inject()(implicit val config: ServicesConfig,
     )
 
   lazy val isServiceNavigationEnabled: Boolean = configuration.getOptional[Boolean]("play-frontend-hmrc.forceServiceNavigation").getOrElse(false)
+
+  lazy val urBannerBaseUrl: String = config.getString(ConfigKeys.urBannerBaseUrl)
 }
