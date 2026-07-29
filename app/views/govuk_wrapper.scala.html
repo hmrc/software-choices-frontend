@@ -16,29 +16,30 @@
 
 @import config.AppConfig
 @import play.twirl.api.HtmlFormat
+@import views.utils.UrBannerUtil
 @import views.html.helper.CSPNonce
 @import uk.gov.hmrc.hmrcfrontend.views.config.StandardBetaBanner
-@import uk.gov.hmrc.hmrcfrontend.views.html.components.{HmrcReportTechnicalIssue,HmrcHeader}
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.{HmrcReportTechnicalIssue,HmrcHeader, HmrcUserResearchBanner}
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukTemplate
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukBackLink
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.backlink.BackLink
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukSkipLink
 
-
 @this(hmrcHead: HmrcHead,
-    hmrcHeader: HmrcHeader,
-    hmrcScripts: HmrcScripts,
-    hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper,
-    hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
-    hmrcLayout: GovukTemplate,
-    hmrcStandardFooter: HmrcStandardFooter,
-    HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
-    hmrcStandardHeader: HmrcStandardHeader,
-    standardBetaBanner: StandardBetaBanner,
-    hmrcLanguageSelect: HmrcLanguageSelect,
-    hmrcBanner: HmrcBanner,
-    govukBackLink: GovukBackLink,
+        hmrcHeader: HmrcHeader,
+        hmrcScripts: HmrcScripts,
+        hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper,
+        hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
+        hmrcLayout: GovukTemplate,
+        hmrcStandardFooter: HmrcStandardFooter,
+        HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
+        hmrcStandardHeader: HmrcStandardHeader,
+        standardBetaBanner: StandardBetaBanner,
+        hmrcLanguageSelect: HmrcLanguageSelect,
+        hmrcBanner: HmrcBanner,
+        govukBackLink: GovukBackLink,
+        hmrcUserResearchBanner: HmrcUserResearchBanner
 )
 
 @(title: String,
@@ -52,41 +53,44 @@
         skipLink: Option[Html] = None
 )(implicit request: RequestHeader, messages: Messages, appConfig: AppConfig)
 
-    @head = {
-            <!--[if lte IE 8]><link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" /><![endif]-->
-            <!--[if gt IE 8]><!--> <link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application.css")' media="screen" rel="stylesheet" type="text/css" />
-            <!--<![endif]-->
-        <link @{CSPNonce.attr} rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/stylesheet_v2.css")'>
-        <meta name="format-detection" content="telephone=no" />
+@bodyEnd = {
+    @hmrcScripts(scriptElem)
+}
+
+@head = {
+        <!--[if lte IE 8]><link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" /><![endif]-->
+        <!--[if gt IE 8]><!--> <link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application.css")' media="screen" rel="stylesheet" type="text/css" />
+        <!--<![endif]-->
+    <link @{CSPNonce.attr} rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/stylesheet_v2.css")'>
+    <meta name="format-detection" content="telephone=no" />
+}
+
+@playLangToUiLanguage(l: Lang) = @{l.code match {
+    case "en" => En
+    case "cy" => Cy
+}}
+
+@beforeContentBlock = {
+    @backLinkUrl.map { url =>
+        <div>@govukBackLink(
+            BackLink(
+                href = url,
+                content = Text(messages("common.back"))
+            )
+        )</div>
     }
 
-    @playLangToUiLanguage(l: Lang) = @{l.code match {
-        case "en" => En
-        case "cy" => Cy
-    }}
-
-    @beforeContentBlock = {
-        @backLinkUrl.map { url =>
-            <div>@govukBackLink(
-                BackLink(
-                    href = url,
-                    content = Text(messages("common.back"))
-                )
-            )</div>
-        }
-
-        @if(!appConfig.isServiceNavigationEnabled){
-            @hmrcLanguageSelect(LanguageSelect(
-                playLangToUiLanguage(messages.lang),
-                appConfig.languageLinks: _*
-            ))
-        }
+    @if(!appConfig.isServiceNavigationEnabled){
+        @hmrcLanguageSelect(LanguageSelect(
+            playLangToUiLanguage(messages.lang),
+            appConfig.languageLinks: _*
+        ))
     }
+}
 
-    @footerDefault = {
-        @hmrcStandardFooter()
-    }
-
+@footerDefault = {
+    @hmrcStandardFooter()
+}
 
 @content = {
     @mainContent
@@ -102,9 +106,11 @@
         serviceName = Some(messages("common.service.name")),
         signOutUrl = None,
         phaseBanner = None,
-        isWelshTranslationAvailable = true
+        isWelshTranslationAvailable = true,
+        additionalBannersBlock = Option.when(appConfig.features.urBannerEnabled())(hmrcUserResearchBanner(UrBannerUtil.getUrBanner()))
     ),
     beforeContentBlock = Some(beforeContentBlock),
+    bodyEndBlock = Some(bodyEnd),
     footerBlock = footerDefault,
     skipLinkBlock = skipLink
 )(content)

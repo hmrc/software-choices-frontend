@@ -35,6 +35,8 @@ class MockAppConfig @Inject()(implicit val sc: ServicesConfig, configuration: Co
   def providerDetailsEnabled(enabled: Boolean): Unit = mockFeatures.providerDetailsEnabled(enabled)
 
   def welshEnabled(isEnabled: Boolean): Unit = mockFeatures.welshEnabled(isEnabled)
+  
+  def urBannerEnabled(isEnabled: Boolean): Unit = mockFeatures.urBannerEnabled(isEnabled)
 
   override val features = mockFeatures
 

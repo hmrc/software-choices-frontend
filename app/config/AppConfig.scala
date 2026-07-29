@@ -40,9 +40,7 @@ class AppConfig @Inject()(implicit val config: ServicesConfig,
     s"&backUrl=${RedirectUrl(host + controllers.routes.SoftwareChoicesController.show.url)}"
 
   lazy val host: String = config.getString(ConfigKeys.host)
-
-  lazy val govUkMtdVatSignUpGuidanceUrl = config.getString(ConfigKeys.govUkMtdVatSignUpGuidance)
-
+  
   val features = new Features
 
   def languageLinks: Seq[(Language, String)] =
@@ -52,4 +50,6 @@ class AppConfig @Inject()(implicit val config: ServicesConfig,
     )
 
   lazy val isServiceNavigationEnabled: Boolean = configuration.getOptional[Boolean]("play-frontend-hmrc.forceServiceNavigation").getOrElse(false)
+
+  lazy val urBannerBaseUrl: String = config.getString(ConfigKeys.urBannerBaseUrl)
 }

@@ -27,7 +27,8 @@ object FeatureSwitchForm {
       mapping(
         ConfigKeys.priceFilterFeature -> boolean,
         ConfigKeys.providerDetailsFilterFeature -> boolean,
-        ConfigKeys.welshFeature -> boolean
+        ConfigKeys.welshFeature -> boolean,
+        ConfigKeys.urBannerFeature -> boolean
       )(FeatureSwitchModel.apply)(details => Some(Tuple.fromProductTyped(details)))
     )
 
