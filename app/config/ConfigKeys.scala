@@ -27,8 +27,6 @@ object ConfigKeys {
   val welshFeature: String = "features.welsh.enabled"
   val urBannerFeature: String = "features.urBanner.enabled"
 
-  val govUkMtdVatSignUpGuidance = "govuk.mtdvat.signup.url"
-
   val urBannerBaseUrl = "urBannerBaseUrl"
 
 }
