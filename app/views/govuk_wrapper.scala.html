@@ -26,6 +26,7 @@
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukSkipLink
 
+
 @this(hmrcHead: HmrcHead,
         hmrcHeader: HmrcHeader,
         hmrcScripts: HmrcScripts,
@@ -33,10 +34,8 @@
         hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
         hmrcLayout: GovukTemplate,
         hmrcStandardFooter: HmrcStandardFooter,
-        HmrcLanguageSelectHelper: HmrcLanguageSelectHelper,
         hmrcStandardHeader: HmrcStandardHeader,
         standardBetaBanner: StandardBetaBanner,
-        hmrcLanguageSelect: HmrcLanguageSelect,
         hmrcBanner: HmrcBanner,
         govukBackLink: GovukBackLink,
         hmrcUserResearchBanner: HmrcUserResearchBanner
@@ -78,13 +77,6 @@
                 content = Text(messages("common.back"))
             )
         )</div>
-    }
-
-    @if(!appConfig.isServiceNavigationEnabled){
-        @hmrcLanguageSelect(LanguageSelect(
-            playLangToUiLanguage(messages.lang),
-            appConfig.languageLinks: _*
-        ))
     }
 }
 
