@@ -6943,7 +6943,7 @@
     "hearing": true,
     "motor": true,
     "welsh": false,
-    "free": false
+    "free": true
   },
   {
     "name": "0T TinyTax",
