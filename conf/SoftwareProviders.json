@@ -4542,21 +4542,6 @@
     "motor": false
   },
   {
-    "name": "Accounting Office Software LTD",
-    "url": "https://my-n.co.uk/",
-    "business": true,
-    "agent": false,
-    "accounting": true,
-    "spreadsheets": true,
-    "viewReturn": true,
-    "viewLiabilities": false,
-    "viewPayments": false,
-    "cognitive": false,
-    "visual": false,
-    "hearing": false,
-    "motor": false
-  },
-  {
     "name": "attitude",
     "url": "http://attitude.upright-group.com/VAT",
     "business": true,
