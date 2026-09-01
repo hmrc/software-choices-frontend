@@ -7131,5 +7131,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "WeFile",
+    "url": "https://wefile.co.uk/vat-returns",
+    "business": true,
+    "agent": true,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": true
   }
 ]
