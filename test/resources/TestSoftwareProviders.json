@@ -7165,5 +7165,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "123 Tax",
+    "url": "https://123tax.co.uk/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": false,
+    "viewReturn": true,
+    "viewLiabilities": true,
+    "viewPayments": true,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
