@@ -6360,8 +6360,8 @@
     "viewLiabilities": false,
     "viewPayments": false,
     "cognitive": true,
-    "visual": false,
-    "hearing": true,
+    "visual": true,
+    "hearing": false,
     "motor": true,
     "free": false,
     "welsh": false
