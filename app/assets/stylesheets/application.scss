@@ -5,6 +5,10 @@ $govuk-new-organisation-colours: true;
 @import "lib/govuk-frontend/dist/govuk/index";
 @import "lib/hmrc-frontend/hmrc/all";
 
+.hmrc-service-navigation--with-language-select .govuk-width-container {
+  flex-wrap: wrap;
+}
+
 .app-reference-number {
   display: block;
   font-weight: bold;
