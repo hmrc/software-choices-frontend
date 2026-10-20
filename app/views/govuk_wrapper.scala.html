@@ -57,11 +57,11 @@
 }
 
 @head = {
-        <!--[if lte IE 8]><link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" /><![endif]-->
-        <!--[if gt IE 8]><!--> <link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application.css")' media="screen" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 8]><link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" ><![endif]-->
+        <!--[if gt IE 8]><!--> <link @{CSPNonce.attr} href='@routes.Assets.versioned("stylesheets/application.css")' media="screen" rel="stylesheet" type="text/css" >
         <!--<![endif]-->
     <link @{CSPNonce.attr} rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/stylesheet_v2.css")'>
-    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="telephone=no" >
 }
 
 @playLangToUiLanguage(l: Lang) = @{l.code match {
