@@ -7199,5 +7199,22 @@
     "motor": true,
     "welsh": false,
     "free": true
+  },
+  {
+    "name": "Hoowla",
+    "url": "https://www.hoowla.com/making-tax-digital/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
