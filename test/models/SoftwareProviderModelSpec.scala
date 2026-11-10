@@ -25,7 +25,7 @@ class SoftwareProviderModelSpec extends TestUtils {
   val model: SoftwareProviderModel = SoftwareProviderModel(
     name = "name",
     url = "url",
-    filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR, FREE, WELSH)
+    filters = List(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS, COGNITIVE, VISUAL, HEARING, MOTOR, FREE, WELSH, VAT_ASSIST)
   )
 
   val json: JsObject = Json.obj(
@@ -43,7 +43,8 @@ class SoftwareProviderModelSpec extends TestUtils {
     "hearing" -> true,
     "motor" -> true,
     "free" -> true,
-    "welsh" -> true
+    "welsh" -> true,
+    "vatAssist" -> true
   )
 
   "SoftwareProviderModel" should {
@@ -82,6 +83,22 @@ class SoftwareProviderModelSpec extends TestUtils {
 
     "write to Json correctly with all filters" in {
       Json.toJson(model) shouldBe json
+    }
+
+    "read vatAssist true as the VAT_ASSIST filter" in {
+      (json ++ Json.obj("vatAssist" -> true)).as[SoftwareProviderModel].filters should contain(VAT_ASSIST)
+    }
+
+    "not add VAT_ASSIST when vatAssist is false" in {
+      (json ++ Json.obj("vatAssist" -> false)).as[SoftwareProviderModel].filters should not contain VAT_ASSIST
+    }
+
+    "not add VAT_ASSIST when vatAssist is absent" in {
+      (json - "vatAssist").as[SoftwareProviderModel].filters should not contain VAT_ASSIST
+    }
+
+    "fail to read when vatAssist is not a boolean" in {
+      (json ++ Json.obj("vatAssist" -> "yes")).validate[SoftwareProviderModel].isError shouldBe true
     }
   }
 }

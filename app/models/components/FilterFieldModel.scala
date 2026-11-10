@@ -18,4 +18,4 @@ package models.components
 
 import play.api.data.Field
 
-case class FilterFieldModel(field: Field, label: String)
+case class FilterFieldModel(field: Field, label: String, hint: Option[String] = None)

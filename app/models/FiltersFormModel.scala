@@ -37,7 +37,9 @@ object FiltersFormModel {
                   hearing: Option[Filter.Value] = None,
                   motor: Option[Filter.Value] = None,
                   free: Option[Filter.Value] = None,
-                  welsh: Option[Filter.Value] = None): FiltersFormModel = {
+                  welsh: Option[Filter.Value] = None,
+                  vatAssist: Option[Filter.Value] = None): FiltersFormModel = {
+    
 
     val filters: Seq[Filter.Value] = Seq(
       business,
@@ -52,13 +54,15 @@ object FiltersFormModel {
       hearing,
       motor,
       free,
-      welsh
+      welsh,
+      vatAssist
     ).flatten
 
     new FiltersFormModel(filters, searchTerm)
   }
 
   def customUnapply(arg: FiltersFormModel): Option[(Option[String],
+    Option[Filter.Value],
     Option[Filter.Value],
     Option[Filter.Value],
     Option[Filter.Value],
@@ -89,7 +93,8 @@ object FiltersFormModel {
       giveBack(MOTOR),
       giveBack(VISUAL),
       giveBack(FREE),
-      giveBack(WELSH)
+      giveBack(WELSH),
+      giveBack(VAT_ASSIST)
     ))
   }
 }

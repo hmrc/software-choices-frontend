@@ -71,6 +71,10 @@ class FilterSpec extends TestUtils {
       Filter("FREE") shouldBe FREE
     }
 
+    "determine the correct VAT_ASSIST enum value" in {
+      Filter("VAT_ASSIST") shouldBe VAT_ASSIST
+    }
+
     "determine an unknown enum value" in {
       Filter("UNKNOWN") shouldBe UNKNOWN
     }

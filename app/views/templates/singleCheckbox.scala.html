@@ -16,12 +16,22 @@
 
 @this()
 
-@(field: Field, label: String)
+@(field: Field, label: String, hint: Option[String] = None)
 
 @value = @{ field.value match { case Some(x) => x case None => "false" case x => x }}
     <div class="govuk-checkboxes__item">
-        <input id="@{field.name}" name="@{field.name}" class="govuk-checkboxes__input" type="checkbox" value="true" @if(value == "true"){ checked }>
+        <input id="@{field.name}" name="@{field.name}"
+               class="govuk-checkboxes__input" type="checkbox" value="true"
+               @if(value == "true"){ checked }
+               @if(hint.nonEmpty) { aria-describedby="@{field.name}-hint" }>
+
         <label class="govuk-!-font-size-19 govuk-label govuk-checkboxes__label govuk-!-margin-0" for="@{field.name}">@label</label>
+
+        @hint.map { hintText =>
+          <div id="@{field.name}-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-margin-top-0">
+                  @hintText
+          </div>
+        }
     </div>
 
 

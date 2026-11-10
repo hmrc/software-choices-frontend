@@ -130,6 +130,20 @@
 
                 @search_filter_template(
                     FilterTemplateModel(
+                        messages("softwareChoices.filter.extraFeatures"),
+                        Seq(
+                            FilterFieldModel(
+                                form(vatAssist),
+                                messages("softwareChoices.filter.vatAssist"),
+                                Some(messages("softwareChoices.filter.vatAssistHint"))
+                            )
+                        ),
+                        appConfig.features.vatAssistEnabled()
+                    )
+                )
+
+                @search_filter_template(
+                    FilterTemplateModel(
                         messages("softwareChoices.filter.price"),
                         Seq(FilterFieldModel(form(free), messages("softwareChoices.filter.freeVersion"))),
                         appConfig.features.priceFilterEnabled()
@@ -167,4 +181,3 @@
         </div>
     }
 }
-

@@ -19,7 +19,7 @@
 
 @this(hmrcNewTabLinkHelper: HmrcNewTabLinkHelper)
 
-@(provider: SoftwareProviderModel)(implicit messages: Messages)
+@(provider: SoftwareProviderModel)(implicit messages: Messages, appConfig: config.AppConfig)
 
 @accessibilityFilters = @{provider.filters.filter(List(VISUAL, HEARING, MOTOR, COGNITIVE).contains(_))}
 @providerFilters = @{provider.filters.filterNot(accessibilityFilters.toSet)}
@@ -64,6 +64,9 @@
     }
     @if(providerFilters.contains(VIEW_PAYMENTS)){
         <li class="govuk-body">@messages("softwareChoices.filter.provider.viewPayments")</li>
+    }
+    @if(appConfig.features.vatAssistEnabled() && providerFilters.contains(VAT_ASSIST)) {
+        <li class="govuk-body">@messages("softwareChoices.filter.provider.vatAssist")</li>
     }
 </ul>
 

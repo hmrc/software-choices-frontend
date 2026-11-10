@@ -38,6 +38,8 @@ class MockAppConfig @Inject()(implicit val sc: ServicesConfig, configuration: Co
   
   def urBannerEnabled(isEnabled: Boolean): Unit = mockFeatures.urBannerEnabled(isEnabled)
 
+  def vatAssistEnabled(isEnabled: Boolean): Unit = mockFeatures.vatAssistEnabled(isEnabled)
+
   override val features = mockFeatures
 
 }

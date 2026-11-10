@@ -33,6 +33,7 @@ trait TestUtils extends AnyWordSpec with Matchers with GuiceOneAppPerSuite with 
     appConfig.priceFilterEnabled(true)
     appConfig.welshEnabled(false)
     appConfig.urBannerEnabled(true)
+    appConfig.vatAssistEnabled(false)
   }
 
   implicit lazy val fakeRequest: FakeRequest[AnyContentAsEmpty.type] = FakeRequest("GET", "/")

@@ -30,6 +30,7 @@ object ProviderInfoTemplateMessages {
   val viewReturns = "View submitted VAT returns"
   val viewLiabilities = "Check what VAT you owe"
   val viewPayments = "View VAT payment history"
+  val vatAssist = "Request HMRC Assist feedback"
 
   def accessibilityFeature(feature: String): String = s"This software includes $feature accessibility features."
   def accessibilityFeatures(features: List[String]): String = s"This software includes ${features.tail.mkString(", ")} and ${features.head} accessibility features."

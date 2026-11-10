@@ -40,6 +40,7 @@ Each feature flag controls the corresponding functionality on the UI, as shown b
 11. `motor`: Motor or physical difficulties
 12. `free`: Free version
 13. `welsh`: Welsh
+14. `vatAssist`: Request HMRC Assist feedback
 
 ### Set feature switches
 The service has two feature switches: 

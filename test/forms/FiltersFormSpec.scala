@@ -151,5 +151,20 @@ class FiltersFormSpec extends AnyWordSpec with Matchers {
 
       actualResult shouldBe expectedResult
     }
+
+    "only the VAT Assist filter is true" in {
+      FiltersForm.form.bind(Map(vatAssist -> "true")).value shouldBe
+        Some(FiltersFormModel(Seq(VAT_ASSIST), None))
+    }
+
+    "the VAT Assist filter is false" in {
+      FiltersForm.form.bind(Map(vatAssist -> "false")).value shouldBe
+        Some(FiltersFormModel(Seq.empty, None))
+    }
+
+    "the VAT Assist filter is combined with another filter and a term" in {
+      FiltersForm.form.bind(Map(FiltersForm.term -> "abc", agent -> "true", vatAssist -> "true")).value shouldBe
+        Some(FiltersFormModel(Seq(AGENT, VAT_ASSIST), Some("abc")))
+    }
   }
 }
