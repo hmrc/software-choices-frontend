@@ -93,3 +93,8 @@ softwareChoices.filter.provider.free = Mae fersiwn rhad ac am ddim o’r feddalw
 
 softwareChoices.filter.provider.visit.prefix = Gallwch
 softwareChoices.filter.provider.visit = ddarllen rhagor o wybodaeth ar wefan {0}
+
+softwareChoices.filter.extraFeatures = Extra features
+softwareChoices.filter.vatAssist = Gwneud cais am adborth HMRC Assist
+softwareChoices.filter.vatAssistHint = Yn helpu i ddod o hyd i gamgymeriadau posibl mewn Ffurflen TAW cyn iddi gael ei chyflwyno
+softwareChoices.filter.provider.vatAssist = Gwneud cais am adborth HMRC Assist

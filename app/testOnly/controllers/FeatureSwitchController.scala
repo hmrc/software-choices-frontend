@@ -37,6 +37,7 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
         priceFilterEnabled = appConfig.features.priceFilterEnabled(),
         providerDetailsEnabled = appConfig.features.providerDetailsEnabled(),
         welshEnabled = appConfig.features.welshEnabled(),
+        vatAssistEnabled = appConfig.features.vatAssistEnabled(),
         urBannerEnabled = appConfig.features.urBannerEnabled()
       )
     )))
@@ -52,6 +53,7 @@ class FeatureSwitchController @Inject()(mcc: MessagesControllerComponents,
   def handleSuccess(model: FeatureSwitchModel): Result = {
     appConfig.features.providerDetailsEnabled(model.providerDetailsEnabled)
     appConfig.features.welshEnabled(model.welshEnabled)
+    appConfig.features.vatAssistEnabled(model.vatAssistEnabled)
     appConfig.features.urBannerEnabled(model.urBannerEnabled)
     Redirect(controllers.routes.SoftwareChoicesController.show)
   }

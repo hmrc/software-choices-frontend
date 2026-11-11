@@ -17,8 +17,9 @@
 package controllers
 
 import config.AppConfig
+import enums.Filter
 import forms.FiltersForm
-import models.SoftwareChoicesFilterViewModel
+import models.{FiltersFormModel, SoftwareChoicesFilterViewModel}
 import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.mvc._
 import services.SoftwareChoicesService
@@ -55,7 +56,11 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       } else {
         messages("common.results.count.notFound")
       }
-    }
+   }
+
+  private def enabledSearch(search: FiltersFormModel): FiltersFormModel =
+    if (appConfig.features.vatAssistEnabled()) search
+    else search.copy(filters = search.filters.filterNot(_ == Filter.VAT_ASSIST))
 
   def search: Action[AnyContent] = Action { implicit request =>
     FiltersForm.form.bindFromRequest().fold(
@@ -65,14 +70,15 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
       },
       search => {
         infoLog("[SoftwareChoicesController][search] Performing search")
+        val effectiveSearch = enabledSearch(search)
         val results =
           SoftwareChoicesFilterViewModel(
             softwareChoicesService.providersList,
-            Some(softwareChoicesService.filterProviders(search.filters, search.searchTerm)),
+            Some(softwareChoicesService.filterProviders(effectiveSearch.filters, effectiveSearch.searchTerm)),
             providerView
           )
         val titlePrefix = titlePrefixMessages(results.filteredProviders.get.length)
-        Ok(view(results, FiltersForm.form.fill(search), Some(titlePrefix), skipToResults = Some(gov_skip_link())))
+        Ok(view(results, FiltersForm.form.fill(effectiveSearch), Some(titlePrefix), skipToResults = Some(gov_skip_link())))
       }
     )
   }
@@ -87,8 +93,10 @@ class SoftwareChoicesController @Inject()(val softwareChoicesService: SoftwareCh
     FiltersForm.form.bindFromRequest().fold(
       error => BadRequest(view(softwareProvidersFilterViewModel, error)),
       search => {
-        val results = softwareProvidersFilterViewModel.sortedProviders(softwareChoicesService.filterProviders(search.filters, search.searchTerm))
-        val filtered = search.filters.nonEmpty || search.searchTerm.isDefined
+        val effectiveSearch = enabledSearch(search)
+        val results = softwareProvidersFilterViewModel.sortedProviders(
+          softwareChoicesService.filterProviders(effectiveSearch.filters, effectiveSearch.searchTerm))
+        val filtered = effectiveSearch.filters.nonEmpty || effectiveSearch.searchTerm.isDefined
         Ok(providerView(
           results,
           softwareChoicesService.providersList.length,

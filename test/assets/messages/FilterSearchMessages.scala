@@ -50,6 +50,15 @@ object FilterSearchMessages {
   val language = "Software language"
   val welsh = "Welsh"
 
+  val extraFeatures = "Extra features"
+  val vatAssist = "Request HMRC Assist feedback"
+  val vatAssistHint = "Helps identify possible mistakes in a VAT Return before it has been submitted"
+
+  val extraFeaturesWelsh = "Extra features"
+  val vatAssistWelsh = "Gwneud cais am adborth HMRC Assist"
+  val vatAssistHintWelsh = "Yn helpu i ddod o hyd i gamgymeriadau posibl mewn Ffurflen TAW cyn iddi gael ei chyflwyno"
+  val providerVatAssistWelsh = "Gwneud cais am adborth HMRC Assist"
+
   val filterResults = "Apply filters"
 
   val p1 = "Using software will allow you to submit VAT Returns directly to HMRC without needing to visit HMRC’s website. All software listed on this page has been through HMRC’s recognition process."

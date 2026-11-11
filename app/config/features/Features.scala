@@ -26,4 +26,5 @@ class Features @Inject()(implicit config: ServicesConfig) {
   val providerDetailsEnabled = new Feature(ConfigKeys.providerDetailsFilterFeature)
   val welshEnabled = new Feature(ConfigKeys.welshFeature)
   val urBannerEnabled = new Feature(ConfigKeys.urBannerFeature)
+  val vatAssistEnabled = new Feature(ConfigKeys.vatAssistFeature)
 }

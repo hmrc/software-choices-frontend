@@ -51,6 +51,7 @@ object FiltersForm {
       motor -> boolean.transform[Option[Filter.Value]](boolToFilter(MOTOR), _.nonEmpty),
       visual -> boolean.transform[Option[Filter.Value]](boolToFilter(VISUAL), _.nonEmpty),
       free -> boolean.transform[Option[Filter.Value]](boolToFilter(FREE), _.nonEmpty),
-      welsh -> boolean.transform[Option[Filter.Value]](boolToFilter(WELSH), _.nonEmpty)
+      welsh -> boolean.transform[Option[Filter.Value]](boolToFilter(WELSH), _.nonEmpty),
+      vatAssist -> boolean.transform[Option[Filter.Value]](boolToFilter(VAT_ASSIST), _.nonEmpty)
     )(FiltersFormModel.customApply)(FiltersFormModel.customUnapply(_))  )
 }

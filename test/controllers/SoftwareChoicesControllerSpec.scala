@@ -19,6 +19,7 @@ package controllers
 import _root_.utils.TestUtils
 import assets.messages.FilterSearchMessages
 import forms.FiltersForm
+import enums.Filter
 import models.SoftwareProviderModel
 import org.jsoup.Jsoup
 import play.api.http.Status
@@ -53,6 +54,8 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
   )
 
   def playLangCookie(welsh: Boolean = false): Cookie = Cookie("PLAY_LANG", if (welsh) "cy" else "en")
+
+  def vatAssistRequest = FakeRequest("POST", "/").withFormUrlEncodedBody("VAT_ASSIST" -> "true")
 
   "SoftwareChoicesController.show" should {
 
@@ -212,6 +215,83 @@ class SoftwareChoicesControllerSpec extends TestUtils with MockSoftwareChoicesSe
       val result = TestSoftwareChoicesController.ajaxProvider("wrongName")(FakeRequest())
 
       status(result) shouldBe NO_CONTENT
+    }
+  }
+
+  "SoftwareChoicesController.search with VAT Assist" should {
+    "pass VAT_ASSIST to the service when the switch is on" in {
+      appConfig.vatAssistEnabled(true)
+      mockReadProviders(softwareProviders)
+      setupMockFilterProvidersWith(Seq(Filter.VAT_ASSIST), None)(softwareProviders)
+
+      status(TestSoftwareChoicesController.search(vatAssistRequest)) shouldBe Status.OK
+    }
+
+    "drop VAT_ASSIST when the switch is off" in {
+      appConfig.vatAssistEnabled(false)
+      mockReadProviders(softwareProviders)
+      setupMockFilterProvidersWith(Seq.empty, None)(softwareProviders)
+
+      val doc = Jsoup.parse(contentAsString(TestSoftwareChoicesController.search(vatAssistRequest)))
+      doc.select("#VAT_ASSIST").isEmpty shouldBe true
+    }
+  }
+
+  "SoftwareChoicesController.ajaxFilterSearch with VAT Assist" should {
+    "pass VAT_ASSIST to the service when the switch is on" in {
+      appConfig.vatAssistEnabled(true)
+      mockReadProviders(softwareProviders)
+      setupMockFilterProvidersWith(Seq(Filter.VAT_ASSIST), None)(softwareProviders)
+
+      status(TestSoftwareChoicesController.ajaxFilterSearch(vatAssistRequest)) shouldBe Status.OK
+    }
+
+    "drop VAT_ASSIST when the switch is off" in {
+      appConfig.vatAssistEnabled(false)
+      mockReadProviders(softwareProviders)
+      setupMockFilterProvidersWith(Seq.empty, None)(softwareProviders)
+
+      status(TestSoftwareChoicesController.ajaxFilterSearch(vatAssistRequest)) shouldBe Status.OK
+    }
+  }
+
+  "SoftwareChoicesController.ajaxProvider with VAT Assist" should {
+    val assistProvider = SoftwareProviderModel("aName", "aUrl", List(Filter.VAT_ASSIST))
+
+    "include the VAT Assist feature when the switch is on" in {
+      appConfig.vatAssistEnabled(true)
+      mockReturnProvider(Some(assistProvider))
+      contentAsString(TestSoftwareChoicesController.ajaxProvider("aName")(FakeRequest())) should include("Request HMRC Assist feedback")
+    }
+
+    "not include it when the switch is off" in {
+      appConfig.vatAssistEnabled(false)
+      mockReturnProvider(Some(assistProvider))
+      contentAsString(TestSoftwareChoicesController.ajaxProvider("aName")(FakeRequest())) should not include "Request HMRC Assist feedback"
+    }
+  }
+
+  "the VAT Assist filter on the page" should {
+    "be shown in English when the switch is on" in {
+      appConfig.vatAssistEnabled(true)
+      mockReadProviders(softwareProviders)
+      val doc = Jsoup.parse(contentAsString(TestSoftwareChoicesController.show(fakeRequest)))
+      doc.select("label[for=VAT_ASSIST]").text shouldBe FilterSearchMessages.vatAssist
+    }
+
+    "be hidden when the switch is off" in {
+      appConfig.vatAssistEnabled(false)
+      mockReadProviders(softwareProviders)
+      val doc = Jsoup.parse(contentAsString(TestSoftwareChoicesController.show(fakeRequest)))
+      doc.select("#VAT_ASSIST").isEmpty shouldBe true
+    }
+
+    "be shown in Welsh when the switch is on and the Welsh cookie is set" in {
+      appConfig.vatAssistEnabled(true)
+      appConfig.welshEnabled(true)
+      mockReadProviders(softwareProviders)
+      val doc = Jsoup.parse(contentAsString(TestSoftwareChoicesController.show(fakeRequest.withCookies(playLangCookie(welsh = true)))))
+      doc.select("label[for=VAT_ASSIST]").text shouldBe FilterSearchMessages.vatAssistWelsh
     }
   }
 }

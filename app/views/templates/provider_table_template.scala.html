@@ -18,7 +18,7 @@
 
 @this(result_count_template: templates.result_count_template, provider_info_template: provider_info_template)
 
-@(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true, providerDetailsFilterFeature: Boolean = false)(implicit messages: Messages)
+@(providers: Seq[SoftwareProviderModel], totalProviders: Int, showCount: Boolean = true, providerDetailsFilterFeature: Boolean = false)(implicit messages: Messages, appConfig: config.AppConfig)
 
 <div id="provider-results" role="region" aria-label="Search results">
 

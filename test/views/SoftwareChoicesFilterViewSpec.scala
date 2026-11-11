@@ -80,6 +80,10 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
     val accordionSubHeading2: Int => String = (i: Int) => s"details > div > h2:nth-child($i)"
     val accordionBullet3: Int => String = (i: Int) => s"details > div > ul > li:nth-child($i)"
     val accordionBullet4: Int => String = (i: Int) => s"details > div > ul > li:nth-child($i)"
+    val extraFeaturesFilterHeader = "#searchForm > div > div.govuk-grid-column-one-third > div:nth-child(8) legend"
+    val vatAssistFilter = """label[for="VAT_ASSIST"]"""
+    val vatAssistHint = "#VAT_ASSIST-hint"
+    val vatAssistInput = "#VAT_ASSIST"
 
   }
   implicit class ElementExtensions(element: Element) {
@@ -300,6 +304,37 @@ class SoftwareChoicesFilterViewSpec extends ViewBaseSpec with SoftwareProvidersT
           "have a govuk-button class" in {
             document.select(Selectors.filterResults).hasClass("govuk-button") shouldBe true
           }
+        }
+
+        "contain the Extra features filter between Software features and Price when the VAT Assist switch is on" in {
+          appConfig.vatAssistEnabled(true)
+          appConfig.priceFilterEnabled(true)
+
+          val doc = parseView(view(filterViewProviders, FiltersForm.form))
+          val checkbox = doc.selectFirst("""input[name="VAT_ASSIST"]""")
+
+          checkbox should not be null
+
+          val fieldset = checkbox.closest("fieldset")
+          val group = checkbox.closest(".filter-wrapper")
+
+          fieldset.select("legend").text shouldBe FilterSearchMessages.extraFeatures
+          doc.select("""label[for="VAT_ASSIST"]""").text shouldBe FilterSearchMessages.vatAssist
+          doc.select("#VAT_ASSIST-hint").text shouldBe FilterSearchMessages.vatAssistHint
+          checkbox.attr("aria-describedby") shouldBe "VAT_ASSIST-hint"
+
+          group.previousElementSibling().select("legend").text shouldBe
+            FilterSearchMessages.additionalSoftwareFeatures
+          group.nextElementSibling().select("legend").text shouldBe
+            FilterSearchMessages.price
+        }
+
+        "not contain the VAT Assist filter when the switch is off" in {
+          appConfig.vatAssistEnabled(false)
+          val doc = parseView(view(filterViewProviders, FiltersForm.form))
+          doc.select(Selectors.extraFeaturesFilterHeader).isEmpty shouldBe true
+          doc.select(Selectors.vatAssistInput).isEmpty shouldBe true
+          doc.select(Selectors.vatAssistHint).isEmpty shouldBe true
         }
       }
     }

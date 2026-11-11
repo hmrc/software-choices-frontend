@@ -49,4 +49,11 @@ trait MockSoftwareChoicesService extends TestUtils with MockFactory{
       .expects(*)
       .returns(providerJson)
   }
+
+  def setupMockFilterProvidersWith(filters: Seq[Filter.Value], term: Option[String])
+                                  (softwareProviders: Seq[SoftwareProviderModel]): Unit = {
+    (mockSoftwareChoicesService.filterProviders(_: Seq[Filter.Value], _: Option[String]))
+      .expects(filters, term)
+      .returns(softwareProviders)
+  }
 }

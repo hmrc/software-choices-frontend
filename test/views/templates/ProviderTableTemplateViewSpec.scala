@@ -16,6 +16,7 @@
 
 package views.templates
 
+import models.SoftwareProviderModel
 import testContants.SoftwareProvidersTestConstants
 import views.ViewBaseSpec
 import views.html.templates.provider_table_template
@@ -63,6 +64,16 @@ class ProviderTableTemplateViewSpec extends ViewBaseSpec with SoftwareProvidersT
             document.select(Selectors.providerDetailsSelector(i + 1)).text() shouldBe categoryAProviders(i).name
           }
 
+        }
+      }
+
+      "provider details are on and the VAT Assist switch is on" should {
+        "include the VAT Assist feature for a provider that offers it" in {
+          appConfig.vatAssistEnabled(true)
+          val provider = SoftwareProviderModel("aName", "aUrl", List(enums.Filter.VAT_ASSIST))
+          val document = parseView(view(Seq(provider), 1, providerDetailsFilterFeature = true))
+
+          document.select("details").text should include("Request HMRC Assist feedback")
         }
       }
     }

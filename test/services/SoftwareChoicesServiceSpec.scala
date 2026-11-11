@@ -207,4 +207,33 @@ class SoftwareChoicesServiceSpec extends TestUtils {
       result shouldBe None
     }
   }
+
+  object VatAssistService extends SoftwareChoicesService {
+    override protected lazy val jsonFile: String =
+      """[
+        |  {"name":"withAssist","url":"u1","business":true,"agent":false,"accounting":true,"spreadsheets":false,
+        |   "viewReturn":false,"viewLiabilities":false,"viewPayments":false,"cognitive":false,"visual":false,
+        |   "hearing":false,"motor":false,"vatAssist":true},
+        |  {"name":"withoutAssist","url":"u2","business":true,"agent":false,"accounting":true,"spreadsheets":false,
+        |   "viewReturn":false,"viewLiabilities":false,"viewPayments":false,"cognitive":false,"visual":false,
+        |   "hearing":false,"motor":false},
+        |  {"name":"agentAssist","url":"u3","business":false,"agent":true,"accounting":true,"spreadsheets":false,
+        |   "viewReturn":false,"viewLiabilities":false,"viewPayments":false,"cognitive":false,"visual":false,
+        |   "hearing":false,"motor":false,"vatAssist":true}
+        |]""".stripMargin
+  }
+
+  "SoftwareChoicesService.filterProviders with VAT_ASSIST" should {
+    "return only providers offering VAT Assist" in {
+      VatAssistService.filterProviders(List(VAT_ASSIST)).map(_.name) shouldBe Seq("withAssist", "agentAssist")
+    }
+
+    "combine VAT Assist with other filters and a search term" in {
+      VatAssistService.filterProviders(List(VAT_ASSIST, AGENT), Some("agent")).map(_.name) shouldBe Seq("agentAssist")
+    }
+
+    "return no providers when none match" in {
+      VatAssistService.filterProviders(List(VAT_ASSIST, AGENT), Some("without")) shouldBe Seq.empty
+    }
+  }
 }

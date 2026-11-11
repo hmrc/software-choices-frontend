@@ -59,11 +59,12 @@ class FiltersFormModelSpec extends TestUtils {
           Some(MOTOR),
           Some(VISUAL),
           Some(FREE),
-          Some(WELSH)
+          Some(WELSH),
+          Some(VAT_ASSIST)
         ).filters
 
         val expectedResult =
-          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL, FREE, WELSH)
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL, FREE, WELSH, VAT_ASSIST)
 
         actualResult shouldBe expectedResult
 
@@ -103,7 +104,7 @@ class FiltersFormModelSpec extends TestUtils {
       "return all values" in {
 
         val actualResult = FiltersFormModel.customUnapply(FiltersFormModel(
-          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL, FREE, WELSH),
+          Seq(BUSINESS, AGENT, VIEW_RETURN, VIEW_LIABILITIES, VIEW_PAYMENTS, ACCOUNTING, SPREADSHEETS,COGNITIVE, HEARING, MOTOR, VISUAL, FREE, WELSH, VAT_ASSIST),
           Some("term")
         ))
 
@@ -121,7 +122,8 @@ class FiltersFormModelSpec extends TestUtils {
           Some(MOTOR),
           Some(VISUAL),
           Some(FREE),
-          Some(WELSH)
+          Some(WELSH),
+          Some(VAT_ASSIST)
         ))
 
         actualResult shouldBe expectedResult
@@ -137,7 +139,7 @@ class FiltersFormModelSpec extends TestUtils {
           Seq(AGENT, VIEW_RETURN, ACCOUNTING)
         ))
 
-        val expectedResult = Some((None, None, Some(AGENT), Some(VIEW_RETURN), None, None, Some(ACCOUNTING), None, None, None, None, None, None, None))
+        val expectedResult = Some((None, None, Some(AGENT), Some(VIEW_RETURN), None, None, Some(ACCOUNTING), None, None, None, None, None, None, None, None))
 
         actualResult shouldBe expectedResult
 
@@ -149,7 +151,13 @@ class FiltersFormModelSpec extends TestUtils {
 
       "return no values" in {
         FiltersFormModel.customUnapply(FiltersFormModel(Seq())) shouldBe
-          Some((None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+          Some((None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+      }
+    }
+
+    "only the VAT Assist filter is applied" should {
+      "create a model with VAT_ASSIST" in {
+        FiltersFormModel.customApply(vatAssist = Some(VAT_ASSIST)).filters shouldBe Seq(VAT_ASSIST)
       }
     }
   }

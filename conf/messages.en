@@ -94,3 +94,8 @@ softwareChoices.filter.provider.free = There is a free version of this software.
 
 softwareChoices.filter.provider.visit.prefix = You can
 softwareChoices.filter.provider.visit = read more information on the {0} website
+
+softwareChoices.filter.extraFeatures = Extra features
+softwareChoices.filter.vatAssist = Request HMRC Assist feedback
+softwareChoices.filter.vatAssistHint = Helps identify possible mistakes in a VAT Return before it has been submitted
+softwareChoices.filter.provider.vatAssist = Request HMRC Assist feedback
