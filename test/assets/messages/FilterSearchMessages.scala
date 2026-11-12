@@ -54,7 +54,7 @@ object FilterSearchMessages {
   val vatAssist = "Request HMRC Assist feedback"
   val vatAssistHint = "Helps identify possible mistakes in a VAT Return before it has been submitted"
 
-  val extraFeaturesWelsh = "Extra features"
+  val extraFeaturesWelsh = "Nodweddion ychwanegol"
   val vatAssistWelsh = "Gwneud cais am adborth HMRC Assist"
   val vatAssistHintWelsh = "Yn helpu i ddod o hyd i gamgymeriadau posibl mewn Ffurflen TAW cyn iddi gael ei chyflwyno"
   val providerVatAssistWelsh = "Gwneud cais am adborth HMRC Assist"
