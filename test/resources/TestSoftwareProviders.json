@@ -7216,5 +7216,22 @@
     "motor": true,
     "welsh": false,
     "free": false
+  },
+  {
+    "name": "A Simplicity Upload",
+    "url": "https://simplicity-upload.co.uk/",
+    "business": true,
+    "agent": false,
+    "accounting": true,
+    "spreadsheets": true,
+    "viewReturn": true,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": false
   }
 ]
