@@ -6538,6 +6538,23 @@
     "free": false
   },
   {
+    "name": "Munshian VAT",
+    "url": "https://vat.munshian.com",
+    "business": true,
+    "agent": true,
+    "accounting": false,
+    "spreadsheets": true,
+    "viewReturn": false,
+    "viewLiabilities": false,
+    "viewPayments": false,
+    "cognitive": true,
+    "visual": true,
+    "hearing": true,
+    "motor": true,
+    "welsh": false,
+    "free": true
+  },
+  {
     "name": "OpenVAT",
     "url": "https://openvat.co.uk",
     "business": true,
